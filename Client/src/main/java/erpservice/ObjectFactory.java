@@ -24,10 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetHumanResourceResponse_QNAME = new QName("http://ERPService/", "getHumanResourceResponse");
-    private final static QName _GetHumanResource_QNAME = new QName("http://ERPService/", "getHumanResource");
-    private final static QName _GetLineResourceResponse_QNAME = new QName("http://ERPService/", "getLineResourceResponse");
-    private final static QName _GetLineResource_QNAME = new QName("http://ERPService/", "getLineResource");
+    private final static QName _GetAllGoodsResponse_QNAME = new QName("http://ERPService/", "getAllGoodsResponse");
+    private final static QName _GetAllGoods_QNAME = new QName("http://ERPService/", "getAllGoods");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: erpservice
@@ -37,79 +35,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHumanResourceResponse }
+     * Create an instance of {@link GetAllGoodsResponse }
      * 
      */
-    public GetHumanResourceResponse createGetHumanResourceResponse() {
-        return new GetHumanResourceResponse();
+    public GetAllGoodsResponse createGetAllGoodsResponse() {
+        return new GetAllGoodsResponse();
     }
 
     /**
-     * Create an instance of {@link GetHumanResource }
+     * Create an instance of {@link GetAllGoods }
      * 
      */
-    public GetHumanResource createGetHumanResource() {
-        return new GetHumanResource();
+    public GetAllGoods createGetAllGoods() {
+        return new GetAllGoods();
     }
 
     /**
-     * Create an instance of {@link GetLineResourceResponse }
+     * Create an instance of {@link GoodsItem }
      * 
      */
-    public GetLineResourceResponse createGetLineResourceResponse() {
-        return new GetLineResourceResponse();
+    public GoodsItem createGoodsItem() {
+        return new GoodsItem();
     }
 
     /**
-     * Create an instance of {@link GetLineResource }
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllGoodsResponse }{@code >}}
      * 
      */
-    public GetLineResource createGetLineResource() {
-        return new GetLineResource();
+    @XmlElementDecl(namespace = "http://ERPService/", name = "getAllGoodsResponse")
+    public JAXBElement<GetAllGoodsResponse> createGetAllGoodsResponse(GetAllGoodsResponse value) {
+        return new JAXBElement<GetAllGoodsResponse>(_GetAllGoodsResponse_QNAME, GetAllGoodsResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link ResourceItem }
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllGoods }{@code >}}
      * 
      */
-    public ResourceItem createResourceItem() {
-        return new ResourceItem();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHumanResourceResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ERPService/", name = "getHumanResourceResponse")
-    public JAXBElement<GetHumanResourceResponse> createGetHumanResourceResponse(GetHumanResourceResponse value) {
-        return new JAXBElement<GetHumanResourceResponse>(_GetHumanResourceResponse_QNAME, GetHumanResourceResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHumanResource }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ERPService/", name = "getHumanResource")
-    public JAXBElement<GetHumanResource> createGetHumanResource(GetHumanResource value) {
-        return new JAXBElement<GetHumanResource>(_GetHumanResource_QNAME, GetHumanResource.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetLineResourceResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ERPService/", name = "getLineResourceResponse")
-    public JAXBElement<GetLineResourceResponse> createGetLineResourceResponse(GetLineResourceResponse value) {
-        return new JAXBElement<GetLineResourceResponse>(_GetLineResourceResponse_QNAME, GetLineResourceResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetLineResource }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ERPService/", name = "getLineResource")
-    public JAXBElement<GetLineResource> createGetLineResource(GetLineResource value) {
-        return new JAXBElement<GetLineResource>(_GetLineResource_QNAME, GetLineResource.class, null, value);
+    @XmlElementDecl(namespace = "http://ERPService/", name = "getAllGoods")
+    public JAXBElement<GetAllGoods> createGetAllGoods(GetAllGoods value) {
+        return new JAXBElement<GetAllGoods>(_GetAllGoods_QNAME, GetAllGoods.class, null, value);
     }
 
 }

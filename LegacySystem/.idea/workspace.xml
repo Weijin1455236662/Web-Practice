@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff867c0b-6e7f-403d-8768-1ebef40321df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResourceResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResourceResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResource.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResourceResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResourceResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/package-info.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/TestERP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/TestERP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ERPService/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ERPService/Resource.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,10 +63,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="Application.Goods">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
       <module name="SOA" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Goods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ERPService.Goods" />
+      <module name="SOA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ERPService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Goods" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.ResourceService" />
       </list>
@@ -121,7 +120,7 @@
       <workItem from="1600691995255" duration="2829000" />
       <workItem from="1600695305230" duration="452000" />
       <workItem from="1600735098133" duration="2595000" />
-      <workItem from="1600739968184" duration="1935000" />
+      <workItem from="1600739968184" duration="2656000" />
     </task>
     <servers />
   </component>
