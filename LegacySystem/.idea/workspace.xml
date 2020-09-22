@@ -35,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,11 +72,11 @@
       </method>
     </configuration>
     <configuration name="Goods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ERPService.Goods" />
+      <option name="MAIN_CLASS_NAME" value="ERPService.Goods.Goods" />
       <module name="SOA" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ERPService.*" />
+          <option name="PATTERN" value="ERPService.BOM.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,11 +85,11 @@
       </method>
     </configuration>
     <configuration name="Resource" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ERPService.Resource" />
+      <option name="MAIN_CLASS_NAME" value="ERPService.Resource.Resource" />
       <module name="SOA" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ERPService.*" />
+          <option name="PATTERN" value="ERPService.BOM.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,7 +101,6 @@
       <list>
         <item itemvalue="Application.Goods" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.ResourceService" />
       </list>
     </recent_temporary>
   </component>

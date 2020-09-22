@@ -1,4 +1,10 @@
-import erpservice.*;
+
+import erpservice.goods.Goods;
+import erpservice.goods.GoodsItem;
+import erpservice.goods.GoodsService;
+import erpservice.resource.Resource;
+import erpservice.resource.ResourceItem;
+import erpservice.resource.ResourceService;
 
 import java.util.List;
 
