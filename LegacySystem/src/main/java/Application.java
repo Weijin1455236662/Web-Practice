@@ -1,6 +1,7 @@
 import ERPService.BOM.BOM;
 import ERPService.Goods.Goods;
 import ERPService.Resource.Resource;
+import StaffService.Staff.Staff;
 
 import javax.xml.ws.Endpoint;
 
@@ -20,5 +21,10 @@ public class Application {
         Endpoint.publish(address2, new BOM());
         System.out.println("BOMService Published Successfully!");
         System.out.println("Address2:" + address2);
+
+        String address3= "http://localhost:8080/StaffService";
+        Endpoint.publish(address3, new Staff());
+        System.out.println("StaffService Published Successfully!");
+        System.out.println("Address3:" + address3);
     }
 }

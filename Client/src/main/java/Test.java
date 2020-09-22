@@ -8,10 +8,13 @@ import erpservice.goods.GoodsService;
 import erpservice.resource.Resource;
 import erpservice.resource.ResourceItem;
 import erpservice.resource.ResourceService;
+import staffservice.staff.Staff;
+import staffservice.staff.StaffIItem;
+import staffservice.staff.StaffService;
 
 import java.util.List;
 
-public class TestERP {
+public class Test {
     public static void main(String[] args) {
         ResourceService resourceService = new ResourceService();
         Resource resourcePort = resourceService.getResourcePort();
@@ -38,5 +41,15 @@ public class TestERP {
         for(BomItem bomItem: bomItems){
             System.out.println(bomItem.getMaterialCode() + " " + bomItem.getBOM() + " " +bomItem.getProperty());
         }
+
+        StaffService staffService = new StaffService();
+        Staff staffPort = staffService.getStaffPort();
+        List<StaffIItem> staffIItems = staffPort.getAllStaff();
+        System.out.println(staffIItems.size());
+        for(StaffIItem staffIItem: staffIItems){
+            System.out.println(staffIItem.getName()+" "+staffIItem.getGroupId()+" "+staffIItem.getUsername()+" "+staffIItem.getPassword());
+        }
+        System.out.println(staffPort.getStaffByUsername("tongling").getName());
+        System.out.println(staffPort.verify("tongling","123123"));
     }
 }

@@ -2,12 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff867c0b-6e7f-403d-8768-1ebef40321df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/TestERP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/TestERP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/Client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetAllStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetAllStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetAllStaffResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetAllStaffResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetStaffByUsername.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetStaffByUsername.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetStaffByUsernameResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/GetStaffByUsernameResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/ObjectFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/ObjectFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/Staff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/Staff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/StaffIItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/StaffIItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/StaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/StaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/Verify.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/Verify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/VerifyResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/VerifyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/package-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/staffservice/staff/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StaffService/Staff/Staff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StaffService/Staff/StaffIItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/csv/staffInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/TestERP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StaffService/占个地（后面有东西了删掉）.txt" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,16 +57,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1hox2FNmXY1iYZTtoWl3aA4097G" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,22 +98,10 @@
       <recent name="C:\Users\NJ\IdeaProjects\SOA\src\main\resources\csv" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Goods">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
-      <module name="SOA" />
+      <module name="LegacySystem" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,8 +134,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Goods" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Goods" />
       </list>
     </recent_temporary>
   </component>
@@ -138,5 +173,38 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="467" y="69" key="#Application" timestamp="1600781192764">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="467" y="69" key="#Application/0.0.1536.824@0.0.1536.824" timestamp="1600781192764" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1600779504163">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1600779504163" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1600781424077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600781424077" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600782521071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600782521071" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600782521071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600782521071" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600782521071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600782521071" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600782521071">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600782521071" />
   </component>
 </project>
