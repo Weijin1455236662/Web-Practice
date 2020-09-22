@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff867c0b-6e7f-403d-8768-1ebef40321df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResourceResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetHumanResourceResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResourceResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/GetLineResourceResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ObjectFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/ResourceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/package-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/erpservice/package-info.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ERPService/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ERPService/Resource.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,7 +121,7 @@
       <workItem from="1600691995255" duration="2829000" />
       <workItem from="1600695305230" duration="452000" />
       <workItem from="1600735098133" duration="2595000" />
-      <workItem from="1600739968184" duration="1562000" />
+      <workItem from="1600739968184" duration="1935000" />
     </task>
     <servers />
   </component>

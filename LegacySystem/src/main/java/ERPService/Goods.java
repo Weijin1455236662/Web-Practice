@@ -6,10 +6,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 @WebService(
-        name = "GoodsService",
-        endpointInterface = "ERPService.GoodsService"
+        name = "Goods",
+        endpointInterface = "ERPService.Goods"
 )
-public class GoodsService {
+public class Goods {
     private ArrayList<GoodsItem> readCSV() {
         ArrayList<GoodsItem> goodsItems = new ArrayList<GoodsItem>();
 
