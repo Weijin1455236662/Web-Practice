@@ -8,15 +8,22 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 @WebService(
-        name = "ResourceService",
-        endpointInterface = "ERPService.ResourceService"
+        name = "Resource",
+        endpointInterface = "ERPService.Resource"
 )
-public class ResourceService {
+public class Resource {
+//    public static void main(String[] args) {
+//        ResourceService resourceService = new ResourceService();
+//        ArrayList<ResourceItem> resourceItems = resourceService.getHumanResource();
+//        for (ResourceItem r: resourceItems){
+//            r.show();
+//        }
+//    }
     private ArrayList<ResourceItem> getCSV(){
         ArrayList<ResourceItem> resourceItems = new ArrayList<ResourceItem>();
 
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src\\main\\resources\\csv\\resource.csv"), "gbk"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src//main//resources//csv//resource.csv"), "gbk"));
             reader.readLine();//读出标题行,没有则注释掉
             String line = null;
             while((line=reader.readLine())!=null){
