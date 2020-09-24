@@ -8,6 +8,9 @@ import erpservice.goods.GoodsService;
 import erpservice.resource.Resource;
 import erpservice.resource.ResourceItem;
 import erpservice.resource.ResourceService;
+import orderservice.order.Order;
+import orderservice.order.OrderItem;
+import orderservice.order.OrderService;
 import staffservice.staff.Staff;
 import staffservice.staff.StaffIItem;
 import staffservice.staff.StaffService;
@@ -51,5 +54,13 @@ public class Test {
         }
         System.out.println(staffPort.getStaffByUsername("tongling").getName());
         System.out.println(staffPort.verify("tongling","123123"));
+
+        OrderService orderService=new OrderService();
+        Order orderPort=orderService.getOrderPort();
+        List<OrderItem> orderItems=orderPort.getAllOrders();
+        System.out.println(orderItems.size());
+        for (OrderItem orderItem:orderItems){
+            System.out.println(orderItem.getOrderNumber()+" "+orderItem.getMaterialCode()+" "+orderItem.getQuantity()+" "+orderItem.getDeliveryDate());
+        }
     }
 }
