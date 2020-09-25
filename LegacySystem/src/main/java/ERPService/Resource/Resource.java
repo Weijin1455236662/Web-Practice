@@ -16,7 +16,7 @@ public class Resource {
         ArrayList<ResourceItem> resourceItems = new ArrayList<ResourceItem>();
 
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src//main//resources//csv//resource.csv"), "gbk"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("src/main/resources/csv/resource.csv"), "gbk"));
             reader.readLine();//读出标题行,没有则注释掉
             String line = null;
             while((line=reader.readLine())!=null){

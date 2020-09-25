@@ -39,6 +39,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/StaffService/占个地（后面有东西了删掉）.txt" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,10 +99,22 @@
       <recent name="C:\Users\NJ\IdeaProjects\SOA\src\main\resources\csv" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application" />
-      <module name="LegacySystem" />
+      <module name="SOA" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,6 +168,9 @@
       <workItem from="1600695305230" duration="452000" />
       <workItem from="1600735098133" duration="2595000" />
       <workItem from="1600739968184" duration="2656000" />
+      <workItem from="1600843862286" duration="316000" />
+      <workItem from="1600932479529" duration="188000" />
+      <workItem from="1601017874220" duration="2625000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,5 @@
+import AttendanceService.Schedule.Schedule;
+import AttendanceService.WorkTime.WorkTime;
 import ERPService.BOM.BOM;
 import ERPService.Goods.Goods;
 import ERPService.Resource.Resource;
@@ -32,5 +34,15 @@ public class Application {
         Endpoint.publish(address4, new Order());
         System.out.println("OrderService Published Successfully!");
         System.out.println("Address4:" + address4);
+
+        String address5= "http://localhost:8080/ScheduleService";
+        Endpoint.publish(address5, new Schedule());
+        System.out.println("ScheduleService Published Successfully!");
+        System.out.println("Address4:" + address5);
+
+        String address6= "http://localhost:8080/WorkTimeService";
+        Endpoint.publish(address6, new WorkTime());
+        System.out.println("WorkTimeService Published Successfully!");
+        System.out.println("Address4:" + address6);
     }
 }
