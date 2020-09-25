@@ -38,11 +38,11 @@ public class Application {
         String address5= "http://localhost:8080/ScheduleService";
         Endpoint.publish(address5, new Schedule());
         System.out.println("ScheduleService Published Successfully!");
-        System.out.println("Address4:" + address5);
+        System.out.println("Address5:" + address5);
 
         String address6= "http://localhost:8080/WorkTimeService";
         Endpoint.publish(address6, new WorkTime());
         System.out.println("WorkTimeService Published Successfully!");
-        System.out.println("Address4:" + address6);
+        System.out.println("Address6:" + address6);
     }
 }
