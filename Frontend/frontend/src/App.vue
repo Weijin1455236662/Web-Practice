@@ -4,7 +4,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
     <div id="chart-container">
       <fusioncharts
           :type="type"
@@ -14,6 +13,7 @@
           :dataSource="dataSource"
       ></fusioncharts>
     </div>
+    <router-view/>
   </div>
 </template>
 
@@ -326,8 +326,8 @@
         data(){
             return{
                 type: "gantt",
-                width: "50%",
-                height: "50%",
+                width: "75%",
+                height: "75%",
                 dataFormat: "json",
                 dataSource
             }
