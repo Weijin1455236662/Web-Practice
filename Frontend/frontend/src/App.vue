@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <div id="chart-container">
+    <div v-if="0" id="chart-container">
       <fusioncharts
           :type="type"
           :width="width"
@@ -25,7 +25,7 @@
             caption: "New Store Opening - Project Plan",
             dateformat: "dd/mm/yyyy",
             outputdateformat: "ddds mns yy",
-            ganttwidthpercent: "60",
+            ganttwidthpercent: "80",
             ganttpaneduration: "40",
             ganttpanedurationunit: "d",
             useverticalscrolling: "0",
@@ -202,7 +202,7 @@
             ]
         },
         processes: {
-            headertext: "Task",
+            headertext: "Source",
             isanimated: "1",
             headervalign: "bottom",
             headeralign: "left",
@@ -326,8 +326,8 @@
         data(){
             return{
                 type: "gantt",
-                width: "75%",
-                height: "75%",
+                width: "67%",
+                height: "80%",
                 dataFormat: "json",
                 dataSource
             }
