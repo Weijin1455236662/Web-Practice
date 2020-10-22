@@ -11,119 +11,82 @@
 </template>
 
 <script>
+    import {getProductionOrder} from "../../api/analogueAPI";
+
     export default {
-        name: "SingleSourceGantt",
+        name: "WorkSchedule",
         data(){
             return{
                 type: "gantt",
                 width: "80%",
-                height: "100%",
+                height: "80%",
                 dataFormat: "json",
                 dataSource: {}
             }
         },
         mounted() {
+            let data = getProductionOrder(1,1);
+            let task = [];
+            let process = [];
+            data.forEach(function (order) {
+                task.push({
+                    processid: order.date,
+                    start: parseInt(order.start.slice(0,2))>=7?(parseInt(order.start.slice(0,2))-7)+order.start.slice(2):(parseInt(order.start.slice(0,2))+17)+order.start.slice(2),
+                    end: parseInt(order.end.slice(0,2))>=7?(parseInt(order.end.slice(0,2))-7)+order.end.slice(2):(parseInt(order.end.slice(0,2))+17)+order.end.slice(2),
+                    label: order.material + ": " + order.start + "-" + order.end
+                });
+                process.push({
+                    label: order.date,
+                    id: order.date
+                })
+            })
+            let tasks = {
+                showlabels: "1",
+                color: "#5D62B5",
+                task: task
+            };
+            let processHash = {};
+            let uniqueProcess = [];
+            for(let i =0; i<process.length; i++){
+                if(!processHash[process[i].id]){
+                    uniqueProcess.push(process[i]);
+                    processHash[process[i].id] = true;
+                }
+            }
+            let processes = {
+                fontsize: "12",
+                isbold: "1",
+                align: "Center",
+                headertext: "日期",
+                headerfontsize: "14",
+                headervalign: "middle",
+                headeralign: "center",
+                process: uniqueProcess
+            };
             this.dataSource = {
-                tasks: {
-                    showlabels: "1",
-                    color: "#5D62B5",
-                    task: [
-                        {
-                            processid: "EMP120",
-                            start: "07:00:00",
-                            end: "16:00:00",
-                            label: "Morning Shift"
-                        },
-                        {
-                            processid: "EMP121",
-                            start: "14:00:00",
-                            end: "22:00:00",
-                            label: "Afternoon Shift"
-                        },
-                        {
-                            processid: "EMP121",
-                            start: "07:00:00",
-                            end: "11:30:00",
-                            label: "Half Day"
-                        },
-                        {
-                            processid: "EMP122",
-                            start: "14:00:00",
-                            end: "18:30:00",
-                            label: "Half Day"
-                        },
-                        {
-                            processid: "EMP123",
-                            start: "07:00:00",
-                            end: "16:00:00",
-                            label: "Morning Shift"
-                        },
-                        {
-                            processid: "EMP124",
-                            start: "14:00:00",
-                            end: "22:00:00",
-                            label: "Afternoon Shift"
-                        },
-                        {
-                            processid: "EMP125",
-                            start: "00:00:00",
-                            end: "08:00:00",
-                            label: "Early Morning support"
-                        },
-                        {
-                            processid: "EMP126",
-                            start: "07:00:00",
-                            end: "11:30:00",
-                            label: "Half Day"
-                        }
-                    ]
-                },
-                processes: {
-                    fontsize: "12",
-                    isbold: "1",
-                    align: "Center",
-                    headertext: "Date",
-                    headerfontsize: "14",
-                    headervalign: "middle",
-                    headeralign: "center",
-                    process: [
-                        {
-                            label: "2018/10/01",
-                            id: "EMP120"
-                        },
-                        {
-                            label: "2018/10/02",
-                            id: "EMP121"
-                        },
-                        {
-                            label: "2018/10/03",
-                            id: "EMP122"
-                        },
-                        {
-                            label: "2018/10/04",
-                            id: "EMP123"
-                        },
-                        {
-                            label: "2018/10/05",
-                            id: "EMP124"
-                        },
-                        {
-                            label: "2018/10/06",
-                            id: "EMP125"
-                        },
-                        {
-                            label: "2018/10/07",
-                            id: "EMP126"
-                        }
-                    ]
-                },
+                tasks: tasks,
+                processes: processes,
                 categories: [
                     {
                         category: [
                             {
                                 start: "00:00:00",
                                 end: "23:59:59",
-                                label: "Time"
+                                label: "时间"
+                            }
+                        ]
+                    },
+                    {
+                        category: [
+                            {
+                                start: "00:00:00",
+                                end: "11:59:59",
+                                label: "早班"
+                            },
+                            {
+                                start: "12:00:00",
+                                end: "23:59:59",
+                                label: "晚班"
                             }
                         ]
                     },
@@ -209,7 +172,7 @@
 <style scoped>
   .container{
     width: 100%;
-    height: 500px;
+    height: 400px;
     margin-bottom: 100px;
   }
 </style>
