@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="header">
-      <div class="delete">
+    <div class="header" v-if="showHead">
+      <div class="delete" @click="changeHeadState">
         <i class="icon-font i-close min"></i>
       </div>
       <div class="info" @click="changeNavState">
@@ -10,12 +10,15 @@
       </div>
     </div>
     <div class="body">
-      <div class="nav" v-if="showNav">
+      <div class="nav" v-if="showHead&&showNav">
         <navigation></navigation>
       </div>
       <div class="main">
         <router-view/>
       </div>
+    </div>
+    <div class="tool" v-if="!showHead" @click="changeHeadState">
+      <i class="icon-font i-v-right min"></i>
     </div>
   </div>
 </template>
@@ -28,6 +31,7 @@
         data(){
             return{
                 name: '',
+                showHead: true,
                 showNav: true
             }
         },
@@ -40,6 +44,9 @@
             }
         },
         methods:{
+            changeHeadState: function() {
+                this.showHead = !this.showHead;
+            },
             changeNavState: function () {
                 this.showNav = !this.showNav;
             }
@@ -51,7 +58,7 @@
   body{
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
   #app {
     font-family: 'Source Sans Pro', 'Trebuchet MS', Arial, serif;
@@ -59,6 +66,20 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #000000;
+    position: relative;
+    height: 100%;
+  }
+  .tool{
+    background-color: #f2f2f2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    border-right: 1px solid #cbcbcb;
+    border-bottom: 1px solid #cccccc;
+    padding: 12px 0;
+    font-size: 10px;
+    cursor: pointer;
   }
   .header{
     background-color: #f2f2f2;
@@ -67,7 +88,6 @@
     border-bottom: 1px solid #cccccc;
     font-size: 14px;
     display: flex;
-
     .delete{
       width: 28px;
       border-right: 1px solid #cbcbcb;
@@ -101,10 +121,11 @@
   }
   .body{
     display: flex;
+    height: 100%;
     .nav {
       background-color: #f2f2f2;
-      width: 14vw;
-      height: 100vh;
+      min-width: 220px;
+      height: 100%;
       border-right: 1px solid #cccccc;
       a {
         font-weight: bold;

@@ -18,8 +18,8 @@
         data(){
             return{
                 type: "gantt",
-                width: "80%",
-                height: "80%",
+                width: "90%",
+                height: "85%",
                 dataFormat: "json",
                 dataSource: {}
             }
