@@ -5,10 +5,10 @@ import router from './router'
 import store from './store'
 import VueFusionCharts from 'vue-fusioncharts';
 import FusionCharts from 'fusioncharts/core';
-// import Column2D from 'fusioncharts/fusioncharts.charts';
 import gantt from 'fusioncharts/viz/gantt'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import Charts from "fusioncharts/fusioncharts.charts";
+import './assets/icon/iconfont-embedded.css'
 
 Vue.use(VueFusionCharts, FusionCharts, FusionTheme,gantt);
 // Resolves charts dependency

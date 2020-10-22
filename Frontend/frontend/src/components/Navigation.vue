@@ -1,15 +1,15 @@
 <template>
   <div>
     <ul class="nav-container">
-      <li :class="active===1?'active':''" @click="nav(1)">人员管理</li>
-      <li :class="active===2?'active':''" @click="nav(2)">设备管理</li>
-      <li :class="active===3?'active':''" @click="nav(3)">订单管理</li>
-      <li :class="active===4?'active':''" @click="nav(4)">生产单</li>
-      <li :class="active===5?'active':''" @click="nav(5)">资源负载图</li>
-      <li :class="active===6?'active':''" @click="nav(6)">订单甘特图</li>
-      <li :class="active===7?'active':''" @click="nav(7)">资源甘特图</li>
-      <li :class="active===8?'active':''" @click="nav(8)">订单计划图</li>
-      <li :class="active===9?'active':''" @click="nav(9)">订单-生产单关系表</li>
+      <li :class="active===1?'active':''" @click="nav(1)"><i class="icon-font i-list-index"></i>人员管理</li>
+      <li :class="active===2?'active':''" @click="nav(2)"><i class="icon-font i-list-index"></i>设备管理</li>
+      <li :class="active===3?'active':''" @click="nav(3)"><i class="icon-font i-list-index"></i>订单管理</li>
+      <li :class="active===4?'active':''" @click="nav(4)"><i class="icon-font i-list-index"></i>生产单</li>
+      <li :class="active===5?'active':''" @click="nav(5)"><i class="icon-font i-list-index"></i>资源负载图</li>
+      <li :class="active===6?'active':''" @click="nav(6)"><i class="icon-font i-list-index"></i>订单甘特图</li>
+      <li :class="active===7?'active':''" @click="nav(7)"><i class="icon-font i-list-index"></i>资源甘特图</li>
+      <li :class="active===8?'active':''" @click="nav(8)"><i class="icon-font i-list-index"></i>订单计划图</li>
+      <li :class="active===9?'active':''" @click="nav(9)"><i class="icon-font i-list-index"></i>订单-生产单关系表</li>
     </ul>
   </div>
 </template>
@@ -75,16 +75,22 @@
 
 <style scoped lang="less">
   .nav-container{
+    margin-top: 36px;
     padding: 0;
     text-align: left;
     li{
+      margin-left: 19px;
+      height: 27px;
+      list-style-type: none;
+      font-size: 14px;
+      line-height: 1.93;
       cursor: pointer;
     }
     li:hover{
-      background-color: #000000;
+      background-color: #dddddd;
     }
     .active{
-      background-color: #aaaaaa;
+      background-color: #dddddd;
     }
   }
 </style>
