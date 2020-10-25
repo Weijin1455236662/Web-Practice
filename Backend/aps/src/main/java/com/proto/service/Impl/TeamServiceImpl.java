@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Transactional
 public class TeamServiceImpl implements TeamService {
@@ -48,5 +51,15 @@ public class TeamServiceImpl implements TeamService {
             return null;
         }
         return team;
+    }
+
+    public List<Team> findAll(){
+        List<Team> teamList;
+        try{
+            teamList = teamDao.findAll();
+        }catch (Exception e){
+            return null;
+        }
+        return teamList;
     }
 }

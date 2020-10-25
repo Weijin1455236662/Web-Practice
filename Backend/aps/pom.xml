@@ -8,8 +8,18 @@
     <artifactId>aps</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
+    <!--mvn-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
     <!--springboot-->
     <parent>
         <groupId>org.springframework.boot</groupId>

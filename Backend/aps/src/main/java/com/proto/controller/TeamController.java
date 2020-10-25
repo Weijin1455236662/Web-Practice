@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping("/team")
@@ -21,6 +23,15 @@ public class TeamController {
         if(team!=null)
             return new Result(true,"查询成功",team);
         return new Result(false,"查询失败",team);
+    }
+
+    @ResponseBody
+    @GetMapping("/all")
+    public Result findAll(){
+        List<Team> teamList = teamService.findAll();
+        if(teamList!=null)
+            return new Result(true,"查询成功",teamList);
+        return new Result(false,"查询失败",teamList);
     }
 
     @ResponseBody
