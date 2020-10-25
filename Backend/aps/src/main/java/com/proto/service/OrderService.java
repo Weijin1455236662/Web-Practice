@@ -8,11 +8,11 @@ public interface OrderService {
 
     public boolean save(Order order);
 
-    public boolean deleteByOrderNum(Integer orderNum);
+    public boolean deleteById(Integer orderid);
 
     public boolean update(Order order);
 
-    public Order findByOrderNum(Integer orderNum);
+    public Order findById(Integer orderid);
 
     public List<Order> findAll();
 }

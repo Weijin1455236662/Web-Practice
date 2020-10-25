@@ -1,6 +1,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
--- Table structure for `t_order`
+-- Table structure for `t_team`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_team`;
 CREATE TABLE `t_team` (
@@ -15,8 +15,43 @@ CREATE TABLE `t_team` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of t_order
+-- Records of t_team
 -- ----------------------------
 INSERT INTO t_team VALUES ('1', '小刚', '5', '1', '5', '9', '22');
 INSERT INTO t_team VALUES ('2', '小红', '4', '1', '5', '7', '20');
 INSERT INTO t_team VALUES ('3', '小明', '3', '1', '5', '19', '7');
+-- ----------------------------
+-- Table structure for `t_order`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_order`;
+CREATE TABLE `t_order` (
+  `orderid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `material_code` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `delivery_date` date,
+  PRIMARY KEY (`orderid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_order
+-- ----------------------------
+INSERT INTO t_order VALUES ('1', '1', '500', '2020-10-25');
+INSERT INTO t_order VALUES ('2', '2', '400', '2020-10-26');
+INSERT INTO t_order VALUES ('3', '3', '3000', '2020-10-27');
+-- ----------------------------
+-- Table structure for `t_equipment`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_equipment`;
+CREATE TABLE `t_equipment` (
+  `equipmentid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` text,
+  `type` text,
+  `amount` int(11) NOT NULL,
+  PRIMARY KEY (`equipmentid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_equipment
+-- ----------------------------
+INSERT INTO t_equipment VALUES ('1', 'lineA', 'line', '1');
+INSERT INTO t_equipment VALUES ('2', 'lineB', 'line', '1');

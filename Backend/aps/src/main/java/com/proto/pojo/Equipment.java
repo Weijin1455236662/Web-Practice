@@ -3,25 +3,22 @@ package com.proto.pojo;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/*等同ResourceItem*/
 @Entity
 @Table(name = "t_equipment")
 public class Equipment implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer equipmentid;
     private String name;
-    private String subtype;
-    private String belong;
     private String type;
     private Integer amount;
 
-    public Integer  getId() {
-        return id;
+    public Integer getEquipmentid() {
+        return equipmentid;
     }
 
-    public void setId(Integer  id) {
-        this.id = id;
+    public void setEquipmentid(Integer equipmentid) {
+        this.equipmentid = equipmentid;
     }
 
     public String getName() {
@@ -30,22 +27,6 @@ public class Equipment implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSubtype() {
-        return subtype;
-    }
-
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
-    }
-
-    public String getBelong() {
-        return belong;
-    }
-
-    public void setBelong(String belong) {
-        this.belong = belong;
     }
 
     public String getType() {
@@ -60,7 +41,7 @@ public class Equipment implements Serializable{
         return amount;
     }
 
-    public void setAmount(Integer  amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 }

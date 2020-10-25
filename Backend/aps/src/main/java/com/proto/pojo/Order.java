@@ -1,5 +1,7 @@
 package com.proto.pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -9,25 +11,25 @@ import java.util.Date;
 public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderNumber;
-    private Integer materialCode;
+    private Integer orderid;
+    private Integer material_code;
     private Integer quantity;
-    private Date deliveryDate;
+    private Date delivery_date;
 
-    public Integer getOrderNumber() {
-        return orderNumber;
+    public Integer getOrderid() {
+        return orderid;
     }
 
-    public void setOrderNumber(Integer orderNumber) {
-        this.orderNumber = orderNumber;
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
     }
 
-    public Integer getMaterialCode() {
-        return materialCode;
+    public Integer getMaterial_code() {
+        return material_code;
     }
 
-    public void setMaterialCode(Integer materialCode) {
-        this.materialCode = materialCode;
+    public void setMaterial_code(Integer material_code) {
+        this.material_code = material_code;
     }
 
     public Integer getQuantity() {
@@ -38,11 +40,11 @@ public class Order implements Serializable {
         this.quantity = quantity;
     }
 
-    public Date getDeliveryDate() {
-        return deliveryDate;
+    public Date getDelivery_date() {
+        return delivery_date;
     }
 
-    public void setDeliveryDate(Date deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setDelivery_date(Date delivery_date) {
+        this.delivery_date = delivery_date;
     }
 }

@@ -24,9 +24,9 @@ public class OrderServiceImpl implements OrderService {
         return true;
     }
 
-    public boolean deleteByOrderNum(Integer orderNum){
+    public boolean deleteById(Integer orderid){
         try {
-            OrderDao.deleteById(orderNum);
+            orderDao.deleteById(orderid);
         }catch (Exception e){
             return false;
         }
@@ -34,13 +34,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public boolean update(Order order){
-        return save(order);
+        try {
+            orderDao.save(order);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
-    public Order findByOrderNum(Integer orderNum){
+    public Order findById(Integer orderid){
         Order order;
         try {
-            order = orderDao.findById(orderNum).get();
+            order = orderDao.findById(orderid).get();
         }catch (Exception e){
             return null;
         }

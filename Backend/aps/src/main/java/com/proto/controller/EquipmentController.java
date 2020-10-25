@@ -17,7 +17,7 @@ public class EquipmentController {
     EquipmentService equipmentService;
 
     @ResponseBody
-    @GetMapping
+    @GetMapping("/all")
     public Result findAll(){
         List<Equipment> list = equipmentService.findAll();
         if(list!=null)
@@ -35,9 +35,9 @@ public class EquipmentController {
     }
 
     @ResponseBody
-    @PutMapping("/{equipmentId}")
-    public Result update(@PathVariable Integer EquipmentId,@RequestBody Equipment equipment) {
-        equipment.setId(EquipmentId);
+    @PutMapping("/{equipmentid}")
+    public Result update(@PathVariable Integer equipmentid,@RequestBody Equipment equipment) {
+        equipment.setEquipmentid(equipmentid);
         boolean flag = equipmentService.update(equipment);
         if (flag != false)
             return new Result(true, "修改成功");
@@ -45,9 +45,9 @@ public class EquipmentController {
     }
 
     @ResponseBody
-    @DeleteMapping("/{equipmentId}")
-    public Result delete(@PathVariable Integer equipmetId){
-        boolean flag = equipmentService.deleteById(equipmetId);
+    @DeleteMapping("/{equipmentid}")
+    public Result delete(@PathVariable Integer equipmentid){
+        boolean flag = equipmentService.deleteById(equipmentid);
         if (flag != false)
             return new Result(true, "删除成功");
         return new Result(false, "删除失败");

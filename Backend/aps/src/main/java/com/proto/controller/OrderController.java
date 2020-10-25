@@ -27,18 +27,18 @@ public class OrderController {
     }
 
     @ResponseBody
-    @DeleteMapping("/{orderNum}")
-    public Result delete(@PathVariable Integer orderNum){
-        boolean flag = orderService.deleteByOrderNum(orderNum);
+    @DeleteMapping("/{orderid}")
+    public Result delete(@PathVariable Integer orderid){
+        boolean flag = orderService.deleteById(orderid);
         if (flag != false)
             return new Result(true, "删除成功");
         return new Result(false, "删除失败");
     }
 
     @ResponseBody
-    @PutMapping("/{orderNum}")
-    public Result update(@PathVariable Integer orderNum,@RequestBody Order order) {
-        order.setOrderNumber(orderNum);
+    @PutMapping("/{orderid}")
+    public Result update(@PathVariable Integer orderid,@RequestBody Order order) {
+        order.setOrderid(orderid);
         boolean flag = orderService.update(order);
         if (flag != false)
             return new Result(true, "修改成功");
@@ -46,16 +46,16 @@ public class OrderController {
     }
 
     @ResponseBody
-    @GetMapping("/{orderNum}")
-    public Result findById(@PathVariable Integer orderNum){
-        Order order = orderService.findByOrderNum(orderNum);
+    @GetMapping("/{orderid}")
+    public Result findById(@PathVariable Integer orderid){
+        Order order = orderService.findById(orderid);
         if(order!=null)
             return new Result(true,"查询成功",order);
         return new Result(false,"查询失败",order);
     }
 
     @ResponseBody
-    @GetMapping
+    @GetMapping("/all")
     public Result findAll(){
         List list = orderService.findAll();
         if(list!=null)
