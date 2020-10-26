@@ -32,6 +32,8 @@
 
         ​						"equipmentid（设备id）":[
 
+        ​							"material_code（物料编号）"
+
         ​							"teamid（小组id）",
 
         ​							...
@@ -55,5 +57,5 @@
         ​		...
 
         ​	]
-
+        
         }
