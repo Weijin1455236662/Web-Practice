@@ -37,7 +37,6 @@ CREATE TABLE `t_order` (
 -- ----------------------------
 INSERT INTO t_order VALUES ('1', '1', '500', '2020-10-25');
 INSERT INTO t_order VALUES ('2', '2', '400', '2020-10-26');
-INSERT INTO t_order VALUES ('3', '3', '3000', '2020-10-27');
 -- ----------------------------
 -- Table structure for `t_equipment`
 -- ----------------------------
@@ -55,3 +54,20 @@ CREATE TABLE `t_equipment` (
 -- ----------------------------
 INSERT INTO t_equipment VALUES ('1', 'lineA', 'line', '1');
 INSERT INTO t_equipment VALUES ('2', 'lineB', 'line', '1');
+-- ----------------------------
+-- Table structure for `t_craft`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_craft`;
+CREATE TABLE `t_craft` (
+  `craftid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `material_code` int(11) NOT NULL,
+  `human_num` int(11) NOT NULL,
+  `capacity` int(11) NOT NULL,
+  PRIMARY KEY (`craftid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_craft
+-- ----------------------------
+INSERT INTO t_craft VALUES ('1', '1', '5', '50');
+INSERT INTO t_craft VALUES ('2', '2', '7', '100');

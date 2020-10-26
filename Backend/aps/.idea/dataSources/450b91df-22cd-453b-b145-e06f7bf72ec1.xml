@@ -1111,10 +1111,11 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="279" parent="6" name="t_equipment"/>
-    <table id="280" parent="6" name="t_order"/>
-    <table id="281" parent="6" name="t_team"/>
-    <column id="282" parent="279" name="equipmentid">
+    <table id="279" parent="6" name="t_craft"/>
+    <table id="280" parent="6" name="t_equipment"/>
+    <table id="281" parent="6" name="t_order"/>
+    <table id="282" parent="6" name="t_team"/>
+    <column id="283" parent="279" name="craftid">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int|0s</DataType>
@@ -1122,28 +1123,59 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="279" name="name">
+    <column id="284" parent="279" name="material_code">
       <Position>2</Position>
-      <DataType>text|0s</DataType>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="279" name="type">
+    <column id="285" parent="279" name="human_num">
       <Position>3</Position>
-      <DataType>text|0s</DataType>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="279" name="amount">
+    <column id="286" parent="279" name="capacity">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="286" parent="279" name="PRIMARY">
+    <key id="287" parent="279" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>craftid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="288" parent="280" name="equipmentid">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="280" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="280" name="type">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="280" name="amount">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="292" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>equipmentid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="287" parent="280" name="orderid">
+    <column id="293" parent="281" name="orderid">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int|0s</DataType>
@@ -1151,29 +1183,29 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="280" name="material_code">
+    <column id="294" parent="281" name="material_code">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="280" name="quantity">
+    <column id="295" parent="281" name="quantity">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="280" name="delivery_date">
+    <column id="296" parent="281" name="delivery_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="291" parent="280" name="PRIMARY">
+    <key id="297" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>orderid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="292" parent="281" name="teamid">
+    <column id="298" parent="282" name="teamid">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int|0s</DataType>
@@ -1181,42 +1213,42 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="281" name="name">
+    <column id="299" parent="282" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="281" name="num">
+    <column id="300" parent="282" name="num">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="281" name="begin_day">
+    <column id="301" parent="282" name="begin_day">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="281" name="end_day">
+    <column id="302" parent="282" name="end_day">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="281" name="begin_time">
+    <column id="303" parent="282" name="begin_time">
       <Position>6</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="281" name="end_time">
+    <column id="304" parent="282" name="end_time">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="281" name="PRIMARY">
+    <key id="305" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>teamid</ColNames>
       <Primary>1</Primary>
