@@ -13,7 +13,7 @@
       <div class="nav" v-if="showHead&&showNav">
         <navigation></navigation>
       </div>
-      <div class="main">
+      <div :id="showNav&&showHead?'main-1':showHead?'main-2':'main3'">
         <router-view/>
       </div>
     </div>
@@ -46,6 +46,7 @@
         methods:{
             changeHeadState: function() {
                 this.showHead = !this.showHead;
+                this.showNav = true;
             },
             changeNavState: function () {
                 this.showNav = !this.showNav;
@@ -87,6 +88,8 @@
       border-bottom: 1px solid #cccccc;
       font-size: 14px;
       display: flex;
+      position: fixed;
+      z-index: 100;
       .delete{
         width: 28px;
         border-right: 1px solid #cbcbcb;
@@ -123,9 +126,10 @@
       height: 100%;
       .nav {
         background-color: #f2f2f2;
-        min-width: 250px;
+        min-width: 220px;
         height: 100%;
         border-right: 1px solid #cccccc;
+        position: fixed;
         a {
           font-weight: bold;
           color: #2c3e50;
@@ -135,7 +139,18 @@
           }
         }
       }
-      .main{
+      #main-1{
+        width: 100%;
+        height: 100%;
+        margin-top: 36px;
+        margin-left: 220px;
+      }
+      #main-2{
+        width: 100%;
+        height: 100%;
+        margin-top: 36px;
+      }
+      #main-3{
         width: 100%;
         height: 100%;
       }
