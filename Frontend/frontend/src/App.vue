@@ -60,7 +60,7 @@
     width: 100%;
     height: 100vh;
   }
-  #app {
+  #app{
     font-family: 'Source Sans Pro', 'Trebuchet MS', Arial, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -68,77 +68,77 @@
     color: #000000;
     position: relative;
     height: 100%;
-  }
-  .tool{
-    background-color: #f2f2f2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 28px;
-    border-right: 1px solid #cbcbcb;
-    border-bottom: 1px solid #cccccc;
-    padding: 12px 0;
-    font-size: 10px;
-    cursor: pointer;
-  }
-  .header{
-    background-color: #f2f2f2;
-    width: 100%;
-    height: 36px;
-    border-bottom: 1px solid #cccccc;
-    font-size: 14px;
-    display: flex;
-    .delete{
+    .tool{
+      background-color: #f2f2f2;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 28px;
       border-right: 1px solid #cbcbcb;
+      border-bottom: 1px solid #cccccc;
       padding: 12px 0;
       font-size: 10px;
       cursor: pointer;
-      .min{
-        font-size: 12px;
-      }
     }
-    .info{
-      height: 28px;
-      margin: 4px 6px;
-      display: flex;
-      cursor: pointer;
-      i{
-        font-size: 28px;
-      }
-      .name{
-        font-size: 14px;
-        line-height: 29px;
-        margin: 0 6px 0 12px;
-      }
-      .blue{
-        color: #008dcb;
-      }
-    }
-    .info:hover{
-      background-color: #e6e6e6;
-    }
-  }
-  .body{
-    display: flex;
-    height: 100%;
-    .nav {
+    .header{
       background-color: #f2f2f2;
-      min-width: 220px;
-      height: 100%;
-      border-right: 1px solid #cccccc;
-      a {
-        font-weight: bold;
-        color: #2c3e50;
-
-        &.router-link-exact-active {
-          color: #42b983;
+      width: 100%;
+      height: 36px;
+      border-bottom: 1px solid #cccccc;
+      font-size: 14px;
+      display: flex;
+      .delete{
+        width: 28px;
+        border-right: 1px solid #cbcbcb;
+        padding: 12px 0;
+        font-size: 10px;
+        cursor: pointer;
+        .min{
+          font-size: 12px;
         }
       }
+      .info{
+        height: 28px;
+        margin: 4px 6px;
+        display: flex;
+        cursor: pointer;
+        i{
+          font-size: 28px;
+        }
+        .name{
+          font-size: 14px;
+          line-height: 29px;
+          margin: 0 6px 0 12px;
+        }
+        .blue{
+          color: #008dcb;
+        }
+      }
+      .info:hover{
+        background-color: #e6e6e6;
+      }
     }
-    .main{
-      width: 100%;
+    .body{
+      display: flex;
       height: 100%;
+      .nav {
+        background-color: #f2f2f2;
+        min-width: 250px;
+        height: 100%;
+        border-right: 1px solid #cccccc;
+        a {
+          font-weight: bold;
+          color: #2c3e50;
+
+          &.router-link-exact-active {
+            color: #42b983;
+          }
+        }
+      }
+      .main{
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 </style>
