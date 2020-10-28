@@ -2,32 +2,33 @@
   <div class="main">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
-      <div class="text">团队管理</div>
+      <div class="text">设备管理</div>
       <hr/>
     </div>
     <div class="container">
-      <div class="card" v-for="(staff,index) in allStaff" :key="index">
+      <div class="card" v-for="(equipment,index) in allEquipment" :key="index">
         <div class="group">
-          <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name}}</div></div>
-          <div class="id"><div class="number">{{staff.teamid}}</div><div class="text">组</div></div>
+          <div class="name">
+            <i class="icon-font i-tupu"></i>
+            <div class="text">{{equipment.name}}<br/>{{equipment.type==='line'?'生产线':equipment.type}}</div>
+          </div>
+          <div class="id"><div class="number">{{equipment.equipmentid}}</div><div class="text">号</div></div>
         </div>
         <div class="group">
-          <div class="num">
-            <div class="text">成员：</div>
-            <div class="number">{{staff.num}}</div>
-            <div class="text">人</div></div>
+          <div class="amount">
+            <div class="number">{{equipment.amount}}</div>
+            <div class="text">台</div></div>
           <div>
-            <div class="day">{{weekDic[staff.begin_day]}}-{{weekDic[staff.end_day]}}</div>
-            <div class="time">{{staff.begin_time}}:00-<span v-if="staff.begin_time>staff.end_time">次日</span>{{staff.end_time}}:00</div>
+            <div class="day">{{equipment.type==='line'?'星期一-星期五':'星期一-星期日'}}</div>
+            <div class="time">0:00-24:00</div>
           </div>
         </div>
         <div class="toolbox">
-          <i class="icon-font i-edit tooltip" title="修改团队" @click="updateStaff(staff)"></i>
-          <i class="icon-font i-delete tooltip" title="删除团队" @click="deleteStaff(staff.teamid)"></i>
-          <i class="icon-font i-schedule tooltip" title="查看生产单" @click="navSourceSchedule(staff.teamid)"></i>
+          <i class="icon-font i-edit tooltip" title="修改设备" @click="updateEquipment(equipment)"></i>
+          <i class="icon-font i-delete tooltip" title="删除设备" @click="deleteEquipment(equipment.equipmentid)"></i>
         </div>
       </div>
-      <div class="card dash" title="新增团队" @click="addStaff">
+      <div class="card dash" title="新增设备" @click="addStaff">
         <div class="plus">
           <i class="icon-font i-add"></i>
         </div>
@@ -36,52 +37,32 @@
     <div class="background" v-if="showForm" @click="closeForm"></div>
     <div class="form" v-if="showForm">
       <div class="form_head">
-        <div class="text">{{formType===0?'新增团队':'更新团队'}}</div>
+        <div class="text">{{formType===0?'新增设备':'更新设备'}}</div>
         <div class="close" @click="closeForm"><i class="icon-font i-close"></i></div>
         <hr/>
       </div>
       <div class="form_body">
         <div class="form_id">
-          <label id="teamid_label" for="teamid" v-html="'组&#8194;&#8194;号：'"></label>
-          <input id="teamid" type="number" min="1" v-model="form.teamid"/>
+          <label id="equipmentid_label" for="equipmentid" v-html="'设&#8194;备&#8194;号：'"></label>
+          <input id="equipmentid" type="number" min="1" v-model="form.equipmentid"/>
         </div>
         <div class="form_name">
-          <label id="name_label" for="name" v-html="'组&#8194;&#8194;长：'"></label>
+          <label id="name_label" for="name" v-html="'设备名称：'"></label>
           <input id="name" type="text" v-model="form.name"/>
         </div>
-        <div class="form_num">
-          <label id="num_label" for="num" v-html="'人&#8194;&#8194;数：'"></label>
-          <input id="num" type="number" min="1" v-model="form.num"/>
+        <div class="form_amount">
+          <label id="amount_label" for="amount" v-html="'设&#8194;备&#8194;数：'"></label>
+          <input id="amount" type="number" min="1" v-model="form.amount"/>
         </div>
-        <div class="form_day">
-          <label id="day_label" for="begin_day" v-html="'工作日：'"></label>
-          <select id='begin_day' v-model="form.begin_day">
-            <option :value="1">星期一</option>
-            <option :value="2">星期二</option>
-            <option :value="3">星期三</option>
-            <option :value="4">星期四</option>
-            <option :value="5">星期五</option>
-            <option :value="6">星期六</option>
-            <option :value="7">星期日</option>
-          </select>
-          <div id="day_gap" >
-            <label for="end_day">-</label>
-          </div>
-          <select id='end_day' v-model="form.end_day">
-            <option :value="1">星期一</option>
-            <option :value="2">星期二</option>
-            <option :value="3">星期三</option>
-            <option :value="4">星期四</option>
-            <option :value="5">星期五</option>
-            <option :value="6">星期六</option>
-            <option :value="7">星期日</option>
-          </select>
-        </div>
-        <div class="form_time">
-          <label id="time_label" for="time" v-html="'班&#8194;&#8194;次：'"></label>
-          <select id='time' v-model="timeMode">
-            <option :value="0">早班</option>
-            <option :value="1">晚班</option>
+        <div class="form_type">
+          <label id="type_label" for="type" v-html="'设备类型：'"></label>
+          <select id='type' v-model="form.type">
+            <option value="line">生产线</option>
+            <option value="移印机">移印机</option>
+            <option value="高电压测试机">高电压测试机</option>
+            <option value="弹片机">弹片机</option>
+            <option value="自动包装机">自动包装机</option>
+            <option value="电阻测试机">电阻测试机</option>
           </select>
         </div>
         <div class="form_button">
@@ -95,49 +76,30 @@
 </template>
 
 <script>
-    import {addStaff, deleteStaff, getAllStaff, updateStaff} from "../../api/api";
+    import {addEquipment, deleteEquipment, getAllEquipment, updateEquipment} from "../../api/api";
     import MessageTip from "../../components/MessageTip";
-    import router from "../../router";
 
     export default {
-        name: "StaffManage",
+        name: "EquipmentManage",
         components: {MessageTip},
         data(){
             return{
-                allStaff: [],
-                weekDic: {
-                    1: '星期一',
-                    2: '星期二',
-                    3: '星期三',
-                    4: '星期四',
-                    5: '星期五',
-                    6: '星期六',
-                    7: '星期日',
-                },
+                allEquipment: [],
                 showForm: false,
                 formType: 0,
-                timeMode: 0,
                 messageState: false,
                 messageType: 0,
                 message: '',
                 form:{
-                    teamid: '',
+                    equipmentid: '',
                     name: '',
-                    num: '',
-                    begin_day: 1,
-                    end_day: 5,
-                    begin_time: 7,
-                    end_time: 19
+                    amount: '',
+                    type: ''
                 }
             }
         },
         mounted() {
-            this.getAllStaff();
-        },
-        watch:{
-            'timeMode': function () {
-                this.changeFormTime();
-            }
+            this.getAllEquipment();
         },
         methods:{
             openForm: function(){
@@ -145,24 +107,12 @@
             },
             closeForm: function () {
                 this.form = {
-                    teamid: '',
+                    equipmentid: '',
                     name: '',
-                    num: '',
-                    begin_day: 1,
-                    end_day: 5,
-                    begin_time: 7,
-                    end_time: 19
+                    amount: '',
+                    type: ''
                 };
                 this.showForm = false;
-            },
-            changeFormTime: function(){
-                if(this.timeMode===0){
-                    this.form.begin_time = 7;
-                    this.form.end_time = 19;
-                }else if(this.timeMode===1){
-                    this.form.begin_time = 19;
-                    this.form.end_time = 7;
-                }
             },
             showMessage: function(type, message){
                 this.messageType = type;
@@ -177,10 +127,10 @@
                     this.message = '';
                 },600);
             },
-            getAllStaff: function () {
-                getAllStaff().then(res=>{
+            getAllEquipment: function () {
+                getAllEquipment().then(res=>{
                     if(res.flag){
-                        this.allStaff = res.data;
+                        this.allEquipment = res.data;
                     }else{
                         this.showMessage(1, res.message);                    }
                 })
@@ -198,64 +148,48 @@
                 };
                 this.openForm();
             },
-            updateStaff: function(staff){
+            updateEquipment: function(equipment){
                 this.formType = 1;
-                this.form.teamid = staff.teamid;
-                this.form.name = staff.name;
-                this.form.num = staff.num;
-                this.form.begin_day = staff.begin_day;
-                this.form.end_day = staff.end_day;
-                if(staff.begin_time>=7&&staff.begin_time<19){
-                    this.timeMode = 0;
-                }else{
-                    this.timeMode = 1;
-                }
+                this.form.equipmentid = equipment.equipmentid;
+                this.form.name = equipment.name;
+                this.form.amount = equipment.amount;
+                this.form.type = equipment.type;
                 this.openForm();
             },
-            deleteStaff: function (teamid) {
-                deleteStaff(teamid).then(res=>{
+            deleteEquipment: function (equipmentid) {
+                deleteEquipment(equipmentid).then(res=>{
                     if(res.flag){
                         this.showMessage(0, '删除成功！');
-                        this.getAllStaff();
+                        this.getAllEquipment();
                     }else{
                         this.showMessage(1, res.message);
                     }
                 })
             },
             submitForm: function () {
-                this.form.teamid = Number(this.form.teamid);
-                this.form.num = Number(this.form.num);
-                this.changeFormTime();
+                this.form.equipmentid = Number(this.form.equipmentid);
+                this.form.amount = Number(this.form.amount);
                 if(this.formType===0){
-                    addStaff(this.form).then(res=>{
+                    addEquipment(this.form).then(res=>{
                         if(res.flag){
                             this.showMessage(0, '添加成功！');
                             this.closeForm();
-                            this.getAllStaff();
+                            this.getAllEquipment();
                         }else{
                             this.showMessage(1, res.message);
                         }
                     })
                 }else{
-                    updateStaff(this.form).then(res=>{
+                    updateEquipment(this.form).then(res=>{
                         if(res.flag){
                             this.showMessage(0, '更新成功！');
                             this.closeForm();
-                            this.getAllStaff();
+                            this.getAllEquipment();
                         }else{
                             this.showMessage(1, res.message);
                         }
                     })
                 }
-            },
-            navSourceSchedule: function (id) {
-                this.$router.push({
-                    path: '/schedule/work',
-                    query: {
-                        id: id,
-                        type: 0
-                    }
-                })
             }
         }
     }
@@ -283,7 +217,7 @@
         height: 150px;
         margin: 20px 1%;
         border: 6px solid #000000;
-        padding: 0 10px 10px;
+        padding: 2px 10px 10px;
         background-color: #FFFFFF;
 
         .group{
@@ -305,17 +239,17 @@
         .name{
           margin-top: 6px;
           display: flex;
-          .i-user-group{
-            margin-top: 5px;
+          .i-tupu{
+
             font-size: 50px;
           }
           .text{
-            margin-top: 28px;
+            margin-top: 3px;
             font-size: 20px;
             font-weight: bold;
           }
         }
-        .num{
+        .amount{
           display: flex;
           margin-left: 8px;
           .number{
@@ -325,6 +259,7 @@
           .text{
             font-size: 20px;
             line-height: 44px;
+            max-width: 80px;
           }
         }
         .day{
@@ -374,8 +309,8 @@
       left: 35%;
       width: 30%;
       min-width: 570px;
-      height: 40%;
-      min-height: 370px;
+      height: 35%;
+      min-height: 328px;
       padding: 32px 10px 10px;
       text-align: left;
       .form_head{
@@ -399,11 +334,11 @@
         .form_id{
           margin-top: 40px;
           margin-bottom: 20px;
-          #teamid_label{
+          #equipmentid_label{
             font-size: 20px;
             font-weight: bold;
           }
-          #teamid{
+          #equipmentid{
             font-size: 16px;
             width: 260px;
             min-height: 20px;
@@ -423,54 +358,30 @@
             padding-left: 6px;
           }
         }
-        .form_num{
+        .form_amount{
           margin-bottom: 20px;
-          #num_label{
+          #amount_label{
             font-size: 20px;
             font-weight: bold;
           }
-          #num{
+          #amount{
             font-size: 16px;
             width: 260px;
             min-height: 20px;
             padding-left: 6px;
           }
         }
-        .form_day{
+        .form_type{
           margin-bottom: 20px;
-          display: flex;
-          #day_label{
+          #type_label{
             font-size: 20px;
             font-weight: bold;
           }
-          #day_gap{
-            text-align: center;
-            width: 14px;
-          }
-          #begin_day{
+          #type{
             font-size: 16px;
             cursor: pointer;
             width: 125px;
-            padding: 0 0 4px 32px;
-          }
-          #end_day{
-            font-size: 16px;
-            cursor: pointer;
-            width: 125px;
-            padding: 0 0 4px 32px;
-          }
-        }
-        .form_time{
-          margin-bottom: 20px;
-          #time_label{
-            font-size: 20px;
-            font-weight: bold;
-          }
-          #time{
-            font-size: 16px;
-            cursor: pointer;
-            width: 125px;
-            padding: 0 0 4px 32px;
+            padding: 0 0 4px 6px;
           }
         }
         .form_button{

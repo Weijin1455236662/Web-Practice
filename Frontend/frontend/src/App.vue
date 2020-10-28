@@ -13,7 +13,7 @@
       <div class="nav" v-if="showHead&&showNav">
         <navigation></navigation>
       </div>
-      <div :id="showNav&&showHead?'main-1':showHead?'main-2':'main3'">
+      <div :id="showNav&&showHead?'main-1':showHead?'main-2':'main-3'">
         <router-view/>
       </div>
     </div>
@@ -79,7 +79,12 @@
       border-bottom: 1px solid #cccccc;
       padding: 12px 0;
       font-size: 10px;
+      transform: translateX(-28px);
       cursor: pointer;
+    }
+    .tool:hover{
+      transform: translateX(0);
+      transition: transform 0.5s;
     }
     .header{
       background-color: #f2f2f2;

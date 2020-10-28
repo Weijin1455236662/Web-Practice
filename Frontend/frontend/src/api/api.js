@@ -20,3 +20,19 @@ export const updateStaff = (form) =>{
 export const deleteStaff = (teamid) =>{
     return axios.delete('/team/' + teamid).then(res=>res.data);
 };
+
+export const getAllEquipment = () =>{
+    return axios.get('/equipment/all').then(res=>res.data);
+};
+
+export const addEquipment = (equipment) =>{
+    return axios.post('/equipment', equipment).then(res=>res.data);
+};
+
+export const updateEquipment = (equipment) =>{
+    return axios.put('/equipment/' + equipment.equipmentid, equipment).then(res=>res.data);
+};
+
+export const deleteEquipment = (equipmentid) =>{
+    return axios.delete('/equipment/' + equipmentid).then(res=>res.data);
+};
