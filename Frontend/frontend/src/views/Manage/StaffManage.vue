@@ -13,7 +13,7 @@
         </div>
         <div class="group">
           <div class="num">
-            <div class="text">成员：</div>
+            <div class="text">成员:</div>
             <div class="number">{{staff.num}}</div>
             <div class="text">人</div></div>
           <div>
@@ -298,7 +298,7 @@
             color: #000000;
           }
           .text{
-            margin: 34px 0 0 4px;
+            margin: 33px 0 0 4px;
             font-size: 20px;
           }
         }
@@ -306,19 +306,20 @@
           margin-top: 6px;
           display: flex;
           .i-user-group{
-            margin-top: 5px;
+            margin-top: 6px;
             font-size: 50px;
           }
           .text{
-            margin-top: 28px;
+            margin-top: 27px;
+            margin-left: 4px;
             font-size: 20px;
             font-weight: bold;
           }
         }
         .num{
           display: flex;
-          margin-left: 8px;
           .number{
+            margin-left: 2px;
             font-size: 32px;
             color: #000000;
           }
@@ -329,7 +330,6 @@
         }
         .day{
           margin-top: 6px;
-          font-size: 18px;
         }
         .time{
           text-align: right;
@@ -339,8 +339,7 @@
           .tooltip{
             font-size: 24px;
             cursor: pointer;
-            margin-left: 6px;
-            margin-right: 4px;
+            margin-right: 8px;
           }
         }
       }

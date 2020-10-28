@@ -58,7 +58,7 @@
     transition: transform 0.5s;
   }
   .hide{
-    transform: translateY(-80px);
+    transform: translateY(-200px);
     transition: transform 0.5s;
   }
 </style>

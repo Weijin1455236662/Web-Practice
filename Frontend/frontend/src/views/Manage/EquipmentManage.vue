@@ -10,7 +10,10 @@
         <div class="group">
           <div class="name">
             <i class="icon-font i-tupu"></i>
-            <div class="text">{{equipment.name}}<br/>{{equipment.type==='line'?'生产线':equipment.type}}</div>
+            <div>
+              <div class="text">{{equipment.name}}</div>
+              <div class="type">{{equipment.type==='line'?'生产线':equipment.type}}</div>
+            </div>
           </div>
           <div class="id"><div class="number">{{equipment.equipmentid}}</div><div class="text">号</div></div>
         </div>
@@ -26,6 +29,7 @@
         <div class="toolbox">
           <i class="icon-font i-edit tooltip" title="修改设备" @click="updateEquipment(equipment)"></i>
           <i class="icon-font i-delete tooltip" title="删除设备" @click="deleteEquipment(equipment.equipmentid)"></i>
+          <i class="icon-font i-schedule tooltip" title="查看生产单" @click="navSourceSchedule(equipment.equipmentid, equipment.type)"></i>
         </div>
       </div>
       <div class="card dash" title="新增设备" @click="addStaff">
@@ -190,6 +194,15 @@
                         }
                     })
                 }
+            },
+            navSourceSchedule: function (id,type) {
+                this.$router.push({
+                    path: '/schedule/work',
+                    query: {
+                        id: id,
+                        type: type
+                    }
+                })
             }
         }
     }
@@ -232,26 +245,28 @@
             color: #000000;
           }
           .text{
-            margin: 34px 0 0 4px;
+            margin: 32px 0 0 4px;
             font-size: 20px;
           }
         }
         .name{
           margin-top: 6px;
+          margin-left: -6px;
           display: flex;
           .i-tupu{
-
             font-size: 50px;
           }
           .text{
-            margin-top: 3px;
+            margin-top: 6px;
             font-size: 20px;
             font-weight: bold;
+          }
+          .type{
+            font-size: 14px;
           }
         }
         .amount{
           display: flex;
-          margin-left: 8px;
           .number{
             font-size: 32px;
             color: #000000;
@@ -264,7 +279,6 @@
         }
         .day{
           margin-top: 6px;
-          font-size: 18px;
         }
         .time{
           text-align: right;
@@ -274,8 +288,7 @@
           .tooltip{
             font-size: 24px;
             cursor: pointer;
-            margin-left: 6px;
-            margin-right: 4px;
+            margin-right: 8px;
           }
         }
       }
