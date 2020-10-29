@@ -5,7 +5,7 @@ import WorkSchedule from "../views/Schedule/WorkSchedule";
 import Error from "../views/Error";
 import Manage from "../views/Manage/Manage";
 import StaffManage from "../views/Manage/StaffManage";
-import MachineManage from "../views/Manage/MachineManage";
+import EquipmentManage from "../views/Manage/EquipmentManage";
 import OrderManage from "../views/Manage/OrderManage";
 import Load from "../views/Load";
 import OrderGantt from "../views/OrderGantt";
@@ -30,13 +30,13 @@ const routes = [
     children: [
       {
         path: 'staff',
-        name: '人员管理',
+        name: '团队管理',
         component: StaffManage
       },
       {
-        path: 'machine',
+        path: 'equipment',
         name: '设备管理',
-        component: MachineManage
+        component: EquipmentManage
       },
       {
         path: 'order',

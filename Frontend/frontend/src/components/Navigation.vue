@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="nav-container">
+  <div class="nav-container">
       <div class="menu">
         <div class="name" :class="active===0?'active':''" @click="nav(0)">
           <div class="body">
@@ -18,11 +17,12 @@
             <i class="icon-font i-user-group-border"></i>
             <div>管理</div>
           </div>
-          <i class="icon-font i-v-bottom"></i>
+          <i v-if="!showMenu1" class="icon-font i-v-right"></i>
+          <i v-if="showMenu1" class="icon-font i-v-bottom"></i>
         </div>
         <div class="submenu" v-if="showMenu1">
-          <div class="item" :class="active===1?'active':''" @click="nav(1)"><i class="icon-font i-list-index"></i>人员管理</div>
-          <div class="item" :class="active===2?'active':''" @click="nav(2)"><i class="icon-font i-list-index"></i>设备管理</div>
+          <div class="item" :class="active===1?'active':''" @click="nav(1)"><i class="icon-font i-user-group"></i>团队管理</div>
+          <div class="item" :class="active===2?'active':''" @click="nav(2)"><i class="icon-font i-tupu"></i>设备管理</div>
           <div class="item" :class="active===3?'active':''" @click="nav(3)"><i class="icon-font i-list-index"></i>订单管理</div>
         </div>
       </div>
@@ -35,7 +35,8 @@
             <i class="icon-font i-schedule"></i>
             <div>计划</div>
           </div>
-          <i class="icon-font i-v-bottom"></i>
+          <i v-if="!showMenu2" class="icon-font i-v-right"></i>
+          <i v-if="showMenu2" class="icon-font i-v-bottom"></i>
         </div>
         <div class="submenu" v-if="showMenu2">
           <div class="item" :class="active===4?'active':''" @click="nav(4)"><i class="icon-font i-list-index"></i>生产单</div>
@@ -47,7 +48,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -61,7 +61,7 @@
                 navDic: {
                     0: '/',
                     1: '/manage/staff',
-                    2: '/manage/machine',
+                    2: '/manage/equipment',
                     3: '/manage/order',
                     4: '/schedule/work',
                     5: '/load',
@@ -129,7 +129,7 @@
 
 <style scoped lang="less">
   .nav-container{
-    margin-top: 36px;
+    margin-top: 72px;
     padding: 0;
     text-align: left;
     .menu{
