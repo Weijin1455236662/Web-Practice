@@ -110,7 +110,7 @@ export default {
         xAxisNameFontSize: 20,
         rotateXAxisName: 0,
         yAxisMaxValue: 100,
-        legendpostion: "top",
+        legendposition: "top",
         showValues: 1,
         numberSuffix: "%",
         plottooltext: "订单 $label<br>" + "$seriesName：$value",
