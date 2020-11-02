@@ -1,0 +1,268 @@
+{
+  "id": "2151999",
+  "name": "web-practice",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11474272",
+      "name": "editor",
+      "font_class": "editor",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "11487984",
+      "name": "ashbin",
+      "font_class": "ashbin",
+      "unicode": "e744",
+      "unicode_decimal": 59204
+    },
+    {
+      "icon_id": "11488056",
+      "name": "form",
+      "font_class": "form1",
+      "unicode": "e753",
+      "unicode_decimal": 59219
+    },
+    {
+      "icon_id": "11488105",
+      "name": "reeor",
+      "font_class": "reeor",
+      "unicode": "e75e",
+      "unicode_decimal": 59230
+    },
+    {
+      "icon_id": "12011691",
+      "name": "arrow-down",
+      "font_class": "arrow-down",
+      "unicode": "e7b2",
+      "unicode_decimal": 59314
+    },
+    {
+      "icon_id": "12012167",
+      "name": "trading data",
+      "font_class": "tradingdata",
+      "unicode": "e7b5",
+      "unicode_decimal": 59317
+    },
+    {
+      "icon_id": "13087822",
+      "name": "仓库",
+      "font_class": "cangku",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    },
+    {
+      "icon_id": "13087874",
+      "name": "leftalignment",
+      "font_class": "leftalignment",
+      "unicode": "e7cf",
+      "unicode_decimal": 59343
+    },
+    {
+      "icon_id": "13087880",
+      "name": "rightalignment",
+      "font_class": "rightalignment",
+      "unicode": "e7d1",
+      "unicode_decimal": 59345
+    },
+    {
+      "icon_id": "17882176",
+      "name": "删除1",
+      "font_class": "shanchu1",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "17887886",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "17899799",
+      "name": "数据",
+      "font_class": "shuju",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "17924334",
+      "name": "Anchor navigation",
+      "font_class": "Anchornavigation",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "17924336",
+      "name": "Menu",
+      "font_class": "Menu",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "17931846",
+      "name": "Chart-2",
+      "font_class": "Chart-2",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "17931848",
+      "name": "Chart-1",
+      "font_class": "Chart-1",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "14887582",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "14887583",
+      "name": "product",
+      "font_class": "product",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "14887584",
+      "name": "product-list",
+      "font_class": "product-list",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "14887585",
+      "name": "order-setting",
+      "font_class": "order-setting",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "14887587",
+      "name": "ums-role",
+      "font_class": "ums-role",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "12346295",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "12777461",
+      "name": "dashu",
+      "font_class": "dashuju-",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "14887557",
+      "name": "marker",
+      "font_class": "marker",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "14887560",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "14887564",
+      "name": "password",
+      "font_class": "password",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "14887565",
+      "name": "product-attr",
+      "font_class": "product-attr",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "14887567",
+      "name": "product-comment",
+      "font_class": "product-comment",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "14887568",
+      "name": "product-recycle",
+      "font_class": "product-recycle",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "14887570",
+      "name": "product-add",
+      "font_class": "product-add",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "14887573",
+      "name": "product-cate",
+      "font_class": "product-cate",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "14887576",
+      "name": "table",
+      "font_class": "table",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "14887578",
+      "name": "ums-admin",
+      "font_class": "ums-admin",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "14887558",
+      "name": "form",
+      "font_class": "form",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "14887561",
+      "name": "order",
+      "font_class": "order",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "14887580",
+      "name": "ums-menu",
+      "font_class": "ums-menu",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "14887590",
+      "name": "tree",
+      "font_class": "tree",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    }
+  ]
+}

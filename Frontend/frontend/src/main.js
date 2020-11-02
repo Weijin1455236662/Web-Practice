@@ -11,6 +11,7 @@ import msbar2d from 'fusioncharts/viz/msbar2d'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import Charts from "fusioncharts/fusioncharts.charts";
 import './assets/icon/iconfont-embedded.css'
+import './assets/font_2151999_jymut1unnyj/iconfont.css'
 
 Vue.use(VueFusionCharts, FusionCharts, FusionTheme,gantt, angulargauge, msbar2d);
 // Resolves charts dependency

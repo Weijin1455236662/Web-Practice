@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="manage">
     <router-view></router-view>
   </div>
 </template>
@@ -10,6 +10,6 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
 </style>

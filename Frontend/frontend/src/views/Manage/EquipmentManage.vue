@@ -80,7 +80,7 @@
 </template>
 
 <script>
-    import {addEquipment, deleteEquipment, getAllEquipment, updateEquipment} from "../../api/api";
+    import {addEquipment, deleteEquipment, getAllEquipment, updateEquipment} from "../../api/equipmentManageApi";
     import MessageTip from "../../components/MessageTip";
 
     export default {
@@ -136,7 +136,8 @@
                     if(res.flag){
                         this.allEquipment = res.data;
                     }else{
-                        this.showMessage(1, res.message);                    }
+                        this.showMessage(1, res.message);
+                    }
                 })
             },
             addStaff: function(){
@@ -257,7 +258,7 @@
             font-size: 50px;
           }
           .text{
-            margin-top: 6px;
+            margin-top: 10px;
             font-size: 20px;
             font-weight: bold;
           }
