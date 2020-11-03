@@ -5,7 +5,8 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/test_db?characterEncoding=utf-8&serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 12345678
+    password: 123456
+    #password: 12345678
     type: com.alibaba.druid.pool.DruidDataSource
   jpa:
     show-sql: true

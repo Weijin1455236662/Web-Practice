@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21663c9f-1ecf-43dd-aa9a-c656a45aef98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/test_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +73,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/GIT/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,6 +87,7 @@
       <recent name="com.proto.pojo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\实践课\project\Web-Practice\Backend\aps\src\main\resources" />
       <recent name="D:\实践课\aps\src\main\resources" />
     </key>
   </component>
@@ -152,6 +151,9 @@
       <workItem from="1603632975950" duration="9946000" />
       <workItem from="1603683258801" duration="14030000" />
       <workItem from="1604118975873" duration="5856000" />
+      <workItem from="1604316303791" duration="10412000" />
+      <workItem from="1604369152834" duration="5578000" />
+      <workItem from="1604390879305" duration="3188000" />
     </task>
     <servers />
   </component>
