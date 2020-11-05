@@ -3,11 +3,12 @@ package com.proto.service.Impl;
 import com.proto.dao.TeamDao;
 import com.proto.pojo.Team;
 import com.proto.service.TeamService;
+import com.proto.service.client.erpservice.resource.ResourceItem;
+import com.proto.service.client.erpservice.resource.ResourceServiceForApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -61,5 +62,25 @@ public class TeamServiceImpl implements TeamService {
             return null;
         }
         return teamList;
+    }
+
+    public boolean importTeamData(){
+        try {
+            ResourceServiceForApp resourceServiceForApp=new ResourceServiceForApp();
+            List<ResourceItem> humanResourceList=resourceServiceForApp.getHumanResource();
+            System.out.println(humanResourceList.size());
+            for (ResourceItem item:humanResourceList){
+                Team t=new Team();
+                t.setName(item.getName());
+                t.setNum(item.getAmount());
+                teamDao.save(t);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 }

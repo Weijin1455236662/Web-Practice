@@ -61,4 +61,13 @@ public class TeamController {
             return new Result(true, "删除成功");
         return new Result(false, "删除失败");
     }
+
+    @ResponseBody
+    @GetMapping("/import")
+    public Result importData(){
+        if (teamService.importTeamData()){
+            return new Result(true,"数据导入成功");
+        }
+        else return new Result(false,"数据导入失败");
+    }
 }

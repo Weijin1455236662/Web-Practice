@@ -3,6 +3,8 @@ package com.proto.service.Impl;
 import com.proto.dao.OrderDao;
 import com.proto.pojo.Order;
 import com.proto.service.OrderService;
+import com.proto.service.client.order.OrderItem;
+import com.proto.service.client.order.OrderServiceForApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,4 +64,22 @@ public class OrderServiceImpl implements OrderService {
         return list;
     }
 
+    public boolean importOrderData(){
+        try {
+            OrderServiceForApp orderServiceForApp = new OrderServiceForApp();
+            List<OrderItem> rawItemList = orderServiceForApp.getAllOrders();
+            for (OrderItem item : rawItemList) {
+                Order order = new Order();
+                order.setOrderid(Integer.parseInt(item.getOrderNumber()));
+                order.setDelivery_date(item.getDeliveryDate().toGregorianCalendar().getTime());
+                order.setMaterial_code(Integer.parseInt(item.getMaterialCode()));
+                order.setQuantity(item.getQuantity());
+                orderDao.save(order);
+            }
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

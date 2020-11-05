@@ -15,4 +15,6 @@ public interface TeamService {
     public Team findById(Integer oid);
 
     public List<Team> findAll();
+
+    public boolean importTeamData();
 }

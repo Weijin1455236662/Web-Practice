@@ -13,5 +13,6 @@ public interface EquipmentService {
 
     public List<Equipment> findAll();
 
+    public boolean importEquipmentData();
 
 }

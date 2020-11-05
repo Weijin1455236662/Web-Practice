@@ -23,6 +23,7 @@ public class EquipmentController {
         if(list!=null)
             return new Result(true,"查询成功",list);
         return new Result(false,"查询失败",list);
+
     }
 
     @ResponseBody
@@ -51,6 +52,15 @@ public class EquipmentController {
         if (flag != false)
             return new Result(true, "删除成功");
         return new Result(false, "删除失败");
+    }
+
+    @ResponseBody
+    @GetMapping("/import")
+    public Result importData(){
+        if (equipmentService.importEquipmentData()){
+            return new Result(true,"数据导入成功");
+        }
+        else return new Result(false,"数据导入失败");
     }
 
 }

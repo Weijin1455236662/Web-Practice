@@ -16,4 +16,6 @@ public interface OrderService {
     public Order findById(Integer orderid);
 
     public List<Order> findAll();
+
+    public boolean importOrderData();
 }

@@ -62,4 +62,13 @@ public class OrderController {
             return new Result(true,"查询成功",list);
         return new Result(false,"查询失败",list);
     }
+
+    @ResponseBody
+    @GetMapping("/import")
+    public Result importData(){
+        if (orderService.importOrderData()){
+            return new Result(true,"数据导入成功");
+        }
+        else return new Result(false,"数据导入失败");
+    }
 }
