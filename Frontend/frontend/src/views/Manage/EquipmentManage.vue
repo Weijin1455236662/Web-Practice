@@ -46,19 +46,19 @@
         <hr/>
       </div>
       <div class="form_body">
-        <div class="form_id">
-          <label id="equipmentid_label" for="equipmentid" v-html="'设&#8194;备&#8194;号：'"></label>
-          <input id="equipmentid" type="number" min="1" v-model="form.equipmentid"/>
+        <div class="form_id line" v-if="formType!==0">
+          <label id="equipmentid_label" v-html="'设&#8194;备&#8194;号：'"></label>
+          <div id="equipmentid_disable">{{form.equipmentid}}</div>
         </div>
-        <div class="form_name">
+        <div class="form_name line">
           <label id="name_label" for="name" v-html="'设备名称：'"></label>
           <input id="name" type="text" v-model="form.name"/>
         </div>
-        <div class="form_amount">
+        <div class="form_amount line">
           <label id="amount_label" for="amount" v-html="'设&#8194;备&#8194;数：'"></label>
           <input id="amount" type="number" min="1" v-model="form.amount"/>
         </div>
-        <div class="form_type">
+        <div class="form_type line">
           <label id="type_label" for="type" v-html="'设备类型：'"></label>
           <select id='type' v-model="form.type">
             <option value="line">生产线</option>
@@ -225,7 +225,6 @@
       text-align: left;
       display: flex;
       flex-wrap: wrap;
-
       .card{
         width: 20%;
         height: 150px;
@@ -233,7 +232,7 @@
         border: 6px solid #000000;
         padding: 2px 10px 10px;
         background-color: #FFFFFF;
-
+        border-radius: 10px;
         .group{
           display: flex;
           justify-content: space-between;
@@ -263,11 +262,14 @@
             font-weight: bold;
           }
           .type{
+            margin-top: 4px;
+            margin-left: 2px;
             font-size: 14px;
           }
         }
         .amount{
           display: flex;
+          margin-left: 10px;
           .number{
             font-size: 32px;
             color: #000000;
@@ -345,9 +347,14 @@
       }
       .form_body{
         padding: 0 88px;
-        .form_id{
-          margin-top: 40px;
+        .line{
           margin-bottom: 20px;
+        }
+        .line:first-child{
+          margin-top: 40px;
+        }
+        .form_id{
+          display: flex;
           #equipmentid_label{
             font-size: 20px;
             font-weight: bold;
@@ -356,6 +363,11 @@
             font-size: 16px;
             width: 260px;
             min-height: 20px;
+            padding-left: 6px;
+          }
+          #equipmentid_disable{
+            font-size: 20px;
+            font-weight: bold;
             padding-left: 6px;
           }
         }

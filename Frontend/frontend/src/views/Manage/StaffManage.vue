@@ -41,19 +41,19 @@
         <hr/>
       </div>
       <div class="form_body">
-        <div class="form_id">
-          <label id="teamid_label" for="teamid" v-html="'组&#8194;&#8194;号：'"></label>
-          <input id="teamid" type="number" min="1" v-model="form.teamid"/>
+        <div class="form_id line" v-if="formType!==0">
+          <label id="teamid_label" v-html="'组&#8194;&#8194;号：'"></label>
+          <div id="teamid_disable">{{form.teamid}}</div>
         </div>
-        <div class="form_name">
+        <div class="form_name line">
           <label id="name_label" for="name" v-html="'组&#8194;&#8194;长：'"></label>
           <input id="name" type="text" v-model="form.name"/>
         </div>
-        <div class="form_num">
+        <div class="form_num line">
           <label id="num_label" for="num" v-html="'人&#8194;&#8194;数：'"></label>
           <input id="num" type="number" min="1" v-model="form.num"/>
         </div>
-        <div class="form_day">
+        <div class="form_day line">
           <label id="day_label" for="begin_day" v-html="'工作日：'"></label>
           <select id='begin_day' v-model="form.begin_day">
             <option :value="1">星期一</option>
@@ -77,14 +77,14 @@
             <option :value="7">星期日</option>
           </select>
         </div>
-        <div class="form_time">
+        <div class="form_time line">
           <label id="time_label" for="time" v-html="'班&#8194;&#8194;次：'"></label>
           <select id='time' v-model="timeMode">
             <option :value="0">早班</option>
             <option :value="1">晚班</option>
           </select>
         </div>
-        <div class="form_button">
+        <div class="form_button line">
           <button class="button" @click="closeForm">取消</button>
           <button class="button confirm" @click="submitForm" v-if="formType===0">添加</button>
           <button class="button confirm" @click="submitForm" v-if="formType===1">更新</button>
@@ -285,7 +285,7 @@
         border: 6px solid #000000;
         padding: 0 10px 10px;
         background-color: #FFFFFF;
-
+        border-radius: 10px;
         .group{
           display: flex;
           justify-content: space-between;
@@ -323,7 +323,7 @@
         .num{
           display: flex;
           .number{
-            margin-left: 2px;
+            margin-left: 4px;
             font-size: 32px;
             color: #000000;
           }
@@ -399,9 +399,14 @@
       }
       .form_body{
         padding: 0 88px;
-        .form_id{
-          margin-top: 40px;
+        .line{
           margin-bottom: 20px;
+        }
+        .line:first-child{
+          margin-top: 40px;
+        }
+        .form_id{
+          display: flex;
           #teamid_label{
             font-size: 20px;
             font-weight: bold;
@@ -409,12 +414,16 @@
           #teamid{
             font-size: 16px;
             width: 260px;
+            padding-left: 6px;
             min-height: 20px;
+          }
+          #teamid_disable{
+            font-size: 20px;
+            font-weight: bold;
             padding-left: 6px;
           }
         }
         .form_name{
-          margin-bottom: 20px;
           #name_label{
             font-size: 20px;
             font-weight: bold;
@@ -427,7 +436,6 @@
           }
         }
         .form_num{
-          margin-bottom: 20px;
           #num_label{
             font-size: 20px;
             font-weight: bold;
@@ -440,7 +448,6 @@
           }
         }
         .form_day{
-          margin-bottom: 20px;
           display: flex;
           #day_label{
             font-size: 20px;
@@ -464,7 +471,6 @@
           }
         }
         .form_time{
-          margin-bottom: 20px;
           #time_label{
             font-size: 20px;
             font-weight: bold;
