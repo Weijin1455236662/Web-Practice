@@ -6,25 +6,63 @@
       <hr/>
     </div>
     <div class="container">
+      <div class="filter">
+        <div class="head-text">筛选</div>
+        <hr/>
+        <div class="content">
+          <label id="stringLabel" for="string">内容筛选：</label>
+          <input id="string" type="number" placeholder="仅限数字字符串……" v-model="filterString" @input="doFilter"/>
+        </div>
+        <div class="time">
+          <label id="startLabel" for="start">时间筛选：</label>
+          <input id="start" type="date" v-model="filterStart" @change="doFilter"/>
+          <label id="endLabel" for="end">-</label>
+          <input id="end" type="date" v-model="filterEnd" @change="doFilter"/>
+          <button class="button" @click="clearFilter">重置</button>
+        </div>
+      </div>
       <div class="table">
         <div class="row">
-          <div class="table-head column index1">订单号码</div>
-          <div class="table-head column index2">物料号码</div>
-          <div class="table-head column index3">物料数量</div>
-          <div class="table-head column index4">交付日期</div>
-          <div class="table-head column index5">操作</div>
-          <div class="table-head column index6"><span class="icon-font tooltip" @click="addOrder">&#xe674;</span></div>
+          <div class="column index0">序号</div>
+          <div class="column index1">
+            <div>订单号码</div>
+            <div class="sort">
+              <div class="up" :class="sortMode===1?'active':''" @click="changeSortMode(1)"><i class="iconfont icon-paixu-shang"></i></div>
+              <div class="down" :class="sortMode===2?'active':''" @click="changeSortMode(2)"><i class="iconfont icon-paixu-xia"></i></div>
+            </div></div>
+          <div class="column index2">
+            <div>物料号码</div>
+            <div class="sort">
+              <div class="up" :class="sortMode===3?'active':''" @click="changeSortMode(3)"><i class="iconfont icon-paixu-shang"></i></div>
+              <div class="down" :class="sortMode===4?'active':''" @click="changeSortMode(4)"><i class="iconfont icon-paixu-xia"></i></div>
+            </div></div>
+          <div class="column index3">
+            <div>物料数量</div>
+            <div class="sort">
+              <div class="up" :class="sortMode===5?'active':''" @click="changeSortMode(5)"><i class="iconfont icon-paixu-shang"></i></div>
+              <div class="down" :class="sortMode===6?'active':''" @click="changeSortMode(6)"><i class="iconfont icon-paixu-xia"></i></div>
+            </div></div>
+          <div class="column index4">
+            <div>交付日期</div>
+            <div class="sort">
+              <div class="up" :class="sortMode===7?'active':''" @click="changeSortMode(7)"><i class="iconfont icon-paixu-shang"></i></div>
+              <div class="down" :class="sortMode===8?'active':''" @click="changeSortMode(8)"><i class="iconfont icon-paixu-xia"></i></div>
+            </div>
+          </div>
+          <div class="column index5">操作</div>
+          <div class="column index6" title="添加订单"><i class="iconfont icon-tianjia tooltip" @click="addOrder"></i></div>
         </div>
         <div class="row" v-for="(order, index) in allOrder" :key="index">
-          <div class="table-data column index1">{{order.orderid}}</div>
-          <div class="table-data column index2">{{order.material_code}}</div>
-          <div class="table-data column index3">{{order.quantity}}</div>
-          <div class="table-data column index4">{{dateTransfer(order.delivery_date)}}</div>
-          <div class="table-data column index5">
+          <div class="column index0">{{(index+1)}}</div>
+          <div class="column index1">{{order.orderid}}</div>
+          <div class="column index2">{{order.material_code}}</div>
+          <div class="column index3">{{order.quantity}}</div>
+          <div class="column index4">{{dateTransfer(order.delivery_date)}}</div>
+          <div class="column index5">
             <i class="icon-font i-edit tooltip" title="修改订单" @click="updateOrder(order)"></i>
             <i class="icon-font i-delete tooltip" title="删除订单" @click="deleteOrder(order.orderid)"></i>
           </div>
-          <div class="table-data column index6"></div>
+          <div class="column index6"></div>
         </div>
       </div>
     </div>
@@ -71,11 +109,16 @@
         data(){
           return {
               allOrder: [],
+              nativeOrder: [],
               showForm: false,
               formType: 0,
               messageState: false,
               messageType: 0,
               message: '',
+              sortMode: 0,
+              filterString: '',
+              filterStart: '',
+              filterEnd: '',
               form: {
                   orderid: '',
                   material_code: '',
@@ -120,10 +163,189 @@
                     this.message = '';
                 },600);
             },
+            changeSortMode: function(newMode){
+                if(this.sortMode === newMode){
+                    this.sortMode = 0;
+                    this.allOrder = JSON.parse(JSON.stringify(this.nativeOrder));
+                }else {
+                    switch (newMode) {
+                        case 1:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.orderid > b.orderid){
+                                    return 1;
+                                } else if(a.orderid < b.orderid){
+                                    return -1;
+                                }else{
+                                    return 0;
+                                }
+                            });
+                            break;
+                        case 2:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.orderid < b.orderid){
+                                    return 1;
+                                } else if(a.orderid > b.orderid){
+                                    return -1;
+                                }else{
+                                    return 0;
+                                }
+                            });
+                            break;
+                        case 3:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.material_code > b.material_code){
+                                    return 1;
+                                } else if(a.material_code < b.material_code){
+                                    return -1;
+                                }else{
+                                    if (a.orderid > b.orderid){
+                                        return 1;
+                                    } else if(a.orderid < b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        case 4:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.material_code < b.material_code){
+                                    return 1;
+                                } else if(a.material_code > b.material_code){
+                                    return -1;
+                                }else{
+                                    if (a.orderid < b.orderid){
+                                        return 1;
+                                    } else if(a.orderid > b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        case 5:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.quantity > b.quantity){
+                                    return 1;
+                                } else if(a.quantity < b.quantity){
+                                    return -1;
+                                }else{
+                                    if (a.orderid > b.orderid){
+                                        return 1;
+                                    } else if(a.orderid < b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        case 6:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.quantity < b.quantity){
+                                    return 1;
+                                } else if(a.quantity > b.quantity){
+                                    return -1;
+                                }else{
+                                    if (a.orderid < b.orderid){
+                                        return 1;
+                                    } else if(a.orderid > b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        case 7:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.delivery_date > b.delivery_date){
+                                    return 1;
+                                } else if(a.delivery_date < b.delivery_date){
+                                    return -1;
+                                }else{
+                                    if (a.orderid > b.orderid){
+                                        return 1;
+                                    } else if(a.orderid < b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        case 8:
+                            this.allOrder.sort(function (a, b) {
+                                if (a.delivery_date < b.delivery_date){
+                                    return 1;
+                                } else if(a.delivery_date > b.delivery_date){
+                                    return -1;
+                                }else{
+                                    if (a.orderid < b.orderid){
+                                        return 1;
+                                    } else if(a.orderid > b.orderid){
+                                        return -1;
+                                    }else{
+                                        return 0;
+                                    }
+                                }
+                            });
+                            break;
+                        default:
+                            this.allOrder = JSON.parse(JSON.stringify(this.nativeOrder));
+                    }
+                    this.sortMode = newMode;
+                }
+            },
+            doFilter: function() {
+                this.allOrder = JSON.parse(JSON.stringify(this.nativeOrder));
+                let orders1 = [];
+                let that = this;
+                if(this.filterString !== ''){
+                    let str = this.filterString;
+                    this.allOrder.forEach(function (order) {
+                        if(order.orderid.toString().indexOf(str)!==-1||order.material_code.toString().indexOf(str)!==-1||order.quantity.toString().indexOf(str)!==-1){
+                            orders1.push(JSON.parse(JSON.stringify(order)));
+                        }
+                    });
+                }else{
+                    orders1 = JSON.parse(JSON.stringify(this.allOrder));
+                }
+                let orders2 = [];
+                if(this.filterStart && orders1.length>0){
+                    orders1.forEach(function (order) {
+                        if(that.dateTransfer(order.delivery_date) >= that.filterStart){
+                            orders2.push(JSON.parse(JSON.stringify(order)));
+                        }
+                    });
+                }else{
+                    orders2 = JSON.parse(JSON.stringify(orders1));
+                }
+                let orders3 = [];
+                if(this.filterEnd && orders2.length>0){
+                    orders2.forEach(function (order) {
+                        if(that.dateTransfer(order.delivery_date) <= that.filterEnd){
+                            orders3.push(JSON.parse(JSON.stringify(order)));
+                        }
+                    });
+                }else{
+                    orders3 = JSON.parse(JSON.stringify(orders2));
+                }
+                this.allOrder = orders3;
+            },
+            clearFilter: function() {
+                this.allOrder = JSON.parse(JSON.stringify(this.nativeOrder));
+                this.filterString = '';
+                this.filterStart = '';
+                this.filterEnd = '';
+            },
             getAllOrder:function () {
                 getAllOrder().then(res=>{
                     if(res.flag){
                         this.allOrder = res.data;
+                        this.nativeOrder = JSON.parse(JSON.stringify(res.data));
                     }else{
                         this.showMessage(1, res.message);
                     }
@@ -202,33 +424,84 @@
       }
     }
     .container{
-      margin: 10px 15%;
-
+      margin: 10px 10%;
+      .filter{
+        text-align: left;
+        margin: 20px 0 40px;
+        .head-text{
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .content{
+          margin: 20px 0;
+          #string{
+            width: 284px;
+            font-size: 16px;
+            min-height: 20px;
+            padding-left: 6px;
+          }
+        }
+        .time{
+          #start{
+            font-size: 14px;
+          }
+          #endLabel{
+            margin: 0 2px;
+          }
+          #end{
+            font-size: 14px;
+          }
+          .button{
+            background-color: #efefef;
+            color: #666666;
+            margin-left: 20px;
+            border-radius: 4px;
+            border: 1px solid #efefef;
+            padding: 2px 14px 6px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+          .button:focus{
+            outline: none;
+          }
+          .button:hover{
+            background-color: #f6f6f6;
+          }
+        }
+      }
       .table{
         .row{
           display: flex;
           border-bottom: 1px solid #e0e0e0;
           padding: 12px 0;
-          .table-head{
-            font-weight: bold;
-          }
           .column{
             padding: 2px 4px;
           }
+          .index0{
+            width: 10%;
+          }
           .index1{
-            width: 19%;
+            width: 17%;
+            display: flex;
+            justify-content: center;
           }
           .index2{
-            width: 19%;
+            width: 17%;
+            display: flex;
+            justify-content: center;
           }
           .index3{
-            width: 19%;
+            width: 17%;
+            display: flex;
+            justify-content: center;
           }
           .index4{
-            width: 19%;
+            width: 17%;
+            display: flex;
+            justify-content: center;
           }
           .index5{
-            width: 19%;
+            width: 17%;
             .tooltip{
               font-size: 22px;
               cursor: pointer;
@@ -244,13 +517,45 @@
               cursor: pointer;
             }
           }
+          .sort{
+            margin-top: -6px;
+            margin-left: 4px;
+            position: relative;
+            .up{
+              position: absolute;
+              top: 4px;
+              left: 0;
+              z-index: 100;
+              line-height: 10px;
+              color: #aaaaaa;
+              cursor: pointer;
+              .icon-paixu-shang{
+                font-size: 12px;
+              }
+            }
+            .down{
+              position: absolute;
+              top: 14px;
+              left: 0;
+              line-height: 10px;
+              color: #aaaaaa;
+              cursor: pointer;
+              .icon-paixu-xia{
+                font-size: 12px;
+              }
+            }
+            .active{
+              color: #000000;
+            }
+          }
         }
         .row:first-child{
           border-top: 1px solid #e0e0e0;
           background-color: #f2f2f2;
+          font-weight: bold;
         }
         .row:hover{
-          background-color: #e2eff9;
+          background-color: #f0f6f9;
         }
       }
     }

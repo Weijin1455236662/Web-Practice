@@ -78,7 +78,6 @@
       .standard{
         height: 16.66666%;
         border-bottom: 1px dashed #e0e0e0;
-        /*border-radius: 4px;*/
       }
       .load{
         position: absolute;

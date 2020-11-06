@@ -347,6 +347,10 @@
           }
         }
       }
+      .card:not(:last-child):hover{
+        box-shadow: 6px 6px 6px #aaaaaa;
+        background-color: #f2f2f2;
+      }
       .dash{
         border: 6px dashed #000000;
         cursor: pointer;

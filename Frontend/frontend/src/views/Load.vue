@@ -17,12 +17,20 @@
         <div class="item" v-for="(color, index) in colorList" :key="index" :style="{background: color}">{{indexList[index]}}</div>
       </div>
     </div>
-    <div>
-      <!-- 时间栏 -->
+    <div class="graph">
+      <div class="dateBar">
+        <div class="dayWrap">
+          <label id="dayLabel" for="day">今天是</label>
+          <input id="day" type="date"/>
+        </div>
+        <div class="dateColumn" v-for="(date, index) in dateList" :key="index">{{date}}</div>
+      </div>
       <div class="row" v-for="(data, index1) in datas" :key="index1">
         <div class="source">{{sourceList[index1]}}</div>
-        <div class="load-item" v-for="(d, index2) in data" :key="index2">
-          <load-item :data="d" :index="index2 + index1 * data.length"></load-item>
+        <div class="loadWrap" v-for="(d, index2) in data" :key="index2">
+          <div class="loadItem">
+            <load-item :data="d" :index="index2 + index1 * data.length"></load-item>
+          </div>
         </div>
       </div>
     </div>
@@ -100,21 +108,50 @@ export default {
       line-height: 35px;
     }
   }
-  .row{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-    .source{
-      width: 60px;
-      height: 120px;
-      line-height: 120px;
-      border-style: dotted;
-      border-width: 1px;
+  .graph{
+    margin: 0 6%;
+    .dateBar{
+      display: flex;
+      margin-bottom: 20px;
+      .dayWrap{
+        width: 200px;
+        #dayLabel{
+          margin-right: 10px;
+        }
+        #day{
+          width: 118px;
+        }
+      }
+      .dateColumn{
+        width: 170px;
+        text-align: center;
+        border: 1px solid #000000;
+
+      }
+      .dateColumn:first-child{
+        border-left: 0;
+      }
     }
-    .load-item{
-      width: 100px;
-      height: 120px;
-      margin-left: 10px;
+    .row{
+      display: flex;
+      .source{
+        width: 60px;
+        height: 120px;
+        line-height: 120px;
+        margin: 10px 69px;
+        border-style: dotted;
+        border-width: 1px;
+      }
+      .loadWrap{
+        display: flex;
+        justify-content: center;
+        width: 172px;
+        padding: 10px 0;
+        .loadItem{
+          width: 100px;
+          height: 120px;
+        }
+      }
     }
   }
 }

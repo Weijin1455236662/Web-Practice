@@ -149,15 +149,18 @@
         height: 100%;
         margin-top: 36px;
         margin-left: 220px;
+        margin-bottom: 100px;
       }
       #main-2{
         width: 100%;
         height: 100%;
         margin-top: 36px;
+        margin-bottom: 100px;
       }
       #main-3{
         width: 100%;
         height: 100%;
+        margin-bottom: 100px;
       }
     }
   }
