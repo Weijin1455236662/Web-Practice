@@ -5,6 +5,10 @@
       <hr/>
     </div>
     <div class="container">
+      <AngularGaugeItem v-if="subcaption" :punctuality="punctuality" :caption="caption" :subcaption="subcaption"></AngularGaugeItem>
+      <div class="today">
+        今天是 <span class="text">{{today1}}</span>
+      </div>
       <fusioncharts
         :type="chart1.type"
         :width="chart1.width"
@@ -12,36 +16,23 @@
         :dataFormat="chart1.dataFormat"
         :dataSource="chart1.dataSource"
       ></fusioncharts>
-      <div class="today">
-        今天是 <span class="text">{{today1}}</span>
-      </div>
-      <fusioncharts
-        :type="chart2.type"
-        :width="chart2.width"
-        :height="chart2.height"
-        :dataFormat="chart2.dataFormat"
-        :dataSource="chart2.dataSource"
-      ></fusioncharts>
     </div>
   </div>
 </template>
 
 <script>
+import AngularGaugeItem from "../components/AngularGaugeItem"
 export default {
   name: "OrderGantt",
+  components: {AngularGaugeItem},
   data(){
     return{
       today: "",
       today1: "",
+      caption: "按期交货率",
+      subcaption: "",
+      punctuality: 80,
       chart1: {
-        type: "angulargauge",
-        width: "40%",
-        height: "30%",
-        dataFormat: "json",
-        dataSource: {},
-        punctuality: "30"
-      },
-      chart2: {
         type: "msbar2d",
         width: "100%",
         height: "2000",
@@ -59,53 +50,12 @@ export default {
     }
     this.today = date.year + "年" + date.month + "月" + date.day + "日"
     this.today1 = date.year + "-" + date.month + "-" + date.day
-    // 绘制按期交货率图
-    this.chart1.dataSource = {
-      chart: {
-        caption: "按期交货率",
-        subcaption: this.today + "之前",
-        showvalue: "1",
-        numbersuffix: "%",
-        theme: "fusion",
-      },
-      colorrange: {
-        color: [
-          {
-            minvalue: "0",
-            maxvalue: "25",
-            code: "#F2726F"
-          },
-          {
-            minvalue: "25",
-            maxvalue: "50",
-            code: "#AB05FA"
-          },
-          {
-            minvalue: "50",
-            maxvalue: "75",
-            code: "#FFC533"
-          },
-          {
-            minvalue: "75",
-            maxvalue: "100",
-            code: "#62B58F"
-          },
-        ]
-      },
-      dials: {
-        dial: [
-          {
-            value: this.chart1.punctuality
-          }
-        ]
-      }
-    }
+    this.subcaption = this.today + "之前"
     // 绘制订单甘特图
-    this.chart2.dataSource = {
+    this.chart1.dataSource = {
       chart: {
         caption: "订单进度",
         captionFontSize: 24,
-        // paletteColors: "#FF0000, #0372AB, #FF5904",
         xAxisname: "订<br>单<br>号",
         xAxisNameFontSize: 20,
         rotateXAxisName: 0,
