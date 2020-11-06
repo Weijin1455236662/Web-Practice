@@ -70,6 +70,7 @@
     margin: 0 10%;
     width: 80%;
     height: 100%;
+    border-radius: 6px;
     .wrap{
       width: 100%;
       height: 100%;
@@ -77,12 +78,14 @@
       .standard{
         height: 16.66666%;
         border-bottom: 1px dashed #e0e0e0;
+        /*border-radius: 4px;*/
       }
       .load{
         position: absolute;
         width: 100%;
         bottom: 0;
         left: 0;
+        border-radius: 4px;
       }
       .text{
         position: absolute;

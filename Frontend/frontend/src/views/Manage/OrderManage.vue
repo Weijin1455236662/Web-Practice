@@ -232,6 +232,8 @@
             .tooltip{
               font-size: 22px;
               cursor: pointer;
+            }
+            .tooltip:first-child{
               margin-right: 8px;
             }
           }
