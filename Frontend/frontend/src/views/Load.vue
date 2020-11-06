@@ -13,7 +13,14 @@
       </div>
     </div>
     <div>
+      <div class="tip" >
+        <div class="item" v-for="(color, index) in colorList" :key="index" :style="{background: color}">{{indexList[index]}}</div>
+      </div>
+    </div>
+    <div>
+      <!-- 时间栏 -->
       <div class="row" v-for="(data, index1) in datas" :key="index1">
+        <div class="source">{{sourceList[index1]}}</div>
         <div class="load-item" v-for="(d, index2) in data" :key="index2">
           <load-item :data="d" :index="index2 + index1 * data.length"></load-item>
         </div>
@@ -36,6 +43,18 @@ export default {
       caption2: "人员总负载",
       subcaption2: "",
       punctuality2: 45,
+      colorList: [
+        '#9F9F9F', '#08ffff', '#4ea4cb', '#98f20c', '#f59d2a', '#e4c7ff', '#e02e44'
+      ],
+      indexList: [
+        "图例", "0~20%", "20%~40%", "40%~60%", "60%~80%", "80%~100%", ">100%"
+      ],
+      sourceList: [
+        "Line1", "Line2", "张三"
+      ],
+      dateList: [
+        "2020-10-30", "2020-11-01", "2020-11-02", "2020-11-03", "2020-11-04", "2020-11-05", "2020-11-06", 
+      ],
       datas: [
         [0.1, 0.32, 0.5, 0.67, 0.9, 1, 1.15111],
         [0.6, 0.24, 0.11, 0.98, 0.45, 1, 0.7],
@@ -49,8 +68,8 @@ export default {
     let date2 = new Date(date1)
     date2.setDate(date1.getDate() - 7)
     let time2 = date2.getFullYear() + "年" + (date2.getMonth()+1) + "月" + date2.getDate() + "日"
-    this.subcaption1 = time1 + "-" + time2
-    this.subcaption2 = time1 + "-" + time2
+    this.subcaption1 = time2 + "-" + time1
+    this.subcaption2 = time2 + "-" + time1
     console.log(this.subcaption1)
   }
 }
@@ -67,12 +86,31 @@ export default {
     }
   }
   .loadPic{
+    margin-left: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+  .tip{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    .item{
+      width: 100px;
+      height: 35px;
+      line-height: 35px;
+    }
   }
   .row{
     display: flex;
+    justify-content: space-around;
     margin: 20px 0;
+    .source{
+      width: 60px;
+      height: 120px;
+      line-height: 120px;
+      border-style: dotted;
+      border-width: 1px;
+    }
     .load-item{
       width: 100px;
       height: 120px;
