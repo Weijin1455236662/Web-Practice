@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CraftService {
     public List<Craft> findAll();
+
+    public boolean importCraftData();
 }

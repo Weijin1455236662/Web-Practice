@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBOM")
+@XmlType(name = "getAllBOM",namespace = "http://namespace.thats.not.the.same.as.the.generated")
 public class GetAllBOM {
 
 

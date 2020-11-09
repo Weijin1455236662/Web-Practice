@@ -2,6 +2,7 @@ package com.proto.controller;
 
 import com.proto.pojo.Result;
 import com.proto.pojo.Team;
+import com.proto.service.CraftService;
 import com.proto.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ import java.util.List;
 public class TeamController {
     @Autowired
     TeamService teamService;
+    @Autowired
+    CraftService craftService;
 
     @ResponseBody
     @GetMapping("/{teamid}")
@@ -70,6 +73,15 @@ public class TeamController {
     @GetMapping("/import")
     public Result importData(){
         if (teamService.importTeamData()){
+            return new Result(true,"数据导入成功");
+        }
+        else return new Result(false,"数据导入失败");
+    }
+
+    @ResponseBody
+    @GetMapping("/importCraft")
+    public Result importCraftData(){
+        if (craftService.importCraftData()){
             return new Result(true,"数据导入成功");
         }
         else return new Result(false,"数据导入失败");

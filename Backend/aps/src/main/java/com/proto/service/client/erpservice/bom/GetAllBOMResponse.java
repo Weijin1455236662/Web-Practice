@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getAllBOMResponse", propOrder = {
     "_return"
-})
+},namespace = "http://namespace.thats.not.the.same.as.the.generated")
 public class GetAllBOMResponse {
 
     @XmlElement(name = "return")

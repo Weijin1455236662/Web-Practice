@@ -3,6 +3,9 @@ package com.proto.service.Impl;
 import com.proto.dao.TeamDao;
 import com.proto.pojo.Team;
 import com.proto.service.TeamService;
+import com.proto.service.client.attendanceservice.schedule.ScheduleItem;
+import com.proto.service.client.attendanceservice.schedule.ScheduleServiceForApp;
+import com.proto.service.client.attendanceservice.worktime.WorkTimeServiceForApp;
 import com.proto.service.client.erpservice.resource.ResourceItem;
 import com.proto.service.client.erpservice.resource.ResourceServiceForApp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,12 +70,26 @@ public class TeamServiceImpl implements TeamService {
     public boolean importTeamData(){
         try {
             ResourceServiceForApp resourceServiceForApp=new ResourceServiceForApp();
+            ScheduleServiceForApp scheduleServiceForApp=new ScheduleServiceForApp();
+            WorkTimeServiceForApp workTimeServiceForApp=new WorkTimeServiceForApp();
             List<ResourceItem> humanResourceList=resourceServiceForApp.getHumanResource();
             System.out.println(humanResourceList.size());
             for (ResourceItem item:humanResourceList){
                 Team t=new Team();
                 t.setName(item.getName());
                 t.setNum(item.getAmount());
+                t.setBegin_day(1);
+                t.setEnd_day(5);
+                ScheduleItem scheduleItem=scheduleServiceForApp.findScheduleByName(item.getName());
+                if (scheduleItem!=null) {
+                    String workTime = scheduleItem.getWorkTime();
+                    String[] timeGap = workTimeServiceForApp.findWorkTimeByName(workTime).getTime().split("-");
+                    t.setBegin_time(Integer.parseInt(timeGap[0].substring(0, 2)));
+                    t.setEnd_time(Integer.parseInt(timeGap[1].substring(0, 2)));
+                } else {
+                    t.setBegin_time(0);
+                    t.setEnd_time(0);
+                }
                 teamDao.save(t);
 
             }
