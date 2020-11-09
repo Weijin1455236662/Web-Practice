@@ -36,10 +36,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
 
                 result = false;
                 current_time = a.getTimeslot().getTime();
-                current_day = a.getTimeslot().getDate().getDayOfWeek().getValue()-1;
-                if(current_day==0){
-                    current_day = 7;
-                }
+                current_day = a.getTimeslot().getDate().getDayOfWeek().getValue();
                 for(int i=0;i<teamLista.size();i++){
                     begin_time = teamLista.get(i).getBegin_time();
                     end_time = teamLista.get(i).getEnd_time();

@@ -40,7 +40,7 @@ public class ArrangementController {
 
     @ResponseBody
     @GetMapping("/{beginDate}/{endDate}")
-    public Result solve(@PathVariable @Pattern(regexp = "/^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",message = "日期格式不正确，正确格式为：2014-01-01") String beginDate, @PathVariable @Pattern(regexp = "/^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",message = "日期格式不正确，正确格式为：2014-01-01") String endDate )throws Exception{
+    public Result solve(@PathVariable @Pattern(regexp = "^((?:19|20)\\d\\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",message = "日期格式不正确，正确格式为：2014-01-01") String beginDate, @PathVariable @Pattern(regexp = "^((?:19|20)\\d\\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",message = "日期格式不正确，正确格式为：2014-01-01") String endDate )throws Exception{
         List<SubOrder> subOrderList = new ArrayList<>();
         List<TeamList> teamLists = new ArrayList<>();
         List<Timeslot> timeslotList = new ArrayList<>();
@@ -78,7 +78,7 @@ public class ArrangementController {
 
         LocalDate begin__date = begin_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate end__date = end_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate current__date = begin__date.plusDays(1);
+        LocalDate current__date = begin__date;
         while(current__date.isBefore(end__date)){
             for(int i=0;i<24;i++){
                 timeslotList.add(new Timeslot(i,current__date));
