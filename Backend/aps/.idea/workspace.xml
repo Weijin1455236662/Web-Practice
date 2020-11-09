@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21663c9f-1ecf-43dd-aa9a-c656a45aef98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changelog-1.0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/master.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/EquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/EquipmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/SubOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/SubOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/changelog-1.0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changelog-1.0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_db.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +59,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -133,12 +141,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b0701513" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -167,6 +170,7 @@
       <workItem from="1604390879305" duration="3188000" />
       <workItem from="1604408740235" duration="60000" />
       <workItem from="1604412820651" duration="5410000" />
+      <workItem from="1604894318536" duration="13472000" />
     </task>
     <servers />
   </component>

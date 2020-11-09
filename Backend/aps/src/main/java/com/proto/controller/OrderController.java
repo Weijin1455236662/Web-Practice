@@ -5,21 +5,24 @@ import com.proto.pojo.Order;
 import com.proto.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
+@Validated
 @RequestMapping("/order")
 public class OrderController {
     @Autowired
     OrderService orderService;
 
-
     @ResponseBody
     @PostMapping
-    public Result save(@RequestBody Order order){
+    public Result save(@RequestBody @Valid Order order){
         boolean flag = orderService.save(order);
         if(flag!=false)
             return new Result(true,"添加成功");
@@ -28,7 +31,7 @@ public class OrderController {
 
     @ResponseBody
     @DeleteMapping("/{orderid}")
-    public Result delete(@PathVariable Integer orderid){
+    public Result delete(@PathVariable @Min(value = 1, message = "id不合法") Integer orderid){
         boolean flag = orderService.deleteById(orderid);
         if (flag != false)
             return new Result(true, "删除成功");
@@ -37,7 +40,7 @@ public class OrderController {
 
     @ResponseBody
     @PutMapping("/{orderid}")
-    public Result update(@PathVariable Integer orderid,@RequestBody Order order) {
+    public Result update(@PathVariable @Min(value = 1, message = "id不合法") Integer orderid,@RequestBody @Valid Order order) {
         order.setOrderid(orderid);
         boolean flag = orderService.update(order);
         if (flag != false)
@@ -47,7 +50,7 @@ public class OrderController {
 
     @ResponseBody
     @GetMapping("/{orderid}")
-    public Result findById(@PathVariable Integer orderid){
+    public Result findById(@PathVariable @Min(value = 1, message = "id不合法") Integer orderid){
         Order order = orderService.findById(orderid);
         if(order!=null)
             return new Result(true,"查询成功",order);

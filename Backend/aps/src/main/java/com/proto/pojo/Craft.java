@@ -12,6 +12,8 @@ public class Craft implements Serializable {
     private Integer material_code;
     private Integer human_num;
     private Integer capacity;
+    private String human_res;
+    private String equipment_res;
 
     public Integer getCraftid() {
         return craftid;
@@ -43,5 +45,21 @@ public class Craft implements Serializable {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public String getHuman_res() {
+        return human_res;
+    }
+
+    public void setHuman_res(String human_res) {
+        this.human_res = human_res;
+    }
+
+    public String getEquipment_res() {
+        return equipment_res;
+    }
+
+    public void setEquipment_res(String equipment_res) {
+        this.equipment_res = equipment_res;
     }
 }

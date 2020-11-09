@@ -10,6 +10,8 @@ public class SubOrder {
     private int material_code;
     private int quantity;
     private int capacity;
+    private String human_res;
+    private String equipment_res;
 
     @PlanningVariable(valueRangeProviderRefs = "teamListRange")
     private TeamList teamList;
@@ -21,12 +23,14 @@ public class SubOrder {
     public SubOrder() {
     }
 
-    public SubOrder(Long id, Long parent_id, int material_code, int quantity, int capacity) {
+    public SubOrder(Long id, Long parent_id, int material_code, int quantity, int capacity, String human_res, String equipment_res) {
         this.id = id;
         this.parent_id = parent_id;
         this.material_code = material_code;
         this.quantity = quantity;
         this.capacity = capacity;
+        this.human_res = human_res;
+        this.equipment_res = equipment_res;
     }
 
 
@@ -92,5 +96,21 @@ public class SubOrder {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public String getHuman_res() {
+        return human_res;
+    }
+
+    public void setHuman_res(String human_res) {
+        this.human_res = human_res;
+    }
+
+    public String getEquipment_res() {
+        return equipment_res;
+    }
+
+    public void setEquipment_res(String equipment_res) {
+        this.equipment_res = equipment_res;
     }
 }

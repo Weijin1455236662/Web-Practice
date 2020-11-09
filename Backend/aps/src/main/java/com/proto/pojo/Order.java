@@ -1,6 +1,8 @@
 package com.proto.pojo;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,8 +12,11 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderid;
+    @NotNull(message = "代码不能为空")
     private Integer material_code;
+    @Min(value = 1, message = "数量不能小于1")
     private Integer quantity;
+    @NotNull(message = "日期不能为空")
     private Date delivery_date;
 
     public Integer getOrderid() {

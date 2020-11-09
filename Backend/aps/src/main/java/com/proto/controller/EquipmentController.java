@@ -5,12 +5,16 @@ import com.proto.pojo.Result;
 import com.proto.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
+@Validated
 @RequestMapping("/equipment")
 public class EquipmentController {
     @Autowired
@@ -28,7 +32,7 @@ public class EquipmentController {
 
     @ResponseBody
     @PostMapping
-    public Result save(@RequestBody Equipment equipment){
+    public Result save(@RequestBody @Valid Equipment equipment){
         boolean flag = equipmentService.save(equipment);
         if(flag!=false)
             return new Result(true,"添加成功");
@@ -37,7 +41,7 @@ public class EquipmentController {
 
     @ResponseBody
     @PutMapping("/{equipmentid}")
-    public Result update(@PathVariable Integer equipmentid,@RequestBody Equipment equipment) {
+    public Result update(@PathVariable @Min(value = 1, message = "id不合法") Integer equipmentid, @RequestBody @Valid Equipment equipment) {
         equipment.setEquipmentid(equipmentid);
         boolean flag = equipmentService.update(equipment);
         if (flag != false)
@@ -47,7 +51,7 @@ public class EquipmentController {
 
     @ResponseBody
     @DeleteMapping("/{equipmentid}")
-    public Result delete(@PathVariable Integer equipmentid){
+    public Result delete(@PathVariable @Min(value = 1, message = "id不合法") Integer equipmentid){
         boolean flag = equipmentService.deleteById(equipmentid);
         if (flag != false)
             return new Result(true, "删除成功");

@@ -1,6 +1,8 @@
 package com.proto.pojo;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -9,8 +11,11 @@ public class Equipment implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer equipmentid;
+    @NotNull(message = "名称不能为空")
     private String name;
+    @NotNull(message = "类型不能为空")
     private String type;
+    @Min(value = 1, message = "数量不能小于1")
     private Integer amount;
 
     public Integer getEquipmentid() {

@@ -7,8 +7,8 @@ import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.calculator.EasyScoreCalculator;
 
 import java.util.List;
-
 public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrangement, HardSoftScore> {
+
     @Override
     public HardSoftScore calculateScore(Arrangement arrangement){
         List<SubOrder> subOrderList = arrangement.getSubOrderList();
@@ -16,6 +16,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
         int hardScore = 0;
         int softScore = 0;
         boolean result = false;
+        boolean found = false;
         List<Team> teamLista;
         List<Team> teamListb;
 
@@ -26,6 +27,8 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
         int current_time;
         int current_day;
         int sum;
+        String[] currentTeamList=null;
+        String[] currentEquipmentList=null;
 
         for(SubOrder a : subOrderList){
             if(a.getTeamList()!=null&&a.getTimeslot()!=null&&a.getEquipment()!=null){
@@ -74,6 +77,40 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                 if(result){
                     hardScore--;
                 }
+
+                result = false;
+                currentTeamList = a.getHuman_res().split("_");
+                currentEquipmentList = a.getEquipment_res().split("_");
+                for(int i=0;i<teamLista.size();i++){
+                    found = false;
+                    for(int j=0;j<currentTeamList.length;j++){
+                        if(Integer.parseInt(currentTeamList[j])==teamLista.get(i).getTeamid()){
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found){
+                        result = true;
+                    }
+                }
+                if(result){
+                    hardScore--;
+                }else{
+                    found = false;
+                    for(int i=0;i<currentEquipmentList.length;i++){
+                        if(Integer.parseInt(currentEquipmentList[i])==a.getEquipment().getEquipmentid()){
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found){
+                        result = true;
+                    }
+                    if(result){
+                        hardScore--;
+                    }
+                }
+
 
                 for(SubOrder b : subOrderList){
                     if(b.getTeamList()!=null&&b.getTimeslot()!=null&&b.getEquipment()!=null){

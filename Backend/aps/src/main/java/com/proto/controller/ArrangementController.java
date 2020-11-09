@@ -9,8 +9,10 @@ import org.optaplanner.core.api.solver.SolverJob;
 import org.optaplanner.core.api.solver.SolverManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Pattern;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -21,6 +23,7 @@ import java.util.UUID;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
+@Validated
 @RequestMapping("/arrangement")
 public class ArrangementController {
 
@@ -37,7 +40,7 @@ public class ArrangementController {
 
     @ResponseBody
     @GetMapping("/{beginDate}/{endDate}")
-    public Result solve(@PathVariable String beginDate, @PathVariable String endDate )throws Exception{
+    public Result solve(@PathVariable @Pattern(regexp = "/^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",message = "日期格式不正确，正确格式为：2014-01-01") String beginDate, @PathVariable @Pattern(regexp = "/^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",message = "日期格式不正确，正确格式为：2014-01-01") String endDate )throws Exception{
         List<SubOrder> subOrderList = new ArrayList<>();
         List<TeamList> teamLists = new ArrayList<>();
         List<Timeslot> timeslotList = new ArrayList<>();
@@ -51,21 +54,15 @@ public class ArrangementController {
         Date begin_date = simpleDateFormat.parse(beginDate);
         Date end_date = simpleDateFormat.parse(endDate);
         List<Order> orderList = orderService.findAll();
-        ArrayList<Order> orderArrayList = new ArrayList<Order>();
-        for(int i=0;i<orderList.size();i++){
-            if(orderList.get(i).getDelivery_date().before(end_date)&&orderList.get(i).getDelivery_date().after(begin_date)){
-                orderArrayList.add(orderList.get(i));
-            }
-        }
         List<Craft> craftList = craftService.findAll();
         Order currentOrder=null;
         Craft currentCraft=null;
         int subOrderNum = 0;
         int subOrderId = 0;
-        for(int i=0;i<orderArrayList.size();i++){
+        for(int i=0;i<orderList.size();i++){
             for(int j=0;j<craftList.size();j++){
-                if(orderArrayList.get(i).getMaterial_code().equals(craftList.get(j).getMaterial_code())){
-                    currentOrder = orderArrayList.get(i);
+                if(orderList.get(i).getMaterial_code().equals(craftList.get(j).getMaterial_code())){
+                    currentOrder = orderList.get(i);
                     currentCraft = craftList.get(j);
                     subOrderNum = currentOrder.getQuantity()/currentCraft.getCapacity();
                     if(currentOrder.getQuantity()%currentCraft.getCapacity()!=0){
@@ -73,7 +70,7 @@ public class ArrangementController {
                     }
                     for(int k=0;k<subOrderNum;k++){
                         subOrderId += 1;
-                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(),currentOrder.getMaterial_code(),currentCraft.getCapacity(),currentCraft.getHuman_num()));
+                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(),currentOrder.getMaterial_code(),currentCraft.getCapacity(),currentCraft.getHuman_num(),currentCraft.getHuman_res(),currentCraft.getEquipment_res()));
                     }
                 }
             }
