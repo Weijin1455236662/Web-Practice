@@ -5,9 +5,20 @@
 </template>
 
 <script>
-    export default {
-        name: "OrderWorkSchedule"
+import {getScheduleInfo} from "../../api/scheduleApi"
+export default {
+  name: "OrderWorkSchedule",
+  methods: {
+    getAllScheduleInfo: function(){
+      getScheduleInfo("2020-10-15","2020-10-27").then(res => {
+        console.log(res)
+      })
     }
+  },
+  mounted(){
+    this.getAllScheduleInfo()
+  }
+}
 </script>
 
 <style scoped>
