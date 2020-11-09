@@ -13,6 +13,11 @@ export default {
 }
 </script>
 <style scoped lang="less">
+  .home{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
   .welcome{
     margin-top: 30vh;
     text-align: center;

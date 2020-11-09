@@ -63,7 +63,7 @@ export default {
     }
   },
   mounted(){
-    var that = this
+    let that = this;
     let colorrange = {
       color: [
         {

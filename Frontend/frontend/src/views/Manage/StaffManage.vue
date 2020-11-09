@@ -18,7 +18,7 @@
             <div class="text">人</div></div>
           <div>
             <div class="day">{{weekDic[staff.begin_day]}}-{{weekDic[staff.end_day]}}</div>
-            <div class="time">{{staff.begin_time}}:00-<span v-if="staff.begin_time>staff.end_time">次日</span>{{staff.end_time}}:00</div>
+            <div class="time">{{staff.begin_time}}:00-<span v-if="staff.begin_time>staff.end_time">次日</span>{{staff.end_time}}:59</div>
           </div>
         </div>
         <div class="toolbox">
@@ -126,7 +126,7 @@
                     begin_day: 1,
                     end_day: 5,
                     begin_time: 7,
-                    end_time: 19
+                    end_time: 18
                 }
             }
         },
@@ -150,17 +150,17 @@
                     begin_day: 1,
                     end_day: 5,
                     begin_time: 7,
-                    end_time: 19
+                    end_time: 18
                 };
                 this.showForm = false;
             },
             changeFormTime: function(){
                 if(this.timeMode===0){
                     this.form.begin_time = 7;
-                    this.form.end_time = 19;
+                    this.form.end_time = 18;
                 }else if(this.timeMode===1){
                     this.form.begin_time = 19;
-                    this.form.end_time = 7;
+                    this.form.end_time = 6;
                 }
             },
             showMessage: function(type, message){
@@ -194,7 +194,7 @@
                     begin_day: 1,
                     end_day: 5,
                     begin_time: 7,
-                    end_time: 19
+                    end_time: 18
                 };
                 this.openForm();
             },
