@@ -2,6 +2,12 @@ import {getScheduleInfo} from "../api/scheduleApi";
 
 export const reduceSource = (date)=>{
     let session = sessionStorage.getItem('subOrders');
+    let tomorrow = new Date(date);
+    tomorrow = tomorrow.setDate(tomorrow.getDate()+1);
+    tomorrow = new Date(tomorrow);
+    console.log(date)
+    tomorrow = tomorrow.getFullYear()+'-'+(tomorrow.getMonth()+1)+'-'+tomorrow.getDate();
+    console.log(tomorrow);
     if(!session){
         return '';
     }else{
@@ -10,7 +16,7 @@ export const reduceSource = (date)=>{
         let data = [];
         let process = [];
         subOrders.forEach(function (subOrder) {
-            if(subOrder.timeslot.date===date&&subOrder.timeslot.time>=7){
+            if((subOrder.timeslot.date===date&&subOrder.timeslot.time>=7)||(subOrder.timeslot.date===tomorrow&&subOrder.timeslot.time<7)){
                 subOrder.teamList.teamList.forEach(function (team) {
                     data.push({
                         processid: team.name,

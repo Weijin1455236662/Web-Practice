@@ -5,7 +5,6 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production'
     ? 'http://101.200.166.56:8081'
     : 'http://101.200.166.56:8081';
 
-
 export const getScheduleInfo = (startDate, endDate) => {
     var result = axios.get('/arrangement/' + startDate + '/' + endDate).then(res => res.data)
     return result
