@@ -6,10 +6,10 @@
     </div>
     <div class="loadPic">
       <div>
-        <AngularGaugeItem v-if="subcaption1" :punctuality="punctuality1" :caption="caption1" :subcaption="subcaption1"></AngularGaugeItem>
+        <AngularGaugeItem class="pic" v-if="subcaption1" :punctuality="punctuality1" :caption="caption1" :subcaption="subcaption1"></AngularGaugeItem>
       </div>
       <div>
-        <AngularGaugeItem v-if="subcaption2" :punctuality="punctuality2" :caption="caption2" :subcaption="subcaption2"></AngularGaugeItem>
+        <AngularGaugeItem class="pic" v-if="subcaption2" :punctuality="punctuality2" :caption="caption2" :subcaption="subcaption2"></AngularGaugeItem>
       </div>
     </div>
     <div>
@@ -20,13 +20,14 @@
     <div class="graph">
       <div class="dateBar">
         <div class="dayWrap">
-          <label id="dayLabel" for="day">今天是</label>
           <input id="day" type="date"/>
         </div>
         <div class="dateColumn" v-for="(date, index) in dateList" :key="index">{{date}}</div>
       </div>
       <div class="row" v-for="(data, index1) in datas" :key="index1">
-        <div class="source">{{sourceList[index1]}}</div>
+        <div class="source">
+          <div class="name">{{sourceList[index1]}}</div>
+        </div>
         <div class="loadWrap" v-for="(d, index2) in data" :key="index2">
           <div class="loadItem">
             <load-item :data="d" :index="index2 + index1 * data.length"></load-item>
@@ -78,13 +79,22 @@ export default {
     let time2 = date2.getFullYear() + "年" + (date2.getMonth()+1) + "月" + date2.getDate() + "日"
     this.subcaption1 = time2 + "-" + time1
     this.subcaption2 = time2 + "-" + time1
-    console.log(this.subcaption1)
+    console.log(this.subcaption1);
+    setTimeout(function () {
+        document.getElementsByTagName('path')[3].style.opacity = '0';
+        document.getElementsByTagName('path')[7].style.opacity = '0';
+        document.getElementsByTagName('circle')[0].style.opacity = '0';
+        document.getElementsByTagName('circle')[1].style.opacity = '0';
+        document.getElementsByClassName('pic')[0].style.opacity = '1';
+        document.getElementsByClassName('pic')[1].style.opacity = '1';
+    },200);
   }
 }
 </script>
 
 <style scoped lang="less">
 .main{
+  margin-bottom: 100px;
   .head{
     margin: 30px 5% 0;
     text-align: left;
@@ -97,9 +107,13 @@ export default {
     margin-left: 40px;
     display: flex;
     justify-content: space-around;
+    .pic{
+      opacity: 0;
+    }
   }
   .tip{
     display: flex;
+    align-items: center;
     justify-content: center;
     margin: 20px 0;
     .item{
@@ -109,12 +123,13 @@ export default {
     }
   }
   .graph{
-    margin: 0 6%;
+    margin: 30px 6%;
     .dateBar{
       display: flex;
       margin-bottom: 20px;
       .dayWrap{
-        width: 200px;
+        width: 15%;
+        margin: 0 1px;
         #dayLabel{
           margin-right: 10px;
         }
@@ -123,10 +138,13 @@ export default {
         }
       }
       .dateColumn{
-        width: 170px;
+        width: 12%;
+        min-width: 100px;
         text-align: center;
-        border: 1px solid #000000;
-
+        font-size: 20px;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        padding-left: 1px;
       }
       .dateColumn:first-child{
         border-left: 0;
@@ -135,17 +153,24 @@ export default {
     .row{
       display: flex;
       .source{
-        width: 60px;
+        width: 15%;
         height: 120px;
         line-height: 120px;
-        margin: 10px 69px;
-        border-style: dotted;
-        border-width: 1px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .name{
+          width: 60px;
+          border: 1px dotted #000000;
+        }
       }
       .loadWrap{
         display: flex;
         justify-content: center;
-        width: 172px;
+        width: 12%;
+        min-width: 102px;
+        margin-right: 1px;
         padding: 10px 0;
         .loadItem{
           width: 100px;

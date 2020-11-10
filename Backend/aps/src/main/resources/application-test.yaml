@@ -1,0 +1,33 @@
+server:
+  port: 8081
+optaplanner:
+  solver:
+    termination:
+      spent-limit: 5s
+spring:
+  datasource:
+    url: jdbc:h2:~/test_db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 123456
+    schema: classpath:\test\test.sql
+  jpa:
+    show-sql: true
+    database: h2
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  thymeleaf:
+    cache: false
+  liquibase:
+    change-log: classpath:/db.changelog/master.xml
+    contexts: dev, faker
+    enabled: false
+logging:
+  config: classpath:\log\logback-spring.xml
+springdoc:
+  swagger-ui:
+    path: /api-docs

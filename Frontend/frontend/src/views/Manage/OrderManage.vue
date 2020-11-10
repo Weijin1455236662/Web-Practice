@@ -6,21 +6,6 @@
       <hr/>
     </div>
     <div class="container">
-      <div class="filter">
-        <div class="head-text">筛选</div>
-        <hr/>
-        <div class="content">
-          <label id="stringLabel" for="string">内容筛选：</label>
-          <input id="string" type="number" placeholder="仅限数字字符串……" v-model="filterString" @input="doFilter"/>
-        </div>
-        <div class="time">
-          <label id="startLabel" for="start">时间筛选：</label>
-          <input id="start" type="date" v-model="filterStart" @change="doFilter"/>
-          <label id="endLabel" for="end">-</label>
-          <input id="end" type="date" v-model="filterEnd" @change="doFilter"/>
-          <button class="button" @click="clearFilter">重置</button>
-        </div>
-      </div>
       <div class="table">
         <div class="row">
           <div class="column index0">序号</div>
@@ -64,6 +49,22 @@
           </div>
           <div class="column index6"></div>
         </div>
+        <div class="noOrder" v-if="allOrder.length===0">无订单...</div>
+      </div>
+      <div class="filter">
+        <div class="head-text">筛选</div>
+        <hr/>
+        <div class="content">
+          <label id="stringLabel" for="string">内容筛选：</label><br/>
+          <input id="string" type="number" placeholder="仅限数字字符串……" v-model="filterString" @input="doFilter"/>
+        </div>
+        <div class="time">
+          <label id="startLabel" for="start">时间筛选：</label><br/>
+          <input id="start" type="date" v-model="filterStart" @change="doFilter"/>
+          <label id="endLabel" for="end">-</label>
+          <input id="end" type="date" v-model="filterEnd" @change="doFilter"/><br/>
+          <button class="button" @click="clearFilter">重置</button>
+        </div>
       </div>
     </div>
     <div class="background" v-if="showForm" @click="closeForm"></div>
@@ -74,19 +75,20 @@
         <hr/>
       </div>
       <div class="form_body">
-        <div class="form_id">
-          <label id="orderid_label" for="orderid" v-html="'订单号码：'"></label>
-          <input id="orderid" type="number" min="1" v-model="form.orderid"/>
+        <div class="form_id line" v-if="formType!==0">
+          <label id="orderid_label" v-html="'订单号码：'"></label>
+<!--          <input id="orderid" type="number" min="1" v-model="form.orderid"/>-->
+          <div id="orderid_disable">{{form.orderid}}</div>
         </div>
-        <div class="form_material">
+        <div class="form_material line">
           <label id="material_label" for="material" v-html="'物料号码：'"></label>
           <input id="material" type="number" v-model="form.material_code"/>
         </div>
-        <div class="form_num">
+        <div class="form_num line">
           <label id="num_label" for="num" v-html="'物料数量：'"></label>
           <input id="num" type="number" min="1" v-model="form.quantity"/>
         </div>
-        <div class="form_date">
+        <div class="form_date line">
           <label id="date_label" for="date" v-html="'交付日期：'"></label>
           <input id="date" type="date" v-model="form.delivery_date" max="2035-12-31">
         </div>
@@ -303,7 +305,7 @@
                 this.allOrder = JSON.parse(JSON.stringify(this.nativeOrder));
                 let orders1 = [];
                 let that = this;
-                if(this.filterString !== ''){
+                if(this.filterString !== '' && this.allOrder.length>0){
                     let str = this.filterString;
                     this.allOrder.forEach(function (order) {
                         if(order.orderid.toString().indexOf(str)!==-1||order.material_code.toString().indexOf(str)!==-1||order.quantity.toString().indexOf(str)!==-1){
@@ -424,10 +426,15 @@
       }
     }
     .container{
-      margin: 10px 10%;
+      margin: 10px 7%;
+      display: flex;
       .filter{
         text-align: left;
-        margin: 20px 0 40px;
+        width: 22%;
+        margin: 20px 0 40px 3%;
+        border: 2px solid #f2f2f2;
+        box-shadow: 3px 3px 4px #f2f2f2;
+        padding: 40px 2%;
         .head-text{
           font-size: 24px;
           font-weight: bold;
@@ -435,26 +442,33 @@
         .content{
           margin: 20px 0;
           #string{
-            width: 284px;
-            font-size: 16px;
+            width: 88%;
+            font-size: 14px;
             min-height: 20px;
-            padding-left: 6px;
+            margin-top: 8px;
+            padding: 2px 0 2px 6px;
           }
         }
         .time{
+          margin: 20px 0;
           #start{
-            font-size: 14px;
+            width: 42%;
+            font-size: 12px;
+            margin-top: 8px;
+            padding: 2px 0 2px 2px;
           }
           #endLabel{
             margin: 0 2px;
           }
           #end{
-            font-size: 14px;
+            width: 42%;
+            font-size: 12px;
+            padding: 2px 0 2px 2px;
           }
           .button{
             background-color: #efefef;
             color: #666666;
-            margin-left: 20px;
+            margin-top: 20px;
             border-radius: 4px;
             border: 1px solid #efefef;
             padding: 2px 14px 6px;
@@ -470,35 +484,31 @@
         }
       }
       .table{
+        width: 70%;
         .row{
           display: flex;
           border-bottom: 1px solid #e0e0e0;
           padding: 12px 0;
           .column{
             padding: 2px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
           .index0{
-            width: 10%;
+            width: 6%;
           }
           .index1{
-            width: 17%;
-            display: flex;
-            justify-content: center;
+            width: 18%;
           }
           .index2{
-            width: 17%;
-            display: flex;
-            justify-content: center;
+            width: 18%;
           }
           .index3{
-            width: 17%;
-            display: flex;
-            justify-content: center;
+            width: 18%;
           }
           .index4{
-            width: 17%;
-            display: flex;
-            justify-content: center;
+            width: 18%;
           }
           .index5{
             width: 17%;
@@ -523,7 +533,7 @@
             position: relative;
             .up{
               position: absolute;
-              top: 4px;
+              top: -6px;
               left: 0;
               z-index: 100;
               line-height: 10px;
@@ -535,7 +545,7 @@
             }
             .down{
               position: absolute;
-              top: 14px;
+              top: 4px;
               left: 0;
               line-height: 10px;
               color: #aaaaaa;
@@ -557,6 +567,10 @@
         .row:hover{
           background-color: #f0f6f9;
         }
+        .noOrder{
+          margin-top: 10px;
+          font-size: 20px;
+        }
       }
     }
     .background{
@@ -577,8 +591,8 @@
       left: 35%;
       width: 30%;
       min-width: 570px;
-      height: 40%;
-      min-height: 370px;
+      height: 35%;
+      min-height: 328px;
       padding: 32px 10px 10px;
       text-align: left;
       .form_head{
@@ -599,9 +613,14 @@
       }
       .form_body{
         padding: 0 88px;
-        .form_id{
-          margin-top: 40px;
+        .line{
           margin-bottom: 20px;
+        }
+        .line:first-child{
+          margin-top: 40px;
+        }
+        .form_id{
+          display: flex;
           #orderid_label{
             font-size: 20px;
             font-weight: bold;
@@ -612,9 +631,13 @@
             min-height: 20px;
             padding-left: 6px;
           }
+          #orderid_disable{
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 6px;
+          }
         }
         .form_material{
-          margin-bottom: 20px;
           #material_label{
             font-size: 20px;
             font-weight: bold;
@@ -627,7 +650,6 @@
           }
         }
         .form_num{
-          margin-bottom: 20px;
           #num_label{
             font-size: 20px;
             font-weight: bold;
@@ -640,7 +662,6 @@
           }
         }
         .form_date{
-          margin-bottom: 20px;
           display: flex;
           #date_label{
             font-size: 20px;

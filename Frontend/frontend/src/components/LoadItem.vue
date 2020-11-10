@@ -1,9 +1,9 @@
 <template>
-  <div class="main">
-    <div class="wrap">
+  <div class="box">
+    <div class="wrap" :id="'wrap'+index">
       <div class="standard"></div>
-      <div class="load" :style="{'background-color': color}"></div>
-      <div class="text">{{(data*100).toFixed(1)}}%</div>
+      <div class="load" :id="'load'+index" :style="{'background-color': color}"></div>
+      <div class="text" :id="'text'+index">{{(data*100).toFixed(1)}}%</div>
     </div>
   </div>
 </template>
@@ -50,14 +50,14 @@
         },
         methods: {
             drawLoad: function () {
-                let height = document.getElementsByClassName('wrap')[this.index].offsetHeight;
+                let height = document.getElementById('wrap'+this.index).offsetHeight;
                 let loadTop = height * (1.2 - this.computeData) / 1.2;
-                document.getElementsByClassName('load')[this.index].style.top = loadTop + 'px';
-                let textHeight = document.getElementsByClassName('text')[this.index].offsetHeight;
+                document.getElementById('load'+this.index).style.top = loadTop + 'px';
+                let textHeight = document.getElementById('text'+this.index).offsetHeight;
                 if (height - loadTop < textHeight){
-                    document.getElementsByClassName('text')[this.index].style.top = height - textHeight + 'px';
+                    document.getElementById('text'+this.index).style.top = height - textHeight + 'px';
                 }else{
-                    document.getElementsByClassName('text')[this.index].style.top = (height + loadTop - textHeight)/2 + 'px';
+                    document.getElementById('text'+this.index).style.top = (height + loadTop - textHeight)/2 + 'px';
                 }
             }
         }
@@ -65,7 +65,7 @@
 </script>
 
 <style scoped lang="less">
-  .main{
+  .box{
     border: 2px solid #e0e0e0;
     margin: 0 10%;
     width: 80%;
