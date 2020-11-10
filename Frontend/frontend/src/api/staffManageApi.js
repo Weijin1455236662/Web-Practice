@@ -20,3 +20,7 @@ export const updateStaff = (form) =>{
 export const deleteStaff = (teamid) =>{
     return axios.delete('/team/' + teamid).then(res=>res.data);
 };
+
+export const getStaffById = (teamid) => {
+    return axios.get('/team/' + teamid).then(res => res.data);
+}
