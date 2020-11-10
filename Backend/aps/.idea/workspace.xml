@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21663c9f-1ecf-43dd-aa9a-c656a45aef98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-test.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -84,12 +85,15 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.proto.pojo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\实践课\project\Web-Practice\Backend\aps\src\main\resources" />
       <recent name="D:\实践课\aps\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.proto.pojo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\实践课\project\Web-Practice\Backend\aps\src\main\resources\test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -104,7 +108,45 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="All in aps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aps" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrangementControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.proto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.proto" />
+      <option name="MAIN_CLASS_NAME" value="com.proto.ArrangementControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeamControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aps" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.proto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.proto" />
+      <option name="MAIN_CLASS_NAME" value="com.proto.TeamControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="aps" />
       <extension name="coverage">
@@ -121,6 +163,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="JUnit.All in aps" />
+        <item itemvalue="JUnit.TeamControllerTest" />
+        <item itemvalue="JUnit.ArrangementControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -159,6 +204,8 @@
       <workItem from="1604412820651" duration="5410000" />
       <workItem from="1604894318536" duration="13472000" />
       <workItem from="1604915758584" duration="1525000" />
+      <workItem from="1604930961418" duration="6217000" />
+      <workItem from="1604974385137" duration="5733000" />
     </task>
     <servers />
   </component>
