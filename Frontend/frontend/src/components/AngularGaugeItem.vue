@@ -97,7 +97,7 @@ export default {
           {
             value: that.punctuality,
             valueX: "50%",
-            valueY: "165",
+            valueY: "210",
             toolText: this.caption + ": " + this.punctuality + "%"
           }
         ]
