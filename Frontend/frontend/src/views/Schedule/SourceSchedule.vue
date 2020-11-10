@@ -29,7 +29,7 @@ export default {
         }
     },
     mounted(){
-        let data = reduceSource('2020-10-21');
+        let data = reduceSource('2020-10-20');
         let that = this;
         if (data===''){
             let timer = setInterval(function () {
