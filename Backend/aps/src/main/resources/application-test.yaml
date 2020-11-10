@@ -10,7 +10,7 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: 123456
-    schema: classpath:\test\test.sql
+    schema: classpath:/test/test.sql
   jpa:
     show-sql: true
     database: h2

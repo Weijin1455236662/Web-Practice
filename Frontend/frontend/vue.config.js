@@ -7,6 +7,9 @@ module.exports = {
             maskIcon: 'favicon.ico',
             msTileImage: 'favicon.ico'
         }
+    },
+    devServer: {
+        port: 12345
     }
 };
 

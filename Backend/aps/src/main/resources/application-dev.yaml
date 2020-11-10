@@ -20,8 +20,8 @@ spring:
     change-log: classpath:/db.changelog/master.xml
     contexts: dev, faker
     enabled: true
-logging:
-  config: classpath:\log\logback-spring.xml
+#logging:
+#  config: classpath:\log\logback-spring.xml
 springdoc:
   swagger-ui:
     path: /api-docs
