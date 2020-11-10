@@ -41,7 +41,7 @@ CREATE TABLE t_craft (
    material_code  INT,
    human_num  INT,
    capacity  INT,
-   human_res VARCHAR(30),
+   human_res VARCHAR(200),
    equipment_res VARCHAR(30)
 );
 

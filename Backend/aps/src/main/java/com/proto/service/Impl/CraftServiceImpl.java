@@ -68,7 +68,7 @@ public class CraftServiceImpl implements CraftService {
                         team.setBegin_day(1);
                         team.setEnd_day(5);
                         team.setBegin_time(0);
-                        team.setEnd_time(24);
+                        team.setEnd_time(23);
                         team.setNum(1);
                         teamDao.save(team);
                     }
