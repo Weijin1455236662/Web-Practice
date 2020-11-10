@@ -30,6 +30,7 @@
 
 <script>
     import Navigation from "./components/Navigation";
+    import {getScheduleInfo} from "./api/scheduleApi";
     export default {
         name: 'app',
         components: {Navigation},
@@ -56,6 +57,13 @@
             }
             this.begin = date1;
             this.end = date2;
+            let session = sessionStorage.getItem('subOrders');
+            if(session===undefined||session===null){
+                getScheduleInfo('2020-10-20', '2020-10-31').then(res=>{
+                    let list = res.data.subOrderList;
+                    sessionStorage.setItem('subOrders', JSON.stringify(list));
+                });
+            }
         },
         watch:{
             $route: function () {
