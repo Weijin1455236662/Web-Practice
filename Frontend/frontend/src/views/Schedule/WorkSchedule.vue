@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// import {getProductionOrder} from "../../api/analogueAPI";
 import {getScheduleInfo, getOrderWorkSchedule} from "../../api/scheduleApi"
 import {getStaffById} from "../../api/staffManageApi"
 export default {
@@ -48,88 +47,32 @@ export default {
           return date
         }
       },
-      // 合并数组
-      // merge: function(task) {
-      //   let len = task.length
-      //   let ans = []
-      //   let start
-      //   let end
-      //   let day
-      //   let material
-      //   for (let i = 0; i < len; i++) {
-      //     let s = task[i].start
-      //     let e = task[i].end
-      //     let d = task[i].precessid
-      //     let m = task[i].label.split(":")[0]
-      //     if (start === undefined || material !== m) {
-      //       start = s
-      //       end = e
-      //       day = d
-      //       material = m
-      //     } else {
-      //       if (d === day) {
-      //         if (m === material) {
-      //           if (s === end) {
-      //             end = e
-      //             day = d
-      //             material = m
-      //           } else {
-      //             ans.push({
-      //               processid: day,
-      //               start: start,
-      //               end: end,
-      //               material: material
-      //             })
-      //             start = s
-      //             end = e
-      //             day = d
-      //             material = m
-      //           }
-      //         } else {
-      //           start = undefined
-      //           end = undefined
-      //           day = undefined
-      //           material = undefined
-      //         }
-      //       }
-      //     }
-      //   }
-      //   if (start !== undefined) {
-      //     ans.push({
-      //       processid: day,
-      //       start: start,
-      //       end: end,
-      //       material: material
-      //     })
-      //   }
-      //   return ans
-      // }
-    },
-    mounted() {
-      getStaffById(this.$route.query.id).then(res => {
-        this.name = res.data.name
-      })
-      let task = []
-      let process = []
+      // 根据id获取name
+      getNameById: function() {
+        getStaffById(this.$route.query.id).then(res => {
+          console.log(res.data.name)
+          this.name = res.data.name
+        })
+      },
       // 绘图
-      getScheduleInfo("2020-10-15","2020-10-27").then(res => {
-        let id = this.$route.query.id
-        let type = this.$route.query.type
-        this.workInfo = getOrderWorkSchedule(res, id, type)
-        for (let i = 0; i < this.workInfo.length; i++) {
-          let order = this.workInfo[i]
+      render: function(worklist){
+        let task = []
+        let process = []
+        let that = this
+        that.getNameById()
+        console.log(that.name)
+        worklist.forEach(function(item){
           task.push({
-            processid: this.adjustDate(order.date, order.start),
-            start: parseInt(order.start.slice(0,2))>=7?(parseInt(order.start.slice(0,2))-7)+order.start.slice(2):(parseInt(order.start.slice(0,2))+17)+order.start.slice(2),
-            end: parseInt(order.end.slice(0,2))>=7?(parseInt(order.end.slice(0,2))-7)+order.end.slice(2):(parseInt(order.end.slice(0,2))+17)+order.end.slice(2),
-            label: order.material + ": " + order.start + "-" + order.end
+            processid: that.adjustDate(item.date, item.start),
+            start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
+            end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
+            label: item.material + ": " + item.start + "-" + item.end
           })
           process.push({
-            label: this.adjustDate(order.date, order.start),
-            id: this.adjustDate(order.date, order.start)
+            label: that.adjustDate(item.date, item.start),
+            id: that.adjustDate(item.date, item.start)
           })
-        }
-        console.log(this.merge(task))
+        })
         let tasks = {
           showlabels: "0",
           color: "#5D62B5",
@@ -152,8 +95,8 @@ export default {
           headervalign: "middle",
           headeralign: "center",
           process: uniqueProcess
-        };
-        this.chart.dataSource = {
+        }
+        that.chart.dataSource = {
           tasks: tasks,
           processes: processes,
           categories: [
@@ -251,22 +194,91 @@ export default {
             dateformat: "dd/mm/yyyy",
             outputdateformat: "hh12:mn ampm",
             plottooltext: "$label",
-            caption: this.name + "工作安排",
+            caption: "工作安排",
             theme: "fusion"
           }
-        };
+        }
         this.flag = true
-      })
+      }
+      // 合并数组
+      // merge: function(task) {
+      //   let len = task.length
+      //   let ans = []
+      //   let start
+      //   let end
+      //   let day
+      //   let material
+      //   for (let i = 0; i < len; i++) {
+      //     let s = task[i].start
+      //     let e = task[i].end
+      //     let d = task[i].precessid
+      //     let m = task[i].label.split(":")[0]
+      //     if (start === undefined || material !== m) {
+      //       start = s
+      //       end = e
+      //       day = d
+      //       material = m
+      //     } else {
+      //       if (d === day) {
+      //         if (m === material) {
+      //           if (s === end) {
+      //             end = e
+      //             day = d
+      //             material = m
+      //           } else {
+      //             ans.push({
+      //               processid: day,
+      //               start: start,
+      //               end: end,
+      //               material: material
+      //             })
+      //             start = s
+      //             end = e
+      //             day = d
+      //             material = m
+      //           }
+      //         } else {
+      //           start = undefined
+      //           end = undefined
+      //           day = undefined
+      //           material = undefined
+      //         }
+      //       }
+      //     }
+      //   }
+      //   if (start !== undefined) {
+      //     ans.push({
+      //       processid: day,
+      //       start: start,
+      //       end: end,
+      //       material: material
+      //     })
+      //   }
+      //   return ans
+      // }
+    },
+    mounted() {
+      let that = this
+      let id = this.$route.query.id
+      let type = this.$route.query.type
+      
+      let data = getOrderWorkSchedule(id, type)
+      if (data === '') {
+        let timer = setInterval(function () {
+          let data = getOrderWorkSchedule(id, type)
+          if (data !== ''){
+            clearInterval(timer)
+            that.render(data)
+          }
+        }, 100)
+      } else {
+        this.render(data)
+      }
     }
   }
 </script>
 
 <style scoped lang="less">
-/* .container{
-  width: 100%;
-    height: 400px;
-    margin-bottom: 100px;
-} */
 .main{
   .head{
     margin: 30px 5% 0;

@@ -12,27 +12,32 @@ export const getScheduleInfo = (startDate, endDate) => {
 }
 
 // 获取生产单
-export const getOrderWorkSchedule = (arrangement, id, type) => {
-    let tasks = []
-    let orderlist = arrangement.data.subOrderList
-    console.log(orderlist)
-    if (type == "0") {
-        for (let i = 0; i < orderlist.length; i++) {
-            let size = orderlist[i].teamList.teamList.length
-            for (let j = 0; j < size; j++) {
-                if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
-                    tasks.push({
-                        date: orderlist[i].timeslot.date,
-                        start: getTime(orderlist[i].timeslot.time),
-                        end: getTime(orderlist[i].timeslot.time + 1),
-                        material: "物料" + orderlist[i].material_code,
-                    })
+export const getOrderWorkSchedule = (id, type) => {
+    let session = sessionStorage.getItem('subOrders')
+    if (!session) {
+        return ''
+    } else {
+        let orderlist = JSON.parse(session)
+        let tasks = []
+        console.log(orderlist)
+        if (type == "0") {
+            for (let i = 0; i < orderlist.length; i++) {
+                let size = orderlist[i].teamList.teamList.length
+                for (let j = 0; j < size; j++) {
+                    if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
+                        tasks.push({
+                            date: orderlist[i].timeslot.date,
+                            start: getTime(orderlist[i].timeslot.time),
+                            end: getTime(orderlist[i].timeslot.time + 1),
+                            material: "物料" + orderlist[i].material_code,
+                        })
+                    }
                 }
             }
         }
+        console.log(tasks)
+        return tasks
     }
-    console.log(tasks)
-    return tasks
 }
 
 export const getEquipmentInfo = (arrangement) => {
