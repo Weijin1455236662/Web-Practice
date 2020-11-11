@@ -59,7 +59,7 @@
             this.end = date2;
             let session = sessionStorage.getItem('subOrders');
             if(session===undefined||session===null){
-                getScheduleInfo('2020-10-20', '2020-10-31').then(res=>{
+                getScheduleInfo('2018-12-04', '2018-12-11').then(res=>{
                     let list = res.data.subOrderList;
                     sessionStorage.setItem('subOrders', JSON.stringify(list));
                 });

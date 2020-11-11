@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 @Transactional
@@ -71,9 +73,12 @@ public class OrderServiceImpl implements OrderService {
             for (OrderItem item : rawItemList) {
                 Order order = new Order();
                 order.setOrderid(Integer.parseInt(item.getOrderNumber()));
-                order.setDelivery_date(item.getDeliveryDate().toGregorianCalendar().getTime());
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+                order.setDelivery_date(simpleDateFormat.parse(item.getDeliveryDate().toString().split("T")[0]));
                 order.setMaterial_code(Integer.parseInt(item.getMaterialCode()));
                 order.setQuantity(item.getQuantity());
+                System.out.println(order.getDelivery_date());
                 orderDao.save(order);
             }
             return true;
