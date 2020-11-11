@@ -50,8 +50,23 @@ export default {
       // 根据id获取name
       getNameById: function() {
         getStaffById(this.$route.query.id).then(res => {
-          console.log(res.data.name)
-          this.name = res.data.name
+          console.log(res.data.name);
+          this.name = res.data.name;
+          let that = this;
+          let id = this.$route.query.id;
+          let type = this.$route.query.type;
+          let data = getOrderWorkSchedule(id, type)
+          if (data === '') {
+            let timer = setInterval(function () {
+              let data = getOrderWorkSchedule(id, type)
+              if (data !== ''){
+                  clearInterval(timer)
+                  that.render(data)
+              }
+            }, 100)
+          } else {
+              this.render(data)
+          }
         })
       },
       // 绘图
@@ -59,7 +74,6 @@ export default {
         let task = []
         let process = []
         let that = this
-        that.getNameById()
         console.log(that.name)
         worklist.forEach(function(item){
           task.push({
@@ -194,7 +208,7 @@ export default {
             dateformat: "dd/mm/yyyy",
             outputdateformat: "hh12:mn ampm",
             plottooltext: "$label",
-            caption: "工作安排",
+            caption: this.name + "工作安排",
             theme: "fusion"
           }
         }
@@ -258,23 +272,8 @@ export default {
       // }
     },
     mounted() {
-      let that = this
-      let id = this.$route.query.id
-      let type = this.$route.query.type
-      
-      let data = getOrderWorkSchedule(id, type)
-      if (data === '') {
-        let timer = setInterval(function () {
-          let data = getOrderWorkSchedule(id, type)
-          if (data !== ''){
-            clearInterval(timer)
-            that.render(data)
-          }
-        }, 100)
-      } else {
-        this.render(data)
-      }
-    }
+      this.getNameById();
+  }
   }
 </script>
 
