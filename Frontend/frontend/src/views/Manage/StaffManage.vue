@@ -9,7 +9,7 @@
       <div class="card" v-for="(staff,index) in allStaff" :key="index">
         <div class="group">
           <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name.split('-')[1]}}</div></div>
-          <div class="id"><div class="pretext">第</div><div class="number">{{staff.name.split('组')[0]}}</div><div class="text">组</div></div>
+          <div class="id"><div class="number">{{staff.name.split('组')[0]}}</div><div class="text">组</div></div>
         </div>
         <div class="group">
           <div class="num">
@@ -292,14 +292,15 @@
         }
         .id{
           display: flex;
-          font-weight: bold;
           .pretext{
             margin: 33px 4px 0 0;
             font-size: 20px;
           }
           .number{
-            font-size: 56px;
+            font-size: 40px;
+            margin-top: 16px;
             color: #000000;
+            font-weight: bold;
           }
           .text{
             margin: 33px 0 0 4px;

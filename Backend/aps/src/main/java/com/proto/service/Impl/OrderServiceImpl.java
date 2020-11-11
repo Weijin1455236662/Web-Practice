@@ -68,6 +68,7 @@ public class OrderServiceImpl implements OrderService {
 
     public boolean importOrderData(){
         try {
+            orderDao.deleteAll();
             OrderServiceForApp orderServiceForApp = new OrderServiceForApp();
             List<OrderItem> rawItemList = orderServiceForApp.getAllOrders();
             for (OrderItem item : rawItemList) {

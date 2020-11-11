@@ -44,6 +44,7 @@ public class CraftServiceImpl implements CraftService {
 
     public boolean importCraftData(){
         try {
+            craftDao.deleteAll();
             BomServiceForApp bs=new BomServiceForApp();
             List<BomItem> bomItemList=bs.getAllBom();
             while (bomItemList.size()>0) {

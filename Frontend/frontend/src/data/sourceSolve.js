@@ -42,7 +42,7 @@ export const reduceSource = (date)=>{
                             start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
                             end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
                             label: subOrder.material_code,
-                            color: subOrder.material_code===1?"#47F566":"#5188E8"
+                            color: subOrder.material_code===1?'#47F566':'#5188E8'
                         });
                         process.push({
                             label: team.name,
@@ -56,7 +56,7 @@ export const reduceSource = (date)=>{
                         start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
                         end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
                         label: subOrder.material_code,
-                        color: subOrder.material_code===1?"#47F566":"#5188E8"
+                        color: subOrder.material_code===1?'#47F566':'#5188E8'
                     });
                     process.push({
                         label: subOrder.equipment.name,
@@ -76,10 +76,10 @@ export const reduceSource = (date)=>{
         if(uniqueProcess.length===0){
             data.push({
                 processid: '1',
-                start: '',
-                end: '',
+                start: '00:00:00',
+                end: '00:00:00',
                 label: 111,
-                color: "#47F566"
+                color: '#5188E8'
             });
             uniqueProcess.push({
                 label: '',

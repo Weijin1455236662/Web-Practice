@@ -64,6 +64,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 //                e.setType(item.getType());
 //                equipmentDao.save(e);
 //            }
+            equipmentDao.deleteAll();
             ScheduleServiceForApp scheduleServiceForApp = new ScheduleServiceForApp();
             List<ScheduleItem> scheduleItemList = scheduleServiceForApp.getAllSchedule();
             for(ScheduleItem scheduleItem: scheduleItemList){

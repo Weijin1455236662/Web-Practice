@@ -15,7 +15,7 @@
               <div class="type">{{equipment.type==='line'?'生产线':equipment.type}}</div>
             </div>
           </div>
-          <div class="id"><div class="number">{{equipment.equipmentid}}</div><div class="text">号</div></div>
+          <div v-if="/^line\d+$/.test(equipment.name)" class="id"><div class="number">{{equipment.name.split('line')[1]}}</div><div class="text">号</div></div>
         </div>
         <div class="group">
           <div class="amount">
@@ -46,9 +46,9 @@
         <hr/>
       </div>
       <div class="form_body">
-        <div class="form_id line" v-if="formType!==0">
+        <div class="form_id line" v-if="formType!==0&&/^line\d+$/.test(form.name)">
           <label id="equipmentid_label" v-html="'设&#8194;备&#8194;号：'"></label>
-          <div id="equipmentid_disable">{{form.equipmentid}}</div>
+          <div id="equipmentid_disable">{{form.name.split('line')[1]}}</div>
         </div>
         <div class="form_name line">
           <label id="name_label" for="name" v-html="'设备名称：'"></label>

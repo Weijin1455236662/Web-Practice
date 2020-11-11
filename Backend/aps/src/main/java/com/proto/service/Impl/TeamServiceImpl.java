@@ -94,6 +94,7 @@ public class TeamServiceImpl implements TeamService {
 //                teamDao.save(t);
 //
 //            }
+            teamDao.deleteAll();
             ScheduleServiceForApp scheduleServiceForApp = new ScheduleServiceForApp();
             List<ScheduleItem> scheduleItemList = scheduleServiceForApp.getAllSchedule();
             for(ScheduleItem scheduleItem: scheduleItemList){

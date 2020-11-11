@@ -193,7 +193,7 @@
       height: 100%;
       .nav {
         background-color: #f2f2f2;
-        min-width: 220px;
+        min-width: 180px;
         height: 100%;
         border-right: 1px solid #cccccc;
         position: fixed;
@@ -209,7 +209,7 @@
       #main-1{
         width: 100%;
         margin-top: 36px;
-        margin-left: 220px;
+        margin-left: 180px;
       }
       #main-2{
         width: 100%;
