@@ -8,8 +8,8 @@
     <div class="container">
       <div class="card" v-for="(staff,index) in allStaff" :key="index">
         <div class="group">
-          <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name}}</div></div>
-          <div class="id"><div class="pretext">第</div><div class="number">{{staff.teamid}}</div><div class="text">组</div></div>
+          <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name.split('-')[1]}}</div></div>
+          <div class="id"><div class="pretext">第</div><div class="number">{{staff.name.split('组')[0]}}</div><div class="text">组</div></div>
         </div>
         <div class="group">
           <div class="num">
@@ -43,7 +43,7 @@
       <div class="form_body">
         <div class="form_id line" v-if="formType!==0">
           <label id="teamid_label" v-html="'组&#8194;&#8194;号：'"></label>
-          <div id="teamid_disable">{{form.teamid}}</div>
+          <div id="teamid_disable">{{form.name.split('组')[0]}}</div>
         </div>
         <div class="form_name line">
           <label id="name_label" for="name" v-html="'组&#8194;&#8194;长：'"></label>

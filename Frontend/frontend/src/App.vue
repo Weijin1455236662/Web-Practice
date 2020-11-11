@@ -48,18 +48,18 @@
             let date1 = sessionStorage.getItem('beginDate');
             let date2 = sessionStorage.getItem('endDate');
             if(!date1){
-                sessionStorage.setItem('beginDate', '2018-11-09');
-                date1 = '2018-11-09';
+                sessionStorage.setItem('beginDate', '2018-12-04');
+                date1 = '2018-12-04';
             }
             if(!date2){
-                sessionStorage.setItem('endDate', '2018-12-31');
-                date2 = '2018-12-31'
+                sessionStorage.setItem('endDate', '2018-12-11');
+                date2 = '2018-12-11'
             }
             this.begin = date1;
             this.end = date2;
             let session = sessionStorage.getItem('subOrders');
             if(session===undefined||session===null){
-                getScheduleInfo('2018-12-04', '2018-12-11').then(res=>{
+                getScheduleInfo(this.begin, this.end).then(res=>{
                     let list = res.data.subOrderList;
                     sessionStorage.setItem('subOrders', JSON.stringify(list));
                 });

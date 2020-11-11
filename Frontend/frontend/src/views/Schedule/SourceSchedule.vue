@@ -4,6 +4,10 @@
       <div class="text">资源甘特图</div>
       <hr/>
     </div>
+    <div class="dateWrap">
+      <label id="date_label" for="date">查看日期：</label>
+      <input id="date" type="date" v-model="date"/>
+    </div>
     <fusioncharts
       :type="type"
       :width="width"
@@ -25,25 +29,30 @@ export default {
             width: "95%",
             height: "70%",
             dataFormat: "json",
-            dataSource: {}
+            dataSource: {},
+            date: ''
         }
     },
     mounted(){
-        let data = reduceSource('2020-10-20');
-        let that = this;
-        if (data===''){
-            let timer = setInterval(function () {
-                let data = reduceSource('2020-10-21');
-                if (data!==''){
-                    clearInterval(timer);
-                    that.render(data);
-                }
-            }, 100)
-        }else{
-            this.render(data);
-        }
+        this.date = sessionStorage.getItem('beginDate');
+        // this.updateData();
     },
     methods:{
+        updateData: function(){
+            let data = reduceSource(this.date);
+            let that = this;
+            if (data===''){
+                let timer = setInterval(function () {
+                    let data = reduceSource(that.date);
+                    if (data!==''){
+                        clearInterval(timer);
+                        that.render(data);
+                    }
+                }, 100)
+            }else{
+                this.render(data);
+            }
+        },
         calculateTime(val){
             // console.log(val)
             if (parseInt(val.slice(0,2)) + 7 <= 24) {
@@ -53,9 +62,9 @@ export default {
             }
         },
         render: function(data) {
-            let task = []
-            let process = []
-            let that = this
+            console.log(data)
+            let task = [];
+            let that = this;
             data.data.forEach(function(item){
               // console.log(item)
               task.push({
@@ -63,9 +72,9 @@ export default {
                 start: item.start,
                 end: item.end,
                 color: item.color,
-                label: item.label + ": "+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
+                label: "物料" + item.label + ": "+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
               })
-            })
+            });
             this.dataSource = {
               chart: {
                 dateformat: "dd/mm/yyyy",
@@ -82,6 +91,20 @@ export default {
                       end: "23:59:59",
                       label: "时间"
                     }
+                  ]
+                },
+                {
+                  category: [
+                    {
+                      start: "00:00:00",
+                      end: "11:59:59",
+                      label: "早班"
+                    },
+                    {
+                      start: "12:00:00",
+                      end: "23:59:59",
+                      label: "晚班"
+                  }
                   ]
                 },
                 {
@@ -173,27 +196,17 @@ export default {
                     headervalign: "middle",
                     headeralign: "middle",
                     align: "middle",
-                    text: [
-                      {
-                        label: "80%",
-                      },
-                      {
-                        label: "40%"
-                      },
-                      {
-                        label: "60%"
-                      },
-                      {
-                        label: "60%"
-                      },
-                      {
-                        label: "78%",
-                      },
-                    ]
+                    text: data.load
                   }
                 ]
               }
-            }
+            };
+            console.log(this.dataSource)
+        }
+    },
+    watch: {
+        'date': function () {
+            this.updateData();
         }
     }
 }
@@ -207,6 +220,21 @@ export default {
     .text{
       font-size: 32px;
       font-weight: bold;
+    }
+  }
+  .dateWrap{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 10px 7%;
+    #date_label{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #date{
+      font-size: 16px;
+      cursor: pointer;
+      width: 260px;
+      padding-left: 6px;
     }
   }
 }

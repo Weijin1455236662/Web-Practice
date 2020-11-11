@@ -28,6 +28,7 @@
 
 <script>
     import MessageTip from "../../components/MessageTip";
+    import {getScheduleInfo} from "../../api/scheduleApi";
     export default {
         name: "DateManage",
         components: {MessageTip},
@@ -79,7 +80,14 @@
                     this.doSet = false;
                     this.showMessage(0, '修改成功！');
                     this.$parent.$parent.changeTime(this.beginDate, this.endDate);
+                    this.arrangement();
                 }
+            },
+            arrangement: function(){
+                getScheduleInfo(this.beginDate, this.endDate).then(res=>{
+                    let list = res.data.subOrderList;
+                    sessionStorage.setItem('subOrders', JSON.stringify(list));
+                });
             },
             showMessage: function(type, message){
                 this.messageType = type;
