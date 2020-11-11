@@ -148,8 +148,16 @@
                     }).catch(()=>{
                         console.log();
                     });
-                }
-                else {
+                } else if (this.active===9){
+                  this.$router.push({
+                    path: this.navDic[active],
+                    query: {
+                      id: 0
+                    }
+                  }).catch(()=>{
+                    console.log()
+                  });
+                } else {
                     this.$router.push({path:this.navDic[active]}).catch(()=>{
                         console.log();
                     });
