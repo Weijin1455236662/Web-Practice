@@ -3,6 +3,8 @@ package com.proto.service.Impl;
 import com.proto.dao.EquipmentDao;
 import com.proto.pojo.Equipment;
 import com.proto.service.EquipmentService;
+import com.proto.service.client.attendanceservice.schedule.ScheduleItem;
+import com.proto.service.client.attendanceservice.schedule.ScheduleServiceForApp;
 import com.proto.service.client.erpservice.resource.ResourceItem;
 import com.proto.service.client.erpservice.resource.ResourceServiceForApp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,14 +55,31 @@ public class EquipmentServiceImpl implements EquipmentService {
 
     public boolean importEquipmentData(){
         try {
-            ResourceServiceForApp resourceServiceForApp=new ResourceServiceForApp();
-            List<ResourceItem> lineResourceList=resourceServiceForApp.getLineResource();
-            for (ResourceItem item:lineResourceList){
-                Equipment e=new Equipment();
-                e.setName(item.getName());
-                e.setAmount(item.getAmount());
-                e.setType(item.getType());
-                equipmentDao.save(e);
+//            ResourceServiceForApp resourceServiceForApp=new ResourceServiceForApp();
+//            List<ResourceItem> lineResourceList=resourceServiceForApp.getLineResource();
+//            for (ResourceItem item:lineResourceList){
+//                Equipment e=new Equipment();
+//                e.setName(item.getName());
+//                e.setAmount(item.getAmount());
+//                e.setType(item.getType());
+//                equipmentDao.save(e);
+//            }
+            ScheduleServiceForApp scheduleServiceForApp = new ScheduleServiceForApp();
+            List<ScheduleItem> scheduleItemList = scheduleServiceForApp.getAllSchedule();
+            for(ScheduleItem scheduleItem: scheduleItemList){
+                if(scheduleItem.getWorkTime().equals("全天")){
+                    Equipment equipment=new Equipment();
+                    String name = scheduleItem.getName();
+                    name = name.replaceAll("（", " (").replaceAll("）",")").replaceAll(" ", "");
+                    equipment.setName(name.split("\\(")[0]);
+                    equipment.setAmount(Integer.parseInt(name.split("\\(")[1].split("\\)")[0]));
+                    if(name.startsWith("line")){
+                        equipment.setType("line");
+                    }else{
+                        equipment.setType(name.split("\\(")[0]);
+                    }
+                    equipmentDao.save(equipment);
+                }
             }
             return true;
         }catch (Exception e){
