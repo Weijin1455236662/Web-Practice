@@ -46,12 +46,27 @@ export default {
     }
   },
   methods: {
+    // 判断颜色
+    calculateColor: function(val) {
+      val = parseInt(val)
+      if (0 <= val && val <= 25) {
+        return "#F5000C"
+      } else if (25 < val && val <= 50) {
+        return "#f8bd19"
+      } else if (50 < val && val <= 75) {
+        return "#0C9EF0"
+      } else if (75 < val && val <= 100) {
+        return "#57F525"
+      }
+    },
     // 绘图
     render: function (orderList) {
+      let that = this
       let punctualSum = 0
       let category = []
       let dataset = [{
         seriesName: "装配率",
+        fontSize: 26,
         data: []
       }]
       let data = []
@@ -61,7 +76,8 @@ export default {
           toolText: "$label<br>预计完成：" + item.planDate + "<br>实际完成：" + item.actualDate
         })
         data.push({
-          value: item.value
+          value: item.value,
+          color: that.calculateColor(item.value)
         })
       })
       for (let i = 0; i < data.length; i++) {
@@ -92,7 +108,7 @@ export default {
           showValues: 1,
           showLabels: 1,
           numberSuffix: "%",
-          plottooltext: "订单$label<br>" + "$seriesName：$value",
+          plottooltext: "<b>订单$label<br>" + "$seriesName：$value</b>",
           theme: "fusion",
         },
         categories: categories,
@@ -131,14 +147,11 @@ export default {
           this.render(orderSchedule)
         }
       })
-    // setTimeout(function () {
-    //     document.getElementsByTagName('path')[3].style.opacity = '0';
-    //     document.getElementsByTagName('path')[7].style.opacity = '0';
-    //     document.getElementsByTagName('circle')[0].style.opacity = '0';
-    //     document.getElementsByTagName('circle')[1].style.opacity = '0';
-    //     document.getElementsByClassName('pic')[0].style.opacity = '1';
-    //     document.getElementsByClassName('pic')[1].style.opacity = '1';
-    // },200);
+    setTimeout(function () {
+        document.getElementsByTagName('path')[3].style.opacity = '0';
+        document.getElementsByTagName('circle')[0].style.opacity = '0';
+        document.getElementsByClassName('pic')[0].style.opacity = '1';
+    },200);
   }
 }
 </script>
