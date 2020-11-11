@@ -78,6 +78,14 @@ export default {
         }
       ]
     }
+    let dial = [
+      {
+        value: that.punctuality === 100 ? 99.9 : that.punctuality,
+        valueX: "50%",
+        valueY: "210",
+        toolText: this.caption + ": " + that.punctuality + "%"
+      }
+    ]
     this.dataSource = {
       chart: {
         caption: that.caption,
@@ -93,14 +101,7 @@ export default {
       },
       colorrange: colorrange,
       dials: {
-        dial: [
-          {
-            value: that.punctuality,
-            valueX: "50%",
-            valueY: "210",
-            toolText: this.caption + ": " + this.punctuality + "%"
-          }
-        ]
+        dial: dial
       }
     }
   }

@@ -18,6 +18,7 @@
 <script>
 import {getScheduleInfo, getOrderWorkSchedule} from "../../api/scheduleApi"
 import {getStaffById} from "../../api/staffManageApi"
+import {getEquipmentById} from "../../api/equipmentManageApi"
 export default {
   name: "WorkSchedule",
     data(){
@@ -49,25 +50,42 @@ export default {
       },
       // 根据id获取name
       getNameById: function() {
-        getStaffById(this.$route.query.id).then(res => {
-          console.log(res.data.name);
-          this.name = res.data.name;
-          let that = this;
-          let id = this.$route.query.id;
-          let type = this.$route.query.type;
-          let data = getOrderWorkSchedule(id, type)
-          if (data === '') {
-            let timer = setInterval(function () {
-              let data = getOrderWorkSchedule(id, type)
-              if (data !== ''){
-                  clearInterval(timer)
-                  that.render(data)
-              }
-            }, 100)
-          } else {
-              this.render(data)
-          }
-        })
+        if (this.$route.query.type === "0") {
+          getStaffById(this.$route.query.id).then(res => {
+            this.name = res.data.name;
+            let that = this;
+            let id = this.$route.query.id;
+            let type = this.$route.query.type;
+            let data = getOrderWorkSchedule(id, type)
+            if (data === '') {
+              let timer = setInterval(function () {
+                let data = getOrderWorkSchedule(id, type)
+                if (data !== ''){
+                    clearInterval(timer)
+                    that.render(data)
+                }
+              }, 100)
+            } else {
+                this.render(data)
+            }
+          })
+        } else {
+            let that = this;
+            let id = this.$route.query.id;
+            let type = this.$route.query.type;
+            let data = getOrderWorkSchedule(id, type)
+            if (data === '') {
+              let timer = setInterval(function () {
+                let data = getOrderWorkSchedule(id, type)
+                if (data !== ''){
+                    clearInterval(timer)
+                    that.render(data)
+                }
+              }, 100)
+            } else {
+                this.render(data)
+            }
+        }
       },
       // 绘图
       render: function(worklist){

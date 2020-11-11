@@ -33,9 +33,58 @@ export const getOrderWorkSchedule = (id, type) => {
                     }
                 }
             }
+        } else if (type == "line") {
+            for (let i = 0; i < orderlist.length; i++) {
+                if (parseInt(id) === orderlist[i].equipment.equipmentid) {
+                    tasks.push({
+                        date: orderlist[i].timeslot.date,
+                        start: getTime(orderlist[i].timeslot.time),
+                        end: getTime(orderlist[i].timeslot.time + 1),
+                        material: "物料" + orderlist[i].material_code,
+                    })
+                }
+            }
         }
         console.log(tasks)
         return tasks
+    }
+}
+
+// 获取订单进度
+export const getOrderSchedule = (idList) => {
+    let session = sessionStorage.getItem('subOrders')
+    if (!session) {
+        return ''
+    } else {
+        let orderList = JSON.parse(session)
+        let orderSchedule = []
+        for (let i = 0; i < idList.length; i++) {
+            let sum = 0
+            let subOrderNum = 0
+            for (let j = 0; j < orderList.length; j++) {
+                if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
+                    subOrderNum += 1
+                    sum = sum + parseInt(orderList[j].quantity)
+                }
+            }
+            let counter = 0
+            let completeDate
+            for (let j = 0; j < orderList.length; j++) {
+                if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
+                    counter += 1
+                }
+                if (counter === subOrderNum) {
+                    completeDate = orderList[j].timeslot.date
+                }
+            }
+            orderSchedule.push({
+                id: parseInt(idList[i].id),
+                value: (sum / idList[i].quantity * 100).toString() + "%",
+                planDate: idList[i].delivery_date,
+                actualDate: completeDate
+            })
+        }
+        return orderSchedule
     }
 }
 
