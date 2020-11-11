@@ -21,9 +21,41 @@ export const getOrderWorkSchedule = (id, type) => {
         console.log(orderlist)
         if (type == "0") {
             for (let i = 0; i < orderlist.length; i++) {
-                let size = orderlist[i].teamList.teamList.length
-                for (let j = 0; j < size; j++) {
-                    if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
+                if (orderlist[i].teamList !== null) {
+                    let size = orderlist[i].teamList.teamList.length
+                    for (let j = 0; j < size; j++) {
+                        if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
+                            if (orderlist[i].timeslot !== null) {
+                                tasks.push({
+                                    date: orderlist[i].timeslot.date,
+                                    start: getTime(orderlist[i].timeslot.time),
+                                    end: getTime(orderlist[i].timeslot.time + 1),
+                                    material: "物料" + orderlist[i].material_code,
+                                })
+                            }
+                        }
+                    }
+                }
+                // let size = orderlist[i].teamList.teamList.length
+                // if (size !== 0) {
+                //     for (let j = 0; j < size; j++) {
+                //         if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
+                //             if (orderlist[i].timeslot !== null) {
+                //                 tasks.push({
+                //                     date: orderlist[i].timeslot.date,
+                //                     start: getTime(orderlist[i].timeslot.time),
+                //                     end: getTime(orderlist[i].timeslot.time + 1),
+                //                     material: "物料" + orderlist[i].material_code,
+                //                 })
+                //             }
+                //         }
+                //     }
+                // }
+            }
+        } else if (type == "line") {
+            for (let i = 0; i < orderlist.length; i++) {
+                if (orderlist[i].timeslot != null) {
+                    if (parseInt(id) === orderlist[i].equipment.equipmentid) {
                         tasks.push({
                             date: orderlist[i].timeslot.date,
                             start: getTime(orderlist[i].timeslot.time),
@@ -31,17 +63,6 @@ export const getOrderWorkSchedule = (id, type) => {
                             material: "物料" + orderlist[i].material_code,
                         })
                     }
-                }
-            }
-        } else if (type == "line") {
-            for (let i = 0; i < orderlist.length; i++) {
-                if (parseInt(id) === orderlist[i].equipment.equipmentid) {
-                    tasks.push({
-                        date: orderlist[i].timeslot.date,
-                        start: getTime(orderlist[i].timeslot.time),
-                        end: getTime(orderlist[i].timeslot.time + 1),
-                        material: "物料" + orderlist[i].material_code,
-                    })
                 }
             }
         }
@@ -62,19 +83,23 @@ export const getOrderSchedule = (idList) => {
             let sum = 0
             let subOrderNum = 0
             for (let j = 0; j < orderList.length; j++) {
-                if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
-                    subOrderNum += 1
-                    sum = sum + parseInt(orderList[j].quantity)
+                if (orderList[j].timeslot !== null) {
+                    if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
+                        subOrderNum += 1
+                        sum = sum + parseInt(orderList[j].quantity)
+                    }
                 }
             }
             let counter = 0
             let completeDate
             for (let j = 0; j < orderList.length; j++) {
-                if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
-                    counter += 1
-                }
-                if (counter === subOrderNum) {
-                    completeDate = orderList[j].timeslot.date
+                if (orderList[j].timeslot !== null) {
+                    if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
+                        counter += 1
+                    }
+                    if (counter === subOrderNum) {
+                        completeDate = orderList[j].timeslot.date
+                    }
                 }
             }
             orderSchedule.push({
