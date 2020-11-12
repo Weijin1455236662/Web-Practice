@@ -80,7 +80,7 @@
                 this.showNav = !this.showNav;
             },
             goTimeManage: function () {
-                this.$router.push('/manage/date').catch(err=>{
+                this.$router.push('/manage/arrangement').catch(err=>{
                     console.log();
                 });
             },

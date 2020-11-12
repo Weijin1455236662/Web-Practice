@@ -11,5 +11,7 @@
 </script>
 
 <style scoped lang="less">
-
+  .manage{
+    margin-bottom: 100px;
+  }
 </style>

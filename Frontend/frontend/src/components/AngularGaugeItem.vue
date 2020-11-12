@@ -17,7 +17,7 @@ export default {
     return{
       type: "angulargauge",
       width: "38%",
-      height: "35%",
+      height: "50%",
       dataFormat: "json",
       dataSource: {}
     }

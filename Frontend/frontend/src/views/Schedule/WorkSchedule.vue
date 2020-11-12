@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import {getScheduleInfo, getOrderWorkSchedule} from "../../api/scheduleApi"
+import {getOrderWorkSchedule} from "../../api/scheduleApi"
 import {getAllStaff, getStaffById} from "../../api/staffManageApi"
 import {getAllEquipment, getEquipmentById} from "../../api/equipmentManageApi"
 import MessageTip from "../../components/MessageTip";
@@ -128,21 +128,24 @@ export default {
             }
           })
         } else {
-            let that = this;
-            let id = this.$route.query.id;
-            let type = this.$route.query.type;
-            let data = getOrderWorkSchedule(id, type)
-            if (data === '') {
-              let timer = setInterval(function () {
+            getEquipmentById(this.$route.query.id).then(res=>{
+                this.name = res.data.name;
+                let that = this;
+                let id = this.$route.query.id;
+                let type = this.$route.query.type;
                 let data = getOrderWorkSchedule(id, type)
-                if (data !== ''){
-                    clearInterval(timer)
-                    that.render(data)
+                if (data === '') {
+                    let timer = setInterval(function () {
+                        let data = getOrderWorkSchedule(id, type)
+                        if (data !== ''){
+                            clearInterval(timer)
+                            that.render(data)
+                        }
+                    }, 100)
+                } else {
+                    this.render(data)
                 }
-              }, 100)
-            } else {
-                this.render(data)
-            }
+            })
         }
       },
       // 绘图

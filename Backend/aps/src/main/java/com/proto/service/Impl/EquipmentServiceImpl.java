@@ -42,6 +42,16 @@ public class EquipmentServiceImpl implements EquipmentService {
         return save(equipment);
     }
 
+    public Equipment findById(Integer oid){
+        Equipment equipment;
+        try {
+            equipment = equipmentDao.findById(oid).get();
+        }catch (Exception e){
+            return null;
+        }
+        return equipment;
+    }
+
     public List<Equipment> findAll(){
         List<Equipment> list;
         try {

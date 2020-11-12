@@ -29,7 +29,7 @@
         <div class="toolbox">
           <i class="icon-font i-edit tooltip" title="修改设备" @click="updateEquipment(equipment)"></i>
           <i class="icon-font i-delete tooltip" title="删除设备" @click="deleteEquipment(equipment.equipmentid)"></i>
-          <i class="icon-font i-schedule tooltip" title="查看生产单" @click="navSourceSchedule(equipment.equipmentid, equipment.type)"></i>
+          <i class="icon-font i-schedule tooltip" title="查看生产单" @click="navSourceSchedule(equipment.equipmentid)"></i>
         </div>
       </div>
       <div class="card dash" title="新增设备" @click="addStaff">
@@ -196,12 +196,12 @@
                     })
                 }
             },
-            navSourceSchedule: function (id,type) {
+            navSourceSchedule: function (id) {
                 this.$router.push({
                     path: '/schedule/work',
                     query: {
                         id: id,
-                        type: type
+                        type: 1
                     }
                 })
             }

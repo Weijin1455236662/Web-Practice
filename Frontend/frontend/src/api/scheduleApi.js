@@ -19,7 +19,7 @@ export const getOrderWorkSchedule = (id, type) => {
         let orderlist = JSON.parse(session)
         let tasks = []
         console.log(orderlist)
-        if (type == "0") {
+        if (type === '0') {
             for (let i = 0; i < orderlist.length; i++) {
                 if (orderlist[i].teamList !== null) {
                     let size = orderlist[i].teamList.teamList.length
@@ -37,7 +37,7 @@ export const getOrderWorkSchedule = (id, type) => {
                     }
                 }
             }
-        } else if (type == "1") {
+        } else if (type === '1') {
             for (let i = 0; i < orderlist.length; i++) {
                 if (orderlist[i].timeslot != null) {
                     if (parseInt(id) === orderlist[i].equipment.equipmentid) {

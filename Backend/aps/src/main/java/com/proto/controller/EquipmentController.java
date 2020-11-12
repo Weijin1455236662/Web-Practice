@@ -21,6 +21,15 @@ public class EquipmentController {
     EquipmentService equipmentService;
 
     @ResponseBody
+    @GetMapping("/{equipmentid}")
+    public Result findById(@PathVariable @Min(value = 1, message = "id不合法") Integer equipmentid){
+        Equipment equipment = equipmentService.findById(equipmentid);
+        if(equipment!=null)
+            return new Result(true,"查询成功",equipment);
+        return new Result(false,"查询失败",equipment);
+    }
+
+    @ResponseBody
     @GetMapping("/all")
     public Result findAll(){
         List<Equipment> list = equipmentService.findAll();

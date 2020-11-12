@@ -26,8 +26,8 @@
 
       <div class="title">数据管理：</div>
       <div class="buttonWrap">
-        <button class="button confirm" @click="doSet?changeDate():changeSetMode()">更新数据</button>
-        <button v-if="doSet" class="button" @click="cancelChange()">取消</button>
+        <button class="button confirm" @click="resetData()">更新数据</button>
+        <button class="button confirm" @click="arrangement()">重新排程</button>
       </div>
     </div>
   </div>
@@ -36,6 +36,7 @@
 <script>
     import MessageTip from "../../components/MessageTip";
     import {getScheduleInfo} from "../../api/scheduleApi";
+    import {importCraft, importEquipment, importOrder, importTeam} from "../../api/arrangementAPI";
     export default {
         name: "DateManage",
         components: {MessageTip},
@@ -108,6 +109,41 @@
                     this.messageType = 0;
                     this.message = '';
                 },600);
+            },
+            resetData: function () {
+                importTeam().then(res=>{
+                    if(res.flag){
+                        importEquipment().then(res=>{
+                            if(res.flag){
+                                importOrder().then(res=>{
+                                    if(res.flag){
+                                        importCraft().then(res=>{
+                                            if(res.flag){
+                                                this.showMessage(0, '更新数据成功！')
+                                            }else{
+                                                this.showMessage(1, '获取工艺信息失败！')
+                                            }
+                                        }).catch(err=>{
+                                            this.showMessage(1, '获取工艺信息失败！')
+                                        })
+                                    }else{
+                                        this.showMessage(1, '获取订单信息失败！')
+                                    }
+                                }).catch(err=>{
+                                    this.showMessage(1, '获取订单信息失败！')
+                                })
+                            }else{
+                                this.showMessage(1, '获取设备信息失败！')
+                            }
+                        }).catch(err=>{
+                            this.showMessage(1, '获取设备信息失败！')
+                        })
+                    }else{
+                        this.showMessage(1, '获取团队信息失败！')
+                    }
+                }).catch(err=>{
+                    this.showMessage(1, '获取团队信息失败！')
+                })
             }
         }
     }
@@ -128,6 +164,14 @@
       padding: 10px 20px;
       text-align: left;
       flex-wrap: wrap;
+      .title{
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 13px;
+      }
+      .title:not(:first-child){
+        margin-top: 30px;
+      }
       .hasDate{
         display: flex;
         margin-bottom: 13px;

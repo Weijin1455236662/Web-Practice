@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="title">资源负载图</div>
       <hr/>
@@ -42,9 +43,10 @@
 import LoadItem from "../components/LoadItem";
 import AngularGaugeItem from "../components/AngularGaugeItem";
 import {getLoadRate} from "../api/scheduleApi"
+import MessageTip from "../components/MessageTip";
 export default {
   name: "Load",
-  components: {LoadItem, AngularGaugeItem},
+  components: {MessageTip, LoadItem, AngularGaugeItem},
   data(){
     return{
       caption1: "设备总负载",
@@ -64,10 +66,26 @@ export default {
       ],
       sourceList: [],
       dateList: [],
-      datas: []
+      datas: [],
+      messageState: false,
+      messageType: 0,
+      message: '',
     }
   },
   methods: {
+      showMessage: function(type, message){
+          this.messageType = type;
+          this.message = message;
+          this.messageState = true;
+          setTimeout(this.hideMessage,2000);
+      },
+      hideMessage: function(){
+          this.messageState = false;
+          setTimeout(function () {
+              this.messageType = 0;
+              this.message = '';
+          },600);
+      },
     // 计算日期加减
     calculateDate: function(date, n) {
       let date1 = new Date(Date.parse(date.replace(/-/g,"/")))
@@ -89,7 +107,7 @@ export default {
     // 动态修改dateList和subcaption
     changeDateList: function (date) {
       if (!this.ifStartDateValid(date)) {
-        alert("不在排程日期内，请重新选择日期！")
+        this.showMessage(1, "不在排程日期内，请重新选择日期！")
         date = sessionStorage.getItem("beginDate")
         this.startDate = sessionStorage.getItem("beginDate")
       }
@@ -101,46 +119,51 @@ export default {
         this.dateList.push(this.calculateDate(date, i))
       }
 
-      let time1 = this.startDate.split("-")[0] + "年" + this.startDate.split("-")[1] + "月" + parseInt(this.startDate.split("-")[2]) + "日"
-      let time2 = this.calculateDate(this.startDate, 6)
-      let time3 = time2.split("-")[0] + "年" + time2.split("-")[1] + "月" + parseInt(time2.split("-")[2]) + "日"
-      this.subcaption1 = this.subcaption2 = time1 + "  -  " + time3
+      this.subcaption1 = this.subcaption2 = '';
+      let that = this;
+      setTimeout(function () {
+          let time1 = that.startDate.split("-")[0] + "年" + that.startDate.split("-")[1] + "月" + parseInt(that.startDate.split("-")[2]) + "日"
+          let time2 = that.calculateDate(that.startDate, 6)
+          let time3 = time2.split("-")[0] + "年" + time2.split("-")[1] + "月" + parseInt(time2.split("-")[2]) + "日"
+          that.subcaption1 = that.subcaption2 = time1 + "  -  " + time3
 
-      // 获得负载率
-      let result = getLoadRate(this.dateList)
-      let personList = result.personList
-      let equipList = result.equipList
-      console.log(personList)
-      console.log(equipList)
-      for (let i = 0; i < equipList.length; i++) {
-        this.sourceList.push(equipList[i].name)
-        let temp = []
-        for (let j = 0; j < equipList[i].innerDateList.length; j++) {
-          temp.push(equipList[i].innerDateList[j][this.dateList[j]] / 24)
-        }
-        this.datas.push(temp)
-      }
-      for (let i = 0; i < personList.length; i++) {
-        this.sourceList.push(personList[i].name)
-        let temp = []
-        for (let j = 0; j < personList[i].innerDateList.length; j++) {
-          temp.push(personList[i].innerDateList[j][this.dateList[j]] / 12)
-        }
-        this.datas.push(temp)
-      }
+          // 获得负载率
+          let result = getLoadRate(that.dateList)
+          let personList = result.personList
+          let equipList = result.equipList
+          console.log(personList)
+          console.log(equipList)
+          for (let i = 0; i < equipList.length; i++) {
+              that.sourceList.push(equipList[i].name)
+              let temp = []
+              for (let j = 0; j < equipList[i].innerDateList.length; j++) {
+                  temp.push(equipList[i].innerDateList[j][that.dateList[j]] / 24)
+              }
+              that.datas.push(temp)
+          }
+          for (let i = 0; i < personList.length; i++) {
+              that.sourceList.push(personList[i].name)
+              let temp = []
+              for (let j = 0; j < personList[i].innerDateList.length; j++) {
+                  temp.push(personList[i].innerDateList[j][that.dateList[j]] / 12)
+              }
+              that.datas.push(temp)
+          }
+          setTimeout(function () {
+              document.getElementsByTagName('path')[3].style.opacity = '0';
+              document.getElementsByTagName('path')[7].style.opacity = '0';
+              document.getElementsByTagName('circle')[0].style.opacity = '0';
+              document.getElementsByTagName('circle')[1].style.opacity = '0';
+              document.getElementsByClassName('pic')[0].style.opacity = '1';
+              document.getElementsByClassName('pic')[1].style.opacity = '1';
+          },200);
+      }, 100)
+
     },
   },
   mounted(){
     this.startDate = sessionStorage.getItem("beginDate")
     this.changeDateList(this.startDate)
-    setTimeout(function () {
-      document.getElementsByTagName('path')[3].style.opacity = '0';
-      document.getElementsByTagName('path')[7].style.opacity = '0';
-      document.getElementsByTagName('circle')[0].style.opacity = '0';
-      document.getElementsByTagName('circle')[1].style.opacity = '0';
-      document.getElementsByClassName('pic')[0].style.opacity = '1';
-      document.getElementsByClassName('pic')[1].style.opacity = '1';
-    },200);
   }
 }
 </script>
@@ -176,7 +199,7 @@ export default {
     }
   }
   .graph{
-    margin: 30px 6%;
+    margin: 30px 4%;
     .dateBar{
       display: flex;
       margin-bottom: 20px;
@@ -187,7 +210,7 @@ export default {
           margin-right: 10px;
         }
         #day{
-          width: 118px;
+          width: 122px;
         }
       }
       .dateColumn{
@@ -214,7 +237,7 @@ export default {
         align-items: center;
         justify-content: center;
         .name{
-          width: 60px;
+          min-width: 100px;
           border: 1px dotted #000000;
         }
       }

@@ -51,16 +51,6 @@ const routes = [
             }]
     },
     {
-        path: '/load',
-        name: '资源负载图',
-        component: Load
-    },
-    {
-        path: '/order',
-        name: '订单甘特图',
-        component: OrderGantt
-    },
-    {
         path: '/schedule',
         name: '安排',
         component: Schedule,
@@ -84,8 +74,17 @@ const routes = [
                 path: 'orderWork',
                 name: '订单-生产单关系表',
                 component: OrderWorkSchedule
-            }
-            ]
+            },
+            {
+                path: '/load',
+                name: '资源负载图',
+                component: Load
+            },
+            {
+                path: '/order',
+                name: '订单甘特图',
+                component: OrderGantt
+            }]
     },
     {
         path: '*',

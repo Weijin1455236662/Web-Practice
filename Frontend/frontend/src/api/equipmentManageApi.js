@@ -15,3 +15,7 @@ export const updateEquipment = (equipment) =>{
 export const deleteEquipment = (equipmentid) =>{
     return axios.delete('/equipment/' + equipmentid).then(res=>res.data);
 };
+
+export const getEquipmentById = (equipmentid) => {
+    return axios.get('/equipment/' + equipmentid).then(res => res.data);
+};

@@ -34,7 +34,7 @@
             <div class="text">订单管理</div>
           </div>
           <div class="item" :class="active===4?'active':''" @click="nav(4)">
-            <i class="icon-font i-list-index"></i>
+            <i class="icon-font icon-form1"></i>
             <div class="text">排程管理</div>
           </div>
         </div>
@@ -204,6 +204,9 @@
           .text{
             margin-top: 3px;
             margin-left: 4px;
+          }
+          .icon-form1{
+            font-size: 16px;
           }
         }
         .item:hover{

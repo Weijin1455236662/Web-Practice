@@ -18,4 +18,4 @@ export const deleteStaff = (teamid) =>{
 
 export const getStaffById = (teamid) => {
     return axios.get('/team/' + teamid).then(res => res.data);
-}
+};

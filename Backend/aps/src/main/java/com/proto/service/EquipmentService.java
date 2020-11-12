@@ -11,6 +11,8 @@ public interface EquipmentService {
 
     public boolean update(Equipment equipment);
 
+    public Equipment findById(Integer oid);
+
     public List<Equipment> findAll();
 
     public boolean importEquipmentData();

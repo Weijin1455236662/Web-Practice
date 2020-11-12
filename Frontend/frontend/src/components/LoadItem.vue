@@ -36,20 +36,20 @@
             }
         },
         mounted(){
-            if(this.data > 1.2){
-                this.computeData = 1.2;
-            }else{
-                this.computeData = this.data;
-            }
-            for (let key in this.colorDic){
-                if(this.data >= this.colorDic[key]){
-                    this.color = key;
-                }
-            }
             this.drawLoad();
         },
         methods: {
             drawLoad: function () {
+                if(this.data > 1.2){
+                    this.computeData = 1.2;
+                }else{
+                    this.computeData = this.data;
+                }
+                for (let key in this.colorDic){
+                    if(this.data >= this.colorDic[key]){
+                        this.color = key;
+                    }
+                }
                 let height = document.getElementById('wrap'+this.index).offsetHeight;
                 let loadTop = height * (1.2 - this.computeData) / 1.2;
                 document.getElementById('load'+this.index).style.top = loadTop + 'px';
@@ -59,6 +59,11 @@
                 }else{
                     document.getElementById('text'+this.index).style.top = (height + loadTop - textHeight)/2 + 'px';
                 }
+            }
+        },
+        watch: {
+            'data': function () {
+                this.drawLoad();
             }
         }
     }
