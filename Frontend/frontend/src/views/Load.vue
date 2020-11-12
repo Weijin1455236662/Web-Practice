@@ -6,10 +6,10 @@
     </div>
     <div class="loadPic">
       <div>
-        <AngularGaugeItem class="pic" v-if="subcaption1" :punctuality="punctuality1" :caption="caption1" :subcaption="subcaption1"></AngularGaugeItem>
+        <AngularGaugeItem class="pic" v-if="subcaption1" :punctuality="punctuality1" :caption="caption1" :subcaption="subcaption1" @change="changeDateList(startDate)"></AngularGaugeItem>
       </div>
       <div>
-        <AngularGaugeItem class="pic" v-if="subcaption2" :punctuality="punctuality2" :caption="caption2" :subcaption="subcaption2"></AngularGaugeItem>
+        <AngularGaugeItem class="pic" v-if="subcaption2" :punctuality="punctuality2" :caption="caption2" :subcaption="subcaption2" @change="changeDateList(startDate)"></AngularGaugeItem>
       </div>
     </div>
     <div>
@@ -20,7 +20,7 @@
     <div class="graph">
       <div class="dateBar">
         <div class="dayWrap">
-          <input id="day" type="date"/>
+          <input id="day" type="date" v-model="startDate" @change="changeDateList(startDate)"/>
         </div>
         <div class="dateColumn" v-for="(date, index) in dateList" :key="index">{{date}}</div>
       </div>
@@ -41,6 +41,7 @@
 <script>
 import LoadItem from "../components/LoadItem";
 import AngularGaugeItem from "../components/AngularGaugeItem";
+import {getLoadRate} from "../api/scheduleApi"
 export default {
   name: "Load",
   components: {LoadItem, AngularGaugeItem},
@@ -49,9 +50,12 @@ export default {
       caption1: "设备总负载",
       subcaption1: "",
       punctuality1: 87,
+      flag1: false,
       caption2: "人员总负载",
       subcaption2: "",
       punctuality2: 45,
+      flag2: false,
+      startDate: "",
       colorList: [
         '#9F9F9F', '#08ffff', '#4ea4cb', '#98f20c', '#f59d2a', '#e4c7ff', '#e02e44'
       ],
@@ -61,9 +65,7 @@ export default {
       sourceList: [
         "Line1", "Line2", "张三"
       ],
-      dateList: [
-        "2020-10-30", "2020-11-01", "2020-11-02", "2020-11-03", "2020-11-04", "2020-11-05", "2020-11-06", 
-      ],
+      dateList: [],
       datas: [
         [0.1, 0.32, 0.5, 0.67, 0.9, 1, 1.15111],
         [0.6, 0.24, 0.11, 0.98, 0.45, 1, 0.7],
@@ -71,22 +73,57 @@ export default {
       ]
     }
   },
+  methods: {
+    // 计算日期加减
+    calculateDate: function(date, n) {
+      let date1 = new Date(Date.parse(date.replace(/-/g,"/")))
+      let date2 = new Date(date1)
+      date2.setDate(date1.getDate() + n)
+      let resultDate = date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + (date2.getDate().toString().length === 1 ? "0" + date2.getDate().toString() : date2.getDate())
+      return resultDate
+    },
+    // 判断初始日期是否越界
+    ifStartDateValid: function (date) {
+      let start = sessionStorage.getItem("beginDate")
+      let end = sessionStorage.getItem("endDate")
+      if ((new Date(date.replace(/-/g,"/"))) <= (new Date(end.replace(/-/g,"/"))) && (new Date(date.replace(/-/g,"/"))) >= (new Date(start.replace(/-/g,"/")))) {
+        return true
+      } else {
+        return false
+      }
+    },
+    // 动态修改dateList和subcaption
+    changeDateList: function (date) {
+      if (!this.ifStartDateValid(date)) {
+        alert("不在排程日期内，请重新选择日期！")
+        date = sessionStorage.getItem("beginDate")
+        this.startDate = sessionStorage.getItem("beginDate")
+      }
+      this.dateList = []
+      this.dateList.push(date)
+      for (let i = 1; i < 7; i++) {
+        this.dateList.push(this.calculateDate(date, i))
+      }
+
+      let time1 = this.startDate.split("-")[0] + "年" + this.startDate.split("-")[1] + "月" + parseInt(this.startDate.split("-")[2]) + "日"
+      let time2 = this.calculateDate(this.startDate, 6)
+      let time3 = time2.split("-")[0] + "年" + time2.split("-")[1] + "月" + parseInt(time2.split("-")[2]) + "日"
+      this.subcaption1 = this.subcaption2 = time1 + "  -  " + time3
+
+      let result = getLoadRate(this.dateList)
+
+    },
+  },
   mounted(){
-    let date1 = new Date()
-    let time1 = date1.getFullYear() + "年" + (date1.getMonth()+1) + "月" + date1.getDate() + "日"
-    let date2 = new Date(date1)
-    date2.setDate(date1.getDate() - 7)
-    let time2 = date2.getFullYear() + "年" + (date2.getMonth()+1) + "月" + date2.getDate() + "日"
-    this.subcaption1 = time2 + "-" + time1
-    this.subcaption2 = time2 + "-" + time1
-    console.log(this.subcaption1);
+    this.startDate = sessionStorage.getItem("beginDate")
+    this.changeDateList(this.startDate)
     setTimeout(function () {
-        document.getElementsByTagName('path')[3].style.opacity = '0';
-        document.getElementsByTagName('path')[7].style.opacity = '0';
-        document.getElementsByTagName('circle')[0].style.opacity = '0';
-        document.getElementsByTagName('circle')[1].style.opacity = '0';
-        document.getElementsByClassName('pic')[0].style.opacity = '1';
-        document.getElementsByClassName('pic')[1].style.opacity = '1';
+      document.getElementsByTagName('path')[3].style.opacity = '0';
+      document.getElementsByTagName('path')[7].style.opacity = '0';
+      document.getElementsByTagName('circle')[0].style.opacity = '0';
+      document.getElementsByTagName('circle')[1].style.opacity = '0';
+      document.getElementsByClassName('pic')[0].style.opacity = '1';
+      document.getElementsByClassName('pic')[1].style.opacity = '1';
     },200);
   }
 }

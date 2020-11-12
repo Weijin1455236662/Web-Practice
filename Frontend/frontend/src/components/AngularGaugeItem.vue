@@ -36,6 +36,12 @@ export default {
       default: ""
     }
   },
+  watch: {
+    subcaption(newVal, oldVal) {
+      this.subcaption = newVal
+      console.log(newVal)
+    }
+  },
   methods: {
     // 根据进度改变颜色
     calculateColor(cap, val){
@@ -63,7 +69,7 @@ export default {
     }
   },
   mounted(){
-    let that = this;
+    let that = this
     let colorrange = {
       color: [
         {
