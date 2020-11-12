@@ -1,13 +1,15 @@
 <template>
   <div class="main">
+    <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">订单甘特图</div>
       <hr/>
     </div>
     <div class="container">
-      <AngularGaugeItem class="pic" v-if="flag" :punctuality="punctuality" :caption="caption" :subcaption="subcaption"></AngularGaugeItem>
+      <AngularGaugeItem class="pic" v-if="subcaption" :punctuality="punctuality" :caption="caption" :subcaption="subcaption"></AngularGaugeItem>
       <div class="today">
-        今天是 <span class="text">{{today1}}</span>
+        <label id="date_label" for="date">今天是：</label>
+        <input id="date" type="date" v-model="today"/>
       </div>
       <fusioncharts
         v-if="flag"
@@ -22,16 +24,17 @@
 </template>
 
 <script>
-import {getAllOrder} from "../api/orderManageApi"
-import {getOrderSchedule} from "../api/scheduleApi"
-import AngularGaugeItem from "../components/AngularGaugeItem"
-export default {
+    import {getAllOrder} from "../api/orderManageApi"
+    import {getOrderSchedule} from "../api/scheduleApi"
+    import AngularGaugeItem from "../components/AngularGaugeItem"
+    import MessageTip from "../components/MessageTip";
+
+    export default {
   name: "OrderGantt",
-  components: {AngularGaugeItem},
+  components: {MessageTip, AngularGaugeItem},
   data(){
     return{
       today: "",
-      today1: "",
       caption: "按期交货率",
       subcaption: "",
       punctuality: 20,
@@ -42,10 +45,62 @@ export default {
         height: "100%",
         dataFormat: "json",
         dataSource: {},
-      }
+      },
+      messageState: false,
+      messageType: 0,
+      message: '',
     }
   },
   methods: {
+    showMessage: function(type, message){
+      this.messageType = type;
+      this.message = message;
+      this.messageState = true;
+      setTimeout(this.hideMessage,2000);
+    },
+    hideMessage: function(){
+      this.messageState = false;
+      setTimeout(function () {
+          this.messageType = 0;
+          this.message = '';
+      },600);
+    },
+    start: function(){
+        let that = this
+        getAllOrder().then(res => {
+            let order = res.data
+            let orderList = []
+            order.forEach(function(item){
+                orderList.push({
+                    id: item.orderid,
+                    quantity: item.quantity,
+                    delivery_date: item.delivery_date.split("T")[0]
+                })
+            })
+            let orderSchedule = getOrderSchedule(orderList, this.today)
+            if (orderSchedule === '') {
+                let timer = setInterval(function () {
+                    let orderSchedule = getOrderSchedule(orderList, that.today)
+                    if (orderSchedule !== '') {
+                        clearInterval(timer)
+                        that.render(orderSchedule)
+                    }
+                }, 100)
+            } else {
+                this.render(orderSchedule)
+            }
+        })
+    },
+    // 判断初始日期是否越界
+    ifStartDateValid: function (date) {
+      let start = sessionStorage.getItem("beginDate")
+      let end = sessionStorage.getItem("endDate")
+      if ((new Date(date.replace(/-/g,"/"))) <= (new Date(end.replace(/-/g,"/"))) && (new Date(date.replace(/-/g,"/"))) >= (new Date(start.replace(/-/g,"/")))) {
+        return true
+      } else {
+        return false
+      }
+    },
     // 判断颜色
     calculateColor: function(val) {
       val = parseInt(val)
@@ -114,44 +169,38 @@ export default {
         categories: categories,
         dataset: dataset
       }
-      this.flag = true
+      this.flag = true;
+      this.subcaption = '';
+      setTimeout(function () {
+          that.subcaption = that.today.split("-")[0] + "年" + that.today.split("-")[1] + "月" + that.today.split("-")[2] + "日" + "之前";
+          setTimeout(function () {
+              document.getElementsByTagName('path')[3].style.opacity = '0';
+              document.getElementsByTagName('circle')[0].style.opacity = '0';
+              document.getElementsByClassName('pic')[0].style.opacity = '1';
+              let percentage = document.getElementsByTagName('text')[0];
+              if(percentage.innerHTML === '99.9%'){
+                  percentage.innerHTML = '100%';
+              }
+          },100);
+      },100);
     }
   },
   mounted(){
-    let endDate = sessionStorage.getItem("endDate")
-    this.today = endDate.split("-")[0] + "年" + endDate.split("-")[1] + "月" + endDate.split("-")[2] + "日"
-    this.today1 = endDate
-    this.subcaption = this.today + "之前"
-    let that = this
-    getAllOrder().then(res => {
-        console.log(res.data)
-        let order = res.data
-        let orderList = []
-        order.forEach(function(item){
-          orderList.push({
-            id: item.orderid,
-            quantity: item.quantity,
-            delivery_date: item.delivery_date.split("T")[0]
-          })
-        })
-        let orderSchedule = getOrderSchedule(orderList)
-        if (orderSchedule === '') {
-          let timer = setInterval(function () {
-            let orderSchedule = getOrderSchedule(orderList)
-            if (orderSchedule !== '') {
-              clearInterval(timer)
-              that.render(orderSchedule)
+    this.today = sessionStorage.getItem("beginDate")
+    this.start();
+  },
+  watch: {
+    'today': function () {
+        if(!this.ifStartDateValid(this.today)){
+            this.showMessage(1, "不在排程日期内，请重新选择日期！")
+            if(this.today < sessionStorage.getItem("beginDate")){
+                this.today = sessionStorage.getItem("beginDate");
+            }else{
+                this.today = sessionStorage.getItem("endDate");
             }
-          }, 100)
-        } else {
-          this.render(orderSchedule)
         }
-      })
-    setTimeout(function () {
-        document.getElementsByTagName('path')[3].style.opacity = '0';
-        document.getElementsByTagName('circle')[0].style.opacity = '0';
-        document.getElementsByClassName('pic')[0].style.opacity = '1';
-    },200);
+        this.start();
+    }
   }
 }
 </script>
@@ -170,9 +219,17 @@ export default {
     margin: 30px 5% 0;
     .today{
       text-align: left;
-      font-size: 26px;
-      .text{
+      margin-bottom: 2px;
+      padding-left: 4%;
+      #date_label{
+        font-size: 20px;
         font-weight: bold;
+      }
+      #date{
+        font-size: 16px;
+        cursor: pointer;
+        width: 260px;
+        padding-left: 6px;
       }
     }
   }

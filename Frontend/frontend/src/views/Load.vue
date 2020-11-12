@@ -73,19 +73,19 @@ export default {
     }
   },
   methods: {
-      showMessage: function(type, message){
-          this.messageType = type;
-          this.message = message;
-          this.messageState = true;
-          setTimeout(this.hideMessage,2000);
-      },
-      hideMessage: function(){
-          this.messageState = false;
-          setTimeout(function () {
-              this.messageType = 0;
-              this.message = '';
-          },600);
-      },
+    showMessage: function(type, message){
+      this.messageType = type;
+      this.message = message;
+      this.messageState = true;
+      setTimeout(this.hideMessage,2000);
+    },
+    hideMessage: function(){
+      this.messageState = false;
+      setTimeout(function () {
+          this.messageType = 0;
+          this.message = '';
+      },600);
+    },
     // 计算日期加减
     calculateDate: function(date, n) {
       let date1 = new Date(Date.parse(date.replace(/-/g,"/")))
@@ -108,8 +108,13 @@ export default {
     changeDateList: function (date) {
       if (!this.ifStartDateValid(date)) {
         this.showMessage(1, "不在排程日期内，请重新选择日期！")
-        date = sessionStorage.getItem("beginDate")
-        this.startDate = sessionStorage.getItem("beginDate")
+        if(this.startDate < sessionStorage.getItem("beginDate")){
+            date = sessionStorage.getItem("beginDate");
+            this.startDate = sessionStorage.getItem("beginDate");
+        }else{
+            date = sessionStorage.getItem("endDate");
+            this.startDate = sessionStorage.getItem("endDate");
+        }
       }
       this.dateList = []
       this.sourceList = []

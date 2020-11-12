@@ -5,7 +5,7 @@
       <hr/>
     </div>
     <div class="dateWrap">
-      <label id="date_label" for="date">查看日期：</label>
+      <label id="date_label" for="date">今天是：</label>
       <input id="date" type="date" v-model="date"/>
     </div>
     <fusioncharts

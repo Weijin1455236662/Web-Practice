@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <h1>订单-生产单关系表</h1>
+  <div class="main">
+    <div class="head">
+      <div class="text">订单-生产单关系表</div>
+      <hr/>
+    </div>
     <div></div>
   </div>
 </template>
@@ -29,6 +32,15 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+  .main{
+    .head{
+      margin: 30px 5% 0;
+      text-align: left;
+      .text{
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
+  }
 </style>
