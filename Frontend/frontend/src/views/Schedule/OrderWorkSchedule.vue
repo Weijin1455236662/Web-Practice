@@ -15,16 +15,16 @@ export default {
     }
   },
   methods: {
-    getAllScheduleInfo: function(){
-      getScheduleInfo("2020-10-15","2020-10-27").then(res => {
-        console.log(res)
-        console.log(getEquipmentInfo(res))
-        console.log(getSubOrderList(res))
-      })
-    }
+    // getAllScheduleInfo: function(){
+    //   getScheduleInfo("2020-10-15","2020-10-27").then(res => {
+    //     console.log(res)
+    //     console.log(getEquipmentInfo(res))
+    //     console.log(getSubOrderList(res))
+    //   })
+    // }
   },
   mounted(){
-    this.getAllScheduleInfo()
+    // this.getAllScheduleInfo()
   }
 }
 </script>

@@ -120,6 +120,7 @@ export default {
       }
 
       this.subcaption1 = this.subcaption2 = '';
+      this.punctuality1 = this.punctuality2 = 0;
       let that = this;
       setTimeout(function () {
           let time1 = that.startDate.split("-")[0] + "年" + that.startDate.split("-")[1] + "月" + parseInt(that.startDate.split("-")[2]) + "日"
@@ -131,24 +132,41 @@ export default {
           let result = getLoadRate(that.dateList)
           let personList = result.personList
           let equipList = result.equipList
-          console.log(personList)
-          console.log(equipList)
+          // console.log(personList)
+          // console.log(equipList)
+          // let personTotalPunctuality = 0
+          let counter1 = 0
+          let counter2 = 0
           for (let i = 0; i < equipList.length; i++) {
+              let equipTotalPunctuality = 0
               that.sourceList.push(equipList[i].name)
               let temp = []
               for (let j = 0; j < equipList[i].innerDateList.length; j++) {
                   temp.push(equipList[i].innerDateList[j][that.dateList[j]] / 24)
+                  equipTotalPunctuality = equipTotalPunctuality + equipList[i].innerDateList[j][that.dateList[j]] / 24
+                  if (equipList[i].innerDateList[j][that.dateList[j]] != 0) {
+                    counter1++
+                  }
               }
+              that.punctuality1 = that.punctuality1 + equipTotalPunctuality * 100
               that.datas.push(temp)
           }
           for (let i = 0; i < personList.length; i++) {
+              let personTotalPunctuality = 0
               that.sourceList.push(personList[i].name)
               let temp = []
               for (let j = 0; j < personList[i].innerDateList.length; j++) {
                   temp.push(personList[i].innerDateList[j][that.dateList[j]] / 12)
+                  personTotalPunctuality = personTotalPunctuality + personList[i].innerDateList[j][that.dateList[j]] / 12
+                  if (personList[i].innerDateList[j][that.dateList[j]] != 0) {
+                    counter2++
+                  }
               }
+              that.punctuality2 = that.punctuality2 + personTotalPunctuality * 100
               that.datas.push(temp)
           }
+          that.punctuality1 = that.punctuality1 / counter1
+          that.punctuality2 = that.punctuality2 / counter2
           setTimeout(function () {
               document.getElementsByTagName('path')[3].style.opacity = '0';
               document.getElementsByTagName('path')[7].style.opacity = '0';

@@ -177,14 +177,23 @@ export const getLoadRate = (dateList) => {
     }
 }
 
-export const getEquipmentInfo = (arrangement) => {
-    var equipment = arrangement.data.equipmentList
-    return equipment
-}
-
-export const getSubOrderList = (arrangement) => {
-    var subOrderList = arrangement.data.subOrderList
-    return subOrderList
+// 获取订单计划图
+export const getOrderPlan = function (id) {
+    let session = sessionStorage.getItem('subOrders')
+    if (!session) {
+        return ''
+    } else {
+        let orderList = JSON.parse(session)
+        let subOrderList = []
+        console.log("gun")
+        for (let i = 0; i < orderList.length; i++) {
+            if (parseInt(orderList[i].parent_id) === parseInt(id)) {
+                console.log(orderList[i])
+                subOrderList.push(orderList[i])
+            }
+        }
+        console.log(subOrderList)
+    }
 }
 
 // 时间转换
