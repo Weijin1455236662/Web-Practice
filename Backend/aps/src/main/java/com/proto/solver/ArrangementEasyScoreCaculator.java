@@ -88,6 +88,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                     }
                     if(!found){
                         result = true;
+                        break;
                     }
                 }
                 if(result){
@@ -113,7 +114,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                     if(b.getTeamList()!=null&&b.getTimeslot()!=null&&b.getEquipment()!=null){
                         teamListb = b.getTeamList().getTeamList();
 
-                        if((a.getTimeslot().getTime()==b.getTimeslot().getTime())&&a.getId()<b.getId()){
+                        if((a.getTimeslot().getTime()==b.getTimeslot().getTime())&&(a.getTimeslot().getDate().equals(b.getTimeslot().getDate()))&&a.getId()<b.getId()){
                             result = false;
                             for(int i=0;i<teamLista.size();i++){
                                 for(int j=0;j<teamListb.size();j++){

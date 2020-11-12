@@ -13,7 +13,7 @@ import Schedule from "../views/Schedule/Schedule";
 import SourceSchedule from "../views/Schedule/SourceSchedule";
 import OrderSchedule from "../views/Schedule/OrderSchedule";
 import OrderWorkSchedule from "../views/Schedule/OrderWorkSchedule";
-import DateManage from "../views/Manage/DateManage";
+import DateManage from "../views/Manage/ArrangementManage";
 
 
 Vue.use(VueRouter);
@@ -45,8 +45,8 @@ const routes = [
                 component: OrderManage
             },
             {
-                path: 'date',
-                name: '时间管理',
+                path: 'arrangement',
+                name: '排程管理',
                 component: DateManage
             }]
     },

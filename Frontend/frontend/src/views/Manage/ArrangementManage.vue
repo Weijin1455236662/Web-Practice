@@ -2,10 +2,11 @@
   <div class="main">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
-      <div class="text">时间管理</div>
+      <div class="text">排程管理</div>
       <hr/>
     </div>
     <div class="container">
+      <div class="title">时间管理：</div>
       <div v-if="!doSet" class="hasDate">
         <div class="text">当前排程时间是：</div>
         <div class="date">{{beginDate}}</div>
@@ -20,6 +21,12 @@
       </div>
       <div class="buttonWrap">
         <button class="button confirm" @click="doSet?changeDate():changeSetMode()">修改</button>
+        <button v-if="doSet" class="button" @click="cancelChange()">取消</button>
+      </div>
+
+      <div class="title">数据管理：</div>
+      <div class="buttonWrap">
+        <button class="button confirm" @click="doSet?changeDate():changeSetMode()">更新数据</button>
         <button v-if="doSet" class="button" @click="cancelChange()">取消</button>
       </div>
     </div>

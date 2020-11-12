@@ -35,7 +35,7 @@
           </div>
           <div class="item" :class="active===4?'active':''" @click="nav(4)">
             <i class="icon-font i-list-index"></i>
-            <div class="text">时间管理</div>
+            <div class="text">排程管理</div>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
                     1: '/manage/staff',
                     2: '/manage/equipment',
                     3: '/manage/order',
-                    4: '/manage/date',
+                    4: '/manage/arrangement',
                     5: '/schedule/work',
                     6: '/load',
                     7: '/order',
