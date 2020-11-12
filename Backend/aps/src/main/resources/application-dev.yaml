@@ -3,7 +3,7 @@ server:
 optaplanner:
   solver:
     termination:
-      spent-limit: 5s
+      spent-limit: 100s
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/test_db?characterEncoding=utf-8&serverTimezone=UTC

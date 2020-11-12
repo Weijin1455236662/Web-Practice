@@ -196,7 +196,7 @@
       .submenu{
         .item{
           display: flex;
-          padding-left: 44px;
+          padding-left: 32px;
           height: 28px;
           font-size: 14px;
           line-height: 1.93;

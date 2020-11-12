@@ -5,10 +5,22 @@
       <div class="text">生产单</div>
       <hr/>
     </div>
-    <div v-if="showList" >
+    <div v-if="showList" class="container">
       <div class="group">
-        <div class="head"></div>
-        <div class="list"></div>
+        <div class="title">团队列表</div>
+        <div class="list">
+          <div v-for="(team, index) in teamList" :key="index" class="name">
+            <span class="text" @click="nav(team.teamid, 0)">{{team.name}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="title">设备列表</div>
+        <div class="list">
+          <div v-for="(equipment, index) in equipmentList" :key="index" class="name">
+            <span class="text" @click="nav(equipment.equipmentid, 1)">{{equipment.name}}</span>
+          </div>
+        </div>
       </div>
     </div>
     <fusioncharts
@@ -51,6 +63,17 @@ export default {
       }
     },
     methods: {
+        nav: function(id, type){
+            this.$router.push({
+                path: '/schedule/work',
+                query: {
+                    id: id,
+                    type: type
+                }
+            }).catch(()=>{
+                console.log()
+            });
+        },
         showMessage: function(type, message){
             this.messageType = type;
             this.message = message;
@@ -259,7 +282,7 @@ export default {
           }
         }
         this.flag = true
-      }
+      },
       // 合并数组
       // merge: function(task) {
       //   let len = task.length
@@ -316,35 +339,42 @@ export default {
       //   }
       //   return ans
       // }
+        measure: function () {
+            let id = this.$route.query.id;
+            if (id==='0'){
+                this.showList = true;
+                getAllStaff().then(res=>{
+                    if(res.flag){
+                        this.teamList = res.data;
+                        getAllEquipment().then(res=>{
+                            if(res.flag){
+                                this.equipmentList = res.data;
+                            }else{
+                                this.showMessage(1, '获取设备列表失败！')
+                            }
+                        }).catch(err=>{
+                            this.showMessage(1, '获取设备列表失败！')
+                        })
+                    }else{
+                        this.showMessage(1, '获取团队列表失败！')
+                    }
+                }).catch(err=>{
+                    this.showMessage(1, '获取团队列表失败！')
+                })
+            }else{
+                this.showList = false;
+                this.getNameById();
+            }
+        }
     },
     mounted() {
-      let id = this.$route.query.id;
-      if (id==='0'){
-          this.showList = true;
-          getAllStaff().then(res=>{
-              if(res.flag){
-                  this.teamList = res;
-                  getAllEquipment().then(res=>{
-                      if(res.flag){
-                          this.equipmentList = res;
-                      }else{
-                          this.showMessage(1, '获取团队列表失败！')
-                      }
-                  }).catch(err=>{
-                      this.showMessage(1, '获取团队列表失败！')
-                  })
-              }else{
-                  this.showMessage(1, '获取团队列表失败！')
-              }
-          }).catch(err=>{
-              this.showMessage(1, '获取团队列表失败！')
-          })
-      }else{
-          this.showList = false;
-          this.getNameById();
+      this.measure();
+    },
+    watch: {
+      $route : function () {
+          this.measure();
       }
-
-  }
+    }
   }
 </script>
 
@@ -356,6 +386,34 @@ export default {
     .text{
       font-size: 32px;
       font-weight: bold;
+    }
+  }
+  .container{
+    .group{
+      margin: 30px 7% 10px;
+      .title{
+        text-align: left;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px 0;
+        .name{
+          width: 25%;
+          margin: 6px 0;
+          .text{
+            color: #5a5a5a;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          .text:hover{
+            color: #000000;
+          }
+        }
+
+      }
     }
   }
 }

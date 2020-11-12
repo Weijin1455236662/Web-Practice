@@ -52,7 +52,7 @@
                 sessionStorage.setItem('beginDate', date1);
             }
             if(!date2){
-                date2 = '2018-11-21'
+                date2 = '2018-11-08'
                 sessionStorage.setItem('endDate', date2);
             }
             this.begin = date1;
@@ -81,7 +81,6 @@
             },
             goTimeManage: function () {
                 this.$router.push('/manage/date').catch(err=>{
-                    // location.reload();
                     console.log();
                 });
             },
@@ -193,7 +192,7 @@
       height: 100%;
       .nav {
         background-color: #f2f2f2;
-        min-width: 180px;
+        min-width: 200px;
         height: 100%;
         border-right: 1px solid #cccccc;
         position: fixed;
@@ -209,7 +208,7 @@
       #main-1{
         width: 100%;
         margin-top: 36px;
-        margin-left: 180px;
+        margin-left: 200px;
       }
       #main-2{
         width: 100%;
