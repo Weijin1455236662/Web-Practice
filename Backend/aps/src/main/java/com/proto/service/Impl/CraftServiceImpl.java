@@ -47,58 +47,64 @@ public class CraftServiceImpl implements CraftService {
             craftDao.deleteAll();
             BomServiceForApp bs=new BomServiceForApp();
             List<BomItem> bomItemList=bs.getAllBom();
-            while (bomItemList.size()>0) {
-                Craft craft = new Craft();
-                String material_code = bomItemList.get(0).getMaterialCode();
-                String technology = bomItemList.get(0).getTechnology();
-                int human_num = bomItemList.get(0).getPersonnelNumber();
-                String capacity = bomItemList.get(0).getStandardCapacity();
-                String human_res = "";
-                String equipment_res = "";
-                craft.setMaterial_code(Integer.parseInt(material_code));
-                craft.setHuman_num(human_num);
-                craft.setCapacity(Integer.parseInt(capacity.substring(0, capacity.length() - 4)));
-                List<Integer> humans = new ArrayList<>();
-                List<Integer> equipments = new ArrayList<>();
-                while (bomItemList.size() > 0 && bomItemList.get(0).getMaterialCode().equals(material_code) && bomItemList.get(0).getTechnology().equals(technology)) {
-                    BomItem item = bomItemList.get(0);
-                    if(!item.getResource().equals("")){
-                        String resource = item.getResource().replaceAll("（","(").replaceAll(" ", "").split("\\(")[0];
-                        Team t = teamDao.findByName(resource);
-                        if (t == null) {
-                            Equipment e = equipmentDao.findByName(resource);
-                            if (e == null) {
-                                e = new Equipment();
-                                e.setName(resource);
-                                e.setAmount(1);
-                                e.setType(item.getResourceType());
-                                equipmentDao.save(e);
-                                e = equipmentDao.findByName(resource);
-                            }
-                            if (!equipments.contains(e.getEquipmentid())) {
-                                equipment_res = equipment_res + "_" + e.getEquipmentid();
-                                equipments.add(e.getEquipmentid());
-                            }
 
-                        } else {
-                            if (!humans.contains(t.getTeamid())) {
-                                human_res = human_res + "_" + t.getTeamid();
-                                humans.add(t.getTeamid());
+
+            while (bomItemList.size()>0) {
+                if(bomItemList.get(0).getTechnology().equals("装配")){
+                    Craft craft = new Craft();
+                    String material_code = bomItemList.get(0).getMaterialCode();
+                    String technology = bomItemList.get(0).getTechnology();
+                    int human_num = bomItemList.get(0).getPersonnelNumber();
+                    String capacity = bomItemList.get(0).getStandardCapacity();
+                    String human_res = "";
+                    String equipment_res = "";
+                    craft.setMaterial_code(Integer.parseInt(material_code));
+                    craft.setHuman_num(human_num);
+                    craft.setCapacity(Integer.parseInt(capacity.substring(0, capacity.length() - 4)));
+                    List<Integer> humans = new ArrayList<>();
+                    List<Integer> equipments = new ArrayList<>();
+                    while (bomItemList.size() > 0 && bomItemList.get(0).getMaterialCode().equals(material_code) && bomItemList.get(0).getTechnology().equals(technology)) {
+                        BomItem item = bomItemList.get(0);
+                        if(!item.getResource().equals("")&&bomItemList.get(0).getTechnology().equals("装配")){
+                            System.out.println(item.getTechnology() + item.getMaterialCode());
+                            String resource = item.getResource().replaceAll("（","(").replaceAll(" ", "").split("\\(")[0];
+                            Team t = teamDao.findByName(resource);
+                            if (t == null) {
+                                Equipment e = equipmentDao.findByName(resource);
+                                if (e == null) {
+                                    e = new Equipment();
+                                    e.setName(resource);
+                                    e.setAmount(1);
+                                    e.setType(item.getResourceType());
+                                    equipmentDao.save(e);
+                                    e = equipmentDao.findByName(resource);
+                                }
+                                if (!equipments.contains(e.getEquipmentid())) {
+                                    equipment_res = equipment_res + "_" + e.getEquipmentid();
+                                    equipments.add(e.getEquipmentid());
+                                }
+
+                            } else {
+                                if (!humans.contains(t.getTeamid())) {
+                                    human_res = human_res + "_" + t.getTeamid();
+                                    humans.add(t.getTeamid());
+                                }
                             }
                         }
+                        bomItemList.remove(0);
                     }
+                    if (human_res.length() > 0) {
+                        human_res = human_res.substring(1, human_res.length());
+                    }
+                    craft.setHuman_res(human_res);
+                    if (equipment_res.length() > 0) {
+                        equipment_res = equipment_res.substring(1, equipment_res.length());
+                    }
+                    craft.setEquipment_res(equipment_res);
+                    craftDao.save(craft);
+                }else{
                     bomItemList.remove(0);
                 }
-                if (human_res.length() > 0) {
-                    human_res = human_res.substring(1, human_res.length());
-                }
-                craft.setHuman_res(human_res);
-                if (equipment_res.length() > 0) {
-                    equipment_res = equipment_res.substring(1, equipment_res.length());
-                }
-                craft.setEquipment_res(equipment_res);
-                craftDao.save(craft);
-
             }
 
 

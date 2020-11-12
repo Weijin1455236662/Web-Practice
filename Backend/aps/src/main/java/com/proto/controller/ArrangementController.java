@@ -47,8 +47,27 @@ public class ArrangementController {
         List<Equipment> equipmentList = equipmentService.findAll();
 
         List<Team> teamList = teamService.findAll();
-        int tag[] = new int[10];
-        buildTeamLists(teamList,teamLists,tag,0);
+        TeamList team_list = null;
+        for(int i=0;i<teamList.size();i++){
+            team_list = new TeamList();
+            team_list.getTeamList().add(teamList.get(i));
+            teamLists.add(team_list);
+            for(int j=i+1;j<teamList.size();j++){
+                team_list = new TeamList();
+                team_list.getTeamList().add(teamList.get(i));
+                team_list.getTeamList().add(teamList.get(j));
+                teamLists.add(team_list);
+                for(int k=j+1;k<teamList.size();k++){
+                    team_list = new TeamList();
+                    team_list.getTeamList().add(teamList.get(i));
+                    team_list.getTeamList().add(teamList.get(j));
+                    team_list.getTeamList().add(teamList.get(k));
+                    teamLists.add(team_list);
+                }
+            }
+        }
+        //int tag[] = new int[10];
+        //buildTeamLists(teamList,teamLists,tag,0);
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date begin_date = simpleDateFormat.parse(beginDate);

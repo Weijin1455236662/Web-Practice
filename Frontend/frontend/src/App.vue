@@ -48,8 +48,8 @@
             let date1 = sessionStorage.getItem('beginDate');
             let date2 = sessionStorage.getItem('endDate');
             if(!date1){
-                sessionStorage.setItem('beginDate', '2018-12-04');
-                date1 = '2018-12-04';
+                sessionStorage.setItem('beginDate', '2018-10-01');
+                date1 = '2018-10-01';
             }
             if(!date2){
                 sessionStorage.setItem('endDate', '2018-12-11');

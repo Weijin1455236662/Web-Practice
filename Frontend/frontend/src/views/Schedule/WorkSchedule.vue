@@ -1,11 +1,18 @@
 <template>
   <div class="main">
+    <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">生产单</div>
       <hr/>
     </div>
+    <div v-if="showList" >
+      <div class="group">
+        <div class="head"></div>
+        <div class="list"></div>
+      </div>
+    </div>
     <fusioncharts
-      v-if="flag"
+      v-if="!showList&&flag"
       :type="chart.type"
       :width="chart.width"
       :height="chart.height"
@@ -17,10 +24,12 @@
 
 <script>
 import {getScheduleInfo, getOrderWorkSchedule} from "../../api/scheduleApi"
-import {getStaffById} from "../../api/staffManageApi"
-import {getEquipmentById} from "../../api/equipmentManageApi"
+import {getAllStaff, getStaffById} from "../../api/staffManageApi"
+import {getAllEquipment, getEquipmentById} from "../../api/equipmentManageApi"
+import MessageTip from "../../components/MessageTip";
 export default {
   name: "WorkSchedule",
+    components: {MessageTip},
     data(){
       return{
         chart: {
@@ -30,12 +39,31 @@ export default {
           dataFormat: "json",
           dataSource: {}
         },
+        showList: true,
+        teamList: [],
+        equipmentList: [],
+        messageState: false,
+        messageType: 0,
+        message: '',
         flag: false,
         workInfo: {},
         name: "line"
       }
     },
     methods: {
+        showMessage: function(type, message){
+            this.messageType = type;
+            this.message = message;
+            this.messageState = true;
+            setTimeout(this.hideMessage,2000);
+        },
+        hideMessage: function(){
+            this.messageState = false;
+            setTimeout(function () {
+                this.messageType = 0;
+                this.message = '';
+            },600);
+        },
       // 根据工作时间调整日期
       adjustDate: function(date, start) {
         if (0 <= parseInt(start.slice(0,2)) && parseInt(start.slice(0,2)) <= 6) {
@@ -290,7 +318,32 @@ export default {
       // }
     },
     mounted() {
-      this.getNameById();
+      let id = this.$route.query.id;
+      if (id==='0'){
+          this.showList = true;
+          getAllStaff().then(res=>{
+              if(res.flag){
+                  this.teamList = res;
+                  getAllEquipment().then(res=>{
+                      if(res.flag){
+                          this.equipmentList = res;
+                      }else{
+                          this.showMessage(1, '获取团队列表失败！')
+                      }
+                  }).catch(err=>{
+                      this.showMessage(1, '获取团队列表失败！')
+                  })
+              }else{
+                  this.showMessage(1, '获取团队列表失败！')
+              }
+          }).catch(err=>{
+              this.showMessage(1, '获取团队列表失败！')
+          })
+      }else{
+          this.showList = false;
+          this.getNameById();
+      }
+
   }
   }
 </script>
