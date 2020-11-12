@@ -62,15 +62,9 @@ export default {
       indexList: [
         "图例", "0~20%", "20%~40%", "40%~60%", "60%~80%", "80%~100%", ">100%"
       ],
-      sourceList: [
-        "Line1", "Line2", "张三"
-      ],
+      sourceList: [],
       dateList: [],
-      datas: [
-        [0.1, 0.32, 0.5, 0.67, 0.9, 1, 1.15111],
-        [0.6, 0.24, 0.11, 0.98, 0.45, 1, 0.7],
-        [1.3, 0.16, 0.41, 0.78, 0.92, 1, 0]
-      ]
+      datas: []
     }
   },
   methods: {
@@ -100,6 +94,8 @@ export default {
         this.startDate = sessionStorage.getItem("beginDate")
       }
       this.dateList = []
+      this.sourceList = []
+      this.datas = []
       this.dateList.push(date)
       for (let i = 1; i < 7; i++) {
         this.dateList.push(this.calculateDate(date, i))
@@ -110,8 +106,28 @@ export default {
       let time3 = time2.split("-")[0] + "年" + time2.split("-")[1] + "月" + parseInt(time2.split("-")[2]) + "日"
       this.subcaption1 = this.subcaption2 = time1 + "  -  " + time3
 
+      // 获得负载率
       let result = getLoadRate(this.dateList)
-
+      let personList = result.personList
+      let equipList = result.equipList
+      console.log(personList)
+      console.log(equipList)
+      for (let i = 0; i < equipList.length; i++) {
+        this.sourceList.push(equipList[i].name)
+        let temp = []
+        for (let j = 0; j < equipList[i].innerDateList.length; j++) {
+          temp.push(equipList[i].innerDateList[j][this.dateList[j]] / 24)
+        }
+        this.datas.push(temp)
+      }
+      for (let i = 0; i < personList.length; i++) {
+        this.sourceList.push(personList[i].name)
+        let temp = []
+        for (let j = 0; j < personList[i].innerDateList.length; j++) {
+          temp.push(personList[i].innerDateList[j][this.dateList[j]] / 12)
+        }
+        this.datas.push(temp)
+      }
     },
   },
   mounted(){

@@ -93,10 +93,17 @@ export default {
           let date1 = new Date(Date.parse(date.replace(/-/g,"/")))
           let date2 = new Date(date1)
           date2.setDate(date1.getDate() - 1)
-          let trueDate = date2.getFullYear() + "/" + (date2.getMonth() + 1) + "/" + date2.getDate()
+          let trueDate = date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + this.adjustDay(date2.getDate())
           return trueDate
         } else {
           return date
+        }
+      },
+      adjustDay: function(val) {
+        if (1 <= val && val <= 9) {
+          return "0" + String(val)
+        } else {
+          return String(val)
         }
       },
       // 根据id获取name

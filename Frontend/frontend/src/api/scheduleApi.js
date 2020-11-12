@@ -37,7 +37,7 @@ export const getOrderWorkSchedule = (id, type) => {
                     }
                 }
             }
-        } else if (type == "line") {
+        } else if (type == "1") {
             for (let i = 0; i < orderlist.length; i++) {
                 if (orderlist[i].timeslot != null) {
                     if (parseInt(id) === orderlist[i].equipment.equipmentid) {
@@ -104,20 +104,13 @@ export const getLoadRate = (dateList) => {
     if (!session) {
         return ''
     } else {
-        let innerDateList = []
-        for (let i = 0; i < dateList.length; i++) {
-            let obj = {}
-            obj[dateList[i]] = 0
-            innerDateList.push(obj)
-        }
         let orderList = JSON.parse(session)
         let personList = []
         let equipList = []
         for (let i = 0; i < orderList.length; i++) {
             let tempEquip = {
                 id: orderList[i].equipment.equipmentid,
-                name: orderList[i].equipment.name,
-                innerDateList: innerDateList
+                name: orderList[i].equipment.name
             }
             if (JSON.stringify(equipList).indexOf(JSON.stringify(tempEquip))=== -1) {
                 equipList.push(tempEquip)
@@ -125,58 +118,62 @@ export const getLoadRate = (dateList) => {
             for (let j = 0; j < orderList[i].teamList.teamList.length; j++) {
                 let tempPerson = {
                     id: orderList[i].teamList.teamList[j].teamid,
-                    name: orderList[i].teamList.teamList[j].name,
-                    innerDateList: innerDateList
+                    name: orderList[i].teamList.teamList[j].name
                 }
                 if (JSON.stringify(personList).indexOf(JSON.stringify(tempPerson)) === -1) {
                     personList.push(tempPerson)
                 }
             }
         }
+        for (let i = 0; i < personList.length; i++) {
+            let innerDateList = []
+            for (let j = 0; j < dateList.length; j++) {
+                let obj = {}
+                obj[dateList[j]] = 0
+                innerDateList.push(obj)
+            }
+            personList[i]['innerDateList'] = innerDateList
+        }
+        for (let i = 0; i < equipList.length; i++) {
+            let innerDateList = []
+            for (let j = 0; j < dateList.length; j++) {
+                let obj = {}
+                obj[dateList[j]] = 0
+                innerDateList.push(obj)
+            }
+            equipList[i]['innerDateList'] = innerDateList
+        }
         for (let i = 0; i < orderList.length; i++) {
             let time = orderList[i].timeslot.date
             let equipmentid = orderList[i].equipment.equipmentid
-            console.log(equipmentid)
-            // let personidList = []
-            // for (let j = 0; j < orderList[i].teamList.teamList.length; j++) {
-            //     personidList.push(orderList[i].teamList.teamList[j].teamid)
-            // }
+            // 统计机器工作时间
             for (let k = 0; k < equipList.length; k++) {
-                if (equipmentid = equipList[k].id) {
-                    for (let m = 0; m < 7; m++) {
-                        if (Object.keys(equipList[k].innerDateList[m])[0] === time) {
-                            console.log(equipList[k])
-                            console.log(equipList[k].innerDateList[m][time])
-                            equipList[k].innerDateList[m][time]++
-                            break
+                if (equipmentid == equipList[k].id) {
+                    for (let n = 0; n < equipList[k].innerDateList.length; n++) {
+                        if (Object.keys(equipList[k].innerDateList[n])[0] === time) {
+                            equipList[k].innerDateList[n][time]++
                         }
                     }
-                    break
+                }
+            }
+            // 统计人员工作时间
+            for (let j = 0; j < orderList[i].teamList.teamList.length; j++) {
+                for (let k = 0; k < personList.length; k++) {
+                    if (personList[k].id === orderList[i].teamList.teamList[j].teamid) {
+                        for (let m = 0; m < personList[k].innerDateList.length; m++) {
+                            if (Object.keys(personList[k].innerDateList[m])[0] === time) {
+                                personList[k].innerDateList[m][time]++
+                            }
+                        }
+                    }
                 }
             }
         }
-        // for (let i = 0; i < dateList.length; i++) {
-        //     for (let j = 0; j < orderList.length; j++) {
-        //         if (dateList[i] === orderList[j].timeslot.date) {
-        //             // 设备负载率累加
-        //             for (let k = 0; k < equipList.length; k++) {
-        //                 if (orderList[j].equipment.equipmentid === equipList[k].id) {
-        //                     let key = dateList[i]
-        //                     for (let m = 0; m < 7; m++) {
-        //                         if (Object.keys(equipList[k].innerDateList[m])[0] === key) {
-        //                             console.log(equipList[k])
-        //                             // let num = equipList[k].innerDateList[m][key] + 1
-        //                             equipList[k].innerDateList[m][key]++
-        //                             break
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        console.log(personList)
-        console.log(equipList)
+        let result = {
+            personList: personList,
+            equipList: equipList
+        }
+        return result
     }
 }
 
