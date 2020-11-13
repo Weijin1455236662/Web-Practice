@@ -6,7 +6,9 @@
       <hr/>
     </div>
     <div class="container">
-      <AngularGaugeItem class="pic" v-if="subcaption" :punctuality="punctuality" :caption="caption" :subcaption="subcaption"></AngularGaugeItem>
+      <div class="picWrap">
+        <AngularGaugeItem class="pic" v-if="subcaption" :punctuality="punctuality" :caption="caption" :subcaption="subcaption"></AngularGaugeItem>
+      </div>
       <div class="today">
         <label id="date_label" for="date">今天是：</label>
         <input id="date" type="date" v-model="today"/>
@@ -217,6 +219,9 @@
   }
   .container{
     margin: 30px 5% 0;
+    .picWrap{
+      min-height: 50vh;
+    }
     .today{
       text-align: left;
       margin-bottom: 2px;

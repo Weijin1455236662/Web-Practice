@@ -29,6 +29,15 @@ export const reduceSource = (date)=>{
                 label: "78%",
             },
         ];
+        let colorDic = {
+            0: '#47F566',
+            1: '#5188E8',
+            2: '#f1e515',
+            3: '#b351e8',
+            4: '#e88d51',
+            5: '#51e8db',
+            6: '#5b51e8'
+        }
         subOrders.forEach(function (subOrder) {
             if(subOrder.timeslot!==null){
                 if((subOrder.timeslot.date===date&&subOrder.timeslot.time>=7)||(subOrder.timeslot.date===tomorrow&&subOrder.timeslot.time<7)){
@@ -41,8 +50,8 @@ export const reduceSource = (date)=>{
                             // end: (subOrder.timeslot.time + 1) + ':00:00',
                             start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
                             end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
-                            label: subOrder.material_code,
-                            color: subOrder.material_code===1?'#47F566':'#5188E8'
+                            label: subOrder.id + '<br/>物料：' + subOrder.material_code,
+                            color: colorDic[parseInt(subOrder.material_code)%7]
                         });
                         process.push({
                             label: team.name,
@@ -55,8 +64,8 @@ export const reduceSource = (date)=>{
                         // end: (subOrder.timeslot.time + 1) + ':00:00',
                         start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
                         end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
-                        label: subOrder.material_code,
-                        color: subOrder.material_code===1?'#47F566':'#5188E8'
+                        label: subOrder.id + '<br/>物料：' + subOrder.material_code,
+                        color: colorDic[parseInt(subOrder.material_code)%7]
                     });
                     process.push({
                         label: subOrder.equipment.name,
