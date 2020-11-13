@@ -18,7 +18,7 @@
             <div class="text">人</div></div>
           <div>
             <div class="day">{{weekDic[staff.begin_day]}}-{{weekDic[staff.end_day]}}</div>
-            <div class="time">{{staff.begin_time}}:00-<span v-if="staff.begin_time>staff.end_time">次日</span>{{staff.end_time}}:59</div>
+            <div class="time">{{staff.begin_time}}:00-<span v-if="staff.begin_time>staff.end_time">次日</span>{{staff.end_time + 1}}:00</div>
           </div>
         </div>
         <div class="toolbox">

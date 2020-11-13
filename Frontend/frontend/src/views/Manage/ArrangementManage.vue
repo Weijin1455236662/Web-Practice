@@ -27,7 +27,7 @@
       <div class="title">数据管理：</div>
       <div class="buttonWrap">
         <button class="button confirm" @click="resetData()" :disabled="arranging">更新数据</button>
-        <button class="button confirm" @click="arrangement()" :disabled="arranging">重新排程</button>
+        <button class="button confirm" @click="arrangement()" :disabled="arranging">排程</button>
         <div v-if="hasSubOrders&&!arranging" class="hasSubOrders has"><i class="icon-font i-tick-circle"></i>已有排程</div>
         <div v-if="arranging" class="hasSubOrders getting"><i class="icon-font i-tick-circle"></i>排程中：{{countDown}}s</div>
         <div v-if="!hasSubOrders&&!arranging" class="hasSubOrders noHas"><i class="icon-font i-cross-circle"></i>还未排程</div>
