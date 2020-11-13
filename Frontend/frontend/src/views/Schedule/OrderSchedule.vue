@@ -130,6 +130,15 @@ export default {
     },
     // 绘图
     render: function(orderSchedule){
+      let colorDic = {
+        0: '#47F566',
+        1: '#5188E8',
+        2: '#f1e515',
+        3: '#b351e8',
+        4: '#e88d51',
+        5: '#51e8db',
+        6: '#5b51e8'
+      }
       let task = []
       let process = []
       let that = this
@@ -139,7 +148,8 @@ export default {
           processid: that.adjustDate(item.date, item.start),
           start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
           end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
-          label: "<b>子订单" + item.id + "</b><br/>" + "<b>物料: </b>" + item.material + "<br/>" + "<b>时间: </b>" + item.start + " - " + item.end
+          label: "<b>子订单" + item.id + "</b><br/>" + "<b>物料: </b>" + item.material + "<br/>" + "<b>时间: </b>" + item.start + " - " + item.end,
+          color: colorDic[parseInt(item.id) % 7]
         })
         process.push({
           label: that.adjustDate(item.date, item.start),

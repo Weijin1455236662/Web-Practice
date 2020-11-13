@@ -30,7 +30,7 @@ export const getOrderWorkSchedule = (id, type) => {
                                     date: orderlist[i].timeslot.date,
                                     start: getTime(orderlist[i].timeslot.time),
                                     end: getTime(orderlist[i].timeslot.time + 1),
-                                    material: "物料" + orderlist[i].material_code,
+                                    material: orderlist[i].material_code,
                                 })
                             }
                         }
@@ -45,7 +45,7 @@ export const getOrderWorkSchedule = (id, type) => {
                             date: orderlist[i].timeslot.date,
                             start: getTime(orderlist[i].timeslot.time),
                             end: getTime(orderlist[i].timeslot.time + 1),
-                            material: "物料" + orderlist[i].material_code,
+                            material: orderlist[i].material_code,
                         })
                     }
                 }

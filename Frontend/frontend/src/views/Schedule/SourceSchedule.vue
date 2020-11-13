@@ -188,18 +188,18 @@ export default {
                 headeralign: "left",
                 process: data.process
               },
-              datatable: {
-                headervalign: "middle",
-                datacolumn: [
-                  {
-                    headertext: "负载率",
-                    headervalign: "middle",
-                    headeralign: "middle",
-                    align: "middle",
-                    text: data.load
-                  }
-                ]
-              }
+              // datatable: {
+              //   headervalign: "middle",
+              //   datacolumn: [
+              //     {
+              //       headertext: "负载率",
+              //       headervalign: "middle",
+              //       headeralign: "middle",
+              //       align: "middle",
+              //       text: data.load
+              //     }
+              //   ]
+              // }
             };
             console.log(this.dataSource)
         }

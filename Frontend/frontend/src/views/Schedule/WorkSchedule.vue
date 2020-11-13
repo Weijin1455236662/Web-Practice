@@ -150,6 +150,15 @@ export default {
       },
       // 绘图
       render: function(worklist){
+        let colorDic = {
+          0: '#47F566',
+          1: '#5188E8',
+          2: '#f1e515',
+          3: '#b351e8',
+          4: '#e88d51',
+          5: '#51e8db',
+          6: '#5b51e8'
+        }
         let task = []
         let process = []
         let that = this
@@ -159,7 +168,8 @@ export default {
             processid: that.adjustDate(item.date, item.start),
             start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
             end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
-            label: item.material + ": " + item.start + "-" + item.end
+            label: "物料" + item.material + ": " + item.start + "-" + item.end,
+            color: colorDic[parseInt(item.material) % 7]
           })
           process.push({
             label: that.adjustDate(item.date, item.start),
@@ -168,7 +178,6 @@ export default {
         })
         let tasks = {
           showlabels: "0",
-          color: "#008ee4",
           task: task
         }
         let processHash = {};
