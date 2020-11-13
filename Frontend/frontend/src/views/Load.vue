@@ -193,6 +193,7 @@ export default {
     margin-left: 40px;
     display: flex;
     justify-content: space-around;
+    min-height: 50vh;
     .pic{
       opacity: 0;
     }

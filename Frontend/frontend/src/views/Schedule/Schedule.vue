@@ -1,6 +1,6 @@
 <template>
   <div class="schedule">
-    <div v-if="!isReady">暂无排程数据，请稍后查看</div>
+    <div v-if="!isReady">暂无排程数据，请<em @click="nav()">排程</em>后查看</div>
     <router-view v-if="isReady"></router-view>  </div>
 </template>
 
@@ -23,6 +23,13 @@
                 }else{
                     this.isReady = true;
                 }
+            },
+            nav: function () {
+                this.$router.push({
+                    path: '/manage/arrangement'
+                }).catch(()=>{
+                    console.log()
+                });
             }
         },
         watch: {
@@ -35,6 +42,11 @@
 
 <style scoped lang="less">
   .schedule{
+    margin-top: 30px;
     margin-bottom: 100px;
+    em{
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 </style>

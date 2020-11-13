@@ -57,13 +57,13 @@
             }
             this.begin = date1;
             this.end = date2;
-            let session = sessionStorage.getItem('subOrders');
-            if(session===undefined||session===null){
-                getScheduleInfo(this.begin, this.end).then(res=>{
-                    let list = res.data.subOrderList;
-                    sessionStorage.setItem('subOrders', JSON.stringify(list));
-                });
-            }
+            // let session = sessionStorage.getItem('subOrders');
+            // if(session===undefined||session===null){
+            //     getScheduleInfo(this.begin, this.end).then(res=>{
+            //         let list = res.data.subOrderList;
+            //         sessionStorage.setItem('subOrders', JSON.stringify(list));
+            //     });
+            // }
         },
         watch:{
             $route: function () {

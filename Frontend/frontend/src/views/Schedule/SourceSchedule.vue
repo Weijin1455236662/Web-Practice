@@ -72,7 +72,7 @@ export default {
                 start: item.start,
                 end: item.end,
                 color: item.color,
-                label: "物料" + item.label + ": "+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
+                label: "子订单：" + item.label + "<br/>时间："+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
               })
             });
             this.dataSource = {

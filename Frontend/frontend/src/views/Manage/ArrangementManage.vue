@@ -20,14 +20,17 @@
         <input class="input" type="date" id="endDate" v-model="newEndDate"/>
       </div>
       <div class="buttonWrap">
-        <button class="button confirm" @click="doSet?changeDate():changeSetMode()">修改</button>
+        <button class="button confirm" @click="doSet?changeDate():changeSetMode()" :disabled="arranging">修改</button>
         <button v-if="doSet" class="button" @click="cancelChange()">取消</button>
       </div>
 
       <div class="title">数据管理：</div>
       <div class="buttonWrap">
-        <button class="button confirm" @click="resetData()">更新数据</button>
-        <button class="button confirm" @click="arrangement()">重新排程</button>
+        <button class="button confirm" @click="resetData()" :disabled="arranging">更新数据</button>
+        <button class="button confirm" @click="arrangement()" :disabled="arranging">重新排程</button>
+        <div v-if="hasSubOrders&&!arranging" class="hasSubOrders has"><i class="icon-font i-tick-circle"></i>已有排程</div>
+        <div v-if="arranging" class="hasSubOrders getting"><i class="icon-font i-tick-circle"></i>排程中：{{countDown}}s</div>
+        <div v-if="!hasSubOrders&&!arranging" class="hasSubOrders noHas"><i class="icon-font i-cross-circle"></i>还未排程</div>
       </div>
     </div>
   </div>
@@ -47,9 +50,12 @@
                 newBeginDate:'',
                 newEndDate:'',
                 doSet: false,
+                hasSubOrders: false,
+                arranging: false,
                 messageState: false,
                 messageType: 0,
                 message: '',
+                countDown: 90
             }
         },
         mounted(){
@@ -67,6 +73,11 @@
             this.endDate = date2;
             this.newBeginDate = JSON.parse(JSON.stringify(this.beginDate));
             this.newEndDate = JSON.parse(JSON.stringify(this.endDate));
+            if(!sessionStorage.getItem('subOrders')){
+                this.hasSubOrders = false;
+            }else{
+                this.hasSubOrders = true;
+            }
         },
         methods: {
             changeSetMode: function(){
@@ -86,15 +97,39 @@
                     sessionStorage.setItem('beginDate', this.beginDate);
                     sessionStorage.setItem('endDate', this.endDate);
                     this.doSet = false;
-                    this.showMessage(0, '修改成功！');
+                    this.showMessage(0, '修改成功，请重新排程！');
                     this.$parent.$parent.changeTime(this.beginDate, this.endDate);
-                    this.arrangement();
+                    sessionStorage.removeItem('subOrders');
+                    this.hasSubOrders = false;
                 }
             },
             arrangement: function(){
+                this.arranging = true;
+                sessionStorage.removeItem('subOrders');
+                this.hasSubOrders = false;
+                this.countDown = 90;
+                let that = this;
+                let count = setInterval(function () {
+                    if(that.countDown > 0){
+                        that.countDown -= 1;
+                    }else{
+                        clearInterval(count);
+                    }
+
+                },1000);
                 getScheduleInfo(this.beginDate, this.endDate).then(res=>{
-                    let list = res.data.subOrderList;
-                    sessionStorage.setItem('subOrders', JSON.stringify(list));
+                    if(res.flag){
+                        let list = res.data.subOrderList;
+                        sessionStorage.setItem('subOrders', JSON.stringify(list));
+                        this.hasSubOrders = true;
+                        this.arranging = false;
+                    }else{
+                        this.showMessage(1, '排程失败！')
+                        this.arranging = false;
+                    }
+                }).catch(err=>{
+                    this.showMessage(1, '排程失败！')
+                    this.arranging = false;
                 });
             },
             showMessage: function(type, message){
@@ -111,6 +146,9 @@
                 },600);
             },
             resetData: function () {
+                this.arranging = true;
+                sessionStorage.removeItem('subOrders');
+                this.hasSubOrders = false;
                 importTeam().then(res=>{
                     if(res.flag){
                         importEquipment().then(res=>{
@@ -119,30 +157,39 @@
                                     if(res.flag){
                                         importCraft().then(res=>{
                                             if(res.flag){
-                                                this.showMessage(0, '更新数据成功！')
+                                                this.showMessage(0, '更新数据成功！');
+                                                this.arranging = false;
                                             }else{
-                                                this.showMessage(1, '获取工艺信息失败！')
+                                                this.showMessage(1, '获取工艺信息失败！');
+                                                this.arranging = false;
                                             }
                                         }).catch(err=>{
-                                            this.showMessage(1, '获取工艺信息失败！')
+                                            this.showMessage(1, '获取工艺信息失败！');
+                                            this.arranging = false;
                                         })
                                     }else{
-                                        this.showMessage(1, '获取订单信息失败！')
+                                        this.showMessage(1, '获取订单信息失败！');
+                                        this.arranging = false;
                                     }
                                 }).catch(err=>{
-                                    this.showMessage(1, '获取订单信息失败！')
+                                    this.showMessage(1, '获取订单信息失败！');
+                                    this.arranging = false;
                                 })
                             }else{
-                                this.showMessage(1, '获取设备信息失败！')
+                                this.showMessage(1, '获取设备信息失败！');
+                                this.arranging = false;
                             }
                         }).catch(err=>{
-                            this.showMessage(1, '获取设备信息失败！')
+                            this.showMessage(1, '获取设备信息失败！');
+                            this.arranging = false;
                         })
                     }else{
-                        this.showMessage(1, '获取团队信息失败！')
+                        this.showMessage(1, '获取团队信息失败！');
+                        this.arranging = false;
                     }
                 }).catch(err=>{
-                    this.showMessage(1, '获取团队信息失败！')
+                    this.showMessage(1, '获取团队信息失败！');
+                    this.arranging = false;
                 })
             }
         }
@@ -204,6 +251,7 @@
         }
       }
       .buttonWrap{
+        display: flex;
         .button{
           background-color: #E6E6E6;
           color: #666666;
@@ -220,6 +268,10 @@
         .button:hover{
           background-color: #F6F6F6;
         }
+        .button:disabled{
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
         .confirm{
           background-color: #1B9AF7;
           border-color: #008dcb;
@@ -227,6 +279,21 @@
         }
         .confirm:hover{
           background-color: #4cb0f9;
+        }
+        .hasSubOrders{
+          display: flex;
+          align-items: baseline;
+          margin-top: 6px;
+
+        }
+        .has{
+          color: #008000;
+        }
+        .getting{
+          color: #feae1b;
+        }
+        .noHas{
+          color: #FF0000;
         }
       }
     }
