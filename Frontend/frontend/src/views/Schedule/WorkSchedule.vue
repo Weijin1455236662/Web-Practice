@@ -168,7 +168,7 @@ export default {
         })
         let tasks = {
           showlabels: "0",
-          color: "#5D62B5",
+          color: "#008ee4",
           task: task
         }
         let processHash = {};
@@ -179,6 +179,19 @@ export default {
             processHash[process[i].id] = true;
           }
         }
+        if (uniqueProcess.length === 0) {
+        task.push({
+          processid: '1',
+                start: '00:00:00',
+                end: '00:00:00',
+                label: 111,
+                color: '#5188E8'
+        })
+        uniqueProcess.push({
+          label: '',
+                id: '1'
+        })
+      }
         let processes = {
           fontsize: "12",
           isbold: "1",
@@ -293,62 +306,6 @@ export default {
         }
         this.flag = true
       },
-      // 合并数组
-      // merge: function(task) {
-      //   let len = task.length
-      //   let ans = []
-      //   let start
-      //   let end
-      //   let day
-      //   let material
-      //   for (let i = 0; i < len; i++) {
-      //     let s = task[i].start
-      //     let e = task[i].end
-      //     let d = task[i].precessid
-      //     let m = task[i].label.split(":")[0]
-      //     if (start === undefined || material !== m) {
-      //       start = s
-      //       end = e
-      //       day = d
-      //       material = m
-      //     } else {
-      //       if (d === day) {
-      //         if (m === material) {
-      //           if (s === end) {
-      //             end = e
-      //             day = d
-      //             material = m
-      //           } else {
-      //             ans.push({
-      //               processid: day,
-      //               start: start,
-      //               end: end,
-      //               material: material
-      //             })
-      //             start = s
-      //             end = e
-      //             day = d
-      //             material = m
-      //           }
-      //         } else {
-      //           start = undefined
-      //           end = undefined
-      //           day = undefined
-      //           material = undefined
-      //         }
-      //       }
-      //     }
-      //   }
-      //   if (start !== undefined) {
-      //     ans.push({
-      //       processid: day,
-      //       start: start,
-      //       end: end,
-      //       material: material
-      //     })
-      //   }
-      //   return ans
-      // }
         measure: function () {
             let id = this.$route.query.id;
             if (id==='0'){

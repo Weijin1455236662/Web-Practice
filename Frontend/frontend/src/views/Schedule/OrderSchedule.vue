@@ -94,114 +94,198 @@ export default {
         this.showList = false;
       }
     },
+    adjustDate: function(date, start) {
+      if (0 <= parseInt(start.slice(0,2)) && parseInt(start.slice(0,2)) <= 6) {
+        let date1 = new Date(Date.parse(date.replace(/-/g,"/")))
+        let date2 = new Date(date1)
+        date2.setDate(date1.getDate() - 1)
+        let trueDate = date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + this.adjustDay(date2.getDate())
+        return trueDate
+      } else {
+        return date
+      }
+    },
+    adjustDay: function(val) {
+      if (1 <= val && val <= 9) {
+        return "0" + String(val)
+      } else {
+        return String(val)
+      }
+    },
     updateData: function() {
-      getOrderPlan(this.$route.query.id)
-    }
+      let data = getOrderPlan(this.$route.query.id)
+      let that = this
+      if (data === '') {
+        let timer = setInterval(function () {
+          let data = getOrderPlan(this.$route.query.id)
+          if (data !== '') {
+            clearInterval(timer)
+            that.render(data)
+          }
+        }, 100)
+      } else {
+        this.render(data)
+      }
+    },
     // 绘图
-    // render: function(orderSchedule){
-    //   this.chart.dataSource = {
-    //     tasks: {},
-    //     processes: {},
-    //     categories: [
-    //         {
-    //           category: [
-    //             {
-    //               start: "00:00:00",
-    //               end: "23:59:59",
-    //               label: "时间"
-    //             }
-    //           ]
-    //         },
-    //         {
-    //           category: [
-    //             {
-    //               start: "00:00:00",
-    //               end: "11:59:59",
-    //               label: "早班"
-    //             },
-    //             {
-    //               start: "12:00:00",
-    //               end: "23:59:59",
-    //               label: "晚班"
-    //             }
-    //           ]
-    //         },
-    //         {
-    //           align: "center",
-    //           category: [
-    //             {
-    //               start: "00:00:00",
-    //               end: "01:59:59",
-    //               label: "7:00-9:00"
-    //             },
-    //             {
-    //               start: "02:00:00",
-    //               end: "03:59:59",
-    //               label: "9:00-11:00"
-    //             },
-    //             {
-    //               start: "04:00:00",
-    //               end: "05:59:59",
-    //               label: "11:00-13:00"
-    //             },
-    //             {
-    //               start: "06:00:00",
-    //               end: "07:59:59",
-    //               label: "13:00-15:00"
-    //             },
-    //             {
-    //               start: "08:00:00",
-    //               end: "09:59:59",
-    //               label: "15:00-17:00"
-    //             },
-    //             {
-    //               start: "10:00:00",
-    //               end: "11:59:59",
-    //               label: "17:00-19:00"
-    //             },
-    //             {
-    //               start: "12:00:00",
-    //               end: "13:59:59",
-    //               label: "19:00-21:00"
-    //             },
-    //             {
-    //               start: "14:00:00",
-    //               end: "15:59:59",
-    //               label: "21:00-23:00"
-    //             },
-    //             {
-    //               start: "16:00:00",
-    //               end: "17:59:59",
-    //               label: "23:00-次日1:00"
-    //             },
-    //             {
-    //               start: "18:00:00",
-    //               end: "19:59:59",
-    //               label: "次日1:00-3:00"
-    //             },
-    //             {
-    //               start: "20:00:00",
-    //               end: "21:59:59",
-    //               label: "次日3:00-5:00"
-    //             },
-    //             {
-    //               start: "22:00:00",
-    //               end: "23:59:59",
-    //               label: "次日5:00-7:00"
-    //             }
-    //           ]
-    //         }
-    //       ],
-    //       chart: 
-    //       {
-    //         dateformat: "dd/mm/yyyy",
-    //         outputdateformat: "hh12:mn ampm",
-    //         plottooltext: "$label",
-    //         caption: "产品3路线图",
-    //         theme: "fusion"
-    //       }
-    //   }
-    // }
+    render: function(orderSchedule){
+      let task = []
+      let process = []
+      let that = this
+      orderSchedule.forEach(function (item) {
+        task.push({
+          id: item.id,
+          processid: that.adjustDate(item.date, item.start),
+          start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
+          end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
+          label: "<b>子订单" + item.id + "</b><br/>" + "<b>物料: </b>" + item.material + "<br/>" + "<b>时间: </b>" + item.start + " - " + item.end
+        })
+        process.push({
+          label: that.adjustDate(item.date, item.start),
+          id: that.adjustDate(item.date, item.start)
+        })
+      })
+      let tasks = {
+        showLabels: "0",
+        color: "#008ee4",
+        task: task
+      }
+      let processHash = {};
+      let uniqueProcess = [];
+      for(let i =0; i<process.length; i++){
+        if(!processHash[process[i].id]){
+          uniqueProcess.push(process[i]);
+          processHash[process[i].id] = true;
+        }
+      }
+      if (uniqueProcess.length === 0) {
+        task.push({
+          processid: '1',
+                start: '00:00:00',
+                end: '00:00:00',
+                label: 111,
+                color: '#5188E8'
+        })
+        uniqueProcess.push({
+          label: '',
+                id: '1'
+        })
+      }
+      let processes = {
+        fontsize: "12",
+        isbold: "1",
+        align: "Center",
+        headertext: "日期",
+        headerfontsize: "14",
+        headervalign: "middle",
+        headeralign: "center",
+        process: uniqueProcess
+      }
+      this.chart.dataSource = {
+        tasks: tasks,
+        processes: processes,
+        // connectors: connectors,
+        categories: [
+            {
+              category: [
+                {
+                  start: "00:00:00",
+                  end: "23:59:59",
+                  label: "时间"
+                }
+              ]
+            },
+            {
+              category: [
+                {
+                  start: "00:00:00",
+                  end: "11:59:59",
+                  label: "早班"
+                },
+                {
+                  start: "12:00:00",
+                  end: "23:59:59",
+                  label: "晚班"
+                }
+              ]
+            },
+            {
+              align: "center",
+              category: [
+                {
+                  start: "00:00:00",
+                  end: "01:59:59",
+                  label: "7:00-9:00"
+                },
+                {
+                  start: "02:00:00",
+                  end: "03:59:59",
+                  label: "9:00-11:00"
+                },
+                {
+                  start: "04:00:00",
+                  end: "05:59:59",
+                  label: "11:00-13:00"
+                },
+                {
+                  start: "06:00:00",
+                  end: "07:59:59",
+                  label: "13:00-15:00"
+                },
+                {
+                  start: "08:00:00",
+                  end: "09:59:59",
+                  label: "15:00-17:00"
+                },
+                {
+                  start: "10:00:00",
+                  end: "11:59:59",
+                  label: "17:00-19:00"
+                },
+                {
+                  start: "12:00:00",
+                  end: "13:59:59",
+                  label: "19:00-21:00"
+                },
+                {
+                  start: "14:00:00",
+                  end: "15:59:59",
+                  label: "21:00-23:00"
+                },
+                {
+                  start: "16:00:00",
+                  end: "17:59:59",
+                  label: "23:00-次日1:00"
+                },
+                {
+                  start: "18:00:00",
+                  end: "19:59:59",
+                  label: "次日1:00-3:00"
+                },
+                {
+                  start: "20:00:00",
+                  end: "21:59:59",
+                  label: "次日3:00-5:00"
+                },
+                {
+                  start: "22:00:00",
+                  end: "23:59:59",
+                  label: "次日5:00-7:00"
+                }
+              ]
+            }
+          ],
+          chart: 
+          {
+            dateformat: "dd/mm/yyyy",
+            outputdateformat: "hh12:mn ampm",
+            plottooltext: "$label",
+            caption: "订单" + this.$route.query.id + "计划图",
+            theme: "fusion"
+          }
+      }
+      this.flag = true
+    }
   },
   mounted(){
     // this.render([])

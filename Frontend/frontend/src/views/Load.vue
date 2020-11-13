@@ -139,39 +139,26 @@ export default {
           let equipList = result.equipList
           // console.log(personList)
           // console.log(equipList)
-          // let personTotalPunctuality = 0
-          let counter1 = 0
-          let counter2 = 0
           for (let i = 0; i < equipList.length; i++) {
-              let equipTotalPunctuality = 0
               that.sourceList.push(equipList[i].name)
               let temp = []
               for (let j = 0; j < equipList[i].innerDateList.length; j++) {
                   temp.push(equipList[i].innerDateList[j][that.dateList[j]] / 24)
-                  equipTotalPunctuality = equipTotalPunctuality + equipList[i].innerDateList[j][that.dateList[j]] / 24
-                  if (equipList[i].innerDateList[j][that.dateList[j]] != 0) {
-                    counter1++
-                  }
+                  that.punctuality1 = that.punctuality1 + equipList[i].innerDateList[j][that.dateList[j]] / 24
               }
-              that.punctuality1 = that.punctuality1 + equipTotalPunctuality * 100
               that.datas.push(temp)
           }
           for (let i = 0; i < personList.length; i++) {
-              let personTotalPunctuality = 0
               that.sourceList.push(personList[i].name)
               let temp = []
               for (let j = 0; j < personList[i].innerDateList.length; j++) {
                   temp.push(personList[i].innerDateList[j][that.dateList[j]] / 12)
-                  personTotalPunctuality = personTotalPunctuality + personList[i].innerDateList[j][that.dateList[j]] / 12
-                  if (personList[i].innerDateList[j][that.dateList[j]] != 0) {
-                    counter2++
-                  }
+                  that.punctuality2 = that.punctuality2 + personList[i].innerDateList[j][that.dateList[j]] / 12
               }
-              that.punctuality2 = that.punctuality2 + personTotalPunctuality * 100
               that.datas.push(temp)
           }
-          that.punctuality1 = that.punctuality1 / counter1
-          that.punctuality2 = that.punctuality2 / counter2
+          that.punctuality1 = that.punctuality1 * 100 / (7 * equipList.length)
+          that.punctuality2 = that.punctuality2 * 100 / (7 * personList.length)
           setTimeout(function () {
               document.getElementsByTagName('path')[3].style.opacity = '0';
               document.getElementsByTagName('path')[7].style.opacity = '0';

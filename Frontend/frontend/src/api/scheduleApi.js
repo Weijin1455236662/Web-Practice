@@ -57,7 +57,7 @@ export const getOrderWorkSchedule = (id, type) => {
 }
 
 // 获取订单进度
-export const getOrderSchedule = (idList, date) => {
+export const getOrderSchedule = (idList) => {
     let session = sessionStorage.getItem('subOrders')
     if (!session) {
         return ''
@@ -68,7 +68,7 @@ export const getOrderSchedule = (idList, date) => {
             let sum = 0
             let subOrderNum = 0
             for (let j = 0; j < orderList.length; j++) {
-                if (orderList[j].timeslot !== null&&orderList[j].timeslot.date<=date) {
+                if (orderList[j].timeslot !== null) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
                         subOrderNum += 1
                         sum = sum + parseInt(orderList[j].quantity)
@@ -76,7 +76,7 @@ export const getOrderSchedule = (idList, date) => {
                 }
             }
             let counter = 0
-            let completeDate = ''
+            let completeDate
             for (let j = 0; j < orderList.length; j++) {
                 if (orderList[j].timeslot !== null) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
@@ -185,14 +185,18 @@ export const getOrderPlan = function (id) {
     } else {
         let orderList = JSON.parse(session)
         let subOrderList = []
-        console.log("gun")
         for (let i = 0; i < orderList.length; i++) {
             if (parseInt(orderList[i].parent_id) === parseInt(id)) {
-                console.log(orderList[i])
-                subOrderList.push(orderList[i])
+                subOrderList.push({
+                    date: orderList[i].timeslot.date,
+                    start: getTime(orderList[i].timeslot.time),
+                    end: getTime(orderList[i].timeslot.time + 1),
+                    id: orderList[i].id,
+                    material: orderList[i].material_code
+                })
             }
         }
-        console.log(subOrderList)
+        return subOrderList
     }
 }
 
