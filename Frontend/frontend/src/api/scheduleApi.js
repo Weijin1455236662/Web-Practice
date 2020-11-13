@@ -57,7 +57,7 @@ export const getOrderWorkSchedule = (id, type) => {
 }
 
 // 获取订单进度
-export const getOrderSchedule = (idList) => {
+export const getOrderSchedule = (idList, date) => {
     let session = sessionStorage.getItem('subOrders')
     if (!session) {
         return ''
@@ -68,15 +68,15 @@ export const getOrderSchedule = (idList) => {
             let sum = 0
             let subOrderNum = 0
             for (let j = 0; j < orderList.length; j++) {
-                if (orderList[j].timeslot !== null) {
+                if (orderList[j].timeslot !== null&&orderList[j].timeslot.date<=date) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
                         subOrderNum += 1
                         sum = sum + parseInt(orderList[j].quantity)
                     }
                 }
             }
-            let counter = 0
-            let completeDate
+            let counter = 0;
+            let completeDate = '';
             for (let j = 0; j < orderList.length; j++) {
                 if (orderList[j].timeslot !== null) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {

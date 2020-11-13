@@ -92,6 +92,7 @@ export default {
         })
       } else {
         this.showList = false;
+        this.updateData();
       }
     },
     adjustDate: function(date, start) {
@@ -294,7 +295,6 @@ export default {
   watch: {
     $route: function () {
       this.measure();
-      this.updateData();
     }
   }
 }
