@@ -384,30 +384,38 @@
                 })
             },
             submitForm: function () {
-                this.form.orderid = Number(this.form.orderid);
-                this.form.material_code = Number(this.form.material_code);
-                this.form.quantity = Number(this.form.quantity);
-                this.form.delivery_date = this.form.delivery_date + 'T01:00:00.000+0000';
-                if(this.formType===0){
-                    addOrder(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '添加成功！');
-                            this.closeForm();
-                            this.getAllOrder();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                if(this.form.material_code===''){
+                    this.showMessage(1, '请输入物料号码！');
+                }else if(this.form.quantity===''||Number(this.form.quantity) < 1){
+                    this.showMessage(1, '物料数量不能小于1！');
+                }else if(this.form.delivery_date===''){
+                    this.showMessage(1, '交付日期不能为空！');
                 }else{
-                    updateOrder(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '更新成功！');
-                            this.closeForm();
-                            this.getAllOrder();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                    this.form.orderid = Number(this.form.orderid);
+                    this.form.material_code = Number(this.form.material_code);
+                    this.form.quantity = Number(this.form.quantity);
+                    this.form.delivery_date = this.form.delivery_date + 'T01:00:00.000+0000';
+                    if(this.formType===0){
+                        addOrder(this.form).then(res=>{
+                            if(res.flag){
+                                this.showMessage(0, '添加成功！');
+                                this.closeForm();
+                                this.getAllOrder();
+                            }else{
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    }else{
+                        updateOrder(this.form).then(res=>{
+                            if(res.flag){
+                                this.showMessage(0, '更新成功！');
+                                this.closeForm();
+                                this.getAllOrder();
+                            }else{
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    }
                 }
             },
         }

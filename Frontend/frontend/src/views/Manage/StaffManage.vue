@@ -223,30 +223,37 @@
                 })
             },
             submitForm: function () {
-                this.form.teamid = Number(this.form.teamid);
-                this.form.num = Number(this.form.num);
-                this.changeFormTime();
-                if(this.formType===0){
-                    addStaff(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '添加成功！');
-                            this.closeForm();
-                            this.getAllStaff();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                if(this.form.name===''){
+                    this.showMessage(1, '请输入组长名称！');
+                }else if(this.form.num===''||Number(this.form.num) < 1){
+                    this.showMessage(1, '人数不能小于1！');
                 }else{
-                    updateStaff(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '更新成功！');
-                            this.closeForm();
-                            this.getAllStaff();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                    this.form.teamid = Number(this.form.teamid);
+                    this.form.num = Number(this.form.num);
+                    this.changeFormTime();
+                    if(this.formType===0){
+                        addStaff(this.form).then(res=>{
+                            if(res.flag){
+                                this.showMessage(0, '添加成功！');
+                                this.closeForm();
+                                this.getAllStaff();
+                            }else{
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    }else{
+                        updateStaff(this.form).then(res=>{
+                            if(res.flag){
+                                this.showMessage(0, '更新成功！');
+                                this.closeForm();
+                                this.getAllStaff();
+                            }else{
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    }
                 }
+
             },
             navSourceSchedule: function (id) {
                 this.$router.push({

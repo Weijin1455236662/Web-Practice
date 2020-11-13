@@ -143,13 +143,10 @@
             addStaff: function(){
                 this.formType = 0;
                 this.form = {
-                    teamid: '',
+                    equipmentid: '',
                     name: '',
-                    num: '',
-                    begin_day: 1,
-                    end_day: 5,
-                    begin_time: 7,
-                    end_time: 19
+                    amount: '',
+                    type: ''
                 };
                 this.openForm();
             },
@@ -172,28 +169,36 @@
                 })
             },
             submitForm: function () {
-                this.form.equipmentid = Number(this.form.equipmentid);
-                this.form.amount = Number(this.form.amount);
-                if(this.formType===0){
-                    addEquipment(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '添加成功！');
-                            this.closeForm();
-                            this.getAllEquipment();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                if(this.form.name===''){
+                    this.showMessage(1, '请输入设备名称！');
+                }else if(this.form.amount===''||Number(this.form.amount) < 1){
+                    this.showMessage(1, '设备数不能小于1！');
+                }else if(this.form.type===''){
+                    this.showMessage(1, '请选择设备类型！');
                 }else{
-                    updateEquipment(this.form).then(res=>{
-                        if(res.flag){
-                            this.showMessage(0, '更新成功！');
-                            this.closeForm();
-                            this.getAllEquipment();
-                        }else{
-                            this.showMessage(1, res.message);
-                        }
-                    })
+                    this.form.equipmentid = Number(this.form.equipmentid);
+                    this.form.amount = Number(this.form.amount);
+                    if (this.formType === 0) {
+                        addEquipment(this.form).then(res => {
+                            if (res.flag) {
+                                this.showMessage(0, '添加成功！');
+                                this.closeForm();
+                                this.getAllEquipment();
+                            } else {
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    } else {
+                        updateEquipment(this.form).then(res => {
+                            if (res.flag) {
+                                this.showMessage(0, '更新成功！');
+                                this.closeForm();
+                                this.getAllEquipment();
+                            } else {
+                                this.showMessage(1, res.message);
+                            }
+                        })
+                    }
                 }
             },
             navSourceSchedule: function (id) {
