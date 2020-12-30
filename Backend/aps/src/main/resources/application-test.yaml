@@ -3,7 +3,7 @@ server:
 optaplanner:
   solver:
     termination:
-      spent-limit: 200s
+      spent-limit: 300s
 spring:
   datasource:
     url: jdbc:h2:~/test_db

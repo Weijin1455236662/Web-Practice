@@ -17,10 +17,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
@@ -91,23 +88,24 @@ public class ArrangementController {
                     for(int k=0;k<total;k++){
                         if(currentCraft.getPunch_capacity()!=-1){
                             subOrderId += 1;
-                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 0,-1,currentCraft.getPunch_human_res(),currentCraft.getPunch_equipment_res(),3600/currentCraft.getPunch_capacity()));
+                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 0,-1,currentCraft.getPunch_human_res(),currentCraft.getPunch_equipment_res(),3600/currentCraft.getPunch_capacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         }
                         subOrderId += 1;
-                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 1, currentCraft.getHuman_num(),currentCraft.getHuman_res(),currentCraft.getEquipment_res(), 3600/currentCraft.getCapacity()));
+                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 1, currentCraft.getHuman_num(),currentCraft.getHuman_res(),currentCraft.getEquipment_res(), 3600/currentCraft.getCapacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         if(currentCraft.getTest_capacity()!=-1){
                             subOrderId += 1;
-                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 2,-1,"",currentCraft.getTest_equipment_res(),3600/currentCraft.getTest_capacity()));
+                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 2,-1,"",currentCraft.getTest_equipment_res(),3600/currentCraft.getTest_capacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         }
                     }
                 }
             }
         }
+        Collections.sort(subOrderList);
 
         LocalDate begin__date = begin_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate end__date = end_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate current__date = begin__date;
-        long sub_subOrder_num = subOrderList.size()/begin__date.until(end__date, ChronoUnit.DAYS);
+        long sub_subOrder_num = subOrderList.size()/begin__date.until(end__date.plusDays(1), ChronoUnit.DAYS);
         int count = 0;
         List<SubOrder> sub_subOrderList;
         List<Timeslot> timeslotList;

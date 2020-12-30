@@ -21,6 +21,7 @@ public class OrderServiceImpl implements OrderService {
 
     public boolean save(Order order){
         try {
+            order.setUrgent(1);
             orderDao.save(order);
         }catch (Exception e){
             return false;

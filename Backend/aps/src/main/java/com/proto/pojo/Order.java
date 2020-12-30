@@ -19,6 +19,8 @@ public class Order implements Serializable {
     @NotNull(message = "日期不能为空")
     private Date delivery_date;
 
+    private int urgent = 0;
+
     public Integer getOrderid() {
         return orderid;
     }
@@ -49,5 +51,13 @@ public class Order implements Serializable {
 
     public void setDelivery_date(Date delivery_date) {
         this.delivery_date = delivery_date;
+    }
+
+    public int getUrgent() {
+        return urgent;
+    }
+
+    public void setUrgent(int urgent) {
+        this.urgent = urgent;
     }
 }

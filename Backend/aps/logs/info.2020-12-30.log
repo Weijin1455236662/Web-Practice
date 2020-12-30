@@ -1227,3 +1227,345 @@ Solving started: time spent (3), best score (-39init/0hard/0soft), environment m
 Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (58314/sec), step total (557601).
 Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (95657/sec), phase total (2), environment mode (REPRODUCIBLE).
 Solving started: time spent (3), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 10104 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 78ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1694 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+Stopping service [Tomcat]
+The web application [ROOT] appears to have started a thread named [MVStore background writer nio:C:/Users/hp/test_db.mv.db] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3283)
+The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting Application on DESKTOP-7USC6MA with PID 13124 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 92ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1620 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+Stopping service [Tomcat]
+The web application [ROOT] appears to have started a thread named [MVStore background writer nio:C:/Users/hp/test_db.mv.db] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3283)
+The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting Application on DESKTOP-7USC6MA with PID 6604 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 81ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1640 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.118 seconds (JVM running for 7.218)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 11 ms
+Solving started: time spent (19), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (33651), best score (0hard/0soft), score calculation speed (194831/sec), step total (5).
+Starting Application on DESKTOP-7USC6MA with PID 5356 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 84ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1646 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.91 seconds (JVM running for 7.121)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (19), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (31985), best score (0hard/0soft), score calculation speed (204993/sec), step total (5).
+Local Search phase (1) ended: time spent (40000), best score (0hard/0soft), score calculation speed (126736/sec), step total (287413).
+Solving ended: time spent (40000), best score (0hard/0soft), score calculation speed (189175/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 4848 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 84ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1648 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.838 seconds (JVM running for 7.176)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (26), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (33239), best score (0hard/0soft), score calculation speed (197295/sec), step total (5).
+Local Search phase (1) ended: time spent (40000), best score (0hard/0soft), score calculation speed (106637/sec), step total (203855).
+Solving ended: time spent (40000), best score (0hard/0soft), score calculation speed (181808/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 4836 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 89ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1606 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.651 seconds (JVM running for 6.721)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (25), best score (-75init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (40001), best score (-57init/-1hard/0soft), score calculation speed (170983/sec), step total (6).
+Solving ended: time spent (40005), best score (-57init/-1hard/0soft), score calculation speed (170847/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 7240 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 86ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1663 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.868 seconds (JVM running for 7.025)
+Starting Application on DESKTOP-7USC6MA with PID 13284 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 90ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1704 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.015 seconds (JVM running for 7.195)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (23), best score (-75init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 2160 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 87ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1638 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.717 seconds (JVM running for 6.971)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Solving started: time spent (25), best score (-36init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (26), best score (-36init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (134710), best score (0hard/0soft), score calculation speed (116757/sec), step total (12).
+Construction Heuristic phase (0) ended: time spent (139243), best score (0hard/0soft), score calculation speed (112954/sec), step total (12).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (59007/sec), step total (1028349).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (97884/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (53444/sec), step total (1177398).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94858/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-3init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (3977), best score (0hard/0soft), score calculation speed (329909/sec), step total (1).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (128885/sec), step total (18001132).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (132872/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200000), best score (0hard/0soft), score calculation speed (90092/sec), step total (14).
+Construction Heuristic phase (0) ended: time spent (200002), best score (-3hard/0soft), score calculation speed (88782/sec), step total (14).
+Solving ended: time spent (200007), best score (-3hard/0soft), score calculation speed (88777/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200009), best score (0hard/0soft), score calculation speed (90085/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 7960 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 89ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1740 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.862 seconds (JVM running for 7.121)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 9 ms
+Solving started: time spent (27), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (26), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 6972 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 91ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1671 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.846 seconds (JVM running for 7.07)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 11 ms
+Solving started: time spent (28), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (28), best score (-42init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (207870), best score (0hard/0soft), score calculation speed (88269/sec), step total (14).
+Construction Heuristic phase (0) ended: time spent (208177), best score (0hard/0soft), score calculation speed (88138/sec), step total (14).
+Local Search phase (1) ended: time spent (300000), best score (0hard/0soft), score calculation speed (45238/sec), step total (1551752).
+Local Search phase (1) ended: time spent (300000), best score (0hard/0soft), score calculation speed (47131/sec), step total (1159341).
+Solving ended: time spent (300000), best score (0hard/0soft), score calculation speed (75624/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (300000), best score (0hard/0soft), score calculation speed (74997/sec), phase total (2), environment mode (REPRODUCIBLE).

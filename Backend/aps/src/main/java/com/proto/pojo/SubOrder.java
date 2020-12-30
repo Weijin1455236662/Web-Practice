@@ -3,8 +3,10 @@ package com.proto.pojo;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
+import java.time.LocalDate;
+
 @PlanningEntity
-public class SubOrder {
+public class SubOrder implements Comparable<SubOrder> {
     private long id;
     private long parent_id;
     private long product_id;
@@ -14,6 +16,8 @@ public class SubOrder {
     private String human_res;
     private String equipment_res;
     private int last_time;
+    private int urgent;
+    private LocalDate delivery_date;
 
     @PlanningVariable(valueRangeProviderRefs = "teamListRange")
     private TeamList teamList;
@@ -25,7 +29,7 @@ public class SubOrder {
     public SubOrder() {
     }
 
-    public SubOrder(long id, long parent_id, long product_id, Integer material_code, int type, int capacity, String human_res, String equipment_res, int last_time) {
+    public SubOrder(long id, long parent_id, long product_id, Integer material_code, int type, int capacity, String human_res, String equipment_res, int last_time, int urgent, LocalDate delivery_date) {
         this.id = id;
         this.parent_id = parent_id;
         this.product_id = product_id;
@@ -35,8 +39,14 @@ public class SubOrder {
         this.human_res = human_res;
         this.equipment_res = equipment_res;
         this.last_time = last_time;
+        this.urgent = urgent;
+        this.delivery_date = delivery_date;
     }
 
+    @Override
+    public int compareTo(SubOrder o) {
+        return o.getUrgent()-this.urgent;
+    }
 
     public TeamList getTeamList() {
         return teamList;
@@ -132,5 +142,21 @@ public class SubOrder {
 
     public void setProduct_id(long product_id) {
         this.product_id = product_id;
+    }
+
+    public int getUrgent() {
+        return urgent;
+    }
+
+    public void setUrgent(int urgent) {
+        this.urgent = urgent;
+    }
+
+    public LocalDate getDelivery_date() {
+        return delivery_date;
+    }
+
+    public void setDelivery_date(LocalDate delivery_date) {
+        this.delivery_date = delivery_date;
     }
 }

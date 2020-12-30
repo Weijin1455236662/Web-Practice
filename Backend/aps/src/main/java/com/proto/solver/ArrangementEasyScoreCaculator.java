@@ -6,6 +6,7 @@ import com.proto.pojo.Team;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.calculator.EasyScoreCalculator;
 
+import java.time.ZoneId;
 import java.util.List;
 public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrangement, HardSoftScore> {
 
@@ -47,6 +48,12 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                 current_end_timea = current_begin_timea + a.getLast_time();
                 if(current_end_timea>=86400){
                     hardScore--;
+                }
+
+                if(a.getUrgent()==1){
+                    if(a.getTimeslot().getDate().isAfter(a.getDelivery_date())){
+                        hardScore--;
+                    }
                 }
 
                 if(a.getType()==0||a.getType()==1) {

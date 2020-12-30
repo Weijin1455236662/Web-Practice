@@ -18,11 +18,12 @@ CREATE TABLE t_order (
    orderid  INT AUTO_INCREMENT PRIMARY KEY,
    material_code   INT,
    quantity   INT,
-   delivery_date datetime
+   delivery_date datetime,
+   urgent   INT
 );
 
-INSERT INTO t_order (orderid,material_code,quantity,delivery_date) VALUES ('1', '1', '100', '2020-10-25');
-INSERT INTO t_order (orderid,material_code,quantity,delivery_date) VALUES ('2', '2', '100', '2020-10-26');
+INSERT INTO t_order (orderid,material_code,quantity,delivery_date,urgent) VALUES ('1', '1', '5', '2020-10-16', '0');
+INSERT INTO t_order (orderid,material_code,quantity,delivery_date,urgent) VALUES ('2', '2', '5', '2020-10-17', '0');
 
 DROP TABLE IF EXISTS t_equipment;
 CREATE TABLE t_equipment (
