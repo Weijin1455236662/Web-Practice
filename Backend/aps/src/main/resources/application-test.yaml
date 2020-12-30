@@ -3,7 +3,7 @@ server:
 optaplanner:
   solver:
     termination:
-      spent-limit: 5s
+      spent-limit: 200s
 spring:
   datasource:
     url: jdbc:h2:~/test_db
@@ -26,8 +26,8 @@ spring:
     change-log: classpath:/db.changelog/master.xml
     contexts: dev, faker
     enabled: false
-logging:
-  config: classpath:\log\logback-spring.xml
+#logging:
+  #config: classpath:\log\logback-spring.xml
 springdoc:
   swagger-ui:
     path: /api-docs

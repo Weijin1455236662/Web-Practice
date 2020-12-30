@@ -26,12 +26,12 @@ public class Team implements Serializable {
     @Min(value = 1, message = "星期过小")
     private Integer end_day;
 //    @Size(min = 0, max = 23, message = "时间不合法")
-    @Max(value = 23, message = "星期过大")
-    @Min(value = 0, message = "星期过小")
+    @Max(value = 86399, message = "时间过大")
+    @Min(value = 0, message = "时间过小")
     private Integer begin_time;
 //    @Size(min = 0, max = 23, message = "时间不合法")
-    @Max(value = 23, message = "星期过大")
-    @Min(value = 0, message = "星期过小")
+    @Max(value = 86399, message = "时间过大")
+    @Min(value = 0, message = "时间过小")
     private Integer end_time;
 
     public Integer getTeamid() {

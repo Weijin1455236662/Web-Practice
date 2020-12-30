@@ -10,10 +10,15 @@ public class Craft implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer craftid;
     private Integer material_code;
+    private Integer punch_capacity;
+    private String punch_equipment_res;
+    private String  punch_human_res;
     private Integer human_num;
     private Integer capacity;
     private String human_res;
     private String equipment_res;
+    private Integer test_capacity;
+    private String test_equipment_res;
 
     public Integer getCraftid() {
         return craftid;
@@ -61,5 +66,45 @@ public class Craft implements Serializable {
 
     public void setEquipment_res(String equipment_res) {
         this.equipment_res = equipment_res;
+    }
+
+    public Integer getPunch_capacity() {
+        return punch_capacity;
+    }
+
+    public void setPunch_capacity(Integer punch_capacity) {
+        this.punch_capacity = punch_capacity;
+    }
+
+    public String getPunch_human_res() {
+        return punch_human_res;
+    }
+
+    public void setPunch_human_res(String punch_human_res) {
+        this.punch_human_res = punch_human_res;
+    }
+
+    public Integer getTest_capacity() {
+        return test_capacity;
+    }
+
+    public void setTest_capacity(Integer test_capacity) {
+        this.test_capacity = test_capacity;
+    }
+
+    public String getPunch_equipment_res() {
+        return punch_equipment_res;
+    }
+
+    public void setPunch_equipment_res(String punch_equipment_res) {
+        this.punch_equipment_res = punch_equipment_res;
+    }
+
+    public String getTest_equipment_res() {
+        return test_equipment_res;
+    }
+
+    public void setTest_equipment_res(String test_equipment_res) {
+        this.test_equipment_res = test_equipment_res;
     }
 }

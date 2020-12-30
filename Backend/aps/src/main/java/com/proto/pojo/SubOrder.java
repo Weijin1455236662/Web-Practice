@@ -5,13 +5,15 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
 @PlanningEntity
 public class SubOrder {
-    private Long id;
-    private Long parent_id;
-    private int material_code;
-    private int quantity;
+    private long id;
+    private long parent_id;
+    private long product_id;
+    private Integer material_code;
+    private int type; //0:打弹片 1:装配 2:测试/印字
     private int capacity;
     private String human_res;
     private String equipment_res;
+    private int last_time;
 
     @PlanningVariable(valueRangeProviderRefs = "teamListRange")
     private TeamList teamList;
@@ -23,48 +25,18 @@ public class SubOrder {
     public SubOrder() {
     }
 
-    public SubOrder(Long id, Long parent_id, int material_code, int quantity, int capacity, String human_res, String equipment_res) {
+    public SubOrder(long id, long parent_id, long product_id, Integer material_code, int type, int capacity, String human_res, String equipment_res, int last_time) {
         this.id = id;
         this.parent_id = parent_id;
+        this.product_id = product_id;
         this.material_code = material_code;
-        this.quantity = quantity;
+        this.type = type;
         this.capacity = capacity;
         this.human_res = human_res;
         this.equipment_res = equipment_res;
+        this.last_time = last_time;
     }
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getParent_id() {
-        return parent_id;
-    }
-
-    public void setParent_id(Long parent_id) {
-        this.parent_id = parent_id;
-    }
-
-    public int getMaterial_code() {
-        return material_code;
-    }
-
-    public void setMaterial_code(int material_code) {
-        this.material_code = material_code;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public TeamList getTeamList() {
         return teamList;
@@ -112,5 +84,53 @@ public class SubOrder {
 
     public void setEquipment_res(String equipment_res) {
         this.equipment_res = equipment_res;
+    }
+
+    public int getLast_time() {
+        return last_time;
+    }
+
+    public void setLast_time(int last_time) {
+        this.last_time = last_time;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public Integer getMaterial_code() {
+        return material_code;
+    }
+
+    public void setMaterial_code(Integer material_code) {
+        this.material_code = material_code;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(long parent_id) {
+        this.parent_id = parent_id;
+    }
+
+    public long getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(long product_id) {
+        this.product_id = product_id;
     }
 }

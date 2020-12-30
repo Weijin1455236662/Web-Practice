@@ -1,0 +1,1229 @@
+Starting Application on DESKTOP-7USC6MA with PID 4804 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 95ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1820 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+Stopping service [Tomcat]
+The web application [ROOT] appears to have started a thread named [MVStore background writer nio:C:/Users/hp/test_db.mv.db] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.h2.mvstore.MVStore$BackgroundWriterThread.run(MVStore.java:3283)
+The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+Starting Application on DESKTOP-7USC6MA with PID 13280 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 84ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1602 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.967 seconds (JVM running for 7.068)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (235), best score (-6900init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (5010), best score (-6897init/-2hard/0soft), score calculation speed (16059/sec), step total (1).
+Solving ended: time spent (5158), best score (-6897init/-2hard/0soft), score calculation speed (14839/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (91), best score (-6900init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (5010), best score (-6897init/-2hard/0soft), score calculation speed (16774/sec), step total (1).
+Solving ended: time spent (5088), best score (-6897init/-2hard/0soft), score calculation speed (16214/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (74), best score (-6900init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (5013), best score (-6897init/-2hard/0soft), score calculation speed (10318/sec), step total (1).
+Solving ended: time spent (5085), best score (-6897init/-2hard/0soft), score calculation speed (10017/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (85), best score (-6900init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (5013), best score (-6897init/-2hard/0soft), score calculation speed (16096/sec), step total (1).
+Solving ended: time spent (5089), best score (-6897init/-2hard/0soft), score calculation speed (15584/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 5344 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 96ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2237 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 9.939 seconds (JVM running for 11.759)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (86), best score (-6900init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (100016), best score (-6897init/-1hard/0soft), score calculation speed (18508/sec), step total (1).
+Solving ended: time spent (100052), best score (-6897init/-1hard/0soft), score calculation speed (18484/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 12776 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 147ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2403 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 8.538 seconds (JVM running for 11.348)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 17 ms
+Solving started: time spent (42), best score (-150init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 11032 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 96ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1705 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.279 seconds (JVM running for 7.684)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 14 ms
+Solving started: time spent (40), best score (-150init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (100001), best score (-138init/-4hard/0soft), score calculation speed (173708/sec), step total (4).
+Solving ended: time spent (100014), best score (-138init/-4hard/0soft), score calculation speed (173607/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 12376 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 95ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1962 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.899 seconds (JVM running for 9.164)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (28), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (60230), best score (-3hard/0soft), score calculation speed (200936/sec), step total (5).
+Local Search phase (1) ended: time spent (100000), best score (-3hard/0soft), score calculation speed (108514/sec), step total (1226845).
+Solving ended: time spent (100000), best score (-3hard/0soft), score calculation speed (164106/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 5644 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 92ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1688 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.987 seconds (JVM running for 7.247)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (24), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (61703), best score (-3hard/0soft), score calculation speed (196134/sec), step total (5).
+Local Search phase (1) ended: time spent (200000), best score (-3hard/0soft), score calculation speed (101216/sec), step total (3983340).
+Solving ended: time spent (200000), best score (-3hard/0soft), score calculation speed (130464/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 5632 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 88ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1718 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.833 seconds (JVM running for 7.168)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 13 ms
+Solving started: time spent (54), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (40608), best score (-1hard/0soft), score calculation speed (298327/sec), step total (5).
+Local Search phase (1) ended: time spent (50000), best score (-1hard/0soft), score calculation speed (95154/sec), step total (892741).
+Solving ended: time spent (50000), best score (-1hard/0soft), score calculation speed (259774/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 6020 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 76ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1622 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.815 seconds (JVM running for 6.998)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (25), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (39842), best score (-1hard/0soft), score calculation speed (303820/sec), step total (5).
+Local Search phase (1) ended: time spent (200000), best score (-1hard/0soft), score calculation speed (99235/sec), step total (15892634).
+Solving ended: time spent (200000), best score (-1hard/0soft), score calculation speed (139943/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 12740 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 93ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1806 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.202 seconds (JVM running for 7.361)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (27), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (21920), best score (-1hard/0soft), score calculation speed (299342/sec), step total (5).
+Local Search phase (1) ended: time spent (200000), best score (-1hard/0soft), score calculation speed (94817/sec), step total (16884006).
+Solving ended: time spent (200000), best score (-1hard/0soft), score calculation speed (117180/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 10316 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 95ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1938 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.226 seconds (JVM running for 7.652)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (21), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (32297), best score (-4hard/0soft), score calculation speed (203030/sec), step total (5).
+Local Search phase (1) ended: time spent (200000), best score (-4hard/0soft), score calculation speed (113136/sec), step total (4930496).
+Solving ended: time spent (200000), best score (-4hard/0soft), score calculation speed (127622/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 5568 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 92ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2062 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.526 seconds (JVM running for 7.831)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (32), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (50000), best score (-6init/0hard/0soft), score calculation speed (224003/sec), step total (3).
+Solving ended: time spent (50010), best score (-6init/0hard/0soft), score calculation speed (223802/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 6416 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 85ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2115 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.225 seconds (JVM running for 7.392)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 12 ms
+Solving started: time spent (31), best score (-15init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (85413), best score (0hard/0soft), score calculation speed (230220/sec), step total (5).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (130504/sec), step total (3125543).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (173043/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 14080 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 100ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1816 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.979 seconds (JVM running for 7.215)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (32), best score (-150init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 1628 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 88ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1674 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.811 seconds (JVM running for 6.965)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (34), best score (-150init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200001), best score (-129init/0hard/0soft), score calculation speed (135757/sec), step total (7).
+Solving ended: time spent (200011), best score (-129init/0hard/0soft), score calculation speed (135724/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 14828 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 112ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2551 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.678 seconds (JVM running for 7.874)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (21), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (185137), best score (0hard/0soft), score calculation speed (113262/sec), step total (16).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (53740/sec), step total (214167).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (108823/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Skipped all phases (2): out of 0 planning entities, none are movable (non-pinned).
+Solving ended: time spent (7), best score (0hard/0soft), score calculation speed (142/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Skipped all phases (2): out of 0 planning entities, none are movable (non-pinned).
+Solving ended: time spent (3), best score (0hard/0soft), score calculation speed (333/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 14272 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 79ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 2149 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 7.13 seconds (JVM running for 8.503)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 9 ms
+Solving started: time spent (25), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (183193), best score (0hard/0soft), score calculation speed (114467/sec), step total (16).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (53674/sec), step total (241990).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (109340/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (7), best score (0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Skipped all phases (2): out of 0 planning entities, none are movable (non-pinned).
+Solving ended: time spent (8), best score (0hard/0soft), score calculation speed (125/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Skipped all phases (2): out of 0 planning entities, none are movable (non-pinned).
+Solving ended: time spent (3), best score (0hard/0soft), score calculation speed (333/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 10512 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 79ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1567 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.787 seconds (JVM running for 6.974)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 8 ms
+Solving started: time spent (21), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200002), best score (-1hard/0soft), score calculation speed (101755/sec), step total (16).
+Solving ended: time spent (200011), best score (-1hard/0soft), score calculation speed (101738/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (8), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200000), best score (0hard/0soft), score calculation speed (102665/sec), step total (16).
+Solving ended: time spent (200005), best score (0hard/0soft), score calculation speed (102659/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 13836 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 82ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1621 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.671 seconds (JVM running for 6.819)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Solving started: time spent (24), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (27), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200001), best score (-3init/0hard/0soft), score calculation speed (97997/sec), step total (15).
+Construction Heuristic phase (0) ended: time spent (200000), best score (-3init/0hard/0soft), score calculation speed (97941/sec), step total (15).
+Solving ended: time spent (200006), best score (-3init/0hard/0soft), score calculation speed (97980/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200006), best score (-3init/0hard/0soft), score calculation speed (97925/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 5484 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 99ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1859 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.105 seconds (JVM running for 7.346)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 41 ms
+Solving started: time spent (30), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (29), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (227160), best score (0hard/0soft), score calculation speed (92312/sec), step total (16).
+Construction Heuristic phase (0) ended: time spent (228274), best score (0hard/0soft), score calculation speed (91861/sec), step total (16).
+Local Search phase (1) ended: time spent (300000), best score (0hard/0soft), score calculation speed (45956/sec), step total (895918).
+Solving ended: time spent (300000), best score (0hard/0soft), score calculation speed (81045/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (300000), best score (0hard/0soft), score calculation speed (44739/sec), step total (918657).
+Solving ended: time spent (300000), best score (0hard/0soft), score calculation speed (80583/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (-48init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (183093), best score (0hard/0soft), score calculation speed (114514/sec), step total (16).
+Local Search phase (1) ended: time spent (300000), best score (0hard/0soft), score calculation speed (55578/sec), step total (2720685).
+Solving ended: time spent (300000), best score (0hard/0soft), score calculation speed (91545/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 10988 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 87ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1641 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.736 seconds (JVM running for 6.873)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Solving started: time spent (30), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (32), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 1152 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 81ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1511 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.758 seconds (JVM running for 6.915)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 11 ms
+Solving started: time spent (31), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (31), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (25370), best score (0hard/0soft), score calculation speed (206891/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (26502), best score (0hard/0soft), score calculation speed (198042/sec), step total (4).
+Starting Application on DESKTOP-7USC6MA with PID 4816 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 95ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1659 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.643 seconds (JVM running for 6.757)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (79), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (73), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (25459), best score (0hard/0soft), score calculation speed (206557/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (26606), best score (0hard/0soft), score calculation speed (197580/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (111154/sec), step total (685758).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (159377/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (99724/sec), step total (674270).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (151483/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (25111), best score (0hard/0soft), score calculation speed (208778/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (26762), best score (0hard/0soft), score calculation speed (195896/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (109250/sec), step total (800936).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (159201/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (110968/sec), step total (648327).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (156396/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (25322), best score (-2hard/0soft), score calculation speed (207030/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (27876), best score (-3hard/0soft), score calculation speed (188059/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (-3hard/0soft), score calculation speed (108088/sec), step total (546165).
+Solving ended: time spent (50000), best score (-3hard/0soft), score calculation speed (152650/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Local Search phase (1) ended: time spent (50000), best score (-2hard/0soft), score calculation speed (112161/sec), step total (735358).
+Solving ended: time spent (50000), best score (-2hard/0soft), score calculation speed (160181/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (28572), best score (0hard/0soft), score calculation speed (183490/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (30183), best score (0hard/0soft), score calculation speed (173695/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (104211/sec), step total (561124).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (149482/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (89006/sec), step total (694373).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (140099/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (7), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (30559), best score (0hard/0soft), score calculation speed (171557/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (30736), best score (0hard/0soft), score calculation speed (170575/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (86252/sec), step total (658255).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (138054/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (86785/sec), step total (668553).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (138567/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (8), best score (-12init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (33525), best score (-4hard/0soft), score calculation speed (156386/sec), step total (4).
+Construction Heuristic phase (0) ended: time spent (34500), best score (0hard/0soft), score calculation speed (151952/sec), step total (4).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (78438/sec), step total (481599).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (129135/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (50000), best score (-4hard/0soft), score calculation speed (78266/sec), step total (549564).
+Solving ended: time spent (50000), best score (-4hard/0soft), score calculation speed (130609/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (11624), best score (-2hard/0soft), score calculation speed (225600/sec), step total (2).
+Local Search phase (1) ended: time spent (50000), best score (-2hard/0soft), score calculation speed (120772/sec), step total (1775577).
+Solving ended: time spent (50000), best score (-2hard/0soft), score calculation speed (145106/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 2480 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 85ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1663 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.746 seconds (JVM running for 6.999)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (25), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (11139), best score (0hard/0soft), score calculation speed (235874/sec), step total (2).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (126764/sec), step total (1286664).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (150919/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 13352 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 90ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1652 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 6.028 seconds (JVM running for 7.24)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Solving started: time spent (31), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (33), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (12194), best score (0hard/0soft), score calculation speed (215597/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (14061), best score (0hard/0soft), score calculation speed (186893/sec), step total (2).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (114048/sec), step total (1493087).
+Local Search phase (1) ended: time spent (50000), best score (0hard/0soft), score calculation speed (105839/sec), step total (993358).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (138636/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (50000), best score (0hard/0soft), score calculation speed (128480/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 7696 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 108ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1918 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 7.244 seconds (JVM running for 8.421)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 7 ms
+Solving started: time spent (36), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (35), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (10295), best score (0hard/0soft), score calculation speed (255538/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (11781), best score (0hard/0soft), score calculation speed (223255/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (128259/sec), step total (275037).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (183716/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (135741/sec), step total (456094).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (196868/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (12336), best score (0hard/0soft), score calculation speed (212537/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12803), best score (0hard/0soft), score calculation speed (204766/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (113181/sec), step total (297039).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (171740/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (118892/sec), step total (237781).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (176563/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (10983), best score (0hard/0soft), score calculation speed (238732/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12996), best score (0hard/0soft), score calculation speed (201755/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (127950/sec), step total (399619).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (188694/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (113875/sec), step total (291019).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (170896/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (10949), best score (0hard/0soft), score calculation speed (239473/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12473), best score (0hard/0soft), score calculation speed (210202/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (119627/sec), step total (235043).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (176037/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (127250/sec), step total (398948).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (188595/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (12215), best score (0hard/0soft), score calculation speed (214626/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12643), best score (0hard/0soft), score calculation speed (207358/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (114340/sec), step total (306790).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (173071/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (121005/sec), step total (245820).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (178105/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (11203), best score (0hard/0soft), score calculation speed (234062/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12960), best score (0hard/0soft), score calculation speed (202315/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (127085/sec), step total (387146).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (186913/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (115440/sec), step total (296331).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (171646/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (10706), best score (0hard/0soft), score calculation speed (244911/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12266), best score (0hard/0soft), score calculation speed (213750/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (120753/sec), step total (243698).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (177705/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (128835/sec), step total (414744).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (190890/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (12650), best score (0hard/0soft), score calculation speed (207276/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12933), best score (0hard/0soft), score calculation speed (202738/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (112907/sec), step total (302703).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (172510/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (114133/sec), step total (280439).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (171352/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (12957), best score (0hard/0soft), score calculation speed (202347/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (12987), best score (0hard/0soft), score calculation speed (201864/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (115895/sec), step total (283704).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (171829/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (115952/sec), step total (282576).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (171664/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (13440), best score (0hard/0soft), score calculation speed (195072/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (13438), best score (0hard/0soft), score calculation speed (195101/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (114133/sec), step total (260249).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (168453/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (114898/sec), step total (262110).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (168721/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (13295), best score (0hard/0soft), score calculation speed (197186/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (13391), best score (0hard/0soft), score calculation speed (195772/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (113167/sec), step total (259907).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (168402/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (113640/sec), step total (264872).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (169104/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (13228), best score (0hard/0soft), score calculation speed (198200/sec), step total (2).
+Construction Heuristic phase (0) ended: time spent (13331), best score (0hard/0soft), score calculation speed (196683/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (94787/sec), step total (219695).
+Solving ended: time spent (20001), best score (0hard/0soft), score calculation speed (162610/sec), phase total (2), environment mode (REPRODUCIBLE).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (94428/sec), step total (222268).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (162999/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-6init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (11363), best score (0hard/0soft), score calculation speed (230724/sec), step total (2).
+Local Search phase (1) ended: time spent (20000), best score (0hard/0soft), score calculation speed (128234/sec), step total (385454).
+Solving ended: time spent (20000), best score (0hard/0soft), score calculation speed (186398/sec), phase total (2), environment mode (REPRODUCIBLE).
+Starting Application on DESKTOP-7USC6MA with PID 9688 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 88ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1766 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.989 seconds (JVM running for 7.115)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (35), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (35), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (20001), best score (-54init/0hard/0soft), score calculation speed (191920/sec), step total (3).
+Construction Heuristic phase (0) ended: time spent (20001), best score (-54init/0hard/0soft), score calculation speed (189767/sec), step total (3).
+Solving ended: time spent (20005), best score (-54init/0hard/0soft), score calculation speed (191498/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (20006), best score (-54init/0hard/0soft), score calculation speed (189350/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 11872 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 79ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1599 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.604 seconds (JVM running for 6.859)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (37), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (38), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (200001), best score (-18init/-1hard/0soft), score calculation speed (94196/sec), step total (15).
+Construction Heuristic phase (0) ended: time spent (200001), best score (-18init/-1hard/0soft), score calculation speed (93949/sec), step total (15).
+Solving ended: time spent (200006), best score (-18init/-1hard/0soft), score calculation speed (94174/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200006), best score (-18init/-1hard/0soft), score calculation speed (93927/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 8332 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 86ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1690 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.764 seconds (JVM running for 6.833)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 6 ms
+Solving started: time spent (33), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (33), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (300001), best score (-6init/-1hard/0soft), score calculation speed (80034/sec), step total (19).
+Construction Heuristic phase (0) ended: time spent (300001), best score (-6init/-1hard/0soft), score calculation speed (80037/sec), step total (19).
+Solving ended: time spent (300005), best score (-6init/-1hard/0soft), score calculation speed (80026/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (300006), best score (-6init/-1hard/0soft), score calculation speed (80023/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-63init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Starting Application on DESKTOP-7USC6MA with PID 7928 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 93ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1938 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.994 seconds (JVM running for 7.074)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (33), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (32), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (177531), best score (0hard/0soft), score calculation speed (95978/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (178816), best score (0hard/0soft), score calculation speed (95287/sec), step total (13).
+Starting Application on DESKTOP-7USC6MA with PID 15320 (D:\实践课\project\Web-Practice\Backend\aps\target\classes started by hp in D:\实践课\project\Web-Practice\Backend\aps)
+The following profiles are active: test
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+Finished Spring Data repository scanning in 100ms. Found 4 JPA repository interfaces.
+Tomcat initialized with port(s): 8081 (http)
+Initializing ProtocolHandler ["http-nio-8081"]
+Starting service [Tomcat]
+Starting Servlet engine: [Apache Tomcat/9.0.33]
+Initializing Spring embedded WebApplicationContext
+Root WebApplicationContext: initialization completed in 1832 ms
+HikariPool-1 - Starting...
+HikariPool-1 - Start completed.
+H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/test_db'
+HHH000204: Processing PersistenceUnitInfo [name: default]
+HHH000412: Hibernate ORM core version 5.4.12.Final
+HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+Initializing ExecutorService 'applicationTaskExecutor'
+Starting ProtocolHandler ["http-nio-8081"]
+Tomcat started on port(s): 8081 (http) with context path ''
+Started Application in 5.883 seconds (JVM running for 7.04)
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+Initializing Servlet 'dispatcherServlet'
+Completed initialization in 10 ms
+Solving started: time spent (31), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (31), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (161668), best score (0hard/0soft), score calculation speed (105395/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (163739), best score (0hard/0soft), score calculation speed (104062/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54275/sec), step total (553244).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (52028/sec), step total (522798).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94608/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (95576/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (7), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (7), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (160216), best score (0hard/0soft), score calculation speed (106331/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (165632), best score (0hard/0soft), score calculation speed (102854/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54878/sec), step total (501601).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (55099/sec), step total (611737).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94604/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (96134/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (159879), best score (0hard/0soft), score calculation speed (106554/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (167469), best score (0hard/0soft), score calculation speed (101725/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54305/sec), step total (608116).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (51234/sec), step total (462116).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (96068/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (93508/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (6), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (7), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (165854), best score (0hard/0soft), score calculation speed (102716/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (167807), best score (0hard/0soft), score calculation speed (101520/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54308/sec), step total (493225).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (51917/sec), step total (463425).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94446/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (93532/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (161044), best score (0hard/0soft), score calculation speed (105783/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (167176), best score (0hard/0soft), score calculation speed (101902/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54486/sec), step total (592441).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54415/sec), step total (475326).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (95787/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94105/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (158826), best score (0hard/0soft), score calculation speed (107259/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (165842), best score (0hard/0soft), score calculation speed (102721/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (55002/sec), step total (631758).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (52287/sec), step total (494919).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (96497/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94105/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (6), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (164368), best score (0hard/0soft), score calculation speed (103643/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (166427), best score (0hard/0soft), score calculation speed (102362/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54244/sec), step total (514301).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (52161/sec), step total (485388).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94839/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (93930/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (159775), best score (0hard/0soft), score calculation speed (106622/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (165399), best score (0hard/0soft), score calculation speed (102997/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54026/sec), step total (606553).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (53607/sec), step total (493352).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94449/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (96040/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (158946), best score (0hard/0soft), score calculation speed (107178/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (165841), best score (0hard/0soft), score calculation speed (102723/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (54728/sec), step total (626847).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (51813/sec), step total (490424).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (94024/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (96408/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (4), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (5), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Construction Heuristic phase (0) ended: time spent (451451), best score (-30init/-1hard/0soft), score calculation speed (6413/sec), step total (3).
+Construction Heuristic phase (0) ended: time spent (451451), best score (-30init/-1hard/0soft), score calculation speed (6561/sec), step total (3).
+Solving ended: time spent (451459), best score (-30init/-1hard/0soft), score calculation speed (6561/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving ended: time spent (451457), best score (-30init/-1hard/0soft), score calculation speed (6413/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (13), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Solving started: time spent (14), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m42s568ms57µs400ns).
+Construction Heuristic phase (0) ended: time spent (158513), best score (0hard/0soft), score calculation speed (107477/sec), step total (13).
+Construction Heuristic phase (0) ended: time spent (164047), best score (0hard/0soft), score calculation speed (103852/sec), step total (13).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (58533/sec), step total (677748).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (97316/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
+Local Search phase (1) ended: time spent (200000), best score (0hard/0soft), score calculation speed (58314/sec), step total (557601).
+Solving ended: time spent (200000), best score (0hard/0soft), score calculation speed (95657/sec), phase total (2), environment mode (REPRODUCIBLE).
+Solving started: time spent (3), best score (-39init/0hard/0soft), environment mode (REPRODUCIBLE), random (JDK with seed 0).
