@@ -101,6 +101,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     document.title = to.name;
+    sessionStorage.setItem('equipment', navigator.userAgent.indexOf('Mobile')!==-1?'Mobile': 'PC');
     next();
 });
 
