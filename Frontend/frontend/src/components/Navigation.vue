@@ -86,6 +86,7 @@
         name: "Navigation",
         data(){
             return{
+                isPC: true,
                 active: 1,
                 showMenu1: false,
                 showMenu2: false,
@@ -105,6 +106,9 @@
             }
         },
         mounted() {
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
             this.changeActive();
         },
         watch:{
@@ -161,6 +165,9 @@
                     this.$router.push({path:this.navDic[active]}).catch(()=>{
                         console.log();
                     });
+                }
+                if(!this.isPC){
+                    this.$parent.changeNavState();
                 }
             }
         }
