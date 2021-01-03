@@ -284,7 +284,7 @@
           .name{
             font-size: 12px;
             line-height: 29px;
-            margin: 1px 8px 0 6px;
+            margin: 0px 8px 0 6px;
           }
           .blue{
             color: #008dcb;
@@ -301,7 +301,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 4px 8px 4px 0;
+        margin: 3px 8px 4px 0;
         border-radius: 4px;
         cursor: pointer;
         .text{
