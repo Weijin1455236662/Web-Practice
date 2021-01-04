@@ -80,6 +80,7 @@ public class OrderServiceImpl implements OrderService {
                 order.setDelivery_date(simpleDateFormat.parse(item.getDeliveryDate().toString().split("T")[0]));
                 order.setMaterial_code(Integer.parseInt(item.getMaterialCode()));
                 order.setQuantity(item.getQuantity());
+                order.setUrgent(0);
                 System.out.println(order.getDelivery_date());
                 orderDao.save(order);
             }
