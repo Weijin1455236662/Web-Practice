@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">订单甘特图</div>
@@ -51,6 +51,7 @@
       messageState: false,
       messageType: 0,
       message: '',
+      isPC: true,
     }
   },
   methods: {
@@ -156,9 +157,9 @@
       this.chart1.dataSource = {
         chart: {
           caption: "订单进度",
-          captionFontSize: 24,
+          captionFontSize: 18,
           xAxisname: "订<br>单<br>号",
-          xAxisNameFontSize: 20,
+          xAxisNameFontSize: 16,
           rotateXAxisName: 0,
           yAxisMaxValue: 100,
           legendposition: "top",
@@ -188,6 +189,9 @@
     }
   },
   mounted(){
+    if(sessionStorage.getItem('equipment')==='Mobile'){
+      this.isPC = false;
+    }
     this.today = sessionStorage.getItem("beginDate")
     this.start();
   },
@@ -234,6 +238,37 @@
         font-size: 16px;
         cursor: pointer;
         width: 260px;
+        padding-left: 6px;
+      }
+    }
+  }
+}
+.mobile{
+  .head{
+    margin: 30px 4% 0;
+    text-align: left;
+    .text{
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .container{
+    margin: 10px 5% 0;
+    .picWrap{
+      min-height: 50vh;
+    }
+    .today{
+      text-align: left;
+      margin-bottom: 2px;
+      padding-left: 4%;
+      #date_label{
+        font-size: 18px;
+        font-weight: bold;
+      }
+      #date{
+        font-size: 16px;
+        cursor: pointer;
+        width: 225px;
         padding-left: 6px;
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">生产单</div>
@@ -59,7 +59,8 @@ export default {
         message: '',
         flag: false,
         workInfo: {},
-        name: "line"
+        name: "line",
+        isPC: true
       }
     },
     methods: {
@@ -244,67 +245,67 @@ export default {
                 {
                   start: "00:00:00",
                   end: "01:59:59",
-                  label: "7:00-9:00"
+                  label: "7"
                 },
                 {
                   start: "02:00:00",
                   end: "03:59:59",
-                  label: "9:00-11:00"
+                  label: "9"
                 },
                 {
                   start: "04:00:00",
                   end: "05:59:59",
-                  label: "11:00-13:00"
+                  label: "11"
                 },
                 {
                   start: "06:00:00",
                   end: "07:59:59",
-                  label: "13:00-15:00"
+                  label: "13"
                 },
                 {
                   start: "08:00:00",
                   end: "09:59:59",
-                  label: "15:00-17:00"
+                  label: "15"
                 },
                 {
                   start: "10:00:00",
                   end: "11:59:59",
-                  label: "17:00-19:00"
+                  label: "17"
                 },
                 {
                   start: "12:00:00",
                   end: "13:59:59",
-                  label: "19:00-21:00"
+                  label: "19"
                 },
                 {
                   start: "14:00:00",
                   end: "15:59:59",
-                  label: "21:00-23:00"
+                  label: "21"
                 },
                 {
                   start: "16:00:00",
                   end: "17:59:59",
-                  label: "23:00-次日1:00"
+                  label: "23"
                 },
                 {
                   start: "18:00:00",
                   end: "19:59:59",
-                  label: "次日1:00-3:00"
+                  label: "1"
                 },
                 {
                   start: "20:00:00",
                   end: "21:59:59",
-                  label: "次日3:00-5:00"
+                  label: "3"
                 },
                 {
                   start: "22:00:00",
                   end: "23:59:59",
-                  label: "次日5:00-7:00"
+                  label: "5"
                 }
               ]
             }
           ],
-          chart: 
+          chart:
           {
             dateformat: "dd/mm/yyyy",
             outputdateformat: "hh12:mn ampm",
@@ -345,6 +346,9 @@ export default {
     },
     mounted() {
       this.measure();
+      if(sessionStorage.getItem('equipment')==='Mobile'){
+        this.isPC = false;
+      }
     },
     watch: {
       $route : function () {
@@ -379,6 +383,45 @@ export default {
         .name{
           width: 25%;
           margin: 6px 0;
+          .text{
+            color: #5a5a5a;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          .text:hover{
+            color: #000000;
+          }
+        }
+
+      }
+    }
+  }
+}
+.mobile{
+  .head{
+    margin: 30px 4% 0;
+    text-align: left;
+    .text{
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .container{
+    .group{
+      margin: 30px 4% 10px;
+      .title{
+        text-align: left;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px 0;
+        .name{
+          width: 25%;
+          height: 30px;
+          margin: 8px 0px;
           .text{
             color: #5a5a5a;
             text-decoration: underline;

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <div class="head">
       <div class="text">资源甘特图</div>
       <hr/>
@@ -30,10 +30,14 @@ export default {
             height: "70%",
             dataFormat: "json",
             dataSource: {},
-            date: ''
+            date: '',
+          isPC: true
         }
     },
     mounted(){
+      if(sessionStorage.getItem('equipment')==='Mobile'){
+        this.isPC = false;
+      }
         this.date = sessionStorage.getItem('beginDate');
         // this.updateData();
     },
@@ -234,6 +238,31 @@ export default {
       font-size: 16px;
       cursor: pointer;
       width: 260px;
+      padding-left: 6px;
+    }
+  }
+}
+.mobile{
+  .head{
+    margin: 30px 4% 0;
+    text-align: left;
+    .text{
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .dateWrap{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 10px 7%;
+    #date_label{
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #date{
+      font-size: 16px;
+      cursor: pointer;
+      width: 225px;
       padding-left: 6px;
     }
   }
