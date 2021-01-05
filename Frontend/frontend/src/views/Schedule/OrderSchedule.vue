@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">订单计划图</div>
@@ -50,6 +50,7 @@ export default {
         dataFormat: "json",
         dataSource: {}
       },
+      isPC: true,
     }
   },
   methods: {
@@ -192,6 +193,134 @@ export default {
         headeralign: "center",
         process: uniqueProcess
       }
+      let category = []
+      if (that.isPC === true) {
+        category = [
+          {
+            start: "00:00:00",
+            end: "01:59:59",
+            label: "7:00-9:00"
+          },
+          {
+            start: "02:00:00",
+            end: "03:59:59",
+            label: "9:00-11:00"
+          },
+          {
+            start: "04:00:00",
+            end: "05:59:59",
+            label: "11:00-13:00"
+          },
+          {
+            start: "06:00:00",
+            end: "07:59:59",
+            label: "13:00-15:00"
+          },
+          {
+            start: "08:00:00",
+            end: "09:59:59",
+            label: "15:00-17:00"
+          },
+          {
+            start: "10:00:00",
+            end: "11:59:59",
+            label: "17:00-19:00"
+          },
+          {
+            start: "12:00:00",
+            end: "13:59:59",
+            label: "19:00-21:00"
+          },
+          {
+            start: "14:00:00",
+            end: "15:59:59",
+            label: "21:00-23:00"
+          },
+          {
+            start: "16:00:00",
+            end: "17:59:59",
+            label: "23:00-次日1:00"
+          },
+          {
+            start: "18:00:00",
+            end: "19:59:59",
+            label: "次日1:00-次日3:00"
+          },
+          {
+            start: "20:00:00",
+            end: "21:59:59",
+            label: "次日3:00-次日5:00"
+          },
+          {
+            start: "22:00:00",
+            end: "23:59:59",
+            label: "次日5:00-次日7:00"
+          }
+        ]
+      } else {
+        category = [
+          {
+            start: "00:00:00",
+            end: "01:59:59",
+            label: "7"
+          },
+          {
+            start: "02:00:00",
+            end: "03:59:59",
+            label: "9"
+          },
+          {
+            start: "04:00:00",
+            end: "05:59:59",
+            label: "11"
+          },
+          {
+            start: "06:00:00",
+            end: "07:59:59",
+            label: "13"
+          },
+          {
+            start: "08:00:00",
+            end: "09:59:59",
+            label: "15"
+          },
+          {
+            start: "10:00:00",
+            end: "11:59:59",
+            label: "17"
+          },
+          {
+            start: "12:00:00",
+            end: "13:59:59",
+            label: "19"
+          },
+          {
+            start: "14:00:00",
+            end: "15:59:59",
+            label: "21"
+          },
+          {
+            start: "16:00:00",
+            end: "17:59:59",
+            label: "23"
+          },
+          {
+            start: "18:00:00",
+            end: "19:59:59",
+            label: "1"
+          },
+          {
+            start: "20:00:00",
+            end: "21:59:59",
+            label: "3"
+          },
+          {
+            start: "22:00:00",
+            end: "23:59:59",
+            label: "5"
+          }
+        ]
+      }
       this.chart.dataSource = {
         tasks: tasks,
         processes: processes,
@@ -222,76 +351,16 @@ export default {
             },
             {
               align: "center",
-              category: [
-                {
-                  start: "00:00:00",
-                  end: "01:59:59",
-                  label: "7:00-9:00"
-                },
-                {
-                  start: "02:00:00",
-                  end: "03:59:59",
-                  label: "9:00-11:00"
-                },
-                {
-                  start: "04:00:00",
-                  end: "05:59:59",
-                  label: "11:00-13:00"
-                },
-                {
-                  start: "06:00:00",
-                  end: "07:59:59",
-                  label: "13:00-15:00"
-                },
-                {
-                  start: "08:00:00",
-                  end: "09:59:59",
-                  label: "15:00-17:00"
-                },
-                {
-                  start: "10:00:00",
-                  end: "11:59:59",
-                  label: "17:00-19:00"
-                },
-                {
-                  start: "12:00:00",
-                  end: "13:59:59",
-                  label: "19:00-21:00"
-                },
-                {
-                  start: "14:00:00",
-                  end: "15:59:59",
-                  label: "21:00-23:00"
-                },
-                {
-                  start: "16:00:00",
-                  end: "17:59:59",
-                  label: "23:00-次日1:00"
-                },
-                {
-                  start: "18:00:00",
-                  end: "19:59:59",
-                  label: "次日1:00-3:00"
-                },
-                {
-                  start: "20:00:00",
-                  end: "21:59:59",
-                  label: "次日3:00-5:00"
-                },
-                {
-                  start: "22:00:00",
-                  end: "23:59:59",
-                  label: "次日5:00-7:00"
-                }
-              ]
+              category: category
             }
           ],
-          chart: 
+          chart:
           {
             dateformat: "dd/mm/yyyy",
             outputdateformat: "hh12:mn ampm",
             plottooltext: "$label",
             caption: "订单" + this.$route.query.id + "计划图",
+            captionFontSize: 14,
             theme: "fusion"
           }
       }
@@ -301,6 +370,9 @@ export default {
   mounted(){
     // this.render([])
     this.measure()
+    if(sessionStorage.getItem('equipment')==='Mobile'){
+      this.isPC = false;
+    }
   },
   watch: {
     $route: function () {
@@ -339,6 +411,44 @@ export default {
             color: #5a5a5a;
             text-decoration: underline;
             cursor: pointer;
+          }
+          .text:hover{
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+.mobile{
+  .head{
+    margin: 30px 5% 0;
+    text-align: left;
+    .text{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .container{
+    .group{
+      margin: 30px 7% 10px;
+      .title{
+        text-align: left;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .list{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px 0;
+        .name{
+          width: 25%;
+          margin: 6px 0;
+          .text{
+            color: #5a5a5a;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 12px;
           }
           .text:hover{
             color: #000000;

@@ -95,6 +95,7 @@ export default {
     this.dataSource = {
       chart: {
         caption: that.caption,
+        captionFontSize: 14,
         subcaption: that.subcaption,
         subcaptionFontSize: 10,
         showvalue: "1",

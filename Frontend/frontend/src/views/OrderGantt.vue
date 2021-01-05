@@ -124,7 +124,7 @@
       let category = []
       let dataset = [{
         seriesName: "装配率",
-        fontSize: 26,
+        fontSize: 16,
         data: []
       }]
       let data = []
@@ -157,9 +157,9 @@
       this.chart1.dataSource = {
         chart: {
           caption: "订单进度",
-          captionFontSize: 18,
+          captionFontSize: 14,
           xAxisname: "订<br>单<br>号",
-          xAxisNameFontSize: 16,
+          xAxisNameFontSize: 14,
           rotateXAxisName: 0,
           yAxisMaxValue: 100,
           legendposition: "top",
@@ -248,7 +248,7 @@
     margin: 30px 4% 0;
     text-align: left;
     .text{
-      font-size: 24px;
+      font-size: 16px;
       font-weight: bold;
     }
   }
@@ -262,13 +262,13 @@
       margin-bottom: 2px;
       padding-left: 4%;
       #date_label{
-        font-size: 18px;
+        font-size: 14px;
         font-weight: bold;
       }
       #date{
         font-size: 16px;
         cursor: pointer;
-        width: 225px;
+        width: 230px;
         padding-left: 6px;
       }
     }

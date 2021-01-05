@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">订单-生产单关系表</div>
@@ -47,6 +47,7 @@ export default {
           messageState: false,
           messageType: 0,
           message: '',
+        isPC: true,
       }
   },
   methods: {
@@ -87,6 +88,9 @@ export default {
       }
   },
   mounted(){
+    if(sessionStorage.getItem('equipment')==='Mobile'){
+      this.isPC = false;
+    }
       let session = JSON.parse(sessionStorage.getItem('subOrders'));
       if(session){
           getAllOrder().then(res=>{
@@ -143,6 +147,65 @@ export default {
             width: 60%;
             display: block;
             .subOrder{
+              cursor: default;
+            }
+          }
+        }
+        .row:first-child{
+          border-top: 1px solid #e0e0e0;
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+        .row:hover{
+          background-color: #f0f6f9;
+        }
+        .noOrder{
+          margin-top: 10px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .mobile{
+    .head{
+      margin: 30px 5% 0;
+      text-align: left;
+      .text{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .container{
+      margin: 10px 7%;
+      display: flex;
+      .table{
+        width: 100%;
+        .row{
+          display: flex;
+          border-bottom: 1px solid #e0e0e0;
+          padding: 12px 0;
+          .column{
+            padding: 2px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+          }
+          .index0{
+            width: 40%;
+            .order{
+              font-size: 12px;
+              cursor: pointer;
+              .id{
+                text-decoration: underline;
+              }
+            }
+          }
+          .index1{
+            width: 60%;
+            display: block;
+            .subOrder{
+              font-size: 12px;
               cursor: default;
             }
           }
