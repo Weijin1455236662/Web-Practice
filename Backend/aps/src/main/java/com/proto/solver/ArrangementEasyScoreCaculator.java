@@ -46,7 +46,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                 teamLista = a.getTeamList().getTeamList();
                 current_begin_timea = a.getTimeslot().getTime();
                 current_end_timea = current_begin_timea + a.getLast_time();
-                if(current_end_timea>=86400){
+                if(current_end_timea>=1080){
                     hardScore--;
                 }
 
@@ -144,7 +144,7 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
                         teamListb = b.getTeamList().getTeamList();
                         current_begin_timeb = b.getTimeslot().getTime();
                         current_end_timeb = current_begin_timeb + b.getLast_time();
-                        if(current_end_timeb>=86400){
+                        if(current_end_timeb>=1080){
                             hardScore--;
                         }
 
@@ -186,11 +186,11 @@ public class ArrangementEasyScoreCaculator implements EasyScoreCalculator<Arrang
 
                         if(a.getTeamList().equals(b.getTeamList())&&a.getEquipment().getEquipmentid()!=b.getEquipment().getEquipmentid()){
                             if(current_begin_timea<current_begin_timeb) {
-                                if (current_begin_timeb - current_end_timea < 360) {
+                                if (current_begin_timeb - current_end_timea < 6) {
                                     hardScore--;
                                 }
                             }else if(current_begin_timea>current_begin_timeb){
-                                if(current_begin_timea - current_end_timeb < 360){
+                                if(current_begin_timea - current_end_timeb < 6){
                                     hardScore--;
                                 }
                             }
