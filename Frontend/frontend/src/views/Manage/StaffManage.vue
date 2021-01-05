@@ -540,14 +540,14 @@
     }
     .container{
       margin: 10px 5%;
-      /*border: 1px solid #000000;*/
+      padding: 0 1vw;
       text-align: left;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       .card{
-        width: 40%;
+        width: 42%;
         margin: 2px 0;
         border: 3px solid #000000;
         padding: 0 8px 4px;
@@ -752,7 +752,7 @@
           #time{
             font-size: 12px;
             cursor: pointer;
-            width: 15vw;
+            width: 32vw;
             padding: 0 0 3px 0;
             background-color: #ffffff;
             border: 1px solid #aaaaaa;

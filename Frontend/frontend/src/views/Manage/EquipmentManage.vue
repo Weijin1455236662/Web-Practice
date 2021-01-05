@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">设备管理</div>
@@ -88,6 +88,7 @@
         components: {MessageTip},
         data(){
             return{
+                isPC: true,
                 allEquipment: [],
                 showForm: false,
                 formType: 0,
@@ -103,6 +104,9 @@
             }
         },
         mounted() {
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
             this.getAllEquipment();
         },
         methods:{
@@ -428,6 +432,245 @@
             border: 1px solid #e6e6e6;
             padding: 4px 14px 6px;
             font-size: 16px;
+            cursor: pointer;
+          }
+          .button:focus{
+            outline: none;
+          }
+          .button:hover{
+            background-color: #F6F6F6;
+          }
+          .confirm{
+            background-color: #1B9AF7;
+            border-color: #008dcb;
+            color: #FFFFFF;
+          }
+          .confirm:hover{
+            background-color: #4cb0f9;
+          }
+        }
+      }
+    }
+  }
+  .mobile{
+    min-width: 100vw;
+    .head{
+      margin: 12px 5% 0;
+      text-align: left;
+      .text{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .container{
+      margin: 10px 5%;
+      padding: 0 1vw;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .card{
+        width: 42%;
+        margin: 2px 0;
+        border: 3px solid #000000;
+        padding: 0 8px 4px;
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        min-height: 102px;
+        .group{
+          display: flex;
+          justify-content: space-between;
+        }
+        .id{
+          display: flex;
+          .number{
+            font-size: 22px;
+            margin-top: 4px;
+            color: #000000;
+            font-weight: bold;
+          }
+          .text{
+            margin: 8px 0 0 2px;
+            font-size: 16px;
+          }
+        }
+        .name{
+          display: flex;
+          .i-tupu{
+            margin-top: 6px;
+            font-size: 30px;
+          }
+          .text{
+            margin-top: 8px;
+            margin-left: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .type{
+            margin-left: 2px;
+            font-size: 12px;
+          }
+        }
+        .amount{
+          display: flex;
+          .number{
+            margin-left: 2px;
+            font-size: 16px;
+            color: #000000;
+          }
+          .text{
+            font-size: 12px;
+            margin-top: 2px;
+          }
+        }
+        .day{
+          margin-top: 2px;
+          font-size: 12px;
+        }
+        .time{
+          text-align: right;
+          font-size: 12px;
+        }
+        .toolbox{
+          .tooltip{
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 8px;
+          }
+        }
+      }
+      .card:not(:last-child):hover{
+        box-shadow: 6px 6px 6px #aaaaaa;
+        background-color: #f2f2f2;
+      }
+      .dash{
+        border: 3px dashed #000000;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .plus{
+        text-align: center;
+        .i-add{
+          font-size: 60px;
+        }
+      }
+    }
+    .background{
+      background-color: #000000;
+      opacity: 0.8;
+      position: fixed;
+      z-index: 200;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .form{
+      background-color: #FFFFFF;
+      position: fixed;
+      z-index: 300;
+      top: 20vh;
+      left: 15vw;
+      width: 70vw;
+      /*height: 23vh;*/
+      padding: 6px 8px 8px;
+      text-align: left;
+      align-items: center;
+      .form_head{
+        margin-top: 2px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        .text{
+          padding-left: 4px;
+        }
+        .close{
+          position: absolute;
+          top: -1px;
+          right: 2px;
+          cursor: pointer;
+        }
+      }
+      .form_body{
+        /*padding: 0 88px;*/
+        .line{
+          margin: 0 0 4px 12vw;
+          align-items: center;
+        }
+        .form_id{
+          display: flex;
+          #equipmentid_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #equipmentid{
+            font-size: 12px;
+            width: 30vw;
+            padding-left: 6px;
+            min-height: 20px;
+            border: 1px solid #aaaaaa;
+          }
+          #equipmentid_disable{
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 6px;
+          }
+        }
+        .form_name{
+          #name_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #name{
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
+            padding-left: 6px;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_amount{
+          #amount_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #amount{
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
+            padding-left: 6px;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_type{
+          #type_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #type{
+            font-size: 12px;
+            cursor: pointer;
+            width: 32vw;
+            padding: 0 0 3px 0;
+            background-color: #ffffff;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_button{
+          .button{
+            background-color: #E6E6E6;
+            color: #666666;
+            margin-right: 10px;
+            border-radius: 2px;
+            border: 1px solid #e6e6e6;
+            padding: 2px 8px 2px;
+            font-size: 14px;
             cursor: pointer;
           }
           .button:focus{
