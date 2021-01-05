@@ -70,9 +70,9 @@
           </select>
         </div>
         <div class="form_button line">
-          <button class="button" @click="closeForm">取消</button>
           <button class="button confirm" @click="submitForm" v-if="formType===0">添加</button>
           <button class="button confirm" @click="submitForm" v-if="formType===1">更新</button>
+          <button class="button" @click="closeForm">取消</button>
         </div>
       </div>
     </div>
