@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="tip"
-    :class="messageType===0&&messageState?'green show':messageType===0&&!messageState?'green hide':messageType===1&&messageState?'red show':'red hide'">
+  <div :class="`${messageType===0?'green':'red'}${messageState?' show':' hide'}${isPC?' tip':' Mobile'}`">
     <i class="icon-font" :class="messageType===0?'i-tick-circle':'i-cross-circle'"></i>
     <div class="text">{{message}}</div>
   </div>
@@ -10,6 +8,11 @@
 <script>
     export default {
         name: "MessageTip",
+        data(){
+            return{
+                isPC: true
+            }
+        },
         props:{
             messageType: {
                 type: Number,
@@ -23,6 +26,11 @@
                 type: String,
                 default: ''
             }
+        },
+        mounted() {
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
         }
     }
 </script>
@@ -32,6 +40,21 @@
     position: fixed;
     top: 30px;
     left: 48%;
+    z-index: 400;
+    display: flex;
+    border-radius: 4px;
+    padding: 10px 20px;
+    .icon-font{
+      margin-top: 2px;
+    }
+    .text{
+      margin-left: 8px;
+    }
+  }
+  .Mobile{
+    position: fixed;
+    top: 30px;
+    left: 32vw;
     z-index: 400;
     display: flex;
     border-radius: 4px;

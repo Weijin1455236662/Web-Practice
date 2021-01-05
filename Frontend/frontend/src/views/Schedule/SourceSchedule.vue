@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <div class="head">
       <div class="text">资源甘特图</div>
       <hr/>
@@ -30,10 +30,14 @@ export default {
             height: "70%",
             dataFormat: "json",
             dataSource: {},
-            date: ''
+            date: '',
+          isPC: true
         }
     },
     mounted(){
+      if(sessionStorage.getItem('equipment')==='Mobile'){
+        this.isPC = false;
+      }
         this.date = sessionStorage.getItem('beginDate');
         // this.updateData();
     },
@@ -75,11 +79,140 @@ export default {
                 label: "子订单：" + item.label + "<br/>时间："+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
               })
             });
+            let category = []
+            if (that.isPC === true) {
+              category = [
+                {
+                  start: "00:00:00",
+                  end: "01:59:59",
+                  label: "7:00-9:00"
+                },
+                {
+                  start: "02:00:00",
+                  end: "03:59:59",
+                  label: "9:00-11:00"
+                },
+                {
+                  start: "04:00:00",
+                  end: "05:59:59",
+                  label: "11:00-13:00"
+                },
+                {
+                  start: "06:00:00",
+                  end: "07:59:59",
+                  label: "13:00-15:00"
+                },
+                {
+                  start: "08:00:00",
+                  end: "09:59:59",
+                  label: "15:00-17:00"
+                },
+                {
+                  start: "10:00:00",
+                  end: "11:59:59",
+                  label: "17:00-19:00"
+                },
+                {
+                  start: "12:00:00",
+                  end: "13:59:59",
+                  label: "19:00-21:00"
+                },
+                {
+                  start: "14:00:00",
+                  end: "15:59:59",
+                  label: "21:00-23:00"
+                },
+                {
+                  start: "16:00:00",
+                  end: "17:59:59",
+                  label: "23:00-次日1:00"
+                },
+                {
+                  start: "18:00:00",
+                  end: "19:59:59",
+                  label: "次日1:00-次日3:00"
+                },
+                {
+                  start: "20:00:00",
+                  end: "21:59:59",
+                  label: "次日3:00-次日5:00"
+                },
+                {
+                  start: "22:00:00",
+                  end: "23:59:59",
+                  label: "次日5:00-次日7:00"
+                }
+              ]
+            } else {
+              category = [
+                {
+                  start: "00:00:00",
+                  end: "01:59:59",
+                  label: "7"
+                },
+                {
+                  start: "02:00:00",
+                  end: "03:59:59",
+                  label: "9"
+                },
+                {
+                  start: "04:00:00",
+                  end: "05:59:59",
+                  label: "11"
+                },
+                {
+                  start: "06:00:00",
+                  end: "07:59:59",
+                  label: "13"
+                },
+                {
+                  start: "08:00:00",
+                  end: "09:59:59",
+                  label: "15"
+                },
+                {
+                  start: "10:00:00",
+                  end: "11:59:59",
+                  label: "17"
+                },
+                {
+                  start: "12:00:00",
+                  end: "13:59:59",
+                  label: "19"
+                },
+                {
+                  start: "14:00:00",
+                  end: "15:59:59",
+                  label: "21"
+                },
+                {
+                  start: "16:00:00",
+                  end: "17:59:59",
+                  label: "23"
+                },
+                {
+                  start: "18:00:00",
+                  end: "19:59:59",
+                  label: "1"
+                },
+                {
+                  start: "20:00:00",
+                  end: "21:59:59",
+                  label: "3"
+                },
+                {
+                  start: "22:00:00",
+                  end: "23:59:59",
+                  label: "5"
+                }
+              ]
+            }
             this.dataSource = {
               chart: {
                 dateformat: "dd/mm/yyyy",
                 outputdateformat: "hh:mn:ss",
                 caption: "资源甘特图",
+                captionFontSize: 14,
                 plottooltext: "$label",
                 theme: "fusion"
               },
@@ -109,68 +242,7 @@ export default {
                 },
                 {
                   align: "center",
-                  category: [
-                    {
-                      start: "00:00:00",
-                      end: "01:59:59",
-                      label: "7:00-9:00"
-                    },
-                    {
-                      start: "02:00:00",
-                      end: "03:59:59",
-                      label: "9:00-11:00"
-                    },
-                    {
-                      start: "04:00:00",
-                      end: "05:59:59",
-                      label: "11:00-13:00"
-                    },
-                    {
-                      start: "06:00:00",
-                      end: "07:59:59",
-                      label: "13:00-15:00"
-                    },
-                    {
-                      start: "08:00:00",
-                      end: "09:59:59",
-                      label: "15:00-17:00"
-                    },
-                    {
-                      start: "10:00:00",
-                      end: "11:59:59",
-                      label: "17:00-19:00"
-                    },
-                    {
-                      start: "12:00:00",
-                      end: "13:59:59",
-                      label: "19:00-21:00"
-                    },
-                    {
-                      start: "14:00:00",
-                      end: "15:59:59",
-                      label: "21:00-23:00"
-                    },
-                    {
-                      start: "16:00:00",
-                      end: "17:59:59",
-                      label: "23:00-次日1:00"
-                    },
-                    {
-                      start: "18:00:00",
-                      end: "19:59:59",
-                      label: "次日1:00-次日3:00"
-                    },
-                    {
-                      start: "20:00:00",
-                      end: "21:59:59",
-                      label: "次日3:00-次日5:00"
-                    },
-                    {
-                      start: "22:00:00",
-                      end: "23:59:59",
-                      label: "次日5:00-次日7:00"
-                    }
-                  ]
+                  category: category
                 }
               ],
               tasks: {
@@ -234,6 +306,31 @@ export default {
       font-size: 16px;
       cursor: pointer;
       width: 260px;
+      padding-left: 6px;
+    }
+  }
+}
+.mobile{
+  .head{
+    margin: 30px 4% 0;
+    text-align: left;
+    .text{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .dateWrap{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 10px 7%;
+    #date_label{
+      font-size: 14px;
+      font-weight: bold;
+    }
+    #date{
+      font-size: 14px;
+      cursor: pointer;
+      width: 230px;
       padding-left: 6px;
     }
   }

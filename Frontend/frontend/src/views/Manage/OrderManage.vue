@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">订单管理</div>
@@ -35,7 +35,7 @@
             </div>
           </div>
           <div class="column index5">操作</div>
-          <div class="column index6" title="添加订单"><i class="iconfont icon-tianjia tooltip" @click="addOrder"></i></div>
+          <div v-if="isPC" class="column index6" title="添加订单"><i class="iconfont icon-tianjia tooltip" @click="addOrder"></i></div>
         </div>
         <div class="row" v-for="(order, index) in allOrder" :key="index">
           <div class="column index0">{{(index+1)}}</div>
@@ -47,11 +47,11 @@
             <i class="icon-font i-edit tooltip" title="修改订单" @click="updateOrder(order)"></i>
             <i class="icon-font i-delete tooltip" title="删除订单" @click="deleteOrder(order.orderid)"></i>
           </div>
-          <div class="column index6"></div>
+          <div v-if="isPC" class="column index6"></div>
         </div>
         <div class="noOrder" v-if="allOrder.length===0">无订单...</div>
       </div>
-      <div class="filter">
+      <div v-if="isPC" class="filter">
         <div class="head-text">筛选</div>
         <hr/>
         <div class="content">
@@ -110,6 +110,7 @@
         components: {MessageTip},
         data(){
           return {
+              isPC: true,
               allOrder: [],
               nativeOrder: [],
               showForm: false,
@@ -130,6 +131,9 @@
           }
         },
         mounted(){
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
             this.getAllOrder();
         },
         methods: {
@@ -560,6 +564,294 @@
               cursor: pointer;
               .icon-paixu-xia{
                 font-size: 12px;
+              }
+            }
+            .active{
+              color: #000000;
+            }
+          }
+        }
+        .row:first-child{
+          border-top: 1px solid #e0e0e0;
+          background-color: #f2f2f2;
+          font-weight: bold;
+        }
+        .row:hover{
+          background-color: #f0f6f9;
+        }
+        .noOrder{
+          margin-top: 10px;
+          font-size: 20px;
+        }
+      }
+    }
+    .background{
+      background-color: #000000;
+      opacity: 0.8;
+      position: fixed;
+      z-index: 200;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .form{
+      background-color: #FFFFFF;
+      position: fixed;
+      z-index: 300;
+      top: 20%;
+      left: 35%;
+      width: 30%;
+      min-width: 570px;
+      height: 35%;
+      min-height: 328px;
+      padding: 32px 10px 10px;
+      text-align: left;
+      .form_head{
+        margin-top: 10px;
+        font-size: 32px;
+        font-weight: bold;
+        position: relative;
+        .text{
+          line-height: 6px;
+          padding-left: 10px;
+        }
+        .close{
+          position: absolute;
+          top: -44px;
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+      .form_body{
+        padding: 0 88px;
+        .line{
+          margin-bottom: 20px;
+        }
+        .line:first-child{
+          margin-top: 40px;
+        }
+        .form_id{
+          display: flex;
+          #orderid_label{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          #orderid{
+            font-size: 16px;
+            width: 260px;
+            min-height: 20px;
+            padding-left: 6px;
+          }
+          #orderid_disable{
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 6px;
+          }
+        }
+        .form_material{
+          #material_label{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          #material{
+            font-size: 16px;
+            width: 260px;
+            min-height: 20px;
+            padding-left: 6px;
+          }
+        }
+        .form_num{
+          #num_label{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          #num{
+            font-size: 16px;
+            width: 260px;
+            min-height: 20px;
+            padding-left: 6px;
+          }
+        }
+        .form_date{
+          display: flex;
+          #date_label{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          #date{
+            font-size: 16px;
+            cursor: pointer;
+            width: 260px;
+            padding-left: 6px;
+          }
+        }
+        .form_button{
+          .button{
+            background-color: #E6E6E6;
+            color: #666666;
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #e6e6e6;
+            padding: 4px 14px 6px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+          .button:focus{
+            outline: none;
+          }
+          .button:hover{
+            background-color: #F6F6F6;
+          }
+          .confirm{
+            background-color: #1B9AF7;
+            border-color: #008dcb;
+            color: #FFFFFF;
+          }
+          .confirm:hover{
+            background-color: #4cb0f9;
+          }
+        }
+      }
+    }
+  }
+  .mobile {
+    .head {
+      margin: 12px 5% 0;
+      text-align: left;
+      .text {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .container{
+      margin: 10px 5%;
+      display: flex;
+      .filter{
+        text-align: left;
+        width: 22%;
+        margin: 20px 0 40px 3%;
+        border: 2px solid #f2f2f2;
+        box-shadow: 3px 3px 4px #f2f2f2;
+        padding: 40px 2%;
+        .head-text{
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .content{
+          margin: 20px 0;
+          #string{
+            width: 88%;
+            font-size: 14px;
+            min-height: 20px;
+            margin-top: 8px;
+            padding: 2px 0 2px 6px;
+          }
+        }
+        .time{
+          margin: 20px 0;
+          #start{
+            width: 42%;
+            font-size: 12px;
+            margin-top: 8px;
+            padding: 2px 0 2px 2px;
+          }
+          #endLabel{
+            margin: 0 2px;
+          }
+          #end{
+            width: 42%;
+            font-size: 12px;
+            padding: 2px 0 2px 2px;
+          }
+          .button{
+            background-color: #efefef;
+            color: #666666;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #efefef;
+            padding: 2px 14px 6px;
+            font-size: 16px;
+            cursor: pointer;
+          }
+          .button:focus{
+            outline: none;
+          }
+          .button:hover{
+            background-color: #f6f6f6;
+          }
+        }
+      }
+      .table{
+        width: 100%;
+        .row{
+          display: flex;
+          border-bottom: 1px solid #e0e0e0;
+          padding: 2px 0;
+          .column{
+            font-size: 10px;
+            padding: 2px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .index0{
+            width: 8%;
+          }
+          .index1{
+            width: 19%;
+          }
+          .index2{
+            width: 19%;
+          }
+          .index3{
+            width: 19%;
+          }
+          .index4{
+            width: 19%;
+          }
+          .index5{
+            width: 16%;
+            .tooltip{
+              font-size: 16px;
+              cursor: pointer;
+            }
+            .tooltip:first-child{
+              margin-right: 2px;
+            }
+          }
+          .index6{
+            width: 5%;
+            .tooltip{
+              font-size: 22px;
+              cursor: pointer;
+            }
+          }
+          .sort{
+            margin-top: -6px;
+            margin-left: 4px;
+            position: relative;
+            .up{
+              position: absolute;
+              top: -5px;
+              left: -3px;
+              z-index: 100;
+              line-height: 10px;
+              color: #aaaaaa;
+              cursor: pointer;
+              .icon-paixu-shang{
+                font-size: 10px;
+              }
+            }
+            .down{
+              position: absolute;
+              top: 2px;
+              left: -3px;
+              line-height: 10px;
+              color: #aaaaaa;
+              cursor: pointer;
+              .icon-paixu-xia{
+                font-size: 10px;
               }
             }
             .active{

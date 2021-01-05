@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div :id="isPC?'app':'mobile'">
     <div class="header" v-if="showHead">
       <div class="left">
-        <div class="delete" @click="changeHeadState">
+        <div v-if="isPC" class="delete" @click="changeHeadState">
           <i class="icon-font i-close min"></i>
         </div>
         <div class="info" @click="changeNavState">
@@ -36,6 +36,7 @@
         components: {Navigation},
         data(){
             return{
+                isPC: true,
                 name: '',
                 showHead: true,
                 showNav: true,
@@ -44,6 +45,10 @@
             }
         },
         mounted() {
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+                this.showNav = false;
+            }
             this.name = this.$route.name;
             let date1 = sessionStorage.getItem('beginDate');
             let date2 = sessionStorage.getItem('endDate');
@@ -181,6 +186,127 @@
         .text{
           font-size: 15px;
           margin: 0 12px 0 12px;
+        }
+      }
+      .right:hover{
+        background-color: #e6e6e6;
+      }
+    }
+    .body{
+      display: flex;
+      height: 100%;
+      .nav {
+        background-color: #f2f2f2;
+        min-width: 200px;
+        height: 100%;
+        border-right: 1px solid #cccccc;
+        position: fixed;
+        a {
+          font-weight: bold;
+          color: #2c3e50;
+
+          &.router-link-exact-active {
+            color: #42b983;
+          }
+        }
+      }
+      #main-1{
+        width: 100%;
+        margin-top: 36px;
+        margin-left: 200px;
+      }
+      #main-2{
+        width: 100%;
+        margin-top: 36px;
+      }
+      #main-3{
+        width: 100%;
+      }
+    }
+  }
+  #mobile{
+    font-family: 'Source Sans Pro', 'Trebuchet MS', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    height: 100%;
+    .tool{
+      background-color: #f2f2f2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 28px;
+      border-right: 1px solid #cbcbcb;
+      border-bottom: 1px solid #cccccc;
+      padding: 12px 0;
+      font-size: 10px;
+      transform: translateX(-28px);
+      cursor: pointer;
+    }
+    .tool:hover{
+      transform: translateX(0);
+      transition: transform 0.5s;
+    }
+    .header{
+      background-color: #f2f2f2;
+      width: 100%;
+      height: 36px;
+      border-bottom: 1px solid #cccccc;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      z-index: 100;
+      .left{
+        display: flex;
+        .delete{
+          width: 28px;
+          border-right: 1px solid #cbcbcb;
+          padding: 12px 0;
+          font-size: 10px;
+          cursor: pointer;
+          .min{
+            font-size: 12px;
+          }
+        }
+        .info{
+          height: 28px;
+          margin: 4px 6px;
+          display: flex;
+          border-radius: 4px;
+          cursor: pointer;
+          i{
+            font-size: 28px;
+            margin-left: 10px;
+          }
+          .name{
+            font-size: 12px;
+            line-height: 29px;
+            margin: 0px 8px 0 6px;
+          }
+          .blue{
+            color: #008dcb;
+          }
+          .info-icon{
+            margin-top: -4px;
+          }
+        }
+        .info:hover{
+          background-color: #e6e6e6;
+        }
+      }
+      .right{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 3px 8px 4px 0;
+        border-radius: 4px;
+        cursor: pointer;
+        .text{
+          font-size: 12px;
+          margin: 0 2px 0 2px;
         }
       }
       .right:hover{

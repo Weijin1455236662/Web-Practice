@@ -16,7 +16,7 @@ export default {
   data(){
     return{
       type: "angulargauge",
-      width: "38%",
+      width: "50%",
       height: "50%",
       dataFormat: "json",
       dataSource: {}
@@ -88,14 +88,16 @@ export default {
       {
         value: that.punctuality === 100 ? 99.9 : that.punctuality,
         valueX: "50%",
-        valueY: "210",
+        valueY: "190",
         toolText: this.caption + ": " + that.punctuality + "%"
       }
     ]
     this.dataSource = {
       chart: {
         caption: that.caption,
+        captionFontSize: 14,
         subcaption: that.subcaption,
+        subcaptionFontSize: 10,
         showvalue: "1",
         numbersuffix: "%",
         theme: "fusion",

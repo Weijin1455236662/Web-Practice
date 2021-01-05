@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">团队管理</div>
@@ -8,8 +8,8 @@
     <div class="container">
       <div class="card" v-for="(staff,index) in allStaff" :key="index">
         <div class="group">
-          <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name.split('-')[1]}}</div></div>
-          <div class="id"><div class="number">{{staff.name.split('组')[0]}}</div><div class="text">组</div></div>
+          <div class="name"><i class="icon-font i-user-group"></i><div class="text">{{staff.name.indexOf('组')!==-1?staff.name.split('-')[1]:staff.name}}</div></div>
+          <div v-if="staff.name.indexOf('组')!==-1" class="id"><div class="number">{{staff.name.split('组')[0]}}</div><div class="text">组</div></div>
         </div>
         <div class="group">
           <div class="num">
@@ -41,7 +41,7 @@
         <hr/>
       </div>
       <div class="form_body">
-        <div class="form_id line" v-if="formType!==0">
+        <div class="form_id line" v-if="formType!==0&&form.name.indexOf('组')!==-1">
           <label id="teamid_label" v-html="'组&#8194;&#8194;号：'"></label>
           <div id="teamid_disable">{{form.name.split('组')[0]}}</div>
         </div>
@@ -85,9 +85,9 @@
           </select>
         </div>
         <div class="form_button line">
-          <button class="button" @click="closeForm">取消</button>
           <button class="button confirm" @click="submitForm" v-if="formType===0">添加</button>
           <button class="button confirm" @click="submitForm" v-if="formType===1">更新</button>
+          <button class="button" @click="closeForm">取消</button>
         </div>
       </div>
     </div>
@@ -103,6 +103,7 @@
         components: {MessageTip},
         data(){
             return{
+                isPC: true,
                 allStaff: [],
                 weekDic: {
                     1: '星期一',
@@ -131,6 +132,9 @@
             }
         },
         mounted() {
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
             this.getAllStaff();
         },
         watch:{
@@ -284,7 +288,7 @@
       text-align: left;
       display: flex;
       flex-wrap: wrap;
-
+      align-items: center;
       .card{
         width: 20%;
         height: 150px;
@@ -503,6 +507,265 @@
             border: 1px solid #e6e6e6;
             padding: 4px 14px 6px;
             font-size: 16px;
+            cursor: pointer;
+          }
+          .button:focus{
+            outline: none;
+          }
+          .button:hover{
+            background-color: #F6F6F6;
+          }
+          .confirm{
+            background-color: #1B9AF7;
+            border-color: #008dcb;
+            color: #FFFFFF;
+          }
+          .confirm:hover{
+            background-color: #4cb0f9;
+          }
+        }
+      }
+    }
+  }
+  .mobile{
+    min-width: 100vw;
+    .head{
+      margin: 12px 5% 0;
+      text-align: left;
+      .text{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .container{
+      margin: 10px 5%;
+      padding: 0 1vw;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .card{
+        width: 42%;
+        margin: 2px 0;
+        border: 3px solid #000000;
+        padding: 0 8px 4px;
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        min-height: 90px;
+        .group{
+          display: flex;
+          justify-content: space-between;
+        }
+        .id{
+          display: flex;
+          .number{
+            font-size: 24px;
+            margin-top: 3px;
+            color: #000000;
+            font-weight: bold;
+          }
+          .text{
+            margin: 8px 0 0 4px;
+            font-size: 16px;
+          }
+        }
+        .name{
+          display: flex;
+          .i-user-group{
+            margin-top: 6px;
+            font-size: 20px;
+          }
+          .text{
+            margin-top: 8px;
+            margin-left: 4px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+        .num{
+          display: flex;
+          .number{
+            margin-left: 2px;
+            font-size: 16px;
+            color: #000000;
+          }
+          .text{
+            font-size: 12px;
+            margin-top: 2px;
+          }
+        }
+        .day{
+          margin-top: 2px;
+          font-size: 12px;
+        }
+        .time{
+          text-align: right;
+          font-size: 12px;
+        }
+        .toolbox{
+          .tooltip{
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 8px;
+          }
+        }
+      }
+      .card:not(:last-child):hover{
+        box-shadow: 6px 6px 6px #aaaaaa;
+        background-color: #f2f2f2;
+      }
+      .dash{
+        border: 3px dashed #000000;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .plus{
+        text-align: center;
+        .i-add{
+          font-size: 60px;
+        }
+      }
+    }
+    .background{
+      background-color: #000000;
+      opacity: 0.8;
+      position: fixed;
+      z-index: 200;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .form{
+      background-color: #FFFFFF;
+      position: fixed;
+      z-index: 300;
+      top: 20vh;
+      left: 15vw;
+      width: 70vw;
+      /*height: 23vh;*/
+      padding: 6px 8px 8px;
+      text-align: left;
+      align-items: center;
+      .form_head{
+        margin-top: 2px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        .text{
+          padding-left: 4px;
+        }
+        .close{
+          position: absolute;
+          top: -1px;
+          right: 2px;
+          cursor: pointer;
+        }
+      }
+      .form_body{
+        /*padding: 0 88px;*/
+        .line{
+          margin: 0 0 4px 12vw;
+          align-items: center;
+        }
+        .form_id{
+          display: flex;
+          #teamid_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #teamid{
+            font-size: 12px;
+            width: 30vw;
+            padding-left: 6px;
+            min-height: 20px;
+            border: 1px solid #aaaaaa;
+          }
+          #teamid_disable{
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 6px;
+          }
+        }
+        .form_name{
+          #name_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #name{
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
+            padding-left: 6px;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_num{
+          #num_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #num{
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
+            padding-left: 6px;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_day{
+          display: flex;
+          #day_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #day_gap{
+            text-align: center;
+            width: 8px;
+          }
+          #begin_day{
+            font-size: 12px;
+            cursor: pointer;
+            width: 15vw;
+            padding: 0 0 3px 0;
+            background-color: #ffffff;
+            border: 1px solid #aaaaaa;
+          }
+          #end_day{
+            font-size: 12px;
+            cursor: pointer;
+            width: 15vw;
+            padding: 0 0 3px 0;
+            background-color: #ffffff;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_time{
+          #time_label{
+            font-size: 14px;
+            font-weight: bold;
+          }
+          #time{
+            font-size: 12px;
+            cursor: pointer;
+            width: 32vw;
+            padding: 0 0 3px 0;
+            background-color: #ffffff;
+            border: 1px solid #aaaaaa;
+          }
+        }
+        .form_button{
+          .button{
+            background-color: #E6E6E6;
+            color: #666666;
+            margin-right: 10px;
+            border-radius: 2px;
+            border: 1px solid #e6e6e6;
+            padding: 2px 8px 2px;
+            font-size: 14px;
             cursor: pointer;
           }
           .button:focus{
