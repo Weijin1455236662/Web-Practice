@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 05/01/2021 20:38:09
+ Date: 05/01/2021 20:52:54
 */
 
 SET NAMES utf8mb4;
@@ -165,18 +165,18 @@ CREATE TABLE `t_team` (
   `begin_time` int(11) DEFAULT NULL,
   `end_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`teamid`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_team
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_team` VALUES (79, '1组-彭晓慧', 5, 1, 5, 7, 18);
-INSERT INTO `t_team` VALUES (80, '2组-丁雪梅', 3, 1, 5, 7, 18);
-INSERT INTO `t_team` VALUES (81, '3组-李翠', 4, 1, 5, 7, 18);
-INSERT INTO `t_team` VALUES (82, '4组-赵东勤', 3, 1, 5, 7, 18);
-INSERT INTO `t_team` VALUES (83, '5组-童小玲', 5, 1, 5, 7, 18);
-INSERT INTO `t_team` VALUES (84, '6组-李倩', 4, 1, 5, 7, 18);
+INSERT INTO `t_team` VALUES (91, '1组-彭晓慧', 5, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (92, '2组-丁雪梅', 3, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (93, '3组-李翠', 4, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (94, '4组-赵东勤', 3, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (95, '5组-童小玲', 5, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (96, '6组-李倩', 4, 1, 5, 420, 1080);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

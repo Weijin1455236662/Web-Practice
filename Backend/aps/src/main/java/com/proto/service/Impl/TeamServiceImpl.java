@@ -107,11 +107,11 @@ public class TeamServiceImpl implements TeamService {
                     t.setBegin_day(1);
                     t.setEnd_day(5);
                     if(scheduleItem.getWorkTime().equals("早班")){
-                        t.setBegin_time(7);
-                        t.setEnd_time(18);
+                        t.setBegin_time(420);
+                        t.setEnd_time(1080);
                     }else{
-                        t.setBegin_time(19);
-                        t.setEnd_time(6);
+                        t.setBegin_time(1081);
+                        t.setEnd_time(420);
                     }
                     teamDao.save(t);
                 }
