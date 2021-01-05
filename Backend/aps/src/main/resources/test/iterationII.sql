@@ -89,12 +89,32 @@ CREATE TABLE `t_craft` (
 -- Records of t_craft
 -- ----------------------------
 BEGIN;
+<<<<<<< Updated upstream
 INSERT INTO `t_craft` VALUES (67, 3246418, 40, '84', '76', 4, 40, '79_80_83_81', '74_73', 40, '78');
 INSERT INTO `t_craft` VALUES (68, 3213124, 40, '84', '76', 4, 40, '80_82_81_83', '73_75', 40, '78');
 INSERT INTO `t_craft` VALUES (69, 3050015, 40, '84', '76', 4, 40, '81_82_79_80_83', '74', 40, '78');
 INSERT INTO `t_craft` VALUES (70, 3048823, 40, '84', '76', 4, 40, '83_79_80_82_81', '73_75', 40, '78');
 INSERT INTO `t_craft` VALUES (71, 3005840, 40, '84', '76', 4, 40, '79_81_82_83', '75', 40, '78');
 INSERT INTO `t_craft` VALUES (72, 3031238, 40, '84', '76', 4, 40, '80_79_82_81_83', '74_73', 40, '78');
+=======
+INSERT INTO `t_craft` VALUES (50, 3211498, -1, -1, -1, 8, 100, '45_66_68_62_67', '48', 800, '70');
+INSERT INTO `t_craft` VALUES (51, 3059786, -1, -1, -1, 10, 163, '76_49_57_68_65_60_66_48_52_58_64_72_50_51_46_63_67', '57_58_60_61_65', -1, -1);
+INSERT INTO `t_craft` VALUES (52, 3209248, -1, -1, -1, 5, 45, '46_53_62_65_49', '59_60_61_62_63_65', -1, -1);
+INSERT INTO `t_craft` VALUES (53, 1302215, -1, -1, -1, 2, 1400, '74_48_51_49', '72_67', -1, -1);
+INSERT INTO `t_craft` VALUES (54, 3031238, 96, '57', '68', 4, 96, '51_60_67_62_70_45_46_61_66_53_54_56_49', '42', 96, '70');
+INSERT INTO `t_craft` VALUES (55, 3005837, -1, -1, -1, 6, 108, '76_48_60_46', '46_60_61_62_63_65', 500, '69');
+INSERT INTO `t_craft` VALUES (56, 3036466, 98, '57', '68', 4, 98, '51_60_62_61_74_53_67_45_64', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (57, 3246515, -1, -1, -1, 2, 200, '54', '60', 200, '70');
+INSERT INTO `t_craft` VALUES (58, 3247967, -1, -1, -1, 2, 200, '54', '57', 200, '70');
+INSERT INTO `t_craft` VALUES (59, 3246418, 98, '57', '68', 4, 98, '51_52_62_61_74_54_76_47_64', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (60, 3213124, 98, '57', '68', 4, 98, '63_52_65_61_74_56_76_47_64', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (61, 3050015, 98, '75', '68', 4, 98, '63_52_65_77_53_56_76_47_50', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (62, 3031238, 98, '75', '68', 4, 98, '72_73_59_77_69_70_55_71_50', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (63, 3048823, 98, '75', '68', 4, 98, '63_73_65_77_69_56_55_47_50', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (64, 3005840, 98, '75', '68', 4, 98, '72_73_59_77_69_70_55_71_58', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (65, 3000607, 98, '75', '68', 4, 98, '72_73_59_77_69_70_55_71_58', '43_65', 98, '70');
+INSERT INTO `t_craft` VALUES (66, 1413036, 98, '75', '68', 4, 98, '72_73_59_77_69_70_55_71_58', '43_65', 98, '70');
+>>>>>>> Stashed changes
 COMMIT;
 
 -- ----------------------------
@@ -171,12 +191,49 @@ CREATE TABLE `t_team` (
 -- Records of t_team
 -- ----------------------------
 BEGIN;
+<<<<<<< Updated upstream
 INSERT INTO `t_team` VALUES (79, '1组-彭晓慧', 5, 1, 5, 7, 18);
 INSERT INTO `t_team` VALUES (80, '2组-丁雪梅', 3, 1, 5, 7, 18);
 INSERT INTO `t_team` VALUES (81, '3组-李翠', 4, 1, 5, 7, 18);
 INSERT INTO `t_team` VALUES (82, '4组-赵东勤', 3, 1, 5, 7, 18);
 INSERT INTO `t_team` VALUES (83, '5组-童小玲', 5, 1, 5, 7, 18);
 INSERT INTO `t_team` VALUES (84, '6组-李倩', 4, 1, 5, 7, 18);
+=======
+INSERT INTO `t_team` VALUES (45, '1组-彭晓慧', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (46, '2组-丁雪梅', 3, 1, 5, 25200, 64800;
+INSERT INTO `t_team` VALUES (47, '3组-李翠', 4, 1, 5, 25200, 64800;
+INSERT INTO `t_team` VALUES (48, '4组-赵东勤', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (49, '5组-童小玲', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (50, '6组-李倩', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (51, '7组-黄太娣', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (52, '8组-张正萍', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (53, '9组-张现敏', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (54, '10组-陈云', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (55, '11组-张娟', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (56, '12组-姚先兰', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (57, '13组-刘金燕', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (58, '14组-周清', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (59, '15组-李长娟', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (60, '16组-朱绍美', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (61, '17组-吴桂凤', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (62, '18组-芮娜', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (63, '19组-王秀', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (64, '20组-王树梅', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (65, '21组-陈荷花', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (66, '22组-陈开霞', 6, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (67, '23组-吴永凤', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (68, '24组-张娟1', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (69, '26组-杨丽', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (70, '27组-徐贤燕', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (71, '28组-杜碧珍', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (72, '30组-陈梅', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (73, '31组-史义玲', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (74, '33组-许丽萍', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (75, '36组-谢春霞', 4, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (76, '39组-刘霞', 3, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (77, '40组-高海燕', 5, 1, 5, 25200, 64800);
+INSERT INTO `t_team` VALUES (78, 'UKK组-王带娣', 3, 1, 5, 25200, 64800);
+>>>>>>> Stashed changes
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

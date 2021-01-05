@@ -88,13 +88,13 @@ public class ArrangementController {
                     for(int k=0;k<total;k++){
                         if(currentCraft.getPunch_capacity()!=-1){
                             subOrderId += 1;
-                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 0,-1,currentCraft.getPunch_human_res(),currentCraft.getPunch_equipment_res(),3600/currentCraft.getPunch_capacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
+                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 0,-1,currentCraft.getPunch_human_res(),currentCraft.getPunch_equipment_res(),(int)Math.ceil(60.0/currentCraft.getPunch_capacity()), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         }
                         subOrderId += 1;
-                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 1, currentCraft.getHuman_num(),currentCraft.getHuman_res(),currentCraft.getEquipment_res(), 3600/currentCraft.getCapacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
+                        subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 1, currentCraft.getHuman_num(),currentCraft.getHuman_res(),currentCraft.getEquipment_res(), (int)Math.ceil(60.0/currentCraft.getCapacity()), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         if(currentCraft.getTest_capacity()!=-1){
                             subOrderId += 1;
-                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 2,-1,"",currentCraft.getTest_equipment_res(),3600/currentCraft.getTest_capacity(), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
+                            subOrderList.add(new SubOrder((long)subOrderId,(long)currentOrder.getOrderid(), (long)k,currentOrder.getMaterial_code(), 2,-1,"",currentCraft.getTest_equipment_res(),(int)Math.ceil(60.0/currentCraft.getTest_capacity()), currentOrder.getUrgent(), currentOrder.getDelivery_date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
                         }
                     }
                 }

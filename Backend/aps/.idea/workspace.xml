@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21663c9f-1ecf-43dd-aa9a-c656a45aef98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/450b91df-22cd-453b-b145-e06f7bf72ec1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/error.2020-12-30.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/error.2020-12-30.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/info.2020-12-30.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/info.2020-12-30.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/controller/ArrangementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/pojo/SubOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/pojo/SubOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/service/Impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/service/Impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proto/solver/ArrangementEasyScoreCaculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-test.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/test.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end_log.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/iterationII.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/iterationII.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LegacySystem/src/main/resources/csv/BOM.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../LegacySystem/src/main/resources/csv/BOM.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LegacySystem/src/main/resources/csv/arrangement.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../LegacySystem/src/main/resources/csv/arrangement.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +179,22 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@145460f8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@145460f8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2e174bef" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@145460f8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6373108d" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -217,7 +231,14 @@
       <workItem from="1609127923646" duration="4738000" />
       <workItem from="1609168850443" duration="648000" />
       <workItem from="1609239158106" duration="18005000" />
-      <workItem from="1609304006296" duration="22345000" />
+      <workItem from="1609304006296" duration="22607000" />
+      <workItem from="1609406030936" duration="133000" />
+      <workItem from="1609747995097" duration="921000" />
+      <workItem from="1609767854410" duration="106000" />
+      <workItem from="1609768084103" duration="9678000" />
+      <workItem from="1609826710805" duration="544000" />
+      <workItem from="1609829676600" duration="295000" />
+      <workItem from="1609832124550" duration="703000" />
     </task>
     <servers />
   </component>
