@@ -143,8 +143,8 @@ export default {
               that.sourceList.push(equipList[i].name)
               let temp = []
               for (let j = 0; j < equipList[i].innerDateList.length; j++) {
-                  temp.push(equipList[i].innerDateList[j][that.dateList[j]] / 24)
-                  that.punctuality1 = that.punctuality1 + equipList[i].innerDateList[j][that.dateList[j]] / 24
+                  temp.push(equipList[i].innerDateList[j][that.dateList[j]] / 24 / 60)
+                  that.punctuality1 = that.punctuality1 + equipList[i].innerDateList[j][that.dateList[j]] / 24 /60;
               }
               that.datas.push(temp)
           }
@@ -152,8 +152,8 @@ export default {
               that.sourceList.push(personList[i].name)
               let temp = []
               for (let j = 0; j < personList[i].innerDateList.length; j++) {
-                  temp.push(personList[i].innerDateList[j][that.dateList[j]] / 12)
-                  that.punctuality2 = that.punctuality2 + personList[i].innerDateList[j][that.dateList[j]] / 12
+                  temp.push(personList[i].innerDateList[j][that.dateList[j]] / 12 / 60)
+                  that.punctuality2 = that.punctuality2 + personList[i].innerDateList[j][that.dateList[j]] / 12 / 60;
               }
               that.datas.push(temp)
           }

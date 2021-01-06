@@ -1,4 +1,5 @@
 import axios from 'axios';
+import data from '../assets/data1.json'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = process.env.NODE_ENV === 'production'
@@ -6,8 +7,11 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production'
     : 'http://localhost:8081';
 
 export const getScheduleInfo = (startDate, endDate) => {
-    var result = axios.get('/arrangement/' + startDate + '/' + endDate).then(res => res.data)
-    return result
+    return  axios.get('/arrangement/' + startDate + '/' + endDate).then(res => res.data)
+}
+
+export const getLocalScheduleInfo = () =>{
+    return data;
 }
 
 // 获取生产单

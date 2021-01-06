@@ -38,7 +38,7 @@
 
 <script>
     import MessageTip from "../../components/MessageTip";
-    import {getScheduleInfo} from "../../api/scheduleApi";
+    import {getLocalScheduleInfo, getScheduleInfo} from "../../api/scheduleApi";
     import {importCraft, importEquipment, importOrder, importTeam} from "../../api/arrangementAPI";
     export default {
         name: "DateManage",
@@ -121,20 +121,32 @@
                     }
 
                 },1000);
-                getScheduleInfo(this.beginDate, this.endDate).then(res=>{
-                    if(res.flag){
-                        let list = res.data.subOrderList;
-                        sessionStorage.setItem('subOrders', JSON.stringify(list));
-                        this.hasSubOrders = true;
-                        this.arranging = false;
-                    }else{
-                        this.showMessage(1, '排程失败！')
-                        this.arranging = false;
-                    }
-                }).catch(err=>{
-                    this.showMessage(1, '排程失败！')
-                    this.arranging = false;
-                });
+                // getScheduleInfo(this.beginDate, this.endDate).then(res=>{
+                //     if(res.flag){
+                //         let list = res.data.subOrderList;
+                //         sessionStorage.setItem('subOrders', JSON.stringify(list));
+                //         this.hasSubOrders = true;
+                //         this.arranging = false;
+                //     }else{
+                //         this.showMessage(1, '排程失败！')
+                //         this.arranging = false;
+                //     }
+                // }).catch(err=>{
+                //     this.showMessage(1, '排程失败！')
+                //     this.arranging = false;
+                // });
+                let data = getLocalScheduleInfo();
+                let list = [];
+                data.data.forEach(function (datas) {
+                    datas.forEach(function (d) {
+                        console.log(d);
+                        list.push(d);
+                    })
+                })
+                console.log(list)
+                sessionStorage.setItem('subOrders', JSON.stringify(list));
+                this.hasSubOrders = true;
+                this.arranging = false;
             },
             showMessage: function(type, message){
                 this.messageType = type;

@@ -53,11 +53,11 @@
             let date1 = sessionStorage.getItem('beginDate');
             let date2 = sessionStorage.getItem('endDate');
             if(!date1){
-                date1 = '2018-11-05';
+                date1 = '2018-11-07';
                 sessionStorage.setItem('beginDate', date1);
             }
             if(!date2){
-                date2 = '2018-11-08'
+                date2 = '2018-11-11'
                 sessionStorage.setItem('endDate', date2);
             }
             this.begin = date1;
