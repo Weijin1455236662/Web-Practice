@@ -2,7 +2,11 @@
   <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
-      <div class="text">订单管理</div>
+      <div v-if="isPC" class="text">订单管理</div>
+      <div v-if="!isPC" class="wrap">
+        <div class="text">订单管理</div>
+        <div title="添加订单"><i class="iconfont icon-tianjia" @click="addOrder"></i></div>
+      </div>
       <hr/>
     </div>
     <div class="container">
@@ -92,10 +96,10 @@
           <label id="date_label" for="date" v-html="'交付日期：'"></label>
           <input id="date" type="date" v-model="form.delivery_date" max="2035-12-31">
         </div>
-        <div class="form_button">
-          <button class="button" @click="closeForm">取消</button>
+        <div class="form_button line">
           <button class="button confirm" @click="submitForm" v-if="formType===0">添加</button>
           <button class="button confirm" @click="submitForm" v-if="formType===1">更新</button>
+          <button class="button" @click="closeForm">取消</button>
         </div>
       </div>
     </div>
@@ -719,9 +723,14 @@
     .head {
       margin: 12px 5% 0;
       text-align: left;
-      .text {
-        font-size: 16px;
-        font-weight: bold;
+      .wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .text {
+          font-size: 16px;
+          font-weight: bold;
+        }
       }
     }
     .container{
@@ -887,91 +896,92 @@
       background-color: #FFFFFF;
       position: fixed;
       z-index: 300;
-      top: 20%;
-      left: 35%;
-      width: 30%;
-      min-width: 570px;
-      height: 35%;
-      min-height: 328px;
-      padding: 32px 10px 10px;
+      top: 20vh;
+      left: 15vw;
+      width: 70vw;
+      /*height: 23vh;*/
+      padding: 6px 8px 8px;
       text-align: left;
+      align-items: center;
       .form_head{
-        margin-top: 10px;
-        font-size: 32px;
+        margin-top: 2px;
+        font-size: 16px;
         font-weight: bold;
         position: relative;
         .text{
-          line-height: 6px;
-          padding-left: 10px;
+          padding-left: 4px;
         }
         .close{
           position: absolute;
-          top: -44px;
-          right: 10px;
+          top: -1px;
+          right: 2px;
           cursor: pointer;
         }
       }
       .form_body{
-        padding: 0 88px;
+        /*padding: 0 88px;*/
         .line{
-          margin-bottom: 20px;
-        }
-        .line:first-child{
-          margin-top: 40px;
+          margin: 0 0 10px 12vw;
+          align-items: center;
         }
         .form_id{
           display: flex;
           #orderid_label{
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
           }
           #orderid{
-            font-size: 16px;
-            width: 260px;
-            min-height: 20px;
+            font-size: 12px;
+            width: 30vw;
             padding-left: 6px;
+            min-height: 20px;
+            border: 1px solid #aaaaaa;
           }
           #orderid_disable{
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
             padding-left: 6px;
           }
         }
         .form_material{
           #material_label{
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
           }
           #material{
-            font-size: 16px;
-            width: 260px;
-            min-height: 20px;
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
             padding-left: 6px;
+            border: 1px solid #aaaaaa;
           }
         }
         .form_num{
           #num_label{
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
           }
           #num{
-            font-size: 16px;
-            width: 260px;
-            min-height: 20px;
+            font-size: 12px;
+            width: 30vw;
+            min-height: 16px;
             padding-left: 6px;
+            border: 1px solid #aaaaaa;
           }
         }
         .form_date{
           display: flex;
           #date_label{
-            font-size: 20px;
+            font-size: 14px;
             font-weight: bold;
           }
           #date{
-            font-size: 16px;
+            font-size: 12px;
             cursor: pointer;
-            width: 260px;
-            padding-left: 6px;
+            width: 30vw;
+            padding: 2px 1px 1px 6px;
+            background-color: #ffffff;
+            border: 1px solid #aaaaaa;
           }
         }
         .form_button{
@@ -979,10 +989,10 @@
             background-color: #E6E6E6;
             color: #666666;
             margin-right: 10px;
-            border-radius: 4px;
+            border-radius: 2px;
             border: 1px solid #e6e6e6;
-            padding: 4px 14px 6px;
-            font-size: 16px;
+            padding: 2px 8px 2px;
+            font-size: 14px;
             cursor: pointer;
           }
           .button:focus{

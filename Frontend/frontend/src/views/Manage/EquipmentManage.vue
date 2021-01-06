@@ -656,7 +656,7 @@
           #type{
             font-size: 12px;
             cursor: pointer;
-            width: 32vw;
+            width: 30vw;
             padding: 0 0 3px 0;
             background-color: #ffffff;
             border: 1px solid #aaaaaa;

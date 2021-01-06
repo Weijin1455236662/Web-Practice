@@ -668,7 +668,7 @@
       .form_body{
         /*padding: 0 88px;*/
         .line{
-          margin: 0 0 4px 12vw;
+          margin: 0 0 10px 12vw;
           align-items: center;
         }
         .form_id{
@@ -751,7 +751,7 @@
           #time{
             font-size: 12px;
             cursor: pointer;
-            width: 32vw;
+            width: 30vw;
             padding: 0 0 3px 0;
             background-color: #ffffff;
             border: 1px solid #aaaaaa;

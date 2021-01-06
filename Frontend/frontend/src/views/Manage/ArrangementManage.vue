@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="text">排程管理</div>
@@ -45,6 +45,7 @@
         components: {MessageTip},
         data() {
             return {
+                isPC: true,
                 beginDate: '',
                 endDate: '',
                 newBeginDate:'',
@@ -59,6 +60,9 @@
             }
         },
         mounted(){
+            if(sessionStorage.getItem('equipment')==='Mobile'){
+                this.isPC = false;
+            }
             let date1 = sessionStorage.getItem('beginDate');
             let date2 = sessionStorage.getItem('endDate');
             if(!date1){
@@ -260,6 +264,106 @@
           border: 1px solid #e6e6e6;
           padding: 4px 14px 6px;
           font-size: 16px;
+          cursor: pointer;
+        }
+        .button:focus{
+          outline: none;
+        }
+        .button:hover{
+          background-color: #F6F6F6;
+        }
+        .button:disabled{
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        .confirm{
+          background-color: #1B9AF7;
+          border-color: #008dcb;
+          color: #FFFFFF;
+        }
+        .confirm:hover{
+          background-color: #4cb0f9;
+        }
+        .hasSubOrders{
+          display: flex;
+          align-items: baseline;
+          margin-top: 6px;
+
+        }
+        .has{
+          color: #008000;
+        }
+        .getting{
+          color: #feae1b;
+        }
+        .noHas{
+          color: #FF0000;
+        }
+      }
+    }
+  }
+  .mobile{
+    .head{
+      margin: 12px 5% 0;
+      text-align: left;
+      .text{
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    .container{
+      margin: 10px 5%;
+      text-align: left;
+      flex-wrap: wrap;
+      .title{
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 13px;
+      }
+      .title:not(:first-child){
+        margin-top: 30px;
+      }
+      .hasDate{
+        display: flex;
+        margin-bottom: 13px;
+        .text{
+          font-size: 14px;
+        }
+        .date{
+          font-size: 14px;
+        }
+        .middle{
+          margin: 0 10px;
+        }
+      }
+      .setDate{
+        margin-bottom: 10px;
+        .text{
+          font-size: 14px;
+        }
+        #beginDate{
+          font-size: 12px;
+          cursor: pointer;
+          width: 26vw;
+          padding-left: 6px;
+        }
+        #endDate{
+          font-size: 12px;
+          cursor: pointer;
+          width: 26vw;
+          padding-left: 6px;
+        }
+      }
+      .buttonWrap{
+        display: flex;
+        .button{
+          background-color: #E6E6E6;
+          color: #666666;
+          margin-right: 10px;
+          border-radius: 4px;
+          border: 1px solid #e6e6e6;
+          padding: 4px 10px 4px;
+          font-size: 14px;
           cursor: pointer;
         }
         .button:focus{
