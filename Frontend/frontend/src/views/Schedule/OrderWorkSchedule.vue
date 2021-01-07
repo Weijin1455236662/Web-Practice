@@ -9,7 +9,7 @@
       <div class="table">
         <div class="row">
           <div class="column index0">订单号码</div>
-          <div class="column index1">子订单</div>
+          <div class="column index1">子订单号</div>
         </div>
         <div class="row" v-for="(order, index) in allOrder" :key="index">
           <div class="column index0">
@@ -18,12 +18,44 @@
             </div>
           </div>
           <div class="column index1">
-            <div
-              v-for="(subOrder, index) in orderRelation[order.orderid]"
-              :key="index"
-              class="subOrder"
-              :title="subOrder.timeslot.date+ ' ' + subOrder.timeslot.time">
-              {{subOrder.id}}：生产{{subOrder.quantity}}个物料{{subOrder.material_code}}
+            <div class="subOrder-wrap">
+              <div class="type" v-html="'打弹片: '"></div>
+              <div class="wrap">
+                <span
+                    v-for="(subOrder, index) in orderRelation[order.orderid]"
+                    v-if=" subOrder.type===0"
+                    :key="index"
+                    class="subOrder"
+                    :title="subOrder.timeslot.date+ ' ' + subOrder.timeslot.time">
+                  {{subOrder.id}}
+                </span>
+              </div>
+            </div>
+            <div class="subOrder-wrap">
+              <div class="type" v-html="'装&#8194;&#8194;配: '"></div>
+              <div class="wrap">
+                <span
+                    v-for="(subOrder, index) in orderRelation[order.orderid]"
+                    v-if=" subOrder.type===1"
+                    :key="index"
+                    class="subOrder"
+                    :title="subOrder.timeslot.date+ ' ' + subOrder.timeslot.time">
+                  {{subOrder.id}}
+                </span>
+              </div>
+            </div>
+            <div class="subOrder-wrap">
+              <div class="type" v-html="'测&#8194;&#8194;试: '"></div>
+              <div class="wrap">
+                <span
+                    v-for="(subOrder, index) in orderRelation[order.orderid]"
+                    v-if=" subOrder.type===2"
+                    :key="index"
+                    class="subOrder"
+                    :title="subOrder.timeslot.date+ ' ' + subOrder.timeslot.time">
+                  {{subOrder.id}}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -42,12 +74,12 @@ export default {
     components: {MessageTip},
     data(){
       return{
+          isPC: true,
           allOrder: [],
           orderRelation: {},
           messageState: false,
           messageType: 0,
-          message: '',
-        isPC: true,
+          message: ''
       }
   },
   methods: {
@@ -146,8 +178,20 @@ export default {
           .index1{
             width: 60%;
             display: block;
-            .subOrder{
-              cursor: default;
+            .subOrder-wrap{
+              display: flex;
+              margin: 10px 0;
+              .type{
+                min-width: 90px;
+              }
+              .wrap{
+                display: block;
+                text-align: left;
+                .subOrder{
+                  margin: 2px 4px;
+                  cursor: default;
+                }
+              }
             }
           }
         }
@@ -168,7 +212,7 @@ export default {
   }
   .mobile{
     .head{
-      margin: 30px 5% 0;
+      margin: 12px 5% 0;
       text-align: left;
       .text{
         font-size: 16px;
@@ -176,7 +220,7 @@ export default {
       }
     }
     .container{
-      margin: 10px 7%;
+      margin: 10px 5%;
       display: flex;
       .table{
         width: 100%;
@@ -192,7 +236,7 @@ export default {
             font-size: 14px;
           }
           .index0{
-            width: 40%;
+            width: 50%;
             .order{
               font-size: 12px;
               cursor: pointer;
@@ -202,11 +246,24 @@ export default {
             }
           }
           .index1{
-            width: 60%;
+            width: 50%;
             display: block;
-            .subOrder{
+            .subOrder-wrap{
+              display: flex;
               font-size: 12px;
-              cursor: default;
+              margin: 2px 0;
+              .type{
+                min-width: 50px;
+              }
+              .wrap{
+                display: block;
+                text-align: left;
+                .subOrder{
+                  margin: 2px 4px;
+                  cursor: default;
+                  width: 20px;
+                }
+              }
             }
           }
         }

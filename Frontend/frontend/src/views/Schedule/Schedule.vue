@@ -9,7 +9,7 @@
         name: "Schedule",
         data(){
             return{
-                isPC: false,
+                isPC: true,
                 isReady: false
             }
         },

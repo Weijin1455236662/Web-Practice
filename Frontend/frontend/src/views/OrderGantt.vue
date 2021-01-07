@@ -285,7 +285,7 @@
 }
 .mobile{
   .head{
-    margin: 30px 4% 0;
+    margin: 12px 5% 0;
     text-align: left;
     .text{
       font-size: 16px;
@@ -293,7 +293,7 @@
     }
   }
   .container{
-    margin: 10px 5% 0;
+    margin: 12px 5% 0;
     .picWrap{
       min-height: 50vh;
     }
@@ -308,7 +308,7 @@
       #date{
         font-size: 16px;
         cursor: pointer;
-        width: 230px;
+        width: 150px;
         padding-left: 6px;
       }
     }

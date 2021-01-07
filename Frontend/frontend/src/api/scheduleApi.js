@@ -6,6 +6,27 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production'
     ? 'http://101.200.166.56:8081'
     : 'http://localhost:8081';
 
+let colorDic = {
+    0: {
+        0:'#f5cb84',
+        1: '#cdac00',
+        2: '#fa6604',
+        3: '#fa6402',
+    },
+    1: {
+        0:'#51b6ff',
+        1: '#2d81cb',
+        2: '#3c6def',
+        3: '#1150b1',
+    },
+    2: {
+        0:'#785fff',
+        1: '#6a30f3',
+        2: '#4820fa',
+        3: '#a74bf6',
+    }
+}
+
 export const getScheduleInfo = (startDate, endDate) => {
     return  axios.get('/arrangement/' + startDate + '/' + endDate).then(res => res.data)
 }
@@ -21,24 +42,8 @@ export const getOrderWorkSchedule = (id, type) => {
         return ''
     } else {
         let orderlist = JSON.parse(session)
-        // console.log(orderlist[0].timeslot)
-        // function sortTime (a, b){
-        //     console.log(a,b)
-        //     if(a.timeslot.date<b.timeslot.date){
-        //         console.log('0')
-        //         return -1;
-        //     }else if(a.timeslot.date>b.timeslot.date){
-        //         console.log('1')
-        //         return 1;
-        //     }else{
-        //         console.log('2')
-        //         return a.timeslot.time<a.timeslot.time;
-        //     }
-        // }
-        // let a = orderlist.sort(sortTime);
         let tasks = []
         console.log(orderlist)
-        // console.log(a);
         if (type === '0') {
             for (let i = 0; i < orderlist.length; i++) {
                 if (orderlist[i].teamList !== null) {
@@ -50,8 +55,10 @@ export const getOrderWorkSchedule = (id, type) => {
                                 tasks.push({
                                     date: orderlist[i].timeslot.date,
                                     start: getTime(orderlist[i].timeslot.time),
-                                    end: getTime(orderlist[i].timeslot.time + 1),
+                                    end: orderlist[i].timeslot.time,
                                     material: orderlist[i].material_code,
+                                    color: colorDic[parseInt(orderlist[i].type)][parseInt(orderlist[i].parent_id)%4],
+                                    parent: orderlist[i].parent_id
                                 })
                             }
                         }
@@ -65,8 +72,10 @@ export const getOrderWorkSchedule = (id, type) => {
                         tasks.push({
                             date: orderlist[i].timeslot.date,
                             start: getTime(orderlist[i].timeslot.time),
-                            end: getTime(orderlist[i].timeslot.time + 1),
+                            end: orderlist[i].timeslot.time,
                             material: orderlist[i].material_code,
+                            color: colorDic[parseInt(orderlist[i].type)][parseInt(orderlist[i].parent_id)%4],
+                            parent: orderlist[i].parent_id
                         })
                     }
                 }
@@ -257,9 +266,10 @@ export const getOrderPlan = function (id) {
                 subOrderList.push({
                     date: orderList[i].timeslot.date,
                     start: getTime(orderList[i].timeslot.time),
-                    end: getTime(orderList[i].timeslot.time + 1),
+                    end: orderList[i].timeslot.time,
                     id: orderList[i].id,
-                    material: orderList[i].material_code
+                    material: orderList[i].material_code,
+                    color: colorDic[parseInt(orderList[i].type)][parseInt(orderList[i].parent_id)%4]
                 })
             }
         }
@@ -270,10 +280,10 @@ export const getOrderPlan = function (id) {
 // 时间转换
 export const getTime = (time) => {
     let result = '';
-    if (0 <= (time/60).toFixed(0) && (time/60).toFixed(0) <= 9) {
-        result += '0' + (time/60).toFixed(0);
+    if (0 <= Math.floor(time/60) && Math.floor(time/60) <= 9) {
+        result += '0' + Math.floor(time/60);
     } else {
-        result += (time/60).toFixed(0);
+        result += Math.floor(time/60);
     }
     if(0 <= time%60 && time%60 <= 9){
         result += ':0' + time % 60;

@@ -31,7 +31,7 @@
 <script>
 import MessageTip from "../../components/MessageTip"
 import {getAllOrder} from "../../api/orderManageApi"
-import {getOrderPlan} from "../../api/scheduleApi"
+import {getOrderPlan, getTime} from "../../api/scheduleApi"
 export default {
   name: "OrderSchedule",
   components: {MessageTip},
@@ -148,11 +148,11 @@ export default {
           id: item.id,
           processid: that.adjustDate(item.date, item.start),
           start: item.start,
-          end: item.end,
+          end: getTime(item.end+3),
           // start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
           // end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
-          label: "<b>子订单" + item.id + "</b><br/>" + "<b>物料: </b>" + item.material + "<br/>" + "<b>时间: </b>" + item.start + " - " + item.end,
-          color: colorDic[parseInt(item.id) % 7]
+          label: "<b>子订单" + item.id + "</b><br/>" + "<b>物料: </b>" + item.material + "<br/>" + "<b>时间: </b>" + item.start + " - " + getTime(item.end+1),
+          color: item.color
         })
         process.push({
           label: that.adjustDate(item.date, item.start),
@@ -424,7 +424,7 @@ export default {
 }
 .mobile{
   .head{
-    margin: 30px 5% 0;
+    margin: 12px 5% 0;
     text-align: left;
     .text{
       font-size: 16px;
@@ -433,7 +433,7 @@ export default {
   }
   .container{
     .group{
-      margin: 30px 7% 10px;
+      margin: 12px 5% 10px;
       .title{
         text-align: left;
         font-size: 14px;
