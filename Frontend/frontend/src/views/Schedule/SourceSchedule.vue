@@ -20,6 +20,7 @@
 
 <script>
 import {reduceSource} from "../../data/sourceSolve";
+import {getTime} from "../../api/scheduleApi";
 
 export default {
     name: "SourceSchedule",
@@ -74,9 +75,9 @@ export default {
               task.push({
                 processid: item.processid,
                 start: item.start,
-                end: item.end,
+                end: getTime(item.end+3),
                 color: item.color,
-                label: "子订单：" + item.label + "<br/>时间："+ that.calculateTime(item.start) + " - " + that.calculateTime(item.end)
+                label: "子订单：" + item.label + "<br/>时间："+ item.start + " - " + getTime(item.end+1)
               })
             });
             let category = []

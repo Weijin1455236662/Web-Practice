@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="title">资源负载图</div>
@@ -49,6 +49,7 @@ export default {
   components: {MessageTip, LoadItem, AngularGaugeItem},
   data(){
     return{
+        isPC: true,
       caption1: "设备总负载",
       subcaption1: "",
       punctuality1: 87,
@@ -179,7 +180,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.main{
+  .main{
   margin-bottom: 100px;
   .head{
     margin: 30px 5% 0;
@@ -267,4 +268,92 @@ export default {
     }
   }
 }
+  .mobile{
+    margin-bottom: 100px;
+    .head{
+      margin: 30px 5% 0;
+      text-align: left;
+      .title{
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
+    .loadPic{
+      margin-left: 40px;
+      display: flex;
+      justify-content: space-around;
+      min-height: 50vh;
+      .pic{
+        opacity: 0;
+      }
+    }
+    .tip{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+      .item{
+        width: 100px;
+        height: 35px;
+        line-height: 35px;
+      }
+    }
+    .graph{
+      margin: 30px 4%;
+      .dateBar{
+        display: flex;
+        margin-bottom: 20px;
+        .dayWrap{
+          width: 15%;
+          margin: 0 1px;
+          #dayLabel{
+            margin-right: 10px;
+          }
+          #day{
+            width: 122px;
+          }
+        }
+        .dateColumn{
+          width: 12%;
+          min-width: 100px;
+          text-align: center;
+          font-size: 20px;
+          border-top: 1px solid #000000;
+          border-bottom: 1px solid #000000;
+          padding-left: 1px;
+        }
+        .dateColumn:first-child{
+          border-left: 0;
+        }
+      }
+      .row{
+        display: flex;
+        .source{
+          width: 15%;
+          height: 120px;
+          line-height: 120px;
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .name{
+            min-width: 100px;
+            border: 1px dotted #000000;
+          }
+        }
+        .loadWrap{
+          display: flex;
+          justify-content: center;
+          width: 12%;
+          min-width: 102px;
+          margin-right: 1px;
+          padding: 10px 0;
+          .loadItem{
+            width: 100px;
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
 </style>

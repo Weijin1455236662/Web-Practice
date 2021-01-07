@@ -600,7 +600,7 @@
       .form_body{
         /*padding: 0 88px;*/
         .line{
-          margin: 0 0 4px 12vw;
+          margin: 0 0 10px 12vw;
           align-items: center;
         }
         .form_id{

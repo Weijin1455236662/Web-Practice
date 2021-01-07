@@ -23,19 +23,21 @@
         </div>
       </div>
     </div>
-    <fusioncharts
-      v-if="!showList&&flag"
-      :type="chart.type"
-      :width="chart.width"
-      :height="chart.height"
-      :dataFormat="chart.dataFormat"
-      :dataSource="chart.dataSource"
-    ></fusioncharts>
+    <div style="margin: 10px 5% 0;">
+      <fusioncharts
+          v-if="!showList&&flag"
+          :type="chart.type"
+          :width="chart.width"
+          :height="chart.height"
+          :dataFormat="chart.dataFormat"
+          :dataSource="chart.dataSource"
+      ></fusioncharts>
+    </div>
   </div>
 </template>
 
 <script>
-import {getOrderWorkSchedule} from "../../api/scheduleApi"
+    import {getOrderWorkSchedule, getTime} from "../../api/scheduleApi"
 import {getAllStaff, getStaffById} from "../../api/staffManageApi"
 import {getAllEquipment, getEquipmentById} from "../../api/equipmentManageApi"
 import MessageTip from "../../components/MessageTip";
@@ -168,11 +170,11 @@ export default {
           task.push({
             processid: that.adjustDate(item.date, item.start),
             start: item.start,
-            end: item.end,
+            end: getTime(item.end+3),
             // start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
             // end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
-            label: "物料" + item.material + ": " + item.start + "-" + item.end,
-            color: colorDic[parseInt(item.material) % 7]
+            label: "物料" + item.material + '<br/>订单: ' + item.parent + "<br/>时间: " + item.start + "-" + getTime(item.end+1),
+            color: item.color
           })
           process.push({
             label: that.adjustDate(item.date, item.start),

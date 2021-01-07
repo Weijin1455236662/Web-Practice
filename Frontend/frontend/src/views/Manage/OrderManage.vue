@@ -41,7 +41,7 @@
           <div class="column index5">操作</div>
           <div v-if="isPC" class="column index6" title="添加订单"><i class="iconfont icon-tianjia tooltip" @click="addOrder"></i></div>
         </div>
-        <div class="row" v-for="(order, index) in allOrder" :key="index">
+        <div class="row" v-for="(order, index) in allOrder" :key="index" :style="{'background-color':order.urgent===1?'rgb(255, 221, 221)':''}">
           <div class="column index0">{{(index+1)}}</div>
           <div class="column index1">{{order.orderid}}</div>
           <div class="column index2">{{order.material_code}}</div>
@@ -51,7 +51,7 @@
             <i class="icon-font i-edit tooltip" title="修改订单" @click="updateOrder(order)"></i>
             <i class="icon-font i-delete tooltip" title="删除订单" @click="deleteOrder(order.orderid)"></i>
           </div>
-          <div v-if="isPC" class="column index6"></div>
+          <div v-if="isPC" class="column index6"><div v-if="order.urgent===1">插单</div></div>
         </div>
         <div class="noOrder" v-if="allOrder.length===0">无订单...</div>
       </div>
