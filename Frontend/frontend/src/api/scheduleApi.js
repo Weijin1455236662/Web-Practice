@@ -21,14 +21,31 @@ export const getOrderWorkSchedule = (id, type) => {
         return ''
     } else {
         let orderlist = JSON.parse(session)
+        // console.log(orderlist[0].timeslot)
+        // function sortTime (a, b){
+        //     console.log(a,b)
+        //     if(a.timeslot.date<b.timeslot.date){
+        //         console.log('0')
+        //         return -1;
+        //     }else if(a.timeslot.date>b.timeslot.date){
+        //         console.log('1')
+        //         return 1;
+        //     }else{
+        //         console.log('2')
+        //         return a.timeslot.time<a.timeslot.time;
+        //     }
+        // }
+        // let a = orderlist.sort(sortTime);
         let tasks = []
         console.log(orderlist)
+        // console.log(a);
         if (type === '0') {
             for (let i = 0; i < orderlist.length; i++) {
                 if (orderlist[i].teamList !== null) {
                     let size = orderlist[i].teamList.teamList.length
                     for (let j = 0; j < size; j++) {
                         if (parseInt(id) === orderlist[i].teamList.teamList[j].teamid) {
+                            console.log(1)
                             if (orderlist[i].timeslot !== null) {
                                 tasks.push({
                                     date: orderlist[i].timeslot.date,
@@ -205,10 +222,17 @@ export const getOrderPlan = function (id) {
 }
 
 // 时间转换
-const getTime = (time) => {
-    if (0 <= time && time <= 9) {
-        return "0" + time + ":00"
+export const getTime = (time) => {
+    let result = '';
+    if (0 <= (time/60).toFixed(0) && (time/60).toFixed(0) <= 9) {
+        result += '0' + (time/60).toFixed(0);
     } else {
-        return time + ":00"
+        result += (time/60).toFixed(0);
     }
+    if(0 <= time%60 && time%60 <= 9){
+        result += ':0' + time % 60;
+    } else{
+        result += ':' + time % 60;
+    }
+    return result
 }

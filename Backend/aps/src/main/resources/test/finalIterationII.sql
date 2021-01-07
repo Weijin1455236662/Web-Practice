@@ -172,12 +172,12 @@ CREATE TABLE `t_team` (
 -- Records of t_team
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_team` VALUES (91, '1组-彭晓慧', 5, 1, 5, 420, 1080);
-INSERT INTO `t_team` VALUES (92, '2组-丁雪梅', 3, 1, 5, 420, 1080);
-INSERT INTO `t_team` VALUES (93, '3组-李翠', 4, 1, 5, 420, 1080);
-INSERT INTO `t_team` VALUES (94, '4组-赵东勤', 3, 1, 5, 420, 1080);
-INSERT INTO `t_team` VALUES (95, '5组-童小玲', 5, 1, 5, 420, 1080);
-INSERT INTO `t_team` VALUES (96, '6组-李倩', 4, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (79, '1组-彭晓慧', 5, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (80, '2组-丁雪梅', 3, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (81, '3组-李翠', 4, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (82, '4组-赵东勤', 3, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (83, '5组-童小玲', 5, 1, 5, 420, 1080);
+INSERT INTO `t_team` VALUES (84, '6组-李倩', 4, 1, 5, 420, 1080);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

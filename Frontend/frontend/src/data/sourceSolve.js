@@ -1,4 +1,4 @@
-import {getScheduleInfo} from "../api/scheduleApi";
+import {getScheduleInfo, getTime} from "../api/scheduleApi";
 
 export const reduceSource = (date)=>{
     let session = sessionStorage.getItem('subOrders');
@@ -48,8 +48,8 @@ export const reduceSource = (date)=>{
                             processid: team.name,
                             // start: subOrder.timeslot.time + ':00:00',
                             // end: (subOrder.timeslot.time + 1) + ':00:00',
-                            start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
-                            end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
+                            start: getTime(subOrder.timeslot.time),
+                            end: getTime(subOrder.timeslot.time+1),
                             label: subOrder.id + '<br/>物料：' + subOrder.material_code,
                             color: colorDic[parseInt(subOrder.material_code)%7]
                         });
@@ -62,8 +62,10 @@ export const reduceSource = (date)=>{
                         processid: subOrder.equipment.name,
                         // start: subOrder.timeslot.time + ':00:00',
                         // end: (subOrder.timeslot.time + 1) + ':00:00',
-                        start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
-                        end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
+                        // start: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=17?(subOrder.timeslot.time-7):('0' + subOrder.timeslot.time-7):(subOrder.timeslot.time+17)) + ':00:00',
+                        // end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
+                        start: getTime(subOrder.timeslot.time),
+                        end: getTime(subOrder.timeslot.time+1),
                         label: subOrder.id + '<br/>物料：' + subOrder.material_code,
                         color: colorDic[parseInt(subOrder.material_code)%7]
                     });
