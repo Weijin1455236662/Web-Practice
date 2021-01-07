@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div :class="isPC?'main':'mobile'">
     <message-tip :message-state="messageState" :message-type="messageType" :message="message"></message-tip>
     <div class="head">
       <div class="title">资源负载图</div>
@@ -70,6 +70,7 @@ export default {
       messageState: false,
       messageType: 0,
       message: '',
+      isPC: true
     }
   },
   methods: {
@@ -120,8 +121,14 @@ export default {
       this.sourceList = []
       this.datas = []
       this.dateList.push(date)
-      for (let i = 1; i < 7; i++) {
-        this.dateList.push(this.calculateDate(date, i))
+      if (this.isPC === true) {
+        for (let i = 1; i < 7; i++) {
+          this.dateList.push(this.calculateDate(date, i))
+        }
+      } else {
+        for (let i = 1; i < 3; i++) {
+          this.dateList.push(this.calculateDate(date, i))
+        }
       }
 
       this.subcaption1 = this.subcaption2 = '';
@@ -172,6 +179,9 @@ export default {
     },
   },
   mounted(){
+    if(sessionStorage.getItem('equipment')==='Mobile'){
+      this.isPC = false;
+    }
     this.startDate = sessionStorage.getItem("beginDate")
     this.changeDateList(this.startDate)
   }
@@ -257,6 +267,90 @@ export default {
         justify-content: center;
         width: 12%;
         min-width: 102px;
+        margin-right: 1px;
+        padding: 10px 0;
+        .loadItem{
+          width: 100px;
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+.mobile{
+  margin-bottom: 100px;
+  .head{
+    margin: 12px 5% 0;
+    text-align: left;
+    .title{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .loadPic{
+    display: flex;
+    justify-content: space-around;
+    min-height: 50vh;
+    .pic{
+      opacity: 0;
+    }
+  }
+  .tip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    .item{
+      width: 45px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 10px;
+    }
+  }
+  .graph{
+    .dateBar{
+      display: flex;
+      margin-bottom: 20px;
+      .dayWrap{
+        width: 15%;
+        margin-right: 80px;
+        #day{
+          width: 130px;
+        }
+      }
+      .dateColumn{
+        min-width: 80px;
+        text-align: center;
+        font-size: 12px;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        width: 10%;
+      }
+      .dateColumn:first-child{
+        border-left: 0;
+      }
+    }
+    .row{
+      display: flex;
+      .source{
+        width: 20%;
+        height: 120px;
+        line-height: 120px;
+        margin: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .name{
+          font-size: 12px;
+          min-width: 100px;
+          border: 1px dotted #000000;
+        }
+      }
+      .loadWrap{
+        display: flex;
+        justify-content: center;
+        width: 8%;
+        min-width: 78px;
         margin-right: 1px;
         padding: 10px 0;
         .loadItem{

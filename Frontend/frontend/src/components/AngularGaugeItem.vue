@@ -19,7 +19,8 @@ export default {
       width: "38%",
       height: "50%",
       dataFormat: "json",
-      dataSource: {}
+      dataSource: {},
+      isPC: true,
     }
   },
   props: {
@@ -70,6 +71,9 @@ export default {
   },
   mounted(){
     let that = this
+    if(sessionStorage.getItem('equipment')==='Mobile'){
+      that.isPC = false;
+    }
     let colorrange = {
       color: [
         {
@@ -84,14 +88,26 @@ export default {
         }
       ]
     }
-    let dial = [
-      {
-        value: that.punctuality === 100 ? 99.9 : that.punctuality,
-        valueX: "50%",
-        valueY: "210",
-        toolText: this.caption + ": " + that.punctuality + "%"
-      }
-    ]
+    let dial = []
+    if (this.isPC === true) {
+      dial = [
+        {
+          value: that.punctuality === 100 ? 99.9 : that.punctuality,
+          valueX: "50%",
+          valueY: "210",
+          toolText: this.caption + ": " + that.punctuality + "%"
+        }
+      ]
+    } else {
+      dial = [
+        {
+          value: that.punctuality === 100 ? 99.9 : that.punctuality,
+          valueX: "50%",
+          valueY: "210",
+          toolText: this.caption + ": " + that.punctuality + "%"
+        }
+      ]
+    }
     this.dataSource = {
       chart: {
         caption: that.caption,
