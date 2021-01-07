@@ -57,7 +57,7 @@
                 sessionStorage.setItem('beginDate', date1);
             }
             if(!date2){
-                date2 = '2018-11-11'
+                date2 = '2018-11-14'
                 sessionStorage.setItem('endDate', date2);
             }
             this.begin = date1;

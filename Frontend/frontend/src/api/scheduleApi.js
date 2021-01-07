@@ -84,37 +84,83 @@ export const getOrderSchedule = (idList, date) => {
         return ''
     } else {
         let orderList = JSON.parse(session)
+        console.log(orderList)
         let orderSchedule = []
         for (let i = 0; i < idList.length; i++) {
+            let sum0 = 0
             let sum = 0
+            let sum1 = 0
+            let subOrderNum0 = 0
             let subOrderNum = 0
+            let subOrderNum1 = 0
             for (let j = 0; j < orderList.length; j++) {
                 if (orderList[j].timeslot !== null&&orderList[j].timeslot.date<=date) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
-                        subOrderNum += 1
-                        sum = sum + parseInt(orderList[j].quantity)
+                        if (orderList[j].type === 0) {
+                            sum0 += 1
+                        } else if (orderList[j].type === 1){
+                            sum += 1
+                        } else if (orderList[j].type === 2){
+                            sum1 += 1
+                        }
                     }
                 }
             }
-            let counter = 0;
-            let completeDate = '';
             for (let j = 0; j < orderList.length; j++) {
                 if (orderList[j].timeslot !== null) {
                     if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
-                        counter += 1
-                    }
-                    if (counter === subOrderNum) {
-                        completeDate = orderList[j].timeslot.date
+                        if (orderList[j].type === 0) {
+                            subOrderNum0 += 1
+                        } else if (orderList[j].type === 1){
+                            subOrderNum += 1
+                        } else if (orderList[j].type === 2){
+                            subOrderNum1 += 1
+                        }
                     }
                 }
             }
+            let counter0 = 0
+            let counter = 0;
+            let counter1 = 0
+            let completeDate0 = ''
+            let completeDate = ''
+            let completeDate1 = ''
+            for (let j = 0; j < orderList.length; j++) {
+                if (orderList[j].timeslot !== null) {
+                    if (parseInt(idList[i].id) === parseInt(orderList[j].parent_id)) {
+                        if (orderList[j].type === 0) {
+                            counter0 += 1
+                        } else if (orderList[j].type === 1){
+                            counter += 1
+                        } else if (orderList[j].type === 2){
+                            counter1 += 1
+                        }
+                    }
+                    if (counter0 === subOrderNum0) {
+                        completeDate0 = orderList[j].timeslot.date
+                        counter0 = -100
+                    } else if (counter === subOrderNum) {
+                        completeDate = orderList[j].timeslot.date
+                        counter = -100
+                    } else if (counter1 === subOrderNum1) {
+                        completeDate1 = orderList[j].timeslot.date
+                        counter1 = -100
+                    }
+                }
+            }
+            console.log(counter0, counter, counter1)
             orderSchedule.push({
                 id: parseInt(idList[i].id),
+                value0: (sum0 / idList[i].quantity * 100) < 100 ? (sum0 / idList[i].quantity * 100).toString() + "%" : "100%",
                 value: (sum / idList[i].quantity * 100) < 100 ? (sum / idList[i].quantity * 100).toString() + "%" : "100%",
+                value1: (sum1 / idList[i].quantity * 100) < 100 ? (sum1 / idList[i].quantity * 100).toString() + "%" : "100%",
                 planDate: idList[i].delivery_date,
-                actualDate: completeDate
+                actualDate0: completeDate0,
+                actualDate: completeDate,
+                actualDate1: completeDate1,
             })
         }
+        console.log(orderSchedule)
         return orderSchedule
     }
 }

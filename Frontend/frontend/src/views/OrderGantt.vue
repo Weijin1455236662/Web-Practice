@@ -80,6 +80,7 @@
                     delivery_date: item.delivery_date.split("T")[0]
                 })
             })
+            console.log(orderList)
             let orderSchedule = getOrderSchedule(orderList, this.today)
             if (orderSchedule === '') {
                 let timer = setInterval(function () {
@@ -120,22 +121,49 @@
     // 绘图
     render: function (orderList) {
       let that = this
+      let punctualSum0 = 0
       let punctualSum = 0
+      let punctualSum1 = 0
       let category = []
-      let dataset = [{
+      let dataset = [
+        {
+          seriesName: "打弹片率",
+          fontSize: 16,
+          color: "#cdac00",
+          data: []
+        },
+        {
         seriesName: "装配率",
         fontSize: 16,
-        data: []
-      }]
+        data: [],
+          color: "#51b6ff"
+        },
+        {
+          seriesName: "测试率",
+          fontSize: 16,
+          data: [],
+          color: "#785fff"
+        },
+      ]
       let data = []
+      let data1 = []
+      let data2 = []
       orderList.forEach(function(item){
         category.push({
           label: item.id + "",
-          toolText: "$label<br>预计完成：" + item.planDate + "<br>实际完成：" + item.actualDate
+          toolText: "$label<br>预计完成：" + item.planDate + "<br>装配实际完成：" + item.actualDate +"<br>打弹片实际完成：" + item.actualDate0 + "<br>测试实际完成：" + item.actualDate1
         })
         data.push({
           value: item.value,
-          color: that.calculateColor(item.value)
+          color: "#51b6ff"
+        })
+        data1.push({
+          value: item.value0,
+          color: "#f5cb84"
+        })
+        data2.push({
+          value: item.value1,
+          color: "#785fff"
         })
       })
       for (let i = 0; i < data.length; i++) {
@@ -143,7 +171,17 @@
           punctualSum += 1
         }
       }
-      this.punctuality = punctualSum / data.length * 100
+      for (let i = 0; i < data1.length; i++) {
+        if (data1[i].value == "100%") {
+          punctualSum0 += 1
+        }
+      }
+      for (let i = 0; i < data2.length; i++) {
+        if (data2[i].value == "100%") {
+          punctualSum1 += 1
+        }
+      }
+      this.punctuality = (punctualSum / data.length * 100 + punctualSum0 / data1.length * 100 + punctualSum1 / data2.length * 100) / 3
       console.log(this.punctuality)
       let categories = [
         {
@@ -151,7 +189,9 @@
           category: category
         }
       ]
-      dataset[0].data = data
+      dataset[1].data = data
+      dataset[0].data = data1
+      dataset[2].data = data2
       console.log(categories)
       console.log(dataset)
       this.chart1.dataSource = {
