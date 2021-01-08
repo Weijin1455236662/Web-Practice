@@ -9,7 +9,7 @@
       <div class="table">
         <div class="row">
           <div class="column index0">订单号码</div>
-          <div class="column index1">子订单号</div>
+          <div class="column index1">生产单号</div>
         </div>
         <div class="row" v-for="(order, index) in allOrder" :key="index">
           <div class="column index0">
@@ -211,6 +211,7 @@ export default {
     }
   }
   .mobile{
+    width: 100vw;
     .head{
       margin: 12px 5% 0;
       text-align: left;

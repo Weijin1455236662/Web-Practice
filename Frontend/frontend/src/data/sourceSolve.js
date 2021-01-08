@@ -49,6 +49,11 @@ export const reduceSource = (date)=>{
                 3: '#a74bf6',
             }
         }
+        let typeDic = {
+            0: '打弹片',
+            1: '装配',
+            2: '测试'
+        }
         subOrders.forEach(function (subOrder) {
             if(subOrder.timeslot!==null){
                 if((subOrder.timeslot.date===date&&subOrder.timeslot.time>=7)||(subOrder.timeslot.date===tomorrow&&subOrder.timeslot.time<7)){
@@ -59,7 +64,7 @@ export const reduceSource = (date)=>{
                             // end: (subOrder.timeslot.time + 1) + ':00:00',
                             start: getTime(subOrder.timeslot.time),
                             end: subOrder.timeslot.time,
-                            label: subOrder.id + '<br/>订单：' + subOrder.parent_id + '<br/>物料：' + subOrder.material_code,
+                            label: subOrder.id + '<br/>订单：' + subOrder.parent_id + '<br/>物料：' + subOrder.material_code + '<br/>环节：' + typeDic[subOrder.type],
                             color: colorDic[parseInt(subOrder.type)][parseInt(subOrder.parent_id)%4]
                         });
                         process.push({
@@ -75,7 +80,7 @@ export const reduceSource = (date)=>{
                         // end: (subOrder.timeslot.time>=7?subOrder.timeslot.time>=16?(subOrder.timeslot.time-6):('0' + subOrder.timeslot.time-6):(subOrder.timeslot.time+18)) + ':00:00',
                         start: getTime(subOrder.timeslot.time),
                         end: subOrder.timeslot.time+1,
-                        label: subOrder.id + '<br/>订单：' + subOrder.parent_id + '<br/>物料：' + subOrder.material_code,
+                        label: subOrder.id + '<br/>订单：' + subOrder.parent_id + '<br/>物料：' + subOrder.material_code + '<br/>环节：' + typeDic[subOrder.type],
                         color: colorDic[parseInt(subOrder.type)][parseInt(subOrder.parent_id)%4]
                     });
                     process.push({

@@ -26,6 +26,11 @@ let colorDic = {
         3: '#a74bf6',
     }
 }
+let typeDic = {
+    0: '打弹片',
+    1: '装配',
+    2: '测试'
+}
 
 export const getScheduleInfo = (startDate, endDate) => {
     return  axios.get('/arrangement/' + startDate + '/' + endDate).then(res => res.data)
@@ -58,7 +63,8 @@ export const getOrderWorkSchedule = (id, type) => {
                                     end: orderlist[i].timeslot.time,
                                     material: orderlist[i].material_code,
                                     color: colorDic[parseInt(orderlist[i].type)][parseInt(orderlist[i].parent_id)%4],
-                                    parent: orderlist[i].parent_id
+                                    parent: orderlist[i].parent_id,
+                                    type: typeDic[orderlist[i].type]
                                 })
                             }
                         }
@@ -75,7 +81,8 @@ export const getOrderWorkSchedule = (id, type) => {
                             end: orderlist[i].timeslot.time,
                             material: orderlist[i].material_code,
                             color: colorDic[parseInt(orderlist[i].type)][parseInt(orderlist[i].parent_id)%4],
-                            parent: orderlist[i].parent_id
+                            parent: orderlist[i].parent_id,
+                            type: typeDic[orderlist[i].type]
                         })
                     }
                 }
@@ -269,7 +276,8 @@ export const getOrderPlan = function (id) {
                     end: orderList[i].timeslot.time,
                     id: orderList[i].id,
                     material: orderList[i].material_code,
-                    color: colorDic[parseInt(orderList[i].type)][parseInt(orderList[i].parent_id)%4]
+                    color: colorDic[parseInt(orderList[i].type)][parseInt(orderList[i].parent_id)%4],
+                    type: typeDic[orderList[i].type]
                 })
             }
         }

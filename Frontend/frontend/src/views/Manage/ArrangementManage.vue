@@ -123,7 +123,13 @@
                 },1000);
                 // getScheduleInfo(this.beginDate, this.endDate).then(res=>{
                 //     if(res.flag){
-                //         let list = res.data.subOrderList;
+                //         let list = [];
+                //         res.data.forEach(function (datas) {
+                //             datas.forEach(function (d) {
+                //                 console.log(d);
+                //                 list.push(d);
+                //             })
+                //         })
                 //         sessionStorage.setItem('subOrders', JSON.stringify(list));
                 //         this.hasSubOrders = true;
                 //         this.arranging = false;
@@ -315,6 +321,7 @@
     }
   }
   .mobile{
+    width: 100vw;
     .head{
       margin: 12px 5% 0;
       text-align: left;

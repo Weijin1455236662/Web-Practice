@@ -173,7 +173,7 @@ export default {
             end: getTime(item.end+3),
             // start: parseInt(item.start.slice(0,2))>=7?(parseInt(item.start.slice(0,2))-7)+item.start.slice(2):(parseInt(item.start.slice(0,2))+17)+item.start.slice(2),
             // end: parseInt(item.end.slice(0,2))>=7?(parseInt(item.end.slice(0,2))-7)+item.end.slice(2):(parseInt(item.end.slice(0,2))+17)+item.end.slice(2),
-            label: "物料" + item.material + '<br/>订单: ' + item.parent + "<br/>时间: " + item.start + "-" + getTime(item.end+1),
+            label: "物料" + item.material + '<br/>订单: ' + item.parent + '<br/>环节: ' + item.type + "<br/>时间: " + item.start + "-" + getTime(item.end+1),
             color: item.color
           })
           process.push({
@@ -456,6 +456,7 @@ export default {
   }
 }
 .mobile{
+  width: 100vw;
   .head{
     margin: 12px 5% 0;
     text-align: left;

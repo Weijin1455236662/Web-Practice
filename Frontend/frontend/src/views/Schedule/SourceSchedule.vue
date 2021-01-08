@@ -298,8 +298,9 @@ export default {
   }
 }
 .mobile{
+  width: 100vw;
   .head{
-    margin: 30px 4% 0;
+    margin: 12px 5% 0;
     text-align: left;
     .text{
       font-size: 16px;

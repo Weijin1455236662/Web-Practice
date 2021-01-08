@@ -284,6 +284,7 @@
   }
 }
 .mobile{
+  width: 100vw;
   .head{
     margin: 12px 5% 0;
     text-align: left;

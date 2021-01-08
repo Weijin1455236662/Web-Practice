@@ -279,6 +279,7 @@ export default {
 }
 .mobile{
   margin-bottom: 100px;
+  width: 100vw;
   .head{
     margin: 12px 5% 0;
     text-align: left;

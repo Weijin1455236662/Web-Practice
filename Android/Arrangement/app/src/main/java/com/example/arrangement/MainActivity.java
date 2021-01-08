@@ -13,6 +13,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         WebView mWebView = (WebView)findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("http://172.17.145.227:12345/");
+        mWebView.loadUrl("http://172.17.145.227:12345/");   //见前端vue项目运行或部署地址
     }
 }
